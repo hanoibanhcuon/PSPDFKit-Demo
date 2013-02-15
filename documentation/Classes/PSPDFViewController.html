@@ -198,6 +198,8 @@
 	
 	<option value="//api/name/textSelectionEnabled">&nbsp;&nbsp;&nbsp;&nbsp;textSelectionEnabled</option>
 	
+	<option value="//api/name/thumbnailMargin">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailMargin</option>
+	
 	<option value="//api/name/thumbnailSize">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailSize</option>
 	
 	<option value="//api/name/tintColor">&nbsp;&nbsp;&nbsp;&nbsp;tintColor</option>
@@ -339,11 +341,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Helpers">Helpers</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_PSPDFDeprecated Methods">PSPDFDeprecated Methods</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_PSPDFDeprecated Methods">PSPDFDeprecated Methods</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
 	
 </ul></li>
 
@@ -510,6 +512,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/statusBarStyleSetting">statusBarStyleSetting</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/textSelectionEnabled">textSelectionEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailMargin">thumbnailMargin</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailSize">thumbnailSize</a></span></li>
 	
@@ -1005,7 +1009,7 @@ NO will perform a generic zoom into the tap area. Defaults to YES.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/scrollingEnabled">&nbsp;&nbsp;scrollingEnabled</a></code>
-		<span class="tooltip"><p>Enable/disable scrolling. Can be used in special cases where scrolling is turned of (temporarily). Defaults to YES.</p></span>
+		<span class="tooltip"><p>Enable/disable scrolling. Can be used in special cases where scrolling is turned off (temporarily). Defaults to YES.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1510,6 +1514,14 @@ If you want to customize this, override <a href="#//api/name/reloadData">reloadD
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/thumbnailMargin">&nbsp;&nbsp;thumbnailMargin</a></code>
+		<span class="tooltip"><p>Set <a href="#//api/name/margin">margin</a> for thumbnail view mode. Defaults to UIEdgeInsetsMake(15, 15, 15, 15).
+Margin is extra space around the grid of thumbnails.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/iPhoneThumbnailSizeReductionFactor">&nbsp;&nbsp;iPhoneThumbnailSizeReductionFactor</a></code>
 		<span class="tooltip"><p>Thumbnails on iPhone are smaller &ndash; you may change the reduction factor. Defaults to 0.5.</p></span>
 	</span>
@@ -1598,30 +1610,14 @@ Use sender (UIBarButtonitem or UIView) OR rect in options (both only needed for 
 						</ul>
 						
 						
-						<a title="Internal Methods" name="task_Internal Methods"></a>
-						<h3 class="subsubtitle task-title">Internal Methods</h3>
+						<a title="PSPDFDeprecated Methods" name="task_PSPDFDeprecated Methods"></a>
+						<h3 class="subsubtitle task-title">PSPDFDeprecated Methods</h3>
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
-		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
-Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
-		<span class="tooltip"><p>To handle external URLS.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
-		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
-Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
+		<code><a href="#//api/name/realPage">&nbsp;&nbsp;realPage</a></code>
+		<span class="tooltip"><p>As of PSPDFKit 2.4, <a href="#//api/name/page">page</a> now returns the actual <a href="#//api/name/page">page</a> value, and the old &ldquo;page&rdquo; has been replaced with <a href="#//api/name/screenPage">screenPage</a>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1726,14 +1722,30 @@ Only tries to saves <a href="#//api/name/document">document</a> if view is visib
 						</ul>
 						
 						
-						<a title="PSPDFDeprecated Methods" name="task_PSPDFDeprecated Methods"></a>
-						<h3 class="subsubtitle task-title">PSPDFDeprecated Methods</h3>
+						<a title="Internal Methods" name="task_Internal Methods"></a>
+						<h3 class="subsubtitle task-title">Internal Methods</h3>
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/realPage">&nbsp;&nbsp;realPage</a></code>
-		<span class="tooltip"><p>As of PSPDFKit 2.4, <a href="#//api/name/page">page</a> now returns the actual <a href="#//api/name/page">page</a> value, and the old &ldquo;page&rdquo; has been replaced with <a href="#//api/name/screenPage">screenPage</a>.</p></span>
+		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
+		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
+Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
+		<span class="tooltip"><p>To handle external URLS.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
+		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
+Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -4174,7 +4186,7 @@ Deprecation Note: Previously to PSPDFKit 2.4, this was named &ldquo;pageScrollin
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Enable/disable scrolling. Can be used in special cases where scrolling is turned of (temporarily). Defaults to YES.</p>
+		<p>Enable/disable scrolling. Can be used in special cases where scrolling is turned off (temporarily). Defaults to YES.</p>
 	</div>		
 	
 	
@@ -4465,6 +4477,11 @@ NO will perform a generic zoom into the tap area. Defaults to YES.</p>
 	
 	
 	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> Remember that UIStatusBarStyleBlackTranslucent is not available on iPad.</p></div>
+	</div>
+	
 	
 	
 	
@@ -4538,6 +4555,41 @@ Setting this will update <a href="#//api/name/statusBarStyle">statusBarStyle</a>
 		<h4 class="method-subtitle">Discussion</h4>
 		<div class="warning"><p><strong>Warning:</strong> This implies that the PDF file actually contains text glyphs. Sometimes text is represented via embedded images or vectors, in that case PSPDFKit can&rsquo;t select it.</p></div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/thumbnailMargin" title="thumbnailMargin"></a>
+	<h3 class="subsubtitle method-title">thumbnailMargin</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set <a href="#//api/name/margin">margin</a> for thumbnail view mode. Defaults to UIEdgeInsetsMake(15, 15, 15, 15).
+Margin is extra space around the grid of thumbnails.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) UIEdgeInsets thumbnailMargin</code></div>
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -4679,6 +4731,11 @@ Setting this will update <a href="#//api/name/statusBarStyle">statusBarStyle</a>
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> If this is set to NO, <a href="#//api/name/shouldHideNavigationBarWithHUD">shouldHideNavigationBarWithHUD</a> and <a href="#//api/name/shouldHideStatusBarWithHUD">shouldHideStatusBarWithHUD</a> won&rsquo;t work as expected.</p></div>
+	</div>
 	
 	
 	
@@ -6284,7 +6341,7 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-02-10)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-02-15)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

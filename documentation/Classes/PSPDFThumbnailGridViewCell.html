@@ -48,11 +48,11 @@
 	
 	<option value="//api/name/page">&nbsp;&nbsp;&nbsp;&nbsp;page</option>
 	
+	<option value="//api/name/pageLabel">&nbsp;&nbsp;&nbsp;&nbsp;pageLabel</option>
+	
 	<option value="//api/name/shadowEnabled">&nbsp;&nbsp;&nbsp;&nbsp;shadowEnabled</option>
 	
 	<option value="//api/name/showingSiteLabel">&nbsp;&nbsp;&nbsp;&nbsp;showingSiteLabel</option>
-	
-	<option value="//api/name/siteLabel">&nbsp;&nbsp;&nbsp;&nbsp;siteLabel</option>
 	
 	
 	
@@ -74,7 +74,7 @@
 	
 	<option value="//api/name/updateCell">&nbsp;&nbsp;&nbsp;&nbsp;- updateCell</option>
 	
-	<option value="//api/name/updateSiteLabel">&nbsp;&nbsp;&nbsp;&nbsp;- updateSiteLabel</option>
+	<option value="//api/name/updatePageLabel">&nbsp;&nbsp;&nbsp;&nbsp;- updatePageLabel</option>
 	
 	
 	
@@ -110,11 +110,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/page">page</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pageLabel">pageLabel</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shadowEnabled">shadowEnabled</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showingSiteLabel">showingSiteLabel</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/siteLabel">siteLabel</a></span></li>
 	
 </ul></li>
 
@@ -138,7 +138,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateCell">updateCell</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateSiteLabel">updateSiteLabel</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updatePageLabel">updatePageLabel</a></span></li>
 	
 </ul></li>
 
@@ -255,8 +255,8 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/siteLabel">&nbsp;&nbsp;siteLabel</a></code>
-		<span class="tooltip"><p>Site label.</p></span>
+		<code><a href="#//api/name/pageLabel">&nbsp;&nbsp;pageLabel</a></code>
+		<span class="tooltip"><p>Page label. (By default a <a href="../Classes/PSPDFRoundedLabel.html">PSPDFRoundedLabel</a>, but can be set to any UILabel subclass, simply do a cast)</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -290,7 +290,7 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/updateSiteLabel">&ndash;&nbsp;updateSiteLabel</a></code>
+		<code><a href="#//api/name/updatePageLabel">&ndash;&nbsp;updatePageLabel</a></code>
 		<span class="tooltip"><p>Updates the <a href="#//api/name/page">page</a> label.</p></span>
 	</span>
 	
@@ -445,6 +445,40 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/pageLabel" title="pageLabel"></a>
+	<h3 class="subsubtitle method-title">pageLabel</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Page label. (By default a <a href="../Classes/PSPDFRoundedLabel.html">PSPDFRoundedLabel</a>, but can be set to any UILabel subclass, simply do a cast)</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) PSPDFRoundedLabel *pageLabel</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFThumbnailGridViewCell.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/shadowEnabled" title="shadowEnabled"></a>
 	<h3 class="subsubtitle method-title">shadowEnabled</h3>
 	
@@ -490,40 +524,6 @@
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, getter=isShowingSiteLabel) BOOL showingSiteLabel</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFThumbnailGridViewCell.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/siteLabel" title="siteLabel"></a>
-	<h3 class="subsubtitle method-title">siteLabel</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Site label.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UILabel *siteLabel</code></div>
 	
 	
 	
@@ -733,8 +733,8 @@
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/updateSiteLabel" title="updateSiteLabel"></a>
-	<h3 class="subsubtitle method-title">updateSiteLabel</h3>
+	<a name="//api/name/updatePageLabel" title="updatePageLabel"></a>
+	<h3 class="subsubtitle method-title">updatePageLabel</h3>
 	
 	
 	
@@ -743,7 +743,7 @@
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)updateSiteLabel</code></div>
+	<div class="method-subsection method-declaration"><code>- (void)updatePageLabel</code></div>
 	
 	
 	
@@ -779,7 +779,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-02-10)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-02-15)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
