@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>PSPDFDocumentParser Class Reference</title>
+		<title>PSPDFMultiDocumentViewControllerDelegate Protocol Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">PSPDFDocumentParser Class Reference</h1>
+				<h1 class="hideInXcode">PSPDFMultiDocumentViewControllerDelegate Protocol Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -38,24 +38,19 @@
 	
 	
 	
-	<option value="properties">Properties</option>
-	
-	<option value="//api/name/documentProvider">&nbsp;&nbsp;&nbsp;&nbsp;documentProvider</option>
-	
-	<option value="//api/name/encryptionFilter">&nbsp;&nbsp;&nbsp;&nbsp;encryptionFilter</option>
-	
-	<option value="//api/name/pageObjectNumbers">&nbsp;&nbsp;&nbsp;&nbsp;pageObjectNumbers</option>
-	
-	
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/parseDocumentWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- parseDocumentWithError:</option>
+	<option value="//api/name/multiPDFController:didChangeDocuments:">&nbsp;&nbsp;&nbsp;&nbsp;- multiPDFController:didChangeDocuments:</option>
 	
-	<option value="//api/name/saveAnnotations:withError:">&nbsp;&nbsp;&nbsp;&nbsp;- saveAnnotations:withError:</option>
+	<option value="//api/name/multiPDFController:didChangeVisibleDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- multiPDFController:didChangeVisibleDocument:</option>
+	
+	<option value="//api/name/multiPDFController:shouldChangeDocuments:">&nbsp;&nbsp;&nbsp;&nbsp;- multiPDFController:shouldChangeDocuments:</option>
+	
+	<option value="//api/name/multiPDFController:shouldChangeVisibleDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- multiPDFController:shouldChangeVisibleDocument:</option>
 	
 	
 	
@@ -79,25 +74,19 @@
 
 
 
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentProvider">documentProvider</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/encryptionFilter">encryptionFilter</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pageObjectNumbers">pageObjectNumbers</a></span></li>
-	
-</ul></li>
-
 
 
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/parseDocumentWithError:">parseDocumentWithError:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/multiPDFController:didChangeDocuments:">multiPDFController:didChangeDocuments:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/saveAnnotations:withError:">saveAnnotations:withError:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/multiPDFController:didChangeVisibleDocument:">multiPDFController:didChangeVisibleDocument:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/multiPDFController:shouldChangeDocuments:">multiPDFController:shouldChangeDocuments:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/multiPDFController:shouldChangeVisibleDocument:">multiPDFController:shouldChangeVisibleDocument:</a></span></li>
 	
 </ul></li>
 
@@ -106,7 +95,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="PSPDFDocumentParser Class Reference" name="top"></a>
+				<a title="PSPDFMultiDocumentViewControllerDelegate Protocol Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -115,18 +104,18 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">PSPDFDocumentParser Class Reference</h1>
+						<h1 class="title title-header">PSPDFMultiDocumentViewControllerDelegate Protocol Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Inherits from</td>
+	<td class="specification-title">Conforms to</td>
 	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">PSPDFDocumentParser.h</td>
+	<td class="specification-value">PSPDFMultiDocumentViewController.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -136,7 +125,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Parses the PDF structure and supports writing annotations.</p>
+						<p>Delegate for the <a href="../Classes/PSPDFMultiDocumentViewController.html">PSPDFMultiDocumentViewController</a>.</p>
 					</div>
 					
 					
@@ -154,38 +143,31 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/parseDocumentWithError:">&ndash;&nbsp;parseDocumentWithError:</a></code>
-		<span class="tooltip"><p>Parses the PDF XRef table.</p></span>
+		<code><a href="#//api/name/multiPDFController:shouldChangeDocuments:">&ndash;&nbsp;multiPDFController:shouldChangeDocuments:</a></code>
+		<span class="tooltip"><p>Will be called when the documents array changes.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/saveAnnotations:withError:">&ndash;&nbsp;saveAnnotations:withError:</a></code>
-		<span class="tooltip"><p>Saves annotations, returns error if there was a problem.</p></span>
+		<code><a href="#//api/name/multiPDFController:didChangeDocuments:">&ndash;&nbsp;multiPDFController:didChangeDocuments:</a></code>
+		<span class="tooltip"><p>Will be called after the documents array changed.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/documentProvider">&nbsp;&nbsp;documentProvider</a></code>
-		<span class="tooltip"><p>Attached document provider.</p></span>
+		<code><a href="#//api/name/multiPDFController:shouldChangeVisibleDocument:">&ndash;&nbsp;multiPDFController:shouldChangeVisibleDocument:</a></code>
+		<span class="tooltip"><p>Will be called when the visibleDocument changes.</p></span>
 	</span>
-	<span class="task-item-suffix">property</span>
+	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/encryptionFilter">&nbsp;&nbsp;encryptionFilter</a></code>
-		<span class="tooltip"><p>Encryption Filter if one is found in the document.</p></span>
+		<code><a href="#//api/name/multiPDFController:didChangeVisibleDocument:">&ndash;&nbsp;multiPDFController:didChangeVisibleDocument:</a></code>
+		<span class="tooltip"><p>Will be called after the visibleDocument changed.</p></span>
 	</span>
-	<span class="task-item-suffix">property</span>
 	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/pageObjectNumbers">&nbsp;&nbsp;pageObjectNumbers</a></code>
-		<span class="tooltip"><p>Exposed XRef objects.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
 	
 </li>
 						</ul>
@@ -196,114 +178,6 @@
 					
 					
 					
-					<div class="section section-methods">
-						<a title="Properties" name="properties"></a>
-						<h2 class="subtitle subtitle-methods">Properties</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/documentProvider" title="documentProvider"></a>
-	<h3 class="subsubtitle method-title">documentProvider</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Attached document provider.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, weak, readonly) PSPDFDocumentProvider *documentProvider</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFDocumentParser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/encryptionFilter" title="encryptionFilter"></a>
-	<h3 class="subsubtitle method-title">encryptionFilter</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Encryption Filter if one is found in the document.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NSString *encryptionFilter</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFDocumentParser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/pageObjectNumbers" title="pageObjectNumbers"></a>
-	<h3 class="subsubtitle method-title">pageObjectNumbers</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Exposed XRef objects.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NSArray *pageObjectNumbers</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFDocumentParser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
-					
 					
 					
 					
@@ -313,17 +187,17 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/parseDocumentWithError:" title="parseDocumentWithError:"></a>
-	<h3 class="subsubtitle method-title">parseDocumentWithError:</h3>
+	<a name="//api/name/multiPDFController:didChangeDocuments:" title="multiPDFController:didChangeDocuments:"></a>
+	<h3 class="subsubtitle method-title">multiPDFController:didChangeDocuments:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Parses the PDF XRef table.</p>
+		<p>Will be called after the documents array changed.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (BOOL)parseDocumentWithError:(NSError **)<em>error</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)multiPDFController:(PSPDFMultiDocumentViewController *)<em>multiPDFController</em> didChangeDocuments:(NSArray *)<em>oldDocuments</em></code></div>
 	
 	
 	
@@ -340,24 +214,24 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFDocumentParser.h</code><br />
+		<code class="declared-in-ref">PSPDFMultiDocumentViewController.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/saveAnnotations:withError:" title="saveAnnotations:withError:"></a>
-	<h3 class="subsubtitle method-title">saveAnnotations:withError:</h3>
+	<a name="//api/name/multiPDFController:didChangeVisibleDocument:" title="multiPDFController:didChangeVisibleDocument:"></a>
+	<h3 class="subsubtitle method-title">multiPDFController:didChangeVisibleDocument:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Saves annotations, returns error if there was a problem.</p>
+		<p>Will be called after the visibleDocument changed.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (BOOL)saveAnnotations:(NSDictionary *)<em>annotations</em> withError:(NSError **)<em>error</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)multiPDFController:(PSPDFMultiDocumentViewController *)<em>multiPDFController</em> didChangeVisibleDocument:(PSPDFDocument *)<em>oldDocument</em></code></div>
 	
 	
 	
@@ -374,7 +248,75 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFDocumentParser.h</code><br />
+		<code class="declared-in-ref">PSPDFMultiDocumentViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/multiPDFController:shouldChangeDocuments:" title="multiPDFController:shouldChangeDocuments:"></a>
+	<h3 class="subsubtitle method-title">multiPDFController:shouldChangeDocuments:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Will be called when the documents array changes.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (BOOL)multiPDFController:(PSPDFMultiDocumentViewController *)<em>multiPDFController</em> shouldChangeDocuments:(NSArray *)<em>newDocuments</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFMultiDocumentViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/multiPDFController:shouldChangeVisibleDocument:" title="multiPDFController:shouldChangeVisibleDocument:"></a>
+	<h3 class="subsubtitle method-title">multiPDFController:shouldChangeVisibleDocument:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Will be called when the visibleDocument changes.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (BOOL)multiPDFController:(PSPDFMultiDocumentViewController *)<em>multiPDFController</em> shouldChangeVisibleDocument:(PSPDFDocument *)<em>newDocument</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFMultiDocumentViewController.h</code><br />
 	</div>				
 	
 	

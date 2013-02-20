@@ -279,6 +279,8 @@
 	
 	<option value="//api/name/setPage:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setPage:animated:</option>
 	
+	<option value="//api/name/setScrobbleBarEnabled:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setScrobbleBarEnabled:animated:</option>
+	
 	<option value="//api/name/setUpdateSettingsForRotationBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- setUpdateSettingsForRotationBlock:</option>
 	
 	<option value="//api/name/setViewMode:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setViewMode:animated:</option>
@@ -341,9 +343,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Helpers">Helpers</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_PSPDFDeprecated Methods">PSPDFDeprecated Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
 	
@@ -594,6 +596,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setHUDVisible:animated:">setHUDVisible:animated:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setPage:animated:">setPage:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setScrobbleBarEnabled:animated:">setScrobbleBarEnabled:animated:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setUpdateSettingsForRotationBlock:">setUpdateSettingsForRotationBlock:</a></span></li>
 	
@@ -912,10 +916,16 @@ Defaults to NO on iPhone (no space) and YES on iPad.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/scrobbleBarEnabled">&nbsp;&nbsp;scrobbleBarEnabled</a></code>
-		<span class="tooltip"><p>Enables bottom scrobble bar [if HUD is displayed]. will be hidden automatically when in thumbnail mode. Defaults to YES. Animatable.
-There&rsquo;s some more logic involved, e.g. is the default white statusbar not hidden on a HUD change.</p></span>
+		<span class="tooltip"><p>Enables bottom scrobble bar [if HUD is displayed]. will be hidden automatically when in thumbnail mode. Defaults to YES.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setScrobbleBarEnabled:animated:">&ndash;&nbsp;setScrobbleBarEnabled:animated:</a></code>
+		<span class="tooltip"><p>Shows/Hides the scrobble bar if appropriate. Animatable.</p></span>
+	</span>
+	
 	
 </li><li>
 	<span class="tooltip">
@@ -1016,7 +1026,7 @@ NO will perform a generic zoom into the tap area. Defaults to YES.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/viewLockEnabled">&nbsp;&nbsp;viewLockEnabled</a></code>
-		<span class="tooltip"><p>Locks the view and the HUD. Disables scrolling, zooming and gestures that would invoke scrolling/zooming.
+		<span class="tooltip"><p>Locks the view. Disables scrolling, zooming and gestures that would invoke scrolling/zooming.
 This is useful if you want to invoke a &ldquo;drawing mode&rdquo;. (e.g. Ink Annotation drawing)
 This also blocks programmatically calls to scrollToPage.</p></span>
 	</span>
@@ -1610,6 +1620,21 @@ Use sender (UIBarButtonitem or UIView) OR rect in options (both only needed for 
 						</ul>
 						
 						
+						<a title="PSPDFDeprecated Methods" name="task_PSPDFDeprecated Methods"></a>
+						<h3 class="subsubtitle task-title">PSPDFDeprecated Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/realPage">&nbsp;&nbsp;realPage</a></code>
+		<span class="tooltip"><p>As of PSPDFKit 2.4, <a href="#//api/name/page">page</a> now returns the actual <a href="#//api/name/page">page</a> value, and the old &ldquo;page&rdquo; has been replaced with <a href="#//api/name/screenPage">screenPage</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
 						<a title="Internal Methods" name="task_Internal Methods"></a>
 						<h3 class="subsubtitle task-title">Internal Methods</h3>
 
@@ -1634,21 +1659,6 @@ Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</
 		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
 		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
 Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-						
-						<a title="PSPDFDeprecated Methods" name="task_PSPDFDeprecated Methods"></a>
-						<h3 class="subsubtitle task-title">PSPDFDeprecated Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/realPage">&nbsp;&nbsp;realPage</a></code>
-		<span class="tooltip"><p>As of PSPDFKit 2.4, <a href="#//api/name/page">page</a> now returns the actual <a href="#//api/name/page">page</a> value, and the old &ldquo;page&rdquo; has been replaced with <a href="#//api/name/screenPage">screenPage</a>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -4047,8 +4057,7 @@ e.g. if you have 50 pages, you get 25/26 &ldquo;double pages&rdquo; when in doub
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Enables bottom scrobble bar [if HUD is displayed]. will be hidden automatically when in thumbnail mode. Defaults to YES. Animatable.
-There&rsquo;s some more logic involved, e.g. is the default white statusbar not hidden on a HUD change.</p>
+		<p>Enables bottom scrobble bar [if HUD is displayed]. will be hidden automatically when in thumbnail mode. Defaults to YES.</p>
 	</div>		
 	
 	
@@ -4867,7 +4876,7 @@ Has no effect if <a href="#//api/name/toolbarEnabled">toolbarEnabled</a> is fals
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Locks the view and the HUD. Disables scrolling, zooming and gestures that would invoke scrolling/zooming.
+		<p>Locks the view. Disables scrolling, zooming and gestures that would invoke scrolling/zooming.
 This is useful if you want to invoke a &ldquo;drawing mode&rdquo;. (e.g. Ink Annotation drawing)
 This also blocks programmatically calls to scrollToPage.</p>
 	</div>		
@@ -5880,6 +5889,40 @@ PSPDFConvertPDFRectToViewRect() or -convertPDFPointToViewPoint of <a href="../Cl
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/setScrobbleBarEnabled:animated:" title="setScrobbleBarEnabled:animated:"></a>
+	<h3 class="subsubtitle method-title">setScrobbleBarEnabled:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Shows/Hides the scrobble bar if appropriate. Animatable.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)setScrobbleBarEnabled:(BOOL)<em>scrobbleBarEnabled</em> animated:(BOOL)<em>animated</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/setUpdateSettingsForRotationBlock:" title="setUpdateSettingsForRotationBlock:"></a>
 	<h3 class="subsubtitle method-title">setUpdateSettingsForRotationBlock:</h3>
 	
@@ -6341,7 +6384,7 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-02-16)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-02-20)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
