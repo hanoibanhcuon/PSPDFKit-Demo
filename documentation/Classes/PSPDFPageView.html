@@ -115,13 +115,15 @@
 	
 	<option value="//api/name/displayDocument:page:pageRect:scale:delayPageAnnotations:pdfController:">&nbsp;&nbsp;&nbsp;&nbsp;- displayDocument:page:pageRect:scale:delayPageAnnotations:pdfController:</option>
 	
-	<option value="//api/name/initWithFrame:pdfController:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithFrame:pdfController:</option>
+	<option value="//api/name/initWithFrame:overrideClassNames:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithFrame:overrideClassNames:</option>
 	
 	<option value="//api/name/loadPageAnnotationsAnimated:blockWhileParsing:">&nbsp;&nbsp;&nbsp;&nbsp;- loadPageAnnotationsAnimated:blockWhileParsing:</option>
 	
 	<option value="//api/name/longPress:">&nbsp;&nbsp;&nbsp;&nbsp;- longPress:</option>
 	
 	<option value="//api/name/menuItemsForAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- menuItemsForAnnotation:</option>
+	
+	<option value="//api/name/menuItemsForNewAnnotationAtPoint:">&nbsp;&nbsp;&nbsp;&nbsp;- menuItemsForNewAnnotationAtPoint:</option>
 	
 	<option value="//api/name/objectsAtPoint:options:">&nbsp;&nbsp;&nbsp;&nbsp;- objectsAtPoint:options:</option>
 	
@@ -130,6 +132,8 @@
 	<option value="//api/name/opacityMenuItemForAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- opacityMenuItemForAnnotation:</option>
 	
 	<option value="//api/name/passthroughViewsForPopoverController">&nbsp;&nbsp;&nbsp;&nbsp;- passthroughViewsForPopoverController</option>
+	
+	<option value="//api/name/preloadTextParser">&nbsp;&nbsp;&nbsp;&nbsp;- preloadTextParser</option>
 	
 	<option value="//api/name/prepareForReuse">&nbsp;&nbsp;&nbsp;&nbsp;- prepareForReuse</option>
 	
@@ -140,6 +144,10 @@
 	<option value="//api/name/renderOptionsDictWithZoomScale:">&nbsp;&nbsp;&nbsp;&nbsp;- renderOptionsDictWithZoomScale:</option>
 	
 	<option value="//api/name/scrollView">&nbsp;&nbsp;&nbsp;&nbsp;- scrollView</option>
+	
+	<option value="//api/name/showColorPickerForAnnotation:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- showColorPickerForAnnotation:animated:</option>
+	
+	<option value="//api/name/showFontPickerForAnnotation:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- showFontPickerForAnnotation:animated:</option>
 	
 	<option value="//api/name/showLinkPreviewActionSheetForAnnotation:fromRect:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- showLinkPreviewActionSheetForAnnotation:fromRect:animated:</option>
 	
@@ -195,7 +203,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_PSPDFAnnotationMenu Methods">PSPDFAnnotationMenu Methods</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_AnnotationMenu Methods">AnnotationMenu Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_AnnotationViews Methods">AnnotationViews Methods</a></span></li>
 	
 </ul></li>
 
@@ -281,13 +291,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayDocument:page:pageRect:scale:delayPageAnnotations:pdfController:">displayDocument:page:pageRect:scale:delayPageAnnotations:pdfController:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithFrame:pdfController:">initWithFrame:pdfController:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithFrame:overrideClassNames:">initWithFrame:overrideClassNames:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loadPageAnnotationsAnimated:blockWhileParsing:">loadPageAnnotationsAnimated:blockWhileParsing:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/longPress:">longPress:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/menuItemsForAnnotation:">menuItemsForAnnotation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/menuItemsForNewAnnotationAtPoint:">menuItemsForNewAnnotationAtPoint:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/objectsAtPoint:options:">objectsAtPoint:options:</a></span></li>
 	
@@ -296,6 +308,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/opacityMenuItemForAnnotation:">opacityMenuItemForAnnotation:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/passthroughViewsForPopoverController">passthroughViewsForPopoverController</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/preloadTextParser">preloadTextParser</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareForReuse">prepareForReuse</a></span></li>
 	
@@ -306,6 +320,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderOptionsDictWithZoomScale:">renderOptionsDictWithZoomScale:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scrollView">scrollView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showColorPickerForAnnotation:animated:">showColorPickerForAnnotation:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showFontPickerForAnnotation:animated:">showFontPickerForAnnotation:animated:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showLinkPreviewActionSheetForAnnotation:fromRect:animated:">showLinkPreviewActionSheetForAnnotation:fromRect:animated:</a></span></li>
 	
@@ -360,7 +378,7 @@
 	<td class="specification-value">UIView</td>
 </tr><tr>
 	<td class="specification-title">Conforms to</td>
-	<td class="specification-value"><a href="../Protocols/PSPDFLongPressGestureRecognizerDelegate.html">PSPDFLongPressGestureRecognizerDelegate</a><br /><a href="../Protocols/PSPDFRenderDelegate.html">PSPDFRenderDelegate</a><br /><a href="../Protocols/PSPDFResizableViewDelegate.html">PSPDFResizableViewDelegate</a><br /><a href="../Protocols/PSPDFSignatureSelectorViewControllerDelegate.html">PSPDFSignatureSelectorViewControllerDelegate</a><br /><a href="../Protocols/PSPDFSignatureViewControllerDelegate.html">PSPDFSignatureViewControllerDelegate</a><br /><a href="../Protocols/PSPDFStampViewControllerDelegate.html">PSPDFStampViewControllerDelegate</a><br />UIImagePickerControllerDelegate<br />UIScrollViewDelegate<br />UITextFieldDelegate</td>
+	<td class="specification-value"><a href="../Protocols/PSPDFColorSelectionViewControllerDelegate.html">PSPDFColorSelectionViewControllerDelegate</a><br /><a href="../Protocols/PSPDFFontSelectorViewControllerDelegate.html">PSPDFFontSelectorViewControllerDelegate</a><br />PSPDFFontStyleViewControllerDelegate<br /><a href="../Protocols/PSPDFLongPressGestureRecognizerDelegate.html">PSPDFLongPressGestureRecognizerDelegate</a><br /><a href="../Protocols/PSPDFNoteAnnotationControllerDelegate.html">PSPDFNoteAnnotationControllerDelegate</a><br /><a href="../Protocols/PSPDFRenderDelegate.html">PSPDFRenderDelegate</a><br /><a href="../Protocols/PSPDFResizableViewDelegate.html">PSPDFResizableViewDelegate</a><br /><a href="../Protocols/PSPDFSignatureSelectorViewControllerDelegate.html">PSPDFSignatureSelectorViewControllerDelegate</a><br /><a href="../Protocols/PSPDFSignatureViewControllerDelegate.html">PSPDFSignatureViewControllerDelegate</a><br /><a href="../Protocols/PSPDFStampViewControllerDelegate.html">PSPDFStampViewControllerDelegate</a><br />UIImagePickerControllerDelegate<br />UIScrollViewDelegate<br />UITextFieldDelegate</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
 	<td class="specification-value">PSPDFPageView.h</td>
@@ -373,9 +391,9 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Compound view for a single pdf <a href="#//api/name/page">page</a>. Will not be re-used for different pages.
+						<p>Compound view for a single pdf <a href="#//api/name/page">page</a>. Will be re-used during lifetime.
 You can add your own views on top of the UIView (e.g. custom annotations)
-Events from a attached UIScrollView will be relayed to PSPDFPageView&rsquo;s.</p>
+Events from a attached UIScrollView will be relayed to all visible PSPDFPageView classes.</p>
 					</div>
 					
 					
@@ -393,9 +411,9 @@ Events from a attached UIScrollView will be relayed to PSPDFPageView&rsquo;s.</p
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithFrame:pdfController:">&ndash;&nbsp;initWithFrame:pdfController:</a></code>
+		<code><a href="#//api/name/initWithFrame:overrideClassNames:">&ndash;&nbsp;initWithFrame:overrideClassNames:</a></code>
 		<span class="tooltip"><p>Designated initializer.
-Note: We already need <a href="#//api/name/pdfController">pdfController</a> at this stage to check the classOverride table.</p></span>
+&lsquo;overrideClassNames&rsquo; can be nil to simply use the stock classes.</p></span>
 	</span>
 	
 	
@@ -432,7 +450,7 @@ Note: We already need <a href="#//api/name/pdfController">pdfController</a> at t
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/updateRenderView">&ndash;&nbsp;updateRenderView</a></code>
-		<span class="tooltip"><p>Redraw the <a href="#//api/name/renderView">renderView</a></p></span>
+		<span class="tooltip"><p>Redraw the <a href="#//api/name/renderView">renderView</a> (dynamically rendered PDF for maximum sharpness, updated on every zoom level)</p></span>
 	</span>
 	
 	
@@ -454,7 +472,7 @@ Note: We already need <a href="#//api/name/pdfController">pdfController</a> at t
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/contentView">&nbsp;&nbsp;contentView</a></code>
-		<span class="tooltip"><p>UIImageView subview showing the whole <a href="#//api/name/document">document</a>. Readonly.</p></span>
+		<span class="tooltip"><p>UIImageView displaying the whole <a href="#//api/name/document">document</a>. Readonly.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -497,9 +515,7 @@ This is set to a good default already. You shouldn&rsquo;t need to touch this.</
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/visibleRect">&nbsp;&nbsp;visibleRect</a></code>
-		<span class="tooltip"><p>Current CGRect of the part of the <a href="#//api/name/page">page</a> that&rsquo;s visible. Screen coordinate space.
-Note: If the scroll view is currently decelerating,
-this will show the TARGET rect, not the one that&rsquo;s currently animating.</p></span>
+		<span class="tooltip"><p>Current CGRect of the part of the <a href="#//api/name/page">page</a> that&rsquo;s visible. Screen coordinate space.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -801,6 +817,80 @@ Return nil if you don&rsquo;t show the actionSheet, or return the object you&rsq
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/preloadTextParser">&ndash;&nbsp;preloadTextParser</a></code>
+		<span class="tooltip"><p>Will parse the text glyphs async to allow text selection. Override to disable.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="AnnotationMenu Methods" name="task_AnnotationMenu Methods"></a>
+						<h3 class="subsubtitle task-title">AnnotationMenu Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/menuItemsForAnnotation:">&ndash;&nbsp;menuItemsForAnnotation:</a></code>
+		<span class="tooltip"><p>Returns available PSPDFMenuItem&rsquo;s for the current annotation.
+The better way to extend this is to use the shouldShowMenuItems:* delegates.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/menuItemsForNewAnnotationAtPoint:">&ndash;&nbsp;menuItemsForNewAnnotationAtPoint:</a></code>
+		<span class="tooltip"><p>Menu for new annotations (can be disabled in <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>)</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/colorMenuItemsForAnnotation:">&ndash;&nbsp;colorMenuItemsForAnnotation:</a></code>
+		<span class="tooltip"><p>Returns available PSPDFMenuItem&rsquo;s to change the color.
+The better way to extend this is to use the shouldShowMenuItems:* delegates.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/opacityMenuItemForAnnotation:">&ndash;&nbsp;opacityMenuItemForAnnotation:</a></code>
+		<span class="tooltip"><p>Returns the opacity menu item (used inside <a href="#//api/name/colorMenuItemsForAnnotation:">colorMenuItemsForAnnotation:</a>)</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showMenuForAnnotation:animated:">&ndash;&nbsp;showMenuForAnnotation:animated:</a></code>
+		<span class="tooltip"><p>Called when a annotation was found ad the tapped location.
+This will usually call menuItemsForAnnotation to show a UIMenuController, except for PSPDFAnnotationTypeNote which is handled differently on iPad. (showNoteControllerForAnnotation)</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showNoteControllerForAnnotation:showKeyboard:animated:">&ndash;&nbsp;showNoteControllerForAnnotation:showKeyboard:animated:</a></code>
+		<span class="tooltip"><p>Shows a popover/modal controller to edit a <a href="../Classes/PSPDFAnnotation.html">PSPDFAnnotation</a>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showFontPickerForAnnotation:animated:">&ndash;&nbsp;showFontPickerForAnnotation:animated:</a></code>
+		<span class="tooltip"><p>Shows the font picker.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showColorPickerForAnnotation:animated:">&ndash;&nbsp;showColorPickerForAnnotation:animated:</a></code>
+		<span class="tooltip"><p>Shows the color picker.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/passthroughViewsForPopoverController">&ndash;&nbsp;passthroughViewsForPopoverController</a></code>
 		<span class="tooltip"><p>Returns the passthrough views for the popover controllers (e.g. color picker).
 By default this is fairly aggressive and returns the pdfController/navController. If you dislike this behavior return nil to enforce the rule first touch after popover = no reaction. However the passthroughViews allow a faster editing of annotations.</p></span>
@@ -811,8 +901,8 @@ By default this is fairly aggressive and returns the pdfController/navController
 						</ul>
 						
 						
-						<a title="PSPDFAnnotationMenu Methods" name="task_PSPDFAnnotationMenu Methods"></a>
-						<h3 class="subsubtitle task-title">PSPDFAnnotationMenu Methods</h3>
+						<a title="AnnotationViews Methods" name="task_AnnotationViews Methods"></a>
+						<h3 class="subsubtitle task-title">AnnotationViews Methods</h3>
 
 						<ul class="task-list">
 							<li>
@@ -838,46 +928,6 @@ Returns YES if the tap has been handled, else NO.</p>
 	<span class="tooltip">
 		<code><a href="#//api/name/longPress:">&ndash;&nbsp;longPress:</a></code>
 		<span class="tooltip"><p>Handle long press, potentially relay to subviews.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/menuItemsForAnnotation:">&ndash;&nbsp;menuItemsForAnnotation:</a></code>
-		<span class="tooltip"><p>Returns available PSPDFMenuItem&rsquo;s for the current annotation.
-The better way to extend this is to use the shouldShowMenuItems:* delegates.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/colorMenuItemsForAnnotation:">&ndash;&nbsp;colorMenuItemsForAnnotation:</a></code>
-		<span class="tooltip"><p>Returns available PSPDFMenuItem&rsquo;s to change the color.
-The better way to extend this is to use the shouldShowMenuItems:* delegates.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/opacityMenuItemForAnnotation:">&ndash;&nbsp;opacityMenuItemForAnnotation:</a></code>
-		<span class="tooltip"><p>Returns the opacity menu item.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/showMenuForAnnotation:animated:">&ndash;&nbsp;showMenuForAnnotation:animated:</a></code>
-		<span class="tooltip"><p>Called when a annotation was found ad the tapped location.
-This will usually call menuItemsForAnnotation to show a UIMenuController,
-Except for PSPDFAnnotationTypeNote which is handled differently on iPad. (showNoteControllerForAnnotation)
-The better way to extend this is to use the shouldShowMenuItems:* delegates.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/showNoteControllerForAnnotation:showKeyboard:animated:">&ndash;&nbsp;showNoteControllerForAnnotation:showKeyboard:animated:</a></code>
-		<span class="tooltip"><p>Shows a popover/modal controller to edit a <a href="../Classes/PSPDFAnnotation.html">PSPDFAnnotation</a>.</p></span>
 	</span>
 	
 	
@@ -1059,7 +1109,7 @@ Do not manually add/remove views into the container view. Contents is managed. V
 	
 	
 	<div class="method-subsection brief-description">
-		<p>UIImageView subview showing the whole <a href="#//api/name/document">document</a>. Readonly.</p>
+		<p>UIImageView displaying the whole <a href="#//api/name/document">document</a>. Readonly.</p>
 	</div>		
 	
 	
@@ -1672,9 +1722,7 @@ This is set to a good default already. You shouldn&rsquo;t need to touch this.</
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Current CGRect of the part of the <a href="#//api/name/page">page</a> that&rsquo;s visible. Screen coordinate space.
-Note: If the scroll view is currently decelerating,
-this will show the TARGET rect, not the one that&rsquo;s currently animating.</p>
+		<p>Current CGRect of the part of the <a href="#//api/name/page">page</a> that&rsquo;s visible. Screen coordinate space.</p>
 	</div>		
 	
 	
@@ -1686,6 +1734,11 @@ this will show the TARGET rect, not the one that&rsquo;s currently animating.</p
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> If the scroll view is currently decelerating, this will show the TARGET rect, not the one that&rsquo;s currently animating.</p></div>
+	</div>
 	
 	
 	
@@ -2107,18 +2160,18 @@ This is equivalent to [self convertPDFRectToViewRect:CGRectApplyAffineTransform(
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithFrame:pdfController:" title="initWithFrame:pdfController:"></a>
-	<h3 class="subsubtitle method-title">initWithFrame:pdfController:</h3>
+	<a name="//api/name/initWithFrame:overrideClassNames:" title="initWithFrame:overrideClassNames:"></a>
+	<h3 class="subsubtitle method-title">initWithFrame:overrideClassNames:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
 		<p>Designated initializer.
-Note: We already need <a href="#//api/name/pdfController">pdfController</a> at this stage to check the classOverride table.</p>
+&lsquo;overrideClassNames&rsquo; can be nil to simply use the stock classes.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (id)initWithFrame:(CGRect)<em>frame</em> pdfController:(PSPDFViewController *)<em>pdfController</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithFrame:(CGRect)<em>frame</em> overrideClassNames:(NSDictionary *)<em>overrideClassNames</em></code></div>
 	
 	
 	
@@ -2246,6 +2299,40 @@ The better way to extend this is to use the shouldShowMenuItems:* delegates.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/menuItemsForNewAnnotationAtPoint:" title="menuItemsForNewAnnotationAtPoint:"></a>
+	<h3 class="subsubtitle method-title">menuItemsForNewAnnotationAtPoint:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Menu for new annotations (can be disabled in <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>)</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSArray *)menuItemsForNewAnnotationAtPoint:(CGPoint)<em>point</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFPageView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/objectsAtPoint:options:" title="objectsAtPoint:options:"></a>
 	<h3 class="subsubtitle method-title">objectsAtPoint:options:</h3>
 	
@@ -2256,7 +2343,7 @@ The better way to extend this is to use the shouldShowMenuItems:* delegates.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (NSDictionary *)objectsAtPoint:(CGPoint)<em>pdfPoint</em> options:(NSDictionary *)<em>options</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (NSDictionary *)objectsAtPoint:(CGPoint)<em>viewPoint</em> options:(NSDictionary *)<em>options</em></code></div>
 	
 	
 	
@@ -2291,7 +2378,7 @@ Usage e.g. NSDictionary *objects = [pageView objectsAtRect:rect options:@{kPSPDF
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (NSDictionary *)objectsAtRect:(CGRect)<em>pdfRect</em> options:(NSDictionary *)<em>options</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (NSDictionary *)objectsAtRect:(CGRect)<em>viewRect</em> options:(NSDictionary *)<em>options</em></code></div>
 	
 	
 	
@@ -2321,7 +2408,7 @@ Usage e.g. NSDictionary *objects = [pageView objectsAtRect:rect options:@{kPSPDF
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the opacity menu item.</p>
+		<p>Returns the opacity menu item (used inside <a href="#//api/name/colorMenuItemsForAnnotation:">colorMenuItemsForAnnotation:</a>)</p>
 	</div>		
 	
 	
@@ -2361,6 +2448,40 @@ By default this is fairly aggressive and returns the pdfController/navController
 	
 	
 	<div class="method-subsection method-declaration"><code>- (NSArray *)passthroughViewsForPopoverController</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFPageView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/preloadTextParser" title="preloadTextParser"></a>
+	<h3 class="subsubtitle method-title">preloadTextParser</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Will parse the text glyphs async to allow text selection. Override to disable.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)preloadTextParser</code></div>
 	
 	
 	
@@ -2558,6 +2679,74 @@ If we use pageCurl mode, we have a global scrollView which can be accessed with 
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/showColorPickerForAnnotation:animated:" title="showColorPickerForAnnotation:animated:"></a>
+	<h3 class="subsubtitle method-title">showColorPickerForAnnotation:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Shows the color picker.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)showColorPickerForAnnotation:(PSPDFAnnotation *)<em>annotation</em> animated:(BOOL)<em>animated</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFPageView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showFontPickerForAnnotation:animated:" title="showFontPickerForAnnotation:animated:"></a>
+	<h3 class="subsubtitle method-title">showFontPickerForAnnotation:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Shows the font picker.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)showFontPickerForAnnotation:(PSPDFFreeTextAnnotation *)<em>annotation</em> animated:(BOOL)<em>animated</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFPageView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/showLinkPreviewActionSheetForAnnotation:fromRect:animated:" title="showLinkPreviewActionSheetForAnnotation:fromRect:animated:"></a>
 	<h3 class="subsubtitle method-title">showLinkPreviewActionSheetForAnnotation:fromRect:animated:</h3>
 	
@@ -2600,9 +2789,7 @@ Return nil if you don&rsquo;t show the actionSheet, or return the object you&rsq
 	
 	<div class="method-subsection brief-description">
 		<p>Called when a annotation was found ad the tapped location.
-This will usually call menuItemsForAnnotation to show a UIMenuController,
-Except for PSPDFAnnotationTypeNote which is handled differently on iPad. (showNoteControllerForAnnotation)
-The better way to extend this is to use the shouldShowMenuItems:* delegates.</p>
+This will usually call menuItemsForAnnotation to show a UIMenuController, except for PSPDFAnnotationTypeNote which is handled differently on iPad. (showNoteControllerForAnnotation)</p>
 	</div>		
 	
 	
@@ -2614,6 +2801,11 @@ The better way to extend this is to use the shouldShowMenuItems:* delegates.</p>
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> The better way to extend this is to use the shouldShowMenuItems:* delegates.</p></div>
+	</div>
 	
 	
 	
@@ -2885,7 +3077,7 @@ The point will have a variance of a few pixels to improve touch recognition.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Redraw the <a href="#//api/name/renderView">renderView</a></p>
+		<p>Redraw the <a href="#//api/name/renderView">renderView</a> (dynamically rendered PDF for maximum sharpness, updated on every zoom level)</p>
 	</div>		
 	
 	
@@ -3027,7 +3219,7 @@ The point will have a variance of a few pixels to improve touch recognition.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-02-22)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-09)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
