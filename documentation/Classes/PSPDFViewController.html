@@ -90,10 +90,6 @@
 	
 	<option value="//api/name/fixedVerticalPositionForFitToWidthEnabledMode">&nbsp;&nbsp;&nbsp;&nbsp;fixedVerticalPositionForFitToWidthEnabledMode</option>
 	
-	<option value="//api/name/gridView">&nbsp;&nbsp;&nbsp;&nbsp;gridView</option>
-	
-	<option value="//api/name/iPhoneThumbnailSizeReductionFactor">&nbsp;&nbsp;&nbsp;&nbsp;iPhoneThumbnailSizeReductionFactor</option>
-	
 	<option value="//api/name/imageSelectionEnabled">&nbsp;&nbsp;&nbsp;&nbsp;imageSelectionEnabled</option>
 	
 	<option value="//api/name/internalTapGesturesEnabled">&nbsp;&nbsp;&nbsp;&nbsp;internalTapGesturesEnabled</option>
@@ -148,8 +144,6 @@
 	
 	<option value="//api/name/printButtonItem">&nbsp;&nbsp;&nbsp;&nbsp;printButtonItem</option>
 	
-	<option value="//api/name/realPage">&nbsp;&nbsp;&nbsp;&nbsp;realPage</option>
-	
 	<option value="//api/name/renderAnimationEnabled">&nbsp;&nbsp;&nbsp;&nbsp;renderAnimationEnabled</option>
 	
 	<option value="//api/name/renderAnnotationTypes">&nbsp;&nbsp;&nbsp;&nbsp;renderAnnotationTypes</option>
@@ -167,6 +161,8 @@
 	<option value="//api/name/rotationLockEnabled">&nbsp;&nbsp;&nbsp;&nbsp;rotationLockEnabled</option>
 	
 	<option value="//api/name/screenPage">&nbsp;&nbsp;&nbsp;&nbsp;screenPage</option>
+	
+	<option value="//api/name/scrobbleBar">&nbsp;&nbsp;&nbsp;&nbsp;scrobbleBar</option>
 	
 	<option value="//api/name/scrobbleBarEnabled">&nbsp;&nbsp;&nbsp;&nbsp;scrobbleBarEnabled</option>
 	
@@ -202,6 +198,8 @@
 	
 	<option value="//api/name/textSelectionEnabled">&nbsp;&nbsp;&nbsp;&nbsp;textSelectionEnabled</option>
 	
+	<option value="//api/name/thumbnailController">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailController</option>
+	
 	<option value="//api/name/thumbnailMargin">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailMargin</option>
 	
 	<option value="//api/name/thumbnailSize">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailSize</option>
@@ -234,8 +232,6 @@
 	
 	
 	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/applicationDidEnterBackground:">&nbsp;&nbsp;&nbsp;&nbsp;- applicationDidEnterBackground:</option>
 	
 	<option value="//api/name/calculatedVisiblePageNumbers">&nbsp;&nbsp;&nbsp;&nbsp;- calculatedVisiblePageNumbers</option>
 	
@@ -299,8 +295,6 @@
 	
 	<option value="//api/name/updateBarButtonItem:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- updateBarButtonItem:animated:</option>
 	
-	<option value="//api/name/updateGridForOrientation">&nbsp;&nbsp;&nbsp;&nbsp;- updateGridForOrientation</option>
-	
 	<option value="//api/name/updateSettingsForRotation:">&nbsp;&nbsp;&nbsp;&nbsp;- updateSettingsForRotation:</option>
 	
 	<option value="//api/name/visibleAnnotationToolbar">&nbsp;&nbsp;&nbsp;&nbsp;- visibleAnnotationToolbar</option>
@@ -327,15 +321,19 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initialization">Initialization</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initialization and esential properties">Initialization and esential properties</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Page Scrolling and Zooming">Page Scrolling and Zooming</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Page Scrolling">Page Scrolling</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Zooming">Zooming</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_View State Restoration">View State Restoration</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Page Rendering">Page Rendering</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_HUD Controls">HUD Controls</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Properties">Properties</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_HUD Controls">HUD Controls</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Toolbar button items">Toolbar button items</a></span></li>
 	
@@ -347,11 +345,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Helpers">Helpers</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_PSPDFDeprecated Methods">PSPDFDeprecated Methods</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
 	
 </ul></li>
 
@@ -411,10 +407,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fixedVerticalPositionForFitToWidthEnabledMode">fixedVerticalPositionForFitToWidthEnabledMode</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/gridView">gridView</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/iPhoneThumbnailSizeReductionFactor">iPhoneThumbnailSizeReductionFactor</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageSelectionEnabled">imageSelectionEnabled</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/internalTapGesturesEnabled">internalTapGesturesEnabled</a></span></li>
@@ -469,8 +461,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/printButtonItem">printButtonItem</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/realPage">realPage</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderAnimationEnabled">renderAnimationEnabled</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderAnnotationTypes">renderAnnotationTypes</a></span></li>
@@ -488,6 +478,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rotationLockEnabled">rotationLockEnabled</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/screenPage">screenPage</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scrobbleBar">scrobbleBar</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scrobbleBarEnabled">scrobbleBarEnabled</a></span></li>
 	
@@ -523,6 +515,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/textSelectionEnabled">textSelectionEnabled</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailController">thumbnailController</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailMargin">thumbnailMargin</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailSize">thumbnailSize</a></span></li>
@@ -556,8 +550,6 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/applicationDidEnterBackground:">applicationDidEnterBackground:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/calculatedVisiblePageNumbers">calculatedVisiblePageNumbers</a></span></li>
 	
@@ -621,8 +613,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateBarButtonItem:animated:">updateBarButtonItem:animated:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateGridForOrientation">updateGridForOrientation</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateSettingsForRotation:">updateSettingsForRotation:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/visibleAnnotationToolbar">visibleAnnotationToolbar</a></span></li>
@@ -660,7 +650,7 @@
 	<td class="specification-value">PSPDFBaseViewController : UIViewController</td>
 </tr><tr>
 	<td class="specification-title">Conforms to</td>
-	<td class="specification-value">MFMailComposeViewControllerDelegate<br /><a href="../Protocols/PSPDFBookmarkViewControllerDelegate.html">PSPDFBookmarkViewControllerDelegate</a><br /><a href="../Protocols/PSPDFOutlineViewControllerDelegate.html">PSPDFOutlineViewControllerDelegate</a><br /><a href="../Protocols/PSPDFPasswordViewDelegate.html">PSPDFPasswordViewDelegate</a><br /><a href="../Protocols/PSPDFTextSearchDelegate.html">PSPDFTextSearchDelegate</a><br /><a href="../Protocols/PSPDFWebViewControllerDelegate.html">PSPDFWebViewControllerDelegate</a><br />PSUICollectionViewDataSource<br />PSUICollectionViewDelegate<br />UIPopoverControllerDelegate</td>
+	<td class="specification-value">MFMailComposeViewControllerDelegate<br /><a href="../Protocols/PSPDFBookmarkViewControllerDelegate.html">PSPDFBookmarkViewControllerDelegate</a><br /><a href="../Protocols/PSPDFOutlineViewControllerDelegate.html">PSPDFOutlineViewControllerDelegate</a><br /><a href="../Protocols/PSPDFPasswordViewDelegate.html">PSPDFPasswordViewDelegate</a><br /><a href="../Protocols/PSPDFTextSearchDelegate.html">PSPDFTextSearchDelegate</a><br /><a href="../Protocols/PSPDFThumbnailViewControllerDelegate.html">PSPDFThumbnailViewControllerDelegate</a><br /><a href="../Protocols/PSPDFWebViewControllerDelegate.html">PSPDFWebViewControllerDelegate</a><br />UIPopoverControllerDelegate</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
 	<td class="specification-value">PSPDFViewController.h</td>
@@ -691,8 +681,8 @@
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						<a title="Initialization" name="task_Initialization"></a>
-						<h3 class="subsubtitle task-title">Initialization</h3>
+						<a title="Initialization and esential properties" name="task_Initialization and esential properties"></a>
+						<h3 class="subsubtitle task-title">Initialization and esential properties</h3>
 
 						<ul class="task-list">
 							<li>
@@ -704,12 +694,33 @@ Also supports creation via initWithCoder to allow usage in Storyboards.</p></spa
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+		<span class="tooltip"><p>Register delegate to capture events, change properties.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/document">&nbsp;&nbsp;document</a></code>
+		<span class="tooltip"><p>Property for the currently displayed document.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reloadData">&ndash;&nbsp;reloadData</a></code>
+		<span class="tooltip"><p>Recreates the content view hierarchy. Usually automatically invoked if you change certain properties (like <a href="#//api/name/document">document</a>, <a href="#//api/name/pageTransition">pageTransition</a>).</p></span>
+	</span>
+	
+	
 </li>
 						</ul>
 						
 						
-						<a title="Page Scrolling and Zooming" name="task_Page Scrolling and Zooming"></a>
-						<h3 class="subsubtitle task-title">Page Scrolling and Zooming</h3>
+						<a title="Page Scrolling" name="task_Page Scrolling"></a>
+						<h3 class="subsubtitle task-title">Page Scrolling</h3>
 
 						<ul class="task-list">
 							<li>
@@ -748,7 +759,15 @@ e.g. if you have 50 pages, you get 25/26 &ldquo;double pages&rdquo; when in doub
 	</span>
 	<span class="task-item-suffix">property</span>
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Zooming" name="task_Zooming"></a>
+						<h3 class="subsubtitle task-title">Zooming</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/scrollRectToVisible:animated:">&ndash;&nbsp;scrollRectToVisible:animated:</a></code>
 		<span class="tooltip"><p>Scrolls to a specific rect on the current <a href="#//api/name/page">page</a>. No effect if zoom is at 1.0.
@@ -771,7 +790,15 @@ PSPDFConvertPDFRectToViewRect() or -convertPDFPointToViewPoint of <a href="../Cl
 	</span>
 	
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="View State Restoration" name="task_View State Restoration"></a>
+						<h3 class="subsubtitle task-title">View State Restoration</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/viewState">&nbsp;&nbsp;viewState</a></code>
 		<span class="tooltip"><p>Saves the view state into a serializable object. (page/zoom/position/HUD)</p></span>
@@ -782,13 +809,6 @@ PSPDFConvertPDFRectToViewRect() or -convertPDFPointToViewPoint of <a href="../Cl
 	<span class="tooltip">
 		<code><a href="#//api/name/setViewState:animated:">&ndash;&nbsp;setViewState:animated:</a></code>
 		<span class="tooltip"><p>Saves the view state into a serializable object, optionally animated. (page/zoom/position/HUD)</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/reloadData">&ndash;&nbsp;reloadData</a></code>
-		<span class="tooltip"><p>Recreates the content view hierarchy. Usually automatically invoked if you change certain properties (like <a href="#//api/name/document">document</a>, <a href="#//api/name/pageTransition">pageTransition</a>).</p></span>
 	</span>
 	
 	
@@ -835,7 +855,147 @@ Can not be set to nil.</p></span>
 	<span class="tooltip">
 		<code><a href="#//api/name/renderAnnotationTypes">&nbsp;&nbsp;renderAnnotationTypes</a></code>
 		<span class="tooltip"><p>Set what annotations should be rendered. Defaults to PSPDFAnnotationTypeAll.
-Set this to PSPDFAnnotationTypeLink | PSPDFAnnotationTypeHighlight for PSPDFKit v1 rendering style.</p></span>
+Set this to PSPDFAnnotationTypeLink|PSPDFAnnotationTypeHighlight for PSPDFKit v1 rendering style.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Properties" name="task_Properties"></a>
+						<h3 class="subsubtitle task-title">Properties</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/margin">&nbsp;&nbsp;margin</a></code>
+		<span class="tooltip"><p>Set margin for <a href="#//api/name/document">document</a> pages. Defaults to UIEdgeInsetsZero.
+Margin is extra space for your (always visible) UI elements. Content will be moved accordingly.
+Area outside margin does not receive touch events, or is shown while zooming.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/padding">&nbsp;&nbsp;padding</a></code>
+		<span class="tooltip"><p>Padding for <a href="#//api/name/document">document</a> pages. Defaults to CGSizeZero. Padding is space that is displayed around the <a href="#//api/name/document">document</a>. (In fact, the minimum zoom is adapted; thus you can only modify width/height here)
+When changing padding; the touch area is still fully active.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/renderingMode">&nbsp;&nbsp;renderingMode</a></code>
+		<span class="tooltip"><p>This manages how the PDF image cache (thumbnail, full <a href="#//api/name/page">page</a>) is used. Defaults to PSPDFPageRenderingModeThumbnailsThenFullPage.
+PSPDFPageRenderingModeFullPageBlocking is a great option for PSPDFPageCurlTransition.
+@warning: PSPDFPageRenderingModeFullPageBlocking will disable certain <a href="#//api/name/page">page</a> scroll animations.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smartZoomEnabled">&nbsp;&nbsp;smartZoomEnabled</a></code>
+		<span class="tooltip"><p>If set to YES, tries to find the text blocks on the <a href="#//api/name/page">page</a> and zooms into the tapped block.
+NO will perform a generic zoom into the tap area. Defaults to YES.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scrollingEnabled">&nbsp;&nbsp;scrollingEnabled</a></code>
+		<span class="tooltip"><p>Enable/disable scrolling. Can be used in special cases where scrolling is turned off (temporarily). Defaults to YES.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewLockEnabled">&nbsp;&nbsp;viewLockEnabled</a></code>
+		<span class="tooltip"><p>Locks the view. Disables scrolling, zooming and gestures that would invoke scrolling/zooming. Also blocks programmatically calls to scrollToPage. This is useful if you want to invoke a &ldquo;drawing mode&rdquo;. (e.g. Ink Annotation drawing)</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rotationLockEnabled">&nbsp;&nbsp;rotationLockEnabled</a></code>
+		<span class="tooltip"><p>Locks the current set rotation. Defaults to NO.
+If set to false, it invokes an attemptRotationToDeviceOrientation.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scrollOnTapPageEndEnabled">&nbsp;&nbsp;scrollOnTapPageEndEnabled</a></code>
+		<span class="tooltip"><p>Tap on begin/end of <a href="#//api/name/page">page</a> scrolls to previous/next <a href="#//api/name/page">page</a>. Defaults to YES.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scrollOnTapPageEndAnimationEnabled">&nbsp;&nbsp;scrollOnTapPageEndAnimationEnabled</a></code>
+		<span class="tooltip"><p>Page transition to next/prev <a href="#//api/name/page">page</a> via <a href="#//api/name/scrollOnTapPageEndEnabled">scrollOnTapPageEndEnabled</a> is enabled. Defaults to YES.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scrollOnTapPageEndMargin">&nbsp;&nbsp;scrollOnTapPageEndMargin</a></code>
+		<span class="tooltip"><p>Margin at which the scroll to next/previous tap should be invoked. Defaults to 60.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/internalTapGesturesEnabled">&nbsp;&nbsp;internalTapGesturesEnabled</a></code>
+		<span class="tooltip"><p>Enable/Disable all internal gesture recognizers. Defaults to YES.
+Can be useful if you&rsquo;re doing custom drawing on the <a href="../Classes/PSPDFPageView.html">PSPDFPageView</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/textSelectionEnabled">&nbsp;&nbsp;textSelectionEnabled</a></code>
+		<span class="tooltip"><p>Allows text selection. Defaults to YES. Only available in PSPDFKit Annotate.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/imageSelectionEnabled">&nbsp;&nbsp;imageSelectionEnabled</a></code>
+		<span class="tooltip"><p>Allows image selection. Defaults to YES.  Only available in PSPDFKit Annotate.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/passwordDialogEnabled">&nbsp;&nbsp;passwordDialogEnabled</a></code>
+		<span class="tooltip"><p>If YES, when a PDF that requires a password is set, a password dialog is shown.
+(The password dialog is of class <a href="../Classes/PSPDFPasswordView.html">PSPDFPasswordView</a>; customize with <a href="#//api/name/overrideClassNames">overrideClassNames</a>)
+Defaults to YES. If NO, an attempt to display the <a href="#//api/name/document">document</a> anyway is made.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/useParentNavigationBar">&nbsp;&nbsp;useParentNavigationBar</a></code>
+		<span class="tooltip"><p>Set this to true to allow this controller to access the parent navigationBar/navigationController to add custom buttons.
+Has no effect if <a href="#//api/name/toolbarEnabled">toolbarEnabled</a> is false or there&rsquo;s no parentViewController. Defaults to NO.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/shouldRestoreNavigationBarStyle">&nbsp;&nbsp;shouldRestoreNavigationBarStyle</a></code>
+		<span class="tooltip"><p>If YES, the navigation bar state before pushing this controller is captured and subsequently restored in viewWillDisappear.
+Set to NO to not restore the style. Defaults to YES.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/linkAction">&nbsp;&nbsp;linkAction</a></code>
+		<span class="tooltip"><p>Set the default link action for pressing on PSPDFLinkAnnotations. Default is PSPDFLinkActionInlineBrowser.
+Note: if modal is set in the link, this property has no effect.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -859,7 +1019,6 @@ HUDView is created in viewDidLoad. Subclass or use KVO to add your custom views 
 	<span class="tooltip">
 		<code><a href="#//api/name/HUDViewMode">&nbsp;&nbsp;HUDViewMode</a></code>
 		<span class="tooltip"><p>Manages the show/hide mode of the HUD view. Defaults to PSPDFHUDViewAutomatic.
-Note: this does not affect manually setting <a href="#//api/name/HUDVisible">HUDVisible</a>.
 If your statusbar setting is set to PSPDFStatusBarDefault; the HUD will be non-opaque and thus stay visible always.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -971,163 +1130,6 @@ ContentView does NOT overlay the navigationBar/statusBar, even if that one is tr
 						</ul>
 						
 						
-						<a title="Properties" name="task_Properties"></a>
-						<h3 class="subsubtitle task-title">Properties</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
-		<span class="tooltip"><p>Register delegate to capture events, change properties.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/document">&nbsp;&nbsp;document</a></code>
-		<span class="tooltip"><p>Property for the currently displayed document.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/margin">&nbsp;&nbsp;margin</a></code>
-		<span class="tooltip"><p>Set margin for <a href="#//api/name/document">document</a> pages. Defaults to UIEdgeInsetsZero.
-Margin is extra space for your (always visible) UI elements.
-Content will be moved accordingly.
-Area outside margin does not receive touch events, or is shown while zooming.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/padding">&nbsp;&nbsp;padding</a></code>
-		<span class="tooltip"><p>Padding for <a href="#//api/name/document">document</a> pages. Defaults to CGSizeZero.
-Padding is space that is displayed around the <a href="#//api/name/document">document</a>.
-(In fact, the minimum zoom is adapted; thus you can only modify width/height here)
-When changing padding; the touch area is still fully active.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/renderingMode">&nbsp;&nbsp;renderingMode</a></code>
-		<span class="tooltip"><p>This manages how the PDF image cache (thumbnail, full <a href="#//api/name/page">page</a>) is used.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/smartZoomEnabled">&nbsp;&nbsp;smartZoomEnabled</a></code>
-		<span class="tooltip"><p>If set to YES, tries to find the text blocks on the <a href="#//api/name/page">page</a> and zooms into the tapped block.
-NO will perform a generic zoom into the tap area. Defaults to YES.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/scrollingEnabled">&nbsp;&nbsp;scrollingEnabled</a></code>
-		<span class="tooltip"><p>Enable/disable scrolling. Can be used in special cases where scrolling is turned off (temporarily). Defaults to YES.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/viewLockEnabled">&nbsp;&nbsp;viewLockEnabled</a></code>
-		<span class="tooltip"><p>Locks the view. Disables scrolling, zooming and gestures that would invoke scrolling/zooming.
-This is useful if you want to invoke a &ldquo;drawing mode&rdquo;. (e.g. Ink Annotation drawing)
-This also blocks programmatically calls to scrollToPage.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/rotationLockEnabled">&nbsp;&nbsp;rotationLockEnabled</a></code>
-		<span class="tooltip"><p>Locks the current set rotation. Defaults to NO.
-If set to false, it invokes an attemptRotationToDeviceOrientation.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/scrollOnTapPageEndEnabled">&nbsp;&nbsp;scrollOnTapPageEndEnabled</a></code>
-		<span class="tooltip"><p>Tap on begin/end of <a href="#//api/name/page">page</a> scrolls to previous/next <a href="#//api/name/page">page</a>. Defaults to YES.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/scrollOnTapPageEndAnimationEnabled">&nbsp;&nbsp;scrollOnTapPageEndAnimationEnabled</a></code>
-		<span class="tooltip"><p>Page transition to next/prev <a href="#//api/name/page">page</a> via <a href="#//api/name/scrollOnTapPageEndEnabled">scrollOnTapPageEndEnabled</a> is enabled. Defaults to YES.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/scrollOnTapPageEndMargin">&nbsp;&nbsp;scrollOnTapPageEndMargin</a></code>
-		<span class="tooltip"><p>Margin at which the scroll to next/previous tap should be invoked. Defaults to 60.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/internalTapGesturesEnabled">&nbsp;&nbsp;internalTapGesturesEnabled</a></code>
-		<span class="tooltip"><p>Enable/Disable all internal gesture recognizers. Defaults to YES.
-Can be useful if you&rsquo;re doing custom drawing on the <a href="../Classes/PSPDFPageView.html">PSPDFPageView</a>.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/textSelectionEnabled">&nbsp;&nbsp;textSelectionEnabled</a></code>
-		<span class="tooltip"><p>Allows text selection. Defaults to YES. Only available in PSPDFKit Annotate.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/imageSelectionEnabled">&nbsp;&nbsp;imageSelectionEnabled</a></code>
-		<span class="tooltip"><p>Allows image selection. Defaults to YES.  Only available in PSPDFKit Annotate.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/passwordDialogEnabled">&nbsp;&nbsp;passwordDialogEnabled</a></code>
-		<span class="tooltip"><p>If YES, when a PDF that requires a password is set, a password dialog is shown.
-(The password dialog is of class <a href="../Classes/PSPDFPasswordView.html">PSPDFPasswordView</a>; customize with <a href="#//api/name/overrideClassNames">overrideClassNames</a>)
-Defaults to YES. If NO, an attempt to display the <a href="#//api/name/document">document</a> anyway is made.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/useParentNavigationBar">&nbsp;&nbsp;useParentNavigationBar</a></code>
-		<span class="tooltip"><p>Set this to true to allow this controller to access the parent navigationBar/navigationController to add custom buttons.
-Has no effect if <a href="#//api/name/toolbarEnabled">toolbarEnabled</a> is false or there&rsquo;s no parentViewController. Defaults to NO.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/shouldRestoreNavigationBarStyle">&nbsp;&nbsp;shouldRestoreNavigationBarStyle</a></code>
-		<span class="tooltip"><p>If YES, the navigation bar state before pushing this controller is captured and subsequently restored in viewWillDisappear.
-Set to NO to not restore the style. Defaults to YES.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/linkAction">&nbsp;&nbsp;linkAction</a></code>
-		<span class="tooltip"><p>Set the default link action for pressing on PSPDFLinkAnnotations. Default is PSPDFLinkActionInlineBrowser.
-Note: if modal is set in the link, this property has no effect.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-						
 						<a title="Toolbar button items" name="task_Toolbar button items"></a>
 						<h3 class="subsubtitle task-title">Toolbar button items</h3>
 
@@ -1212,26 +1214,22 @@ Note: if modal is set in the link, this property has no effect.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/additionalActionsButtonItem">&nbsp;&nbsp;additionalActionsButtonItem</a></code>
-		<span class="tooltip"><p>If added to the left/rightBarButtonItems, the position of the additionalRightBarButtonItems action button can be customized.
-By default this button is added to the rightBarButtonItems on the left.
-Button is only visible if [additionalRightBarButtonItems count] > 1.
-Do not add this to <a href="#//api/name/additionalRightBarButtonItems">additionalRightBarButtonItems</a>.</p></span>
+		<span class="tooltip"><p>If added to the left/<a href="#//api/name/rightBarButtonItems">rightBarButtonItems</a>, the position of the additionalRightBarButtonItems action button can be customized.
+By default this button is added to the <a href="#//api/name/rightBarButtonItems">rightBarButtonItems</a> on the left. Button only visible if additionalRightBarButtonItems.count > 1.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/leftBarButtonItems">&nbsp;&nbsp;leftBarButtonItems</a></code>
-		<span class="tooltip"><p>Bar button items displayed at the left of the toolbar. Must be UIBarButtonItem or <a href="../Classes/PSPDFBarButtonItem.html">PSPDFBarButtonItem</a> instances.
-Defaults to @[closeButtonItem] if view is presented modally.</p></span>
+		<span class="tooltip"><p>Bar button items displayed at the left of the toolbar. Must be UIBarButtonItem or <a href="../Classes/PSPDFBarButtonItem.html">PSPDFBarButtonItem</a> instances. Defaults to @[closeButtonItem] if view is presented modally.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/rightBarButtonItems">&nbsp;&nbsp;rightBarButtonItems</a></code>
-		<span class="tooltip"><p>Bar button items displayed at the right of the toolbar
-Must be UIBarButtonItem or <a href="../Classes/PSPDFBarButtonItem.html">PSPDFBarButtonItem</a> instances
+		<span class="tooltip"><p>Bar button items displayed at the right of the toolbar. Must be UIBarButtonItem or <a href="../Classes/PSPDFBarButtonItem.html">PSPDFBarButtonItem</a> instances.
 Defaults to @[self.<a href="#//api/name/searchButtonItem">searchButtonItem</a>, self.<a href="#//api/name/outlineButtonItem">outlineButtonItem</a>, self.viewModeButtonItem];</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -1239,18 +1237,15 @@ Defaults to @[self.<a href="#//api/name/searchButtonItem">searchButtonItem</a>, 
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/additionalBarButtonItems">&nbsp;&nbsp;additionalBarButtonItems</a></code>
-		<span class="tooltip"><p>Displayed at the left of the rightBarButtonItems inside an action sheet
-Must be PSPDFBarButtonItem instances
-If [additionalRightToolbarButtonItems count] == 1 then no action sheet is displayed
-Note: This has been renamed in PSPDFKit 2.4 from &ldquo;additionalRightBarButtonItems&rdquo; since it&rsquo;s now controllable where the icon gets placed.</p></span>
+		<span class="tooltip"><p>Displayed at the left of the rightBarButtonItems inside an action sheet. Items ust be PSPDFBarButtonItem instances.
+If [additionalRightToolbarButtonItems count] == 1 then no action sheet is displayed</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/barButtonItemsAlwaysEnabled">&nbsp;&nbsp;barButtonItemsAlwaysEnabled</a></code>
-		<span class="tooltip"><p>Add your custom UIBarButtonItems so that they won&rsquo;t be automatically enabled/disabled.
-Note: You really want to add your custom close/back button there, else the user might get stuck!</p></span>
+		<span class="tooltip"><p>Add your custom UIBarButtonItems so that they won&rsquo;t be automatically enabled/disabled.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1258,8 +1253,7 @@ Note: You really want to add your custom close/back button there, else the user 
 	<span class="tooltip">
 		<code><a href="#//api/name/minLeftToolbarWidth">&nbsp;&nbsp;minLeftToolbarWidth</a></code>
 		<span class="tooltip"><p>UIBarButtonItem doesn&rsquo;t support calculation of it&rsquo;s width, so we have to approximate.
-This allows you to change the minimum width if the heuristics fail.
-Note: Set this in your subclass within updateToolbars, then call [super updateToolbars].</p></span>
+This allows you to change the minimum width if the heuristics fail.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1289,9 +1283,7 @@ Note: Set this in your subclass within updateToolbars, then call [super updateTo
 	<span class="tooltip">
 		<code><a href="#//api/name/pageMode">&nbsp;&nbsp;pageMode</a></code>
 		<span class="tooltip"><p>Set a PageMode defined in the enum. (Single/Double Pages)
-Reloads the view, unless it is set while rotation is active.
-Thus, one can customize the rotation behavior with animations when set within willAnimate*.
-Defaults to PSPDFPageModeAutomatic on iPad and PSPDFPageModeSingle on iPhone.</p></span>
+Reloads the view, unless it is set while rotation is active. Thus, one can customize the rotation behavior with animations when set within willAnimate*. Defaults to PSPDFPageModeAutomatic on iPad and PSPDFPageModeSingle on iPhone.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1305,9 +1297,7 @@ Defaults to PSPDFPageModeAutomatic on iPad and PSPDFPageModeSingle on iPhone.</p
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/scrollDirection">&nbsp;&nbsp;scrollDirection</a></code>
-		<span class="tooltip"><p>Page scrolling direction. Defaults to PSPDFScrollDirectionHorizontal.
-Only relevant for scrolling <a href="#//api/name/page">page</a> transitions.
-Deprecation Note: Previously to PSPDFKit 2.4, this was named &ldquo;pageScrolling&rdquo;.</p></span>
+		<span class="tooltip"><p>Page scrolling direction. Defaults to PSPDFScrollDirectionHorizontal. Only relevant for scrolling <a href="#//api/name/page">page</a> transitions.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1533,15 +1523,15 @@ If you want to customize this, override <a href="#//api/name/reloadData">reloadD
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/gridView">&nbsp;&nbsp;gridView</a></code>
-		<span class="tooltip"><p>The UICollectionView/<a href="../Classes/PSTCollectionView.html">PSTCollectionView</a> thumbnail class. Loaded lazily.</p></span>
+		<code><a href="#//api/name/thumbnailController">&nbsp;&nbsp;thumbnailController</a></code>
+		<span class="tooltip"><p>Thumbnail controller. Contains the (grid) collectionView. Lazily created.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/thumbnailSize">&nbsp;&nbsp;thumbnailSize</a></code>
-		<span class="tooltip"><p>Thumbnail size. Defaults to 170x220.</p></span>
+		<span class="tooltip"><p>Thumbnail size. For defaults see <a href="../Classes/PSPDFCache.html">PSPDFCache</a>.sharedCache.thumbnailSize.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1550,13 +1540,6 @@ If you want to customize this, override <a href="#//api/name/reloadData">reloadD
 		<code><a href="#//api/name/thumbnailMargin">&nbsp;&nbsp;thumbnailMargin</a></code>
 		<span class="tooltip"><p>Set <a href="#//api/name/margin">margin</a> for thumbnail view mode. Defaults to UIEdgeInsetsMake(15, 15, 15, 15).
 Margin is extra space around the grid of thumbnails.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/iPhoneThumbnailSizeReductionFactor">&nbsp;&nbsp;iPhoneThumbnailSizeReductionFactor</a></code>
-		<span class="tooltip"><p>Thumbnails on iPhone are smaller &ndash; you may change the reduction factor. Defaults to 0.5.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1635,9 +1618,41 @@ Use sender (UIBarButtonitem or UIView) OR rect in options (both only needed for 
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/masterViewController">&ndash;&nbsp;masterViewController</a></code>
-		<span class="tooltip"><p>Returns the topmost, active view controller.</p></span>
+		<span class="tooltip"><p>Returns the topmost, active view controller.
+If you get effects like the email controller not appearing at all, override this and return the controller where modal controllers can be pushed onto. (Try &ldquo;return self&rdquo; first)</p></span>
 	</span>
 	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Internal Methods" name="task_Internal Methods"></a>
+						<h3 class="subsubtitle task-title">Internal Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
+		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
+Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
+		<span class="tooltip"><p>To handle external URLS.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
+		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
+Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
 	
 </li>
 						</ul>
@@ -1678,13 +1693,6 @@ The toolbar is only displayed, if PSPDFViewController is inside a UINavigationCo
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/updateGridForOrientation">&ndash;&nbsp;updateGridForOrientation</a></code>
-		<span class="tooltip"><p>Can be subclassed to update grid spacing.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/updateSettingsForRotation:">&ndash;&nbsp;updateSettingsForRotation:</a></code>
 		<span class="tooltip"><p>Called in viewWillAppear with the initial rotation and then in willRotateToInterfaceOrientation.
 Might be called multiple times during a rotation, so any code in there should be fast.
@@ -1715,15 +1723,6 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/applicationDidEnterBackground:">&ndash;&nbsp;applicationDidEnterBackground:</a></code>
-		<span class="tooltip"><p>Default saves annotations when app goes to background.
-Is registered on init/deregistered on dealloc.
-Only tries to saves <a href="#//api/name/document">document</a> if view is visible.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/pageLabel">&nbsp;&nbsp;pageLabel</a></code>
 		<span class="tooltip"><p>Document <a href="#//api/name/page">page</a> label view.</p></span>
 	</span>
@@ -1736,49 +1735,10 @@ Only tries to saves <a href="#//api/name/document">document</a> if view is visib
 	</span>
 	<span class="task-item-suffix">property</span>
 	
-</li>
-						</ul>
-						
-						
-						<a title="PSPDFDeprecated Methods" name="task_PSPDFDeprecated Methods"></a>
-						<h3 class="subsubtitle task-title">PSPDFDeprecated Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/realPage">&nbsp;&nbsp;realPage</a></code>
-		<span class="tooltip"><p>As of PSPDFKit 2.4, <a href="#//api/name/page">page</a> now returns the actual <a href="#//api/name/page">page</a> value, and the old &ldquo;page&rdquo; has been replaced with <a href="#//api/name/screenPage">screenPage</a>.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-						
-						<a title="Internal Methods" name="task_Internal Methods"></a>
-						<h3 class="subsubtitle task-title">Internal Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
-		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
-Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
-	</span>
-	
-	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
-		<span class="tooltip"><p>To handle external URLS.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
-		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
-Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
+		<code><a href="#//api/name/scrobbleBar">&nbsp;&nbsp;scrobbleBar</a></code>
+		<span class="tooltip"><p>Scrobble bar. Created lazily.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1838,7 +1798,6 @@ HUDView is created in viewDidLoad. Subclass or use KVO to add your custom views 
 	
 	<div class="method-subsection brief-description">
 		<p>Manages the show/hide mode of the HUD view. Defaults to PSPDFHUDViewAutomatic.
-Note: this does not affect manually setting <a href="#//api/name/HUDVisible">HUDVisible</a>.
 If your statusbar setting is set to PSPDFStatusBarDefault; the HUD will be non-opaque and thus stay visible always.</p>
 	</div>		
 	
@@ -1854,7 +1813,8 @@ If your statusbar setting is set to PSPDFStatusBarDefault; the HUD will be non-o
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<div class="warning"><p><strong>Warning:</strong> HUD will not change when changing this mode after controller is visible. Use <a href="#//api/name/setHUDVisible:animated:">setHUDVisible:animated:</a> instead.</p></div>
+		<div class="warning"><p><strong>Warning:</strong> HUD will not change when changing this mode after controller is visible. Use <a href="#//api/name/setHUDVisible:animated:">setHUDVisible:animated:</a> instead.
+Does not affect manual calls to set<a href="#//api/name/HUDVisible">HUDVisible</a>.</p></div>
 	</div>
 	
 	
@@ -1946,10 +1906,8 @@ If your statusbar setting is set to PSPDFStatusBarDefault; the HUD will be non-o
 	
 	
 	<div class="method-subsection brief-description">
-		<p>If added to the left/rightBarButtonItems, the position of the additionalRightBarButtonItems action button can be customized.
-By default this button is added to the rightBarButtonItems on the left.
-Button is only visible if [additionalRightBarButtonItems count] > 1.
-Do not add this to <a href="#//api/name/additionalRightBarButtonItems">additionalRightBarButtonItems</a>.</p>
+		<p>If added to the left/<a href="#//api/name/rightBarButtonItems">rightBarButtonItems</a>, the position of the additionalRightBarButtonItems action button can be customized.
+By default this button is added to the <a href="#//api/name/rightBarButtonItems">rightBarButtonItems</a> on the left. Button only visible if additionalRightBarButtonItems.count > 1.</p>
 	</div>		
 	
 	
@@ -1961,6 +1919,11 @@ Do not add this to <a href="#//api/name/additionalRightBarButtonItems">additiona
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> Do not add this to additionalRightBarButtonItems.</p></div>
+	</div>
 	
 	
 	
@@ -1983,10 +1946,8 @@ Do not add this to <a href="#//api/name/additionalRightBarButtonItems">additiona
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Displayed at the left of the rightBarButtonItems inside an action sheet
-Must be PSPDFBarButtonItem instances
-If [additionalRightToolbarButtonItems count] == 1 then no action sheet is displayed
-Note: This has been renamed in PSPDFKit 2.4 from &ldquo;additionalRightBarButtonItems&rdquo; since it&rsquo;s now controllable where the icon gets placed.</p>
+		<p>Displayed at the left of the rightBarButtonItems inside an action sheet. Items ust be PSPDFBarButtonItem instances.
+If [additionalRightToolbarButtonItems count] == 1 then no action sheet is displayed</p>
 	</div>		
 	
 	
@@ -2162,8 +2123,7 @@ Defaults to NO on iPhone (no space) and YES on iPad.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Add your custom UIBarButtonItems so that they won&rsquo;t be automatically enabled/disabled.
-Note: You really want to add your custom close/back button there, else the user might get stuck!</p>
+		<p>Add your custom UIBarButtonItems so that they won&rsquo;t be automatically enabled/disabled.</p>
 	</div>		
 	
 	
@@ -2175,6 +2135,11 @@ Note: You really want to add your custom close/back button there, else the user 
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> You really want to add your custom close/back button there, else the user might get stuck!</p></div>
+	</div>
 	
 	
 	
@@ -2679,74 +2644,6 @@ fitToWidthEnabled is not supported for vertical scrolling or pageCurl mode. (You
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/gridView" title="gridView"></a>
-	<h3 class="subsubtitle method-title">gridView</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The UICollectionView/<a href="../Classes/PSTCollectionView.html">PSTCollectionView</a> thumbnail class. Loaded lazily.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) PSUICollectionView *gridView</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/iPhoneThumbnailSizeReductionFactor" title="iPhoneThumbnailSizeReductionFactor"></a>
-	<h3 class="subsubtitle method-title">iPhoneThumbnailSizeReductionFactor</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Thumbnails on iPhone are smaller &ndash; you may change the reduction factor. Defaults to 0.5.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat iPhoneThumbnailSizeReductionFactor</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/imageSelectionEnabled" title="imageSelectionEnabled"></a>
 	<h3 class="subsubtitle method-title">imageSelectionEnabled</h3>
 	
@@ -2827,8 +2724,7 @@ Can be useful if you&rsquo;re doing custom drawing on the <a href="../Classes/PS
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Bar button items displayed at the left of the toolbar. Must be UIBarButtonItem or <a href="../Classes/PSPDFBarButtonItem.html">PSPDFBarButtonItem</a> instances.
-Defaults to @[closeButtonItem] if view is presented modally.</p>
+		<p>Bar button items displayed at the left of the toolbar. Must be UIBarButtonItem or <a href="../Classes/PSPDFBarButtonItem.html">PSPDFBarButtonItem</a> instances. Defaults to @[closeButtonItem] if view is presented modally.</p>
 	</div>		
 	
 	
@@ -2903,8 +2799,7 @@ Note: if modal is set in the link, this property has no effect.</p>
 	
 	<div class="method-subsection brief-description">
 		<p>Set margin for <a href="#//api/name/document">document</a> pages. Defaults to UIEdgeInsetsZero.
-Margin is extra space for your (always visible) UI elements.
-Content will be moved accordingly.
+Margin is extra space for your (always visible) UI elements. Content will be moved accordingly.
 Area outside margin does not receive touch events, or is shown while zooming.</p>
 	</div>		
 	
@@ -2974,8 +2869,7 @@ Area outside margin does not receive touch events, or is shown while zooming.</p
 	
 	<div class="method-subsection brief-description">
 		<p>UIBarButtonItem doesn&rsquo;t support calculation of it&rsquo;s width, so we have to approximate.
-This allows you to change the minimum width if the heuristics fail.
-Note: Set this in your subclass within updateToolbars, then call [super updateToolbars].</p>
+This allows you to change the minimum width if the heuristics fail.</p>
 	</div>		
 	
 	
@@ -2987,6 +2881,11 @@ Note: Set this in your subclass within updateToolbars, then call [super updateTo
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Set this in your subclass within updateToolbars, then call [super updateToolbars].</p></div>
+	</div>
 	
 	
 	
@@ -3233,13 +3132,10 @@ Note: Set this in your subclass within updateToolbars, then call [super updateTo
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>This works across the whole framework and allows you to subclass all usages of a class. For example add an entry of [PSPDFPageView class] / [MyCustomPageView class] as key/value pair to use the custom subclass. (MyCustomPageView must be a subclass of PSPDFPageView)</p>
-
-<p>Throws an exception if the overriding class is not a subclass of the overridden class.</p>
-
-<p>Hide the warning &ldquo;Incompatible pointer types sending &lsquo;Class&rsquo; to parameter of type &lsquo;id<NSCopying>&rsquo; &rdquo; with casting class to (id). It&rsquo;s perfectly safe to do so. Alternatively you can also use NSStrings.</p>
-
-<p>e.g.: overrideClassNames = @{(id)[PSPDFCloseBarButtonItem class] : [MyCustomButtonSubclass class]};</p>
+		<p>This works across the whole framework and allows you to subclass all usages of a class. For example add an entry of [PSPDFPageView class] / [MyCustomPageView class] as key/value pair to use the custom subclass. (MyCustomPageView must be a subclass of PSPDFPageView)
+Throws an exception if the overriding class is not a subclass of the overridden class.
+Hide the warning &ldquo;Incompatible pointer types sending &lsquo;Class&rsquo; to parameter of type &lsquo;id<NSCopying>&rsquo; &rdquo; with casting class to (id). It&rsquo;s perfectly safe to do so. Alternatively you can also use NSStrings.
+e.g.: overrideClassNames = @{(id)[PSPDFCloseBarButtonItem class] : [MyCustomButtonSubclass class]};</p>
 	</div>
 	
 	
@@ -3263,9 +3159,7 @@ Note: Set this in your subclass within updateToolbars, then call [super updateTo
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Padding for <a href="#//api/name/document">document</a> pages. Defaults to CGSizeZero.
-Padding is space that is displayed around the <a href="#//api/name/document">document</a>.
-(In fact, the minimum zoom is adapted; thus you can only modify width/height here)
+		<p>Padding for <a href="#//api/name/document">document</a> pages. Defaults to CGSizeZero. Padding is space that is displayed around the <a href="#//api/name/document">document</a>. (In fact, the minimum zoom is adapted; thus you can only modify width/height here)
 When changing padding; the touch area is still fully active.</p>
 	</div>		
 	
@@ -3439,9 +3333,7 @@ Defaults to YES. Animatable. Will be added to the <a href="#//api/name/HUDView">
 	
 	<div class="method-subsection brief-description">
 		<p>Set a PageMode defined in the enum. (Single/Double Pages)
-Reloads the view, unless it is set while rotation is active.
-Thus, one can customize the rotation behavior with animations when set within willAnimate*.
-Defaults to PSPDFPageModeAutomatic on iPad and PSPDFPageModeSingle on iPhone.</p>
+Reloads the view, unless it is set while rotation is active. Thus, one can customize the rotation behavior with animations when set within willAnimate*. Defaults to PSPDFPageModeAutomatic on iPad and PSPDFPageModeSingle on iPhone.</p>
 	</div>		
 	
 	
@@ -3715,40 +3607,6 @@ Defaults to YES. If NO, an attempt to display the <a href="#//api/name/document"
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/realPage" title="realPage"></a>
-	<h3 class="subsubtitle method-title">realPage</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>As of PSPDFKit 2.4, <a href="#//api/name/page">page</a> now returns the actual <a href="#//api/name/page">page</a> value, and the old &ldquo;page&rdquo; has been replaced with <a href="#//api/name/screenPage">screenPage</a>.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) NSUInteger realPage</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/renderAnimationEnabled" title="renderAnimationEnabled"></a>
 	<h3 class="subsubtitle method-title">renderAnimationEnabled</h3>
 	
@@ -3790,7 +3648,7 @@ Defaults to YES. If NO, an attempt to display the <a href="#//api/name/document"
 	
 	<div class="method-subsection brief-description">
 		<p>Set what annotations should be rendered. Defaults to PSPDFAnnotationTypeAll.
-Set this to PSPDFAnnotationTypeLink | PSPDFAnnotationTypeHighlight for PSPDFKit v1 rendering style.</p>
+Set this to PSPDFAnnotationTypeLink|PSPDFAnnotationTypeHighlight for PSPDFKit v1 rendering style.</p>
 	</div>		
 	
 	
@@ -3929,7 +3787,9 @@ Can not be set to nil.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>This manages how the PDF image cache (thumbnail, full <a href="#//api/name/page">page</a>) is used.</p>
+		<p>This manages how the PDF image cache (thumbnail, full <a href="#//api/name/page">page</a>) is used. Defaults to PSPDFPageRenderingModeThumbnailsThenFullPage.
+PSPDFPageRenderingModeFullPageBlocking is a great option for PSPDFPageCurlTransition.
+@warning: PSPDFPageRenderingModeFullPageBlocking will disable certain <a href="#//api/name/page">page</a> scroll animations.</p>
 	</div>		
 	
 	
@@ -3941,14 +3801,6 @@ Can not be set to nil.</p>
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>PSPDFPageRenderingModeFullPageBlocking is a great option for PSPDFPageCurlTransition.
-Note: PSPDFPageRenderingModeFullPageBlocking will disable certain <a href="#//api/name/page">page</a> scroll animations.</p>
-
-<p>Defaults to PSPDFPageRenderingModeThumbnailsThenFullPage.</p>
-	</div>
 	
 	
 	
@@ -3971,8 +3823,7 @@ Note: PSPDFPageRenderingModeFullPageBlocking will disable certain <a href="#//ap
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Bar button items displayed at the right of the toolbar
-Must be UIBarButtonItem or <a href="../Classes/PSPDFBarButtonItem.html">PSPDFBarButtonItem</a> instances
+		<p>Bar button items displayed at the right of the toolbar. Must be UIBarButtonItem or <a href="../Classes/PSPDFBarButtonItem.html">PSPDFBarButtonItem</a> instances.
 Defaults to @[self.<a href="#//api/name/searchButtonItem">searchButtonItem</a>, self.<a href="#//api/name/outlineButtonItem">outlineButtonItem</a>, self.viewModeButtonItem];</p>
 	</div>		
 	
@@ -4071,6 +3922,40 @@ e.g. if you have 50 pages, you get 25/26 &ldquo;double pages&rdquo; when in doub
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/scrobbleBar" title="scrobbleBar"></a>
+	<h3 class="subsubtitle method-title">scrobbleBar</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Scrobble bar. Created lazily.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) PSPDFScrobbleBar *scrobbleBar</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/scrobbleBarEnabled" title="scrobbleBarEnabled"></a>
 	<h3 class="subsubtitle method-title">scrobbleBarEnabled</h3>
 	
@@ -4111,9 +3996,7 @@ e.g. if you have 50 pages, you get 25/26 &ldquo;double pages&rdquo; when in doub
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Page scrolling direction. Defaults to PSPDFScrollDirectionHorizontal.
-Only relevant for scrolling <a href="#//api/name/page">page</a> transitions.
-Deprecation Note: Previously to PSPDFKit 2.4, this was named &ldquo;pageScrolling&rdquo;.</p>
+		<p>Page scrolling direction. Defaults to PSPDFScrollDirectionHorizontal. Only relevant for scrolling <a href="#//api/name/page">page</a> transitions.</p>
 	</div>		
 	
 	
@@ -4674,6 +4557,40 @@ Setting this will update <a href="#//api/name/statusBarStyle">statusBarStyle</a>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/thumbnailController" title="thumbnailController"></a>
+	<h3 class="subsubtitle method-title">thumbnailController</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Thumbnail controller. Contains the (grid) collectionView. Lazily created.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) PSPDFThumbnailViewController *thumbnailController</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/thumbnailMargin" title="thumbnailMargin"></a>
 	<h3 class="subsubtitle method-title">thumbnailMargin</h3>
 	
@@ -4715,7 +4632,7 @@ Margin is extra space around the grid of thumbnails.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Thumbnail size. Defaults to 170x220.</p>
+		<p>Thumbnail size. For defaults see <a href="../Classes/PSPDFCache.html">PSPDFCache</a>.sharedCache.thumbnailSize.</p>
 	</div>		
 	
 	
@@ -4727,11 +4644,6 @@ Margin is extra space around the grid of thumbnails.</p>
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<div class="warning"><p><strong>Warning:</strong> After changing, call <a href="#//api/name/reloadData">reloadData</a> on the <a href="#//api/name/gridView">gridView</a>.</p></div>
-	</div>
 	
 	
 	
@@ -4970,9 +4882,7 @@ Has no effect if <a href="#//api/name/toolbarEnabled">toolbarEnabled</a> is fals
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Locks the view. Disables scrolling, zooming and gestures that would invoke scrolling/zooming.
-This is useful if you want to invoke a &ldquo;drawing mode&rdquo;. (e.g. Ink Annotation drawing)
-This also blocks programmatically calls to scrollToPage.</p>
+		<p>Locks the view. Disables scrolling, zooming and gestures that would invoke scrolling/zooming. Also blocks programmatically calls to scrollToPage. This is useful if you want to invoke a &ldquo;drawing mode&rdquo;. (e.g. Ink Annotation drawing)</p>
 	</div>		
 	
 	
@@ -5149,42 +5059,6 @@ This also blocks programmatically calls to scrollToPage.</p>
 					<div class="section section-methods">
 						<a title="Instance Methods" name="instance_methods"></a>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/applicationDidEnterBackground:" title="applicationDidEnterBackground:"></a>
-	<h3 class="subsubtitle method-title">applicationDidEnterBackground:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Default saves annotations when app goes to background.
-Is registered on init/deregistered on dealloc.
-Only tries to saves <a href="#//api/name/document">document</a> if view is visible.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (void)applicationDidEnterBackground:(NSNotification *)<em>notification</em></code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
 						
 						<div class="section-method">
 	<a name="//api/name/calculatedVisiblePageNumbers" title="calculatedVisiblePageNumbers"></a>
@@ -5605,7 +5479,8 @@ Also supports creation via initWithCoder to allow usage in Storyboards.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the topmost, active view controller.</p>
+		<p>Returns the topmost, active view controller.
+If you get effects like the email controller not appearing at all, override this and return the controller where modal controllers can be pushed onto. (Try &ldquo;return self&rdquo; first)</p>
 	</div>		
 	
 	
@@ -5617,12 +5492,6 @@ Also supports creation via initWithCoder to allow usage in Storyboards.</p>
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>If you get effects like the email controller not appearing at all, override this and return the controller where modal controllers can be pushed onto. (Try &ldquo;return self&rdquo; first)
-It&rsquo;s a sad thing that this tends to be one of the most complex things in iOS development to get right.</p>
-	</div>
 	
 	
 	
@@ -6255,40 +6124,6 @@ PSPDFConvertPDFRectToViewRect() or -convertPDFPointToViewPoint of <a href="../Cl
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/updateGridForOrientation" title="updateGridForOrientation"></a>
-	<h3 class="subsubtitle method-title">updateGridForOrientation</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Can be subclassed to update grid spacing.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (void)updateGridForOrientation</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/updateSettingsForRotation:" title="updateSettingsForRotation:"></a>
 	<h3 class="subsubtitle method-title">updateSettingsForRotation:</h3>
 	
@@ -6478,7 +6313,7 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-02-22)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-09)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
