@@ -38,6 +38,13 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/concurrentRunningRenderRequests">&nbsp;&nbsp;&nbsp;&nbsp;concurrentRunningRenderRequests</option>
+	
+	<option value="//api/name/minimumProcessPriority">&nbsp;&nbsp;&nbsp;&nbsp;minimumProcessPriority</option>
+	
+	
 	
 	
 	<option value="class_methods">Class Methods</option>
@@ -51,13 +58,13 @@
 	
 	<option value="//api/name/cancelRenderingForDelegate:async:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelRenderingForDelegate:async:</option>
 	
-	<option value="//api/name/currentRenderJob">&nbsp;&nbsp;&nbsp;&nbsp;- currentRenderJob</option>
+	<option value="//api/name/cancelRenderingForDocument:forPage:delegate:async:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelRenderingForDocument:forPage:delegate:async:</option>
 	
 	<option value="//api/name/hasRenderJobsForDelegate:">&nbsp;&nbsp;&nbsp;&nbsp;- hasRenderJobsForDelegate:</option>
 	
 	<option value="//api/name/numberOfQueuedJobs">&nbsp;&nbsp;&nbsp;&nbsp;- numberOfQueuedJobs</option>
 	
-	<option value="//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:delegate:">&nbsp;&nbsp;&nbsp;&nbsp;- requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:delegate:</option>
+	<option value="//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:">&nbsp;&nbsp;&nbsp;&nbsp;- requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</option>
 	
 	
 	
@@ -81,6 +88,14 @@
 
 
 
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/concurrentRunningRenderRequests">concurrentRunningRenderRequests</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/minimumProcessPriority">minimumProcessPriority</a></span></li>
+	
+</ul></li>
+
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
@@ -95,13 +110,13 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelRenderingForDelegate:async:">cancelRenderingForDelegate:async:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentRenderJob">currentRenderJob</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelRenderingForDocument:forPage:delegate:async:">cancelRenderingForDocument:forPage:delegate:async:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasRenderJobsForDelegate:">hasRenderJobsForDelegate:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberOfQueuedJobs">numberOfQueuedJobs</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:delegate:">requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:delegate:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:">requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</a></span></li>
 	
 </ul></li>
 
@@ -165,9 +180,18 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:delegate:">&ndash;&nbsp;requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:delegate:</a></code>
+		<code><a href="#//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:">&ndash;&nbsp;requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</a></code>
 		<span class="tooltip"><p>Requests a (freshly) rendered image from a specified document. Does not use the file cache.
-For options, see PSPDFPageRender.</p></span>
+For options, see PSPDFPageRender.
+IF <code>queueAsNext</code> is set, the request will be processed ASAP, skipping the current queue.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelRenderingForDocument:forPage:delegate:async:">&ndash;&nbsp;cancelRenderingForDocument:forPage:delegate:async:</a></code>
+		<span class="tooltip"><p>Cancel job.
+Use NSNotFound for <code>page</code> to delete all requests for the document.</p></span>
 	</span>
 	
 	
@@ -188,17 +212,25 @@ Async will perform on the next thread. (don&rsquo;t use async in dealloc)</p></s
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/currentRenderJob">&ndash;&nbsp;currentRenderJob</a></code>
-		<span class="tooltip"><p>Returns the currently rendered renderJob.</p></span>
+		<code><a href="#//api/name/numberOfQueuedJobs">&ndash;&nbsp;numberOfQueuedJobs</a></code>
+		<span class="tooltip"><p>Return how many jobs are currently queued.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/numberOfQueuedJobs">&ndash;&nbsp;numberOfQueuedJobs</a></code>
-		<span class="tooltip"><p>Return how many jobs are currently queued.</p></span>
+		<code><a href="#//api/name/minimumProcessPriority">&nbsp;&nbsp;minimumProcessPriority</a></code>
+		<span class="tooltip"><p>The minimum priority for requests. Defaults to PSPDFRenderQueuePriorityVeryLow.
+Set to PSPDFRenderQueuePriorityNormal to temporarily pause cache requests.</p></span>
 	</span>
+	<span class="task-item-suffix">property</span>
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/concurrentRunningRenderRequests">&nbsp;&nbsp;concurrentRunningRenderRequests</a></code>
+		<span class="tooltip"><p>Amount of render requests that run at the same time. Defaults to 2 for modern devices.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
 	
 </li>
 						</ul>
@@ -208,6 +240,81 @@ Async will perform on the next thread. (don&rsquo;t use async in dealloc)</p></s
 					
 					
 					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/concurrentRunningRenderRequests" title="concurrentRunningRenderRequests"></a>
+	<h3 class="subsubtitle method-title">concurrentRunningRenderRequests</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Amount of render requests that run at the same time. Defaults to 2 for modern devices.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (atomic, assign) NSUInteger concurrentRunningRenderRequests</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFRenderQueue.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/minimumProcessPriority" title="minimumProcessPriority"></a>
+	<h3 class="subsubtitle method-title">minimumProcessPriority</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The minimum priority for requests. Defaults to PSPDFRenderQueuePriorityVeryLow.
+Set to PSPDFRenderQueuePriorityNormal to temporarily pause cache requests.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) PSPDFRenderQueuePriority minimumProcessPriority</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFRenderQueue.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
 					
 					
@@ -293,17 +400,18 @@ Async will perform on the next thread. (don&rsquo;t use async in dealloc)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/currentRenderJob" title="currentRenderJob"></a>
-	<h3 class="subsubtitle method-title">currentRenderJob</h3>
+	<a name="//api/name/cancelRenderingForDocument:forPage:delegate:async:" title="cancelRenderingForDocument:forPage:delegate:async:"></a>
+	<h3 class="subsubtitle method-title">cancelRenderingForDocument:forPage:delegate:async:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the currently rendered renderJob.</p>
+		<p>Cancel job.
+Use NSNotFound for <code>page</code> to delete all requests for the document.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (PSPDFRenderJob *)currentRenderJob</code></div>
+	<div class="method-subsection method-declaration"><code>- (void)cancelRenderingForDocument:(PSPDFDocument *)<em>document</em> forPage:(NSUInteger)<em>page</em> delegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em> async:(BOOL)<em>async</em></code></div>
 	
 	
 	
@@ -395,18 +503,19 @@ Async will perform on the next thread. (don&rsquo;t use async in dealloc)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:delegate:" title="requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:delegate:"></a>
-	<h3 class="subsubtitle method-title">requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:delegate:</h3>
+	<a name="//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:" title="requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:"></a>
+	<h3 class="subsubtitle method-title">requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
 		<p>Requests a (freshly) rendered image from a specified document. Does not use the file cache.
-For options, see PSPDFPageRender.</p>
+For options, see PSPDFPageRender.
+IF <code>queueAsNext</code> is set, the request will be processed ASAP, skipping the current queue.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (PSPDFRenderJob *)requestRenderedImageForDocument:(PSPDFDocument *)<em>document</em> forPage:(NSUInteger)<em>page</em> withSize:(CGSize)<em>size</em> clippedToRect:(CGRect)<em>clipRect</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em> delegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (PSPDFRenderJob *)requestRenderedImageForDocument:(PSPDFDocument *)<em>document</em> forPage:(NSUInteger)<em>page</em> withSize:(CGSize)<em>size</em> clippedToRect:(CGRect)<em>clipRect</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em> priority:(PSPDFRenderQueuePriority)<em>priority</em> queueAsNext:(BOOL)<em>queueAsNext</em> delegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em></code></div>
 	
 	
 	
@@ -442,7 +551,7 @@ For options, see PSPDFPageRender.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-09)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-22)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

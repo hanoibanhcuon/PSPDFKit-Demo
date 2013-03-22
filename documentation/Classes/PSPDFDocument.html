@@ -64,8 +64,6 @@
 	
 	<option value="//api/name/cacheDirectory">&nbsp;&nbsp;&nbsp;&nbsp;cacheDirectory</option>
 	
-	<option value="//api/name/cacheStrategy">&nbsp;&nbsp;&nbsp;&nbsp;cacheStrategy</option>
-	
 	<option value="//api/name/canEmbedAnnotations">&nbsp;&nbsp;&nbsp;&nbsp;canEmbedAnnotations</option>
 	
 	<option value="//api/name/data">&nbsp;&nbsp;&nbsp;&nbsp;data</option>
@@ -77,6 +75,8 @@
 	<option value="//api/name/defaultAnnotationUsername">&nbsp;&nbsp;&nbsp;&nbsp;defaultAnnotationUsername</option>
 	
 	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
+	
+	<option value="//api/name/diskCacheStrategy">&nbsp;&nbsp;&nbsp;&nbsp;diskCacheStrategy</option>
 	
 	<option value="//api/name/displayingPage">&nbsp;&nbsp;&nbsp;&nbsp;displayingPage</option>
 	
@@ -107,6 +107,8 @@
 	<option value="//api/name/pageRange">&nbsp;&nbsp;&nbsp;&nbsp;pageRange</option>
 	
 	<option value="//api/name/password">&nbsp;&nbsp;&nbsp;&nbsp;password</option>
+	
+	<option value="//api/name/renderAnnotationTypes">&nbsp;&nbsp;&nbsp;&nbsp;renderAnnotationTypes</option>
 	
 	<option value="//api/name/renderOptions">&nbsp;&nbsp;&nbsp;&nbsp;renderOptions</option>
 	
@@ -218,9 +220,9 @@
 	
 	<option value="//api/name/rectBoxForPage:">&nbsp;&nbsp;&nbsp;&nbsp;- rectBoxForPage:</option>
 	
-	<option value="//api/name/renderImageForPage:withSize:clippedToRect:withAnnotations:options:">&nbsp;&nbsp;&nbsp;&nbsp;- renderImageForPage:withSize:clippedToRect:withAnnotations:options:</option>
+	<option value="//api/name/renderImageForPage:withSize:clippedToRect:withAnnotations:options:receipt:error:">&nbsp;&nbsp;&nbsp;&nbsp;- renderImageForPage:withSize:clippedToRect:withAnnotations:options:receipt:error:</option>
 	
-	<option value="//api/name/renderPage:inContext:withSize:clippedToRect:withAnnotations:options:">&nbsp;&nbsp;&nbsp;&nbsp;- renderPage:inContext:withSize:clippedToRect:withAnnotations:options:</option>
+	<option value="//api/name/renderPage:inContext:withSize:clippedToRect:withAnnotations:options:error:">&nbsp;&nbsp;&nbsp;&nbsp;- renderPage:inContext:withSize:clippedToRect:withAnnotations:options:error:</option>
 	
 	<option value="//api/name/rotationForPage:">&nbsp;&nbsp;&nbsp;&nbsp;- rotationForPage:</option>
 	
@@ -264,8 +266,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Attached Parsers">Attached Parsers</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_PDF Page Rendering">PDF Page Rendering</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Subclassing Methods">Subclassing Methods</a></span></li>
 	
 </ul></li>
@@ -300,8 +300,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cacheDirectory">cacheDirectory</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cacheStrategy">cacheStrategy</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canEmbedAnnotations">canEmbedAnnotations</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/data">data</a></span></li>
@@ -313,6 +311,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/defaultAnnotationUsername">defaultAnnotationUsername</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/diskCacheStrategy">diskCacheStrategy</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayingPage">displayingPage</a></span></li>
 	
@@ -343,6 +343,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pageRange">pageRange</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/password">password</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderAnnotationTypes">renderAnnotationTypes</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderOptions">renderOptions</a></span></li>
 	
@@ -456,9 +458,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rectBoxForPage:">rectBoxForPage:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderImageForPage:withSize:clippedToRect:withAnnotations:options:">renderImageForPage:withSize:clippedToRect:withAnnotations:options:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderImageForPage:withSize:clippedToRect:withAnnotations:options:receipt:error:">renderImageForPage:withSize:clippedToRect:withAnnotations:options:receipt:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderPage:inContext:withSize:clippedToRect:withAnnotations:options:">renderPage:inContext:withSize:clippedToRect:withAnnotations:options:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderPage:inContext:withSize:clippedToRect:withAnnotations:options:error:">renderPage:inContext:withSize:clippedToRect:withAnnotations:options:error:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rotationForPage:">rotationForPage:</a></span></li>
 	
@@ -659,7 +661,7 @@ Uses PSPDFDocumentProviders dataRepresentationWithError. Errors are only logged.
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/fileNameForPage:">&ndash;&nbsp;fileNameForPage:</a></code>
-		<span class="tooltip"><p>Helper that gets a suggested fileName for a specific page.</p></span>
+		<span class="tooltip"><p>Helper that gets a suggested <a href="#//api/name/fileName">fileName</a> for a specific page.</p></span>
 	</span>
 	
 	
@@ -675,7 +677,7 @@ Uses PSPDFDocumentProviders dataRepresentationWithError. Errors are only logged.
 		<code><a href="#//api/name/files">&nbsp;&nbsp;files</a></code>
 		<span class="tooltip"><p>Array of NSString pdf files. If <a href="#//api/name/basePath">basePath</a> is set, this will be combined with the file name.
 If <a href="#//api/name/basePath">basePath</a> is not set, add the full path (as NSString) to the files.
-Note: it&rsquo;s currently not possible to add the file multiple times, this will fail to display correctly.`</p></span>
+Note: it&rsquo;s currently not possible to add the file multiple times, this will fail to display correctly.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -733,15 +735,14 @@ Use this to check if <a href="#//api/name/title">title</a> is loaded and access 
 		<span class="tooltip"><p>Access the PDF meta<a href="#//api/name/data">data</a> of the first PDF document.
 A PDF might not have any meta<a href="#//api/name/data">data</a> at all.
 See kPSPDFMetadataKeyTitle and the following defines for keys that might be set.
-It&rsquo;s possible that there are keys that don&rsquo;t have a PSPDFKit define.
-Loop the dictionary to find them all.</p></span>
+It&rsquo;s possible that there are keys that don&rsquo;t have a PSPDFKit define, loop the dictionary to find them all.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/UID">&nbsp;&nbsp;UID</a></code>
-		<span class="tooltip"><p>For caching, provide a <em>UNIQUE</em> uid here. (Or clear cache after content changes for same uid. Appending content is no problem)</p></span>
+		<span class="tooltip"><p>For caching, provide a <em>UNIQUE</em> UID here. (Or clear cache after content changes for same UID. Appending content is no problem)</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -980,10 +981,10 @@ Will <em>always</em> be appended by <a href="#//api/name/UID">UID</a>. Don&rsquo
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/cacheStrategy">&nbsp;&nbsp;cacheStrategy</a></code>
-		<span class="tooltip"><p>Overrides the global caching strategy in <a href="../Classes/PSPDFCache.html">PSPDFCache</a>.
+		<code><a href="#//api/name/diskCacheStrategy">&nbsp;&nbsp;diskCacheStrategy</a></code>
+		<span class="tooltip"><p>Overrides the global disk caching strategy in <a href="../Classes/PSPDFCache.html">PSPDFCache</a>.
 Defaults to -1; which equals to the setting in <a href="../Classes/PSPDFCache.html">PSPDFCache</a>.
-Set this to PSPDFCacheNothing for sensible/encrypted documents!</p></span>
+Set this to PSPDFDiskCacheNothing for sensible/encrypted documents!</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1012,7 +1013,7 @@ Set this to PSPDFCacheNothing for sensible/encrypted documents!</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/displayingPage">&nbsp;&nbsp;displayingPage</a></code>
-		<span class="tooltip"><p>Currently displayed page. Updated by <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>.</p></span>
+		<span class="tooltip"><p>Currently displayed page. Updated by <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>. Used to make the memory cache smarter.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1170,7 +1171,8 @@ Can be used to calculate from the document provider page to the PS<a href="#//ap
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/bookmarkParser">&nbsp;&nbsp;bookmarkParser</a></code>
-		<span class="tooltip"><p>Accesses the bookmark parser.</p></span>
+		<span class="tooltip"><p>Accesses the bookmark parser.
+Bookmarks are handled on document level, not on documentProvider.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1190,25 +1192,18 @@ If substituteWithPlainLabel is set to YES then this always returns a <a href="#/
 	</span>
 	
 	
-</li>
-						</ul>
-						
-						
-						<a title="PDF Page Rendering" name="task_PDF Page Rendering"></a>
-						<h3 class="subsubtitle task-title">PDF Page Rendering</h3>
-
-						<ul class="task-list">
-							<li>
+</li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/renderImageForPage:withSize:clippedToRect:withAnnotations:options:">&ndash;&nbsp;renderImageForPage:withSize:clippedToRect:withAnnotations:options:</a></code>
+		<code><a href="#//api/name/renderImageForPage:withSize:clippedToRect:withAnnotations:options:receipt:error:">&ndash;&nbsp;renderImageForPage:withSize:clippedToRect:withAnnotations:options:receipt:error:</a></code>
 		<span class="tooltip"><p>Renders the page or a part of it with default display settings into a new image.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/renderPage:inContext:withSize:clippedToRect:withAnnotations:options:">&ndash;&nbsp;renderPage:inContext:withSize:clippedToRect:withAnnotations:options:</a></code>
-		<span class="tooltip"><p>Draw a page into a specified context.</p></span>
+		<code><a href="#//api/name/renderPage:inContext:withSize:clippedToRect:withAnnotations:options:error:">&ndash;&nbsp;renderPage:inContext:withSize:clippedToRect:withAnnotations:options:error:</a></code>
+		<span class="tooltip"><p>Draw a page into a specified context.
+If for some reason renderPage: doesn&rsquo;t return a Render Receipt, an error occured.</p></span>
 	</span>
 	
 	
@@ -1220,6 +1215,14 @@ Options set here will override any options sent to renderImageForPage/renderPage
 This is the perfect place to change the background fill color, e.g. you would do this for a black document:
 renderOptions = @{kPSPDFBackgroundFillColor : [UIColor blackColor]};
 This fixes tiny white/gray lines at the borders of a document that else might show up.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/renderAnnotationTypes">&nbsp;&nbsp;renderAnnotationTypes</a></code>
+		<span class="tooltip"><p>Set what annotations should be rendered. Defaults to PSPDFAnnotationTypeAll.
+Set this to PSPDFAnnotationTypeLink|PSPDFAnnotationTypeHighlight for PSPDFKit v1 rendering style.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1382,7 +1385,7 @@ Older versions of PSPDFKit used kCGPDFCropBox by default.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>For caching, provide a <em>UNIQUE</em> uid here. (Or clear cache after content changes for same uid. Appending content is no problem)</p>
+		<p>For caching, provide a <em>UNIQUE</em> UID here. (Or clear cache after content changes for same UID. Appending content is no problem)</p>
 	</div>		
 	
 	
@@ -1701,7 +1704,8 @@ Defaults to white.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Accesses the bookmark parser.</p>
+		<p>Accesses the bookmark parser.
+Bookmarks are handled on document level, not on documentProvider.</p>
 	</div>		
 	
 	
@@ -1713,11 +1717,6 @@ Defaults to white.</p>
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Bookmarks are handled on document level, not on documentProvider.</p>
-	</div>
 	
 	
 	
@@ -1747,42 +1746,6 @@ Will <em>always</em> be appended by <a href="#//api/name/UID">UID</a>. Don&rsquo
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *cacheDirectory</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFDocument.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/cacheStrategy" title="cacheStrategy"></a>
-	<h3 class="subsubtitle method-title">cacheStrategy</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Overrides the global caching strategy in <a href="../Classes/PSPDFCache.html">PSPDFCache</a>.
-Defaults to -1; which equals to the setting in <a href="../Classes/PSPDFCache.html">PSPDFCache</a>.
-Set this to PSPDFCacheNothing for sensible/encrypted documents!</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) PSPDFCacheStrategy cacheStrategy</code></div>
 	
 	
 	
@@ -2020,13 +1983,49 @@ Written as the &ldquo;T&rdquo; (title/user) property of newly created annotation
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/diskCacheStrategy" title="diskCacheStrategy"></a>
+	<h3 class="subsubtitle method-title">diskCacheStrategy</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Overrides the global disk caching strategy in <a href="../Classes/PSPDFCache.html">PSPDFCache</a>.
+Defaults to -1; which equals to the setting in <a href="../Classes/PSPDFCache.html">PSPDFCache</a>.
+Set this to PSPDFDiskCacheNothing for sensible/encrypted documents!</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) PSPDFDiskCacheStrategy diskCacheStrategy</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFDocument.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/displayingPage" title="displayingPage"></a>
 	<h3 class="subsubtitle method-title">displayingPage</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Currently displayed page. Updated by <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>.</p>
+		<p>Currently displayed page. Updated by <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>. Used to make the memory cache smarter.</p>
 	</div>		
 	
 	
@@ -2243,7 +2242,7 @@ nil if the document was initialized with initWithData:</p>
 	<div class="method-subsection brief-description">
 		<p>Array of NSString pdf files. If <a href="#//api/name/basePath">basePath</a> is set, this will be combined with the file name.
 If <a href="#//api/name/basePath">basePath</a> is not set, add the full path (as NSString) to the files.
-Note: it&rsquo;s currently not possible to add the file multiple times, this will fail to display correctly.`</p>
+Note: it&rsquo;s currently not possible to add the file multiple times, this will fail to display correctly.</p>
 	</div>		
 	
 	
@@ -2350,8 +2349,7 @@ Note: only evaluates the first file if multiple <a href="#//api/name/files">file
 		<p>Access the PDF meta<a href="#//api/name/data">data</a> of the first PDF document.
 A PDF might not have any meta<a href="#//api/name/data">data</a> at all.
 See kPSPDFMetadataKeyTitle and the following defines for keys that might be set.
-It&rsquo;s possible that there are keys that don&rsquo;t have a PSPDFKit define.
-Loop the dictionary to find them all.</p>
+It&rsquo;s possible that there are keys that don&rsquo;t have a PSPDFKit define, loop the dictionary to find them all.</p>
 	</div>		
 	
 	
@@ -2544,6 +2542,41 @@ The password will be ignored if the document is not password protected.</p>
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *password</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFDocument.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/renderAnnotationTypes" title="renderAnnotationTypes"></a>
+	<h3 class="subsubtitle method-title">renderAnnotationTypes</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set what annotations should be rendered. Defaults to PSPDFAnnotationTypeAll.
+Set this to PSPDFAnnotationTypeLink|PSPDFAnnotationTypeHighlight for PSPDFKit v1 rendering style.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) PSPDFAnnotationType renderAnnotationTypes</code></div>
 	
 	
 	
@@ -3689,7 +3722,7 @@ Don&rsquo;t forget calling super on this!</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Helper that gets a suggested fileName for a specific page.</p>
+		<p>Helper that gets a suggested <a href="#//api/name/fileName">fileName</a> for a specific page.</p>
 	</div>		
 	
 	
@@ -4385,8 +4418,8 @@ maybe needs a pdf lock if not already cached.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/renderImageForPage:withSize:clippedToRect:withAnnotations:options:" title="renderImageForPage:withSize:clippedToRect:withAnnotations:options:"></a>
-	<h3 class="subsubtitle method-title">renderImageForPage:withSize:clippedToRect:withAnnotations:options:</h3>
+	<a name="//api/name/renderImageForPage:withSize:clippedToRect:withAnnotations:options:receipt:error:" title="renderImageForPage:withSize:clippedToRect:withAnnotations:options:receipt:error:"></a>
+	<h3 class="subsubtitle method-title">renderImageForPage:withSize:clippedToRect:withAnnotations:options:receipt:error:</h3>
 	
 	
 	
@@ -4395,7 +4428,7 @@ maybe needs a pdf lock if not already cached.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (UIImage *)renderImageForPage:(NSUInteger)<em>page</em> withSize:(CGSize)<em>fullSize</em> clippedToRect:(CGRect)<em>clipRect</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (UIImage *)renderImageForPage:(NSUInteger)<em>page</em> withSize:(CGSize)<em>fullSize</em> clippedToRect:(CGRect)<em>clipRect</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em> receipt:(PSPDFRenderReceipt **)<em>receipt</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	<div class="method-subsection arguments-section parameters">
@@ -4414,6 +4447,16 @@ maybe needs a pdf lock if not already cached.</p>
 		<dl class="argument-def parameter-def">
 			<dt><em>options</em></dt>
 			<dd><p>Dictionary with options that modify the render process (see <a href="../Classes/PSPDFPageRenderer.html">PSPDFPageRenderer</a>)</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>Returns an error object. (then image will be nil)</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>receit</em></dt>
+			<dd><p>Returns the render receipt for the render action.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -4449,17 +4492,18 @@ maybe needs a pdf lock if not already cached.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/renderPage:inContext:withSize:clippedToRect:withAnnotations:options:" title="renderPage:inContext:withSize:clippedToRect:withAnnotations:options:"></a>
-	<h3 class="subsubtitle method-title">renderPage:inContext:withSize:clippedToRect:withAnnotations:options:</h3>
+	<a name="//api/name/renderPage:inContext:withSize:clippedToRect:withAnnotations:options:error:" title="renderPage:inContext:withSize:clippedToRect:withAnnotations:options:error:"></a>
+	<h3 class="subsubtitle method-title">renderPage:inContext:withSize:clippedToRect:withAnnotations:options:error:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Draw a page into a specified context.</p>
+		<p>Draw a page into a specified context.
+If for some reason renderPage: doesn&rsquo;t return a Render Receipt, an error occured.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)renderPage:(NSUInteger)<em>page</em> inContext:(CGContextRef)<em>context</em> withSize:(CGSize)<em>size</em> clippedToRect:(CGRect)<em>clipRect</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (PSPDFRenderReceipt *)renderPage:(NSUInteger)<em>page</em> inContext:(CGContextRef)<em>context</em> withSize:(CGSize)<em>size</em> clippedToRect:(CGRect)<em>clipRect</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	
@@ -4691,7 +4735,7 @@ This doesn&rsquo;t harm if the document is already unlocked.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-09)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-22)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

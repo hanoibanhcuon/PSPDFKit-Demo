@@ -49,17 +49,9 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/freeWithPDFPageRef:">&nbsp;&nbsp;&nbsp;&nbsp;- freeWithPDFPageRef:</option>
+	<option value="//api/name/lock">&nbsp;&nbsp;&nbsp;&nbsp;- lock</option>
 	
-	<option value="//api/name/lockGlobal">&nbsp;&nbsp;&nbsp;&nbsp;- lockGlobal</option>
-	
-	<option value="//api/name/lockWithDocument:page:error:">&nbsp;&nbsp;&nbsp;&nbsp;- lockWithDocument:page:error:</option>
-	
-	<option value="//api/name/requestClearCacheAndWait:">&nbsp;&nbsp;&nbsp;&nbsp;- requestClearCacheAndWait:</option>
-	
-	<option value="//api/name/tryLockWithDocument:page:error:">&nbsp;&nbsp;&nbsp;&nbsp;- tryLockWithDocument:page:error:</option>
-	
-	<option value="//api/name/unlockGlobal">&nbsp;&nbsp;&nbsp;&nbsp;- unlockGlobal</option>
+	<option value="//api/name/unlock">&nbsp;&nbsp;&nbsp;&nbsp;- unlock</option>
 	
 	
 	
@@ -95,17 +87,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/freeWithPDFPageRef:">freeWithPDFPageRef:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/lock">lock</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/lockGlobal">lockGlobal</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/lockWithDocument:page:error:">lockWithDocument:page:error:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestClearCacheAndWait:">requestClearCacheAndWait:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tryLockWithDocument:page:error:">tryLockWithDocument:page:error:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unlockGlobal">unlockGlobal</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unlock">unlock</a></span></li>
 	
 </ul></li>
 
@@ -144,7 +128,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>PDF reading needs memory, which is a rare resource. So we lock access very carefully.</p>
+						<p>PDF reading needs memory, which is a rare resource. So we <a href="#//api/name/lock">lock</a> access very carefully.</p>
 					</div>
 					
 					
@@ -169,44 +153,16 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/tryLockWithDocument:page:error:">&ndash;&nbsp;tryLockWithDocument:page:error:</a></code>
-		<span class="tooltip"><p>TRY to lock with document and logical page number (starts at 0).
-returns nil if currently locked.</p></span>
+		<code><a href="#//api/name/lock">&ndash;&nbsp;lock</a></code>
+		<span class="tooltip"><p>Will lock if the internal counter is depleted.
+Counter value will depend on the device (cores, memory)</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/lockWithDocument:page:error:">&ndash;&nbsp;lockWithDocument:page:error:</a></code>
-		<span class="tooltip"><p>Lock with document and logical page number (starts at 0).</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/freeWithPDFPageRef:">&ndash;&nbsp;freeWithPDFPageRef:</a></code>
-		<span class="tooltip"><p>Free lock with CGPDFPageRef.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/requestClearCacheAndWait:">&ndash;&nbsp;requestClearCacheAndWait:</a></code>
-		<span class="tooltip"><p>Clears internal document/page cache. Usually no need to call externally, until you change a already displayed pdf file.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/lockGlobal">&ndash;&nbsp;lockGlobal</a></code>
-		<span class="tooltip"><p>Special lock for your application (e.g. unzip)</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/unlockGlobal">&ndash;&nbsp;unlockGlobal</a></code>
-		<span class="tooltip"><p>Special global unlock. Use with <a href="#//api/name/lockGlobal">lockGlobal</a>.</p></span>
+		<code><a href="#//api/name/unlock">&ndash;&nbsp;unlock</a></code>
+		<span class="tooltip"><p>Will un<a href="#//api/name/lock">lock</a> and potentially signal waiting threads on <a href="#//api/name/lock">lock</a>.</p></span>
 	</span>
 	
 	
@@ -268,17 +224,18 @@ returns nil if currently locked.</p></span>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/freeWithPDFPageRef:" title="freeWithPDFPageRef:"></a>
-	<h3 class="subsubtitle method-title">freeWithPDFPageRef:</h3>
+	<a name="//api/name/lock" title="lock"></a>
+	<h3 class="subsubtitle method-title">lock</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Free lock with CGPDFPageRef.</p>
+		<p>Will lock if the internal counter is depleted.
+Counter value will depend on the device (cores, memory)</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)freeWithPDFPageRef:(CGPDFPageRef)<em>pdfPage</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)lock</code></div>
 	
 	
 	
@@ -302,154 +259,17 @@ returns nil if currently locked.</p></span>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/lockGlobal" title="lockGlobal"></a>
-	<h3 class="subsubtitle method-title">lockGlobal</h3>
+	<a name="//api/name/unlock" title="unlock"></a>
+	<h3 class="subsubtitle method-title">unlock</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Special lock for your application (e.g. unzip)</p>
+		<p>Will un<a href="#//api/name/lock">lock</a> and potentially signal waiting threads on <a href="#//api/name/lock">lock</a>.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)lockGlobal</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFGlobalLock.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/lockWithDocument:page:error:" title="lockWithDocument:page:error:"></a>
-	<h3 class="subsubtitle method-title">lockWithDocument:page:error:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Lock with document and logical page number (starts at 0).</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (CGPDFPageRef)lockWithDocument:(PSPDFDocument *)<em>document</em> page:(NSUInteger)<em>page</em> error:(NSError **)<em>error</em></code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFGlobalLock.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/requestClearCacheAndWait:" title="requestClearCacheAndWait:"></a>
-	<h3 class="subsubtitle method-title">requestClearCacheAndWait:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Clears internal document/page cache. Usually no need to call externally, until you change a already displayed pdf file.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (void)requestClearCacheAndWait:(BOOL)<em>wait</em></code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFGlobalLock.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/tryLockWithDocument:page:error:" title="tryLockWithDocument:page:error:"></a>
-	<h3 class="subsubtitle method-title">tryLockWithDocument:page:error:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>TRY to lock with document and logical page number (starts at 0).
-returns nil if currently locked.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (CGPDFPageRef)tryLockWithDocument:(PSPDFDocument *)<em>document</em> page:(NSUInteger)<em>page</em> error:(NSError **)<em>error</em></code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFGlobalLock.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/unlockGlobal" title="unlockGlobal"></a>
-	<h3 class="subsubtitle method-title">unlockGlobal</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Special global unlock. Use with <a href="#//api/name/lockGlobal">lockGlobal</a>.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (void)unlockGlobal</code></div>
+	<div class="method-subsection method-declaration"><code>- (void)unlock</code></div>
 	
 	
 	
@@ -485,7 +305,7 @@ returns nil if currently locked.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-09)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-22)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

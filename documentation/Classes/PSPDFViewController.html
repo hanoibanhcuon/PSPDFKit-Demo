@@ -146,14 +146,6 @@
 	
 	<option value="//api/name/renderAnimationEnabled">&nbsp;&nbsp;&nbsp;&nbsp;renderAnimationEnabled</option>
 	
-	<option value="//api/name/renderAnnotationTypes">&nbsp;&nbsp;&nbsp;&nbsp;renderAnnotationTypes</option>
-	
-	<option value="//api/name/renderBackgroundColor">&nbsp;&nbsp;&nbsp;&nbsp;renderBackgroundColor</option>
-	
-	<option value="//api/name/renderContentOpacity">&nbsp;&nbsp;&nbsp;&nbsp;renderContentOpacity</option>
-	
-	<option value="//api/name/renderInvertEnabled">&nbsp;&nbsp;&nbsp;&nbsp;renderInvertEnabled</option>
-	
 	<option value="//api/name/renderingMode">&nbsp;&nbsp;&nbsp;&nbsp;renderingMode</option>
 	
 	<option value="//api/name/rightBarButtonItems">&nbsp;&nbsp;&nbsp;&nbsp;rightBarButtonItems</option>
@@ -189,6 +181,8 @@
 	<option value="//api/name/shouldTintAlertView">&nbsp;&nbsp;&nbsp;&nbsp;shouldTintAlertView</option>
 	
 	<option value="//api/name/shouldTintPopovers">&nbsp;&nbsp;&nbsp;&nbsp;shouldTintPopovers</option>
+	
+	<option value="//api/name/showAnnotationMenuAfterCreation">&nbsp;&nbsp;&nbsp;&nbsp;showAnnotationMenuAfterCreation</option>
 	
 	<option value="//api/name/smartZoomEnabled">&nbsp;&nbsp;&nbsp;&nbsp;smartZoomEnabled</option>
 	
@@ -329,8 +323,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_View State Restoration">View State Restoration</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Page Rendering">Page Rendering</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Properties">Properties</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_HUD Controls">HUD Controls</a></span></li>
@@ -463,14 +455,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderAnimationEnabled">renderAnimationEnabled</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderAnnotationTypes">renderAnnotationTypes</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderBackgroundColor">renderBackgroundColor</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderContentOpacity">renderContentOpacity</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderInvertEnabled">renderInvertEnabled</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderingMode">renderingMode</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rightBarButtonItems">rightBarButtonItems</a></span></li>
@@ -506,6 +490,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldTintAlertView">shouldTintAlertView</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldTintPopovers">shouldTintPopovers</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showAnnotationMenuAfterCreation">showAnnotationMenuAfterCreation</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smartZoomEnabled">smartZoomEnabled</a></span></li>
 	
@@ -818,46 +804,6 @@ PSPDFConvertPDFRectToViewRect() or -convertPDFPointToViewPoint of <a href="../Cl
 		<span class="tooltip"><p>Opens the <a href="../Classes/PSPDFSearchViewController.html">PSPDFSearchViewController</a> with the searchString.</p></span>
 	</span>
 	
-	
-</li>
-						</ul>
-						
-						
-						<a title="Page Rendering" name="task_Page Rendering"></a>
-						<h3 class="subsubtitle task-title">Page Rendering</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/renderContentOpacity">&nbsp;&nbsp;renderContentOpacity</a></code>
-		<span class="tooltip"><p>Change the PDF content opacity. Defaults to 1 (100%)</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/renderBackgroundColor">&nbsp;&nbsp;renderBackgroundColor</a></code>
-		<span class="tooltip"><p>Multiplies a color to the PDF background color.
-Does not change anything if the page color is black.
-This is useful to ease reading on mostly white documents. Defaults to [UIColor whiteColor]. (white)
-Can not be set to nil.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/renderInvertEnabled">&nbsp;&nbsp;renderInvertEnabled</a></code>
-		<span class="tooltip"><p>Inverts PDF rendering. Useful for people that need additional accessibility.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/renderAnnotationTypes">&nbsp;&nbsp;renderAnnotationTypes</a></code>
-		<span class="tooltip"><p>Set what annotations should be rendered. Defaults to PSPDFAnnotationTypeAll.
-Set this to PSPDFAnnotationTypeLink|PSPDFAnnotationTypeHighlight for PSPDFKit v1 rendering style.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
 	
 </li>
 						</ul>
@@ -1465,6 +1411,13 @@ Setting this will update <a href="#//api/name/statusBarStyle">statusBarStyle</a>
 		<span class="tooltip"><p>If set to YES, a long-tap that ends on a <a href="#//api/name/page">page</a> area that is not a text/image will show a new menu to create annotations. Defaults to YES.
 If set to NO, there&rsquo;s no menu displayed and the loupe is simply hidden. Only available in PSPDFKit Annotate.
 Menu can be intercepted and customized with the shouldShowMenuItems:atSuggestedTargetRect:forAnnotation:inRect:onPageView: <a href="#//api/name/delegate">delegate</a>. (when annotation is nil)</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showAnnotationMenuAfterCreation">&nbsp;&nbsp;showAnnotationMenuAfterCreation</a></code>
+		<span class="tooltip"><p>if YES, the annotation menu will be displayed after an annotation has been created. Defaults to NO.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -3641,146 +3594,6 @@ Defaults to YES. If NO, an attempt to display the <a href="#//api/name/document"
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/renderAnnotationTypes" title="renderAnnotationTypes"></a>
-	<h3 class="subsubtitle method-title">renderAnnotationTypes</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Set what annotations should be rendered. Defaults to PSPDFAnnotationTypeAll.
-Set this to PSPDFAnnotationTypeLink|PSPDFAnnotationTypeHighlight for PSPDFKit v1 rendering style.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) PSPDFAnnotationType renderAnnotationTypes</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/renderBackgroundColor" title="renderBackgroundColor"></a>
-	<h3 class="subsubtitle method-title">renderBackgroundColor</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Multiplies a color to the PDF background color.
-Does not change anything if the page color is black.
-This is useful to ease reading on mostly white documents. Defaults to [UIColor whiteColor]. (white)
-Can not be set to nil.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIColor *renderBackgroundColor</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/renderContentOpacity" title="renderContentOpacity"></a>
-	<h3 class="subsubtitle method-title">renderContentOpacity</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Change the PDF content opacity. Defaults to 1 (100%)</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat renderContentOpacity</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/renderInvertEnabled" title="renderInvertEnabled"></a>
-	<h3 class="subsubtitle method-title">renderInvertEnabled</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Inverts PDF rendering. Useful for people that need additional accessibility.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL renderInvertEnabled</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/renderingMode" title="renderingMode"></a>
 	<h3 class="subsubtitle method-title">renderingMode</h3>
 	
@@ -4386,6 +4199,40 @@ Set to NO to not restore the style. Defaults to YES.</p>
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL shouldTintPopovers</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showAnnotationMenuAfterCreation" title="showAnnotationMenuAfterCreation"></a>
+	<h3 class="subsubtitle method-title">showAnnotationMenuAfterCreation</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>if YES, the annotation menu will be displayed after an annotation has been created. Defaults to NO.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL showAnnotationMenuAfterCreation</code></div>
 	
 	
 	
@@ -6313,7 +6160,7 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-09)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-22)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
