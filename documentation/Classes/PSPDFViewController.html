@@ -337,9 +337,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Helpers">Helpers</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
 	
 </ul></li>
 
@@ -794,7 +794,7 @@ PSPDFConvertPDFRectToViewRect() or -convertPDFPointToViewPoint of <a href="../Cl
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setViewState:animated:">&ndash;&nbsp;setViewState:animated:</a></code>
-		<span class="tooltip"><p>Saves the view state into a serializable object, optionally animated. (page/zoom/position/HUD)</p></span>
+		<span class="tooltip"><p>Restores the view state, optionally animated. (page/zoom/position/HUD)</p></span>
 	</span>
 	
 	
@@ -1580,37 +1580,6 @@ If you get effects like the email controller not appearing at all, override this
 						</ul>
 						
 						
-						<a title="Internal Methods" name="task_Internal Methods"></a>
-						<h3 class="subsubtitle task-title">Internal Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
-		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
-Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
-		<span class="tooltip"><p>To handle external URLS.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
-		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
-Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-						
 						<a title="SubclassingHooks Methods" name="task_SubclassingHooks Methods"></a>
 						<h3 class="subsubtitle task-title">SubclassingHooks Methods</h3>
 
@@ -1692,6 +1661,37 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 	<span class="tooltip">
 		<code><a href="#//api/name/scrobbleBar">&nbsp;&nbsp;scrobbleBar</a></code>
 		<span class="tooltip"><p>Scrobble bar. Created lazily.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Internal Methods" name="task_Internal Methods"></a>
+						<h3 class="subsubtitle task-title">Internal Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
+		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
+Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
+		<span class="tooltip"><p>To handle external URLS.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
+		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
+Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -5807,7 +5807,7 @@ PSPDFConvertPDFRectToViewRect() or -convertPDFPointToViewPoint of <a href="../Cl
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Saves the view state into a serializable object, optionally animated. (page/zoom/position/HUD)</p>
+		<p>Restores the view state, optionally animated. (page/zoom/position/HUD)</p>
 	</div>		
 	
 	
@@ -6160,7 +6160,7 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-22)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-26)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

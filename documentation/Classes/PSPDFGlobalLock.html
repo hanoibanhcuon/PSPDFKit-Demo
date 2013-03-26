@@ -38,6 +38,11 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/allowedOpenDocumentRequests">&nbsp;&nbsp;&nbsp;&nbsp;allowedOpenDocumentRequests</option>
+	
+	
 	
 	
 	<option value="class_methods">Class Methods</option>
@@ -49,7 +54,15 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
+	<option value="//api/name/deregisterDocumentProvider:">&nbsp;&nbsp;&nbsp;&nbsp;- deregisterDocumentProvider:</option>
+	
+	<option value="//api/name/freeAllDocumentProviders">&nbsp;&nbsp;&nbsp;&nbsp;- freeAllDocumentProviders</option>
+	
+	<option value="//api/name/limitOpenDocumentProviders">&nbsp;&nbsp;&nbsp;&nbsp;- limitOpenDocumentProviders</option>
+	
 	<option value="//api/name/lock">&nbsp;&nbsp;&nbsp;&nbsp;- lock</option>
+	
+	<option value="//api/name/registerDocumentProvider:">&nbsp;&nbsp;&nbsp;&nbsp;- registerDocumentProvider:</option>
 	
 	<option value="//api/name/unlock">&nbsp;&nbsp;&nbsp;&nbsp;- unlock</option>
 	
@@ -69,11 +82,21 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Render Lock">Render Lock</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Document Provider Tracking">Document Provider Tracking</a></span></li>
+	
 </ul></li>
 
 
 
 
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/allowedOpenDocumentRequests">allowedOpenDocumentRequests</a></span></li>
+	
+</ul></li>
 
 
 
@@ -87,7 +110,15 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deregisterDocumentProvider:">deregisterDocumentProvider:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/freeAllDocumentProviders">freeAllDocumentProviders</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/limitOpenDocumentProviders">limitOpenDocumentProviders</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/lock">lock</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/registerDocumentProvider:">registerDocumentProvider:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unlock">unlock</a></span></li>
 	
@@ -141,7 +172,7 @@
 						
 						
 						
-						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
 
 						<ul class="task-list">
 							<li>
@@ -151,7 +182,15 @@
 	</span>
 	
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Render Lock" name="task_Render Lock"></a>
+						<h3 class="subsubtitle task-title">Render Lock</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/lock">&ndash;&nbsp;lock</a></code>
 		<span class="tooltip"><p>Will lock if the internal counter is depleted.
@@ -169,11 +208,94 @@ Counter value will depend on the device (cores, memory)</p></span>
 </li>
 						</ul>
 						
+						
+						<a title="Document Provider Tracking" name="task_Document Provider Tracking"></a>
+						<h3 class="subsubtitle task-title">Document Provider Tracking</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/registerDocumentProvider:">&ndash;&nbsp;registerDocumentProvider:</a></code>
+		<span class="tooltip"><p>Register any document provider that opens a CGPDFDocument reference.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deregisterDocumentProvider:">&ndash;&nbsp;deregisterDocumentProvider:</a></code>
+		<span class="tooltip"><p>Removes any document provider who closed the document reference.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/freeAllDocumentProviders">&ndash;&nbsp;freeAllDocumentProviders</a></code>
+		<span class="tooltip"><p>Requests a document close on all providers &ndash; might not be instant if they curently work with the reference.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/allowedOpenDocumentRequests">&nbsp;&nbsp;allowedOpenDocumentRequests</a></code>
+		<span class="tooltip"><p>Number of requests we allow to keep in memory for faster access.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/limitOpenDocumentProviders">&ndash;&nbsp;limitOpenDocumentProviders</a></code>
+		<span class="tooltip"><p>Sends close messages until we have the allowed number of document providers open.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
 					</div>
 					
 					
 					
 					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/allowedOpenDocumentRequests" title="allowedOpenDocumentRequests"></a>
+	<h3 class="subsubtitle method-title">allowedOpenDocumentRequests</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Number of requests we allow to keep in memory for faster access.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (atomic, assign) NSUInteger allowedOpenDocumentRequests</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFGlobalLock.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
 					
 					
@@ -224,6 +346,108 @@ Counter value will depend on the device (cores, memory)</p></span>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/deregisterDocumentProvider:" title="deregisterDocumentProvider:"></a>
+	<h3 class="subsubtitle method-title">deregisterDocumentProvider:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes any document provider who closed the document reference.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)deregisterDocumentProvider:(PSPDFDocumentProvider *)<em>documentProvider</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFGlobalLock.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/freeAllDocumentProviders" title="freeAllDocumentProviders"></a>
+	<h3 class="subsubtitle method-title">freeAllDocumentProviders</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Requests a document close on all providers &ndash; might not be instant if they curently work with the reference.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)freeAllDocumentProviders</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFGlobalLock.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/limitOpenDocumentProviders" title="limitOpenDocumentProviders"></a>
+	<h3 class="subsubtitle method-title">limitOpenDocumentProviders</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sends close messages until we have the allowed number of document providers open.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)limitOpenDocumentProviders</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFGlobalLock.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/lock" title="lock"></a>
 	<h3 class="subsubtitle method-title">lock</h3>
 	
@@ -236,6 +460,40 @@ Counter value will depend on the device (cores, memory)</p>
 	
 	
 	<div class="method-subsection method-declaration"><code>- (void)lock</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFGlobalLock.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/registerDocumentProvider:" title="registerDocumentProvider:"></a>
+	<h3 class="subsubtitle method-title">registerDocumentProvider:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Register any document provider that opens a CGPDFDocument reference.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)registerDocumentProvider:(PSPDFDocumentProvider *)<em>documentProvider</em></code></div>
 	
 	
 	
@@ -305,7 +563,7 @@ Counter value will depend on the device (cores, memory)</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-22)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-26)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
