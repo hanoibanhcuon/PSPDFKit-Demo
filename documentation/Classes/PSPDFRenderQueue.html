@@ -58,15 +58,19 @@
 	
 	<option value="//api/name/cancelAllJobs">&nbsp;&nbsp;&nbsp;&nbsp;- cancelAllJobs</option>
 	
+	<option value="//api/name/cancelJob:onlyIfQueued:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelJob:onlyIfQueued:</option>
+	
 	<option value="//api/name/cancelRenderingForDelegate:async:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelRenderingForDelegate:async:</option>
 	
-	<option value="//api/name/cancelRenderingForDocument:forPage:delegate:async:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelRenderingForDocument:forPage:delegate:async:</option>
+	<option value="//api/name/cancelRenderingForDocument:andPage:delegate:async:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelRenderingForDocument:andPage:delegate:async:</option>
 	
 	<option value="//api/name/hasRenderJobsForDelegate:">&nbsp;&nbsp;&nbsp;&nbsp;- hasRenderJobsForDelegate:</option>
 	
 	<option value="//api/name/numberOfQueuedJobs">&nbsp;&nbsp;&nbsp;&nbsp;- numberOfQueuedJobs</option>
 	
-	<option value="//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:">&nbsp;&nbsp;&nbsp;&nbsp;- requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</option>
+	<option value="//api/name/renderJobsForDocument:andPage:delegate:">&nbsp;&nbsp;&nbsp;&nbsp;- renderJobsForDocument:andPage:delegate:</option>
+	
+	<option value="//api/name/requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:">&nbsp;&nbsp;&nbsp;&nbsp;- requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</option>
 	
 	
 	
@@ -112,15 +116,19 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelAllJobs">cancelAllJobs</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelJob:onlyIfQueued:">cancelJob:onlyIfQueued:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelRenderingForDelegate:async:">cancelRenderingForDelegate:async:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelRenderingForDocument:forPage:delegate:async:">cancelRenderingForDocument:forPage:delegate:async:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelRenderingForDocument:andPage:delegate:async:">cancelRenderingForDocument:andPage:delegate:async:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasRenderJobsForDelegate:">hasRenderJobsForDelegate:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberOfQueuedJobs">numberOfQueuedJobs</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:">requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderJobsForDocument:andPage:delegate:">renderJobsForDocument:andPage:delegate:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:">requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</a></span></li>
 	
 </ul></li>
 
@@ -184,7 +192,7 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:">&ndash;&nbsp;requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</a></code>
+		<code><a href="#//api/name/requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:">&ndash;&nbsp;requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</a></code>
 		<span class="tooltip"><p>Requests a (freshly) rendered image from a specified document. Does not use the file cache.
 For options, see PSPDFPageRender.
 IF <code>queueAsNext</code> is set, the request will be processed ASAP, skipping the current queue.</p></span>
@@ -193,9 +201,23 @@ IF <code>queueAsNext</code> is set, the request will be processed ASAP, skipping
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/cancelRenderingForDocument:forPage:delegate:async:">&ndash;&nbsp;cancelRenderingForDocument:forPage:delegate:async:</a></code>
+		<code><a href="#//api/name/cancelRenderingForDocument:andPage:delegate:async:">&ndash;&nbsp;cancelRenderingForDocument:andPage:delegate:async:</a></code>
 		<span class="tooltip"><p>Cancel job.
 Use NSNotFound for <code>page</code> to delete all requests for the document.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/renderJobsForDocument:andPage:delegate:">&ndash;&nbsp;renderJobsForDocument:andPage:delegate:</a></code>
+		<span class="tooltip"><p>Return all queued jobs for the current <code>document</code> and <code>page</code>. (bound to <code>delegate</code>)</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelJob:onlyIfQueued:">&ndash;&nbsp;cancelJob:onlyIfQueued:</a></code>
+		<span class="tooltip"><p>Cancel a single render job.</p></span>
 	</span>
 	
 	
@@ -410,6 +432,45 @@ Set to PSPDFRenderQueuePriorityNormal to temporarily pause cache requests.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/cancelJob:onlyIfQueued:" title="cancelJob:onlyIfQueued:"></a>
+	<h3 class="subsubtitle method-title">cancelJob:onlyIfQueued:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Cancel a single render job.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (BOOL)cancelJob:(PSPDFRenderJob *)<em>job</em> onlyIfQueued:(BOOL)<em>onlyIfQueued</em></code></div>
+	
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>YES if cancellation was successful, NO if not found.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFRenderQueue.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/cancelRenderingForDelegate:async:" title="cancelRenderingForDelegate:async:"></a>
 	<h3 class="subsubtitle method-title">cancelRenderingForDelegate:async:</h3>
 	
@@ -445,8 +506,8 @@ Async will perform on the next thread. (don&rsquo;t use async in dealloc)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/cancelRenderingForDocument:forPage:delegate:async:" title="cancelRenderingForDocument:forPage:delegate:async:"></a>
-	<h3 class="subsubtitle method-title">cancelRenderingForDocument:forPage:delegate:async:</h3>
+	<a name="//api/name/cancelRenderingForDocument:andPage:delegate:async:" title="cancelRenderingForDocument:andPage:delegate:async:"></a>
+	<h3 class="subsubtitle method-title">cancelRenderingForDocument:andPage:delegate:async:</h3>
 	
 	
 	
@@ -456,7 +517,7 @@ Use NSNotFound for <code>page</code> to delete all requests for the document.</p
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)cancelRenderingForDocument:(PSPDFDocument *)<em>document</em> forPage:(NSUInteger)<em>page</em> delegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em> async:(BOOL)<em>async</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)cancelRenderingForDocument:(PSPDFDocument *)<em>document</em> andPage:(NSUInteger)<em>page</em> delegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em> async:(BOOL)<em>async</em></code></div>
 	
 	
 	
@@ -548,8 +609,42 @@ Use NSNotFound for <code>page</code> to delete all requests for the document.</p
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:" title="requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:"></a>
-	<h3 class="subsubtitle method-title">requestRenderedImageForDocument:forPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</h3>
+	<a name="//api/name/renderJobsForDocument:andPage:delegate:" title="renderJobsForDocument:andPage:delegate:"></a>
+	<h3 class="subsubtitle method-title">renderJobsForDocument:andPage:delegate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Return all queued jobs for the current <code>document</code> and <code>page</code>. (bound to <code>delegate</code>)</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSArray *)renderJobsForDocument:(PSPDFDocument *)<em>document</em> andPage:(NSUInteger)<em>page</em> delegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFRenderQueue.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:" title="requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:"></a>
+	<h3 class="subsubtitle method-title">requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</h3>
 	
 	
 	
@@ -560,7 +655,7 @@ IF <code>queueAsNext</code> is set, the request will be processed ASAP, skipping
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (PSPDFRenderJob *)requestRenderedImageForDocument:(PSPDFDocument *)<em>document</em> forPage:(NSUInteger)<em>page</em> withSize:(CGSize)<em>size</em> clippedToRect:(CGRect)<em>clipRect</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em> priority:(PSPDFRenderQueuePriority)<em>priority</em> queueAsNext:(BOOL)<em>queueAsNext</em> delegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (PSPDFRenderJob *)requestRenderedImageForDocument:(PSPDFDocument *)<em>document</em> andPage:(NSUInteger)<em>page</em> withSize:(CGSize)<em>size</em> clippedToRect:(CGRect)<em>clipRect</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em> priority:(PSPDFRenderQueuePriority)<em>priority</em> queueAsNext:(BOOL)<em>queueAsNext</em> delegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em></code></div>
 	
 	
 	
@@ -596,7 +691,7 @@ IF <code>queueAsNext</code> is set, the request will be processed ASAP, skipping
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-26)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-27)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

@@ -337,9 +337,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Helpers">Helpers</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
 	
 </ul></li>
 
@@ -655,7 +655,7 @@
 
 <p>For subclassing, please use <a href="#//api/name/overrideClassNames">overrideClassNames</a> to register your custom subclasses. (Cast the key class to (id) to hide the copy warning &ndash; classes can be copied without a problem)</p>
 
-<p>The best time for setting the properties is during initialization, in <a href="#//api/name/commonInitWithDocument:">commonInitWithDocument:</a>. Some properties require a call to <a href="#//api/name/reloadData">reloadData</a> if they are changed after the controller has been displayed. Do not set properties during a rotation phase or view appearance (e.g. viewWillAppear is bad, viewDidAppear is ok) since that could corrupt internal state. Instead use <a href="#//api/name/updateSettingsForRotation:">updateSettingsForRotation:</a>.</p>
+<p>The best time for setting the properties is during initialization, in <a href="#//api/name/commonInitWithDocument:">commonInitWithDocument:</a>. Some properties require a call to <a href="#//api/name/reloadData">reloadData</a> if they are changed after the controller has been displayed. Do not set properties during a rotation phase or view appearance (e.g. viewWillAppear is bad, viewDidAppear is ok) since that could corrupt internal state, instead use <a href="#//api/name/updateSettingsForRotation:">updateSettingsForRotation:</a>.</p>
 					</div>
 					
 					
@@ -940,8 +940,7 @@ Set to NO to not restore the style. Defaults to YES.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/linkAction">&nbsp;&nbsp;linkAction</a></code>
-		<span class="tooltip"><p>Set the default link action for pressing on PSPDFLinkAnnotations. Default is PSPDFLinkActionInlineBrowser.
-Note: if modal is set in the link, this property has no effect.</p></span>
+		<span class="tooltip"><p>Set the default link action for pressing on PSPDFLinkAnnotations. Default is PSPDFLinkActionInlineBrowser.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1264,8 +1263,7 @@ Reloads the view, unless it is set while rotation is active. Thus, one can custo
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pageCurlDirectionLeftToRight">&nbsp;&nbsp;pageCurlDirectionLeftToRight</a></code>
-		<span class="tooltip"><p>For Left-To-Right documents, this sets the pagecurl to go backwards. Defaults to NO.
-Note: doesn&rsquo;t re-order <a href="#//api/name/document">document</a> pages. There&rsquo;s currently no real LTR support in PSPDFKit.</p></span>
+		<span class="tooltip"><p>For Left-To-Right documents, this sets the pagecurl to go backwards. Defaults to NO.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1580,6 +1578,37 @@ If you get effects like the email controller not appearing at all, override this
 						</ul>
 						
 						
+						<a title="Internal Methods" name="task_Internal Methods"></a>
+						<h3 class="subsubtitle task-title">Internal Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
+		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
+Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
+		<span class="tooltip"><p>To handle external URLS.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
+		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
+Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
 						<a title="SubclassingHooks Methods" name="task_SubclassingHooks Methods"></a>
 						<h3 class="subsubtitle task-title">SubclassingHooks Methods</h3>
 
@@ -1661,37 +1690,6 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 	<span class="tooltip">
 		<code><a href="#//api/name/scrobbleBar">&nbsp;&nbsp;scrobbleBar</a></code>
 		<span class="tooltip"><p>Scrobble bar. Created lazily.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-						
-						<a title="Internal Methods" name="task_Internal Methods"></a>
-						<h3 class="subsubtitle task-title">Internal Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
-		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
-Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
-		<span class="tooltip"><p>To handle external URLS.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
-		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
-Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -2716,8 +2714,7 @@ Can be useful if you&rsquo;re doing custom drawing on the <a href="../Classes/PS
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Set the default link action for pressing on PSPDFLinkAnnotations. Default is PSPDFLinkActionInlineBrowser.
-Note: if modal is set in the link, this property has no effect.</p>
+		<p>Set the default link action for pressing on PSPDFLinkAnnotations. Default is PSPDFLinkActionInlineBrowser.</p>
 	</div>		
 	
 	
@@ -2729,6 +2726,11 @@ Note: if modal is set in the link, this property has no effect.</p>
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> If modal is set in the link, this property has no effect.</p></div>
+	</div>
 	
 	
 	
@@ -3181,8 +3183,7 @@ When changing padding; the touch area is still fully active.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>For Left-To-Right documents, this sets the pagecurl to go backwards. Defaults to NO.
-Note: doesn&rsquo;t re-order <a href="#//api/name/document">document</a> pages. There&rsquo;s currently no real LTR support in PSPDFKit.</p>
+		<p>For Left-To-Right documents, this sets the pagecurl to go backwards. Defaults to NO.</p>
 	</div>		
 	
 	
@@ -3194,6 +3195,11 @@ Note: doesn&rsquo;t re-order <a href="#//api/name/document">document</a> pages. 
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Doesn&rsquo;t re-order <a href="#//api/name/document">document</a> pages. There&rsquo;s currently no real LTR support in PSPDFKit.</p></div>
+	</div>
 	
 	
 	
@@ -6160,7 +6166,7 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-26)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-27)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

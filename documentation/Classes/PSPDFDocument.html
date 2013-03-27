@@ -622,8 +622,7 @@ Adding the same file multiple times is allowed.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pathForPage:">&ndash;&nbsp;pathForPage:</a></code>
-		<span class="tooltip"><p>Returns path for a single page (in case pages are split up). Page starts at 0.
-Note: uses fileIndexForPage and URLForFileIndex internally. Override those instead of pathForPage.</p></span>
+		<span class="tooltip"><p>Returns path for a single page (in case pages are split up). Page starts at 0.</p></span>
 	</span>
 	
 	
@@ -676,8 +675,7 @@ Uses PSPDFDocumentProviders dataRepresentationWithError. Errors are only logged.
 	<span class="tooltip">
 		<code><a href="#//api/name/files">&nbsp;&nbsp;files</a></code>
 		<span class="tooltip"><p>Array of NSString pdf files. If <a href="#//api/name/basePath">basePath</a> is set, this will be combined with the file name.
-If <a href="#//api/name/basePath">basePath</a> is not set, add the full path (as NSString) to the files.
-Note: it&rsquo;s currently not possible to add the file multiple times, this will fail to display correctly.</p></span>
+If <a href="#//api/name/basePath">basePath</a> is not set, add the full path (as NSString) to the files.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -700,8 +698,7 @@ This is a shortcut to the first entry of <a href="#//api/name/dataArray">dataArr
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/dataArray">&nbsp;&nbsp;dataArray</a></code>
-		<span class="tooltip"><p>A document can also have multiple NSData objects.
-Note: If writing annotations is enabled, the dataArray&rsquo;s content will change after a save.</p></span>
+		<span class="tooltip"><p>A document can also have multiple NSData objects.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -772,9 +769,7 @@ Set this to an empty set to disable annotation editing/creation.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/canEmbedAnnotations">&nbsp;&nbsp;canEmbedAnnotations</a></code>
-		<span class="tooltip"><p>Can PDF annotations be embedded?
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.
-This might block for a while since the PDF needs to be parsed to determine this.</p></span>
+		<span class="tooltip"><p>Can PDF annotations be embedded?</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -782,7 +777,7 @@ This might block for a while since the PDF needs to be parsed to determine this.
 	<span class="tooltip">
 		<code><a href="#//api/name/annotationSaveMode">&nbsp;&nbsp;annotationSaveMode</a></code>
 		<span class="tooltip"><p>Control if and where custom created PSPDFAnnotations are saved.
-Defaults to PSPDFAnnotationSaveModeEmbeddedWithExternalFileAsFallback.</p></span>
+Possible options are PSPDFAnnotationSaveModeDisabled, PSPDFAnnotationSaveModeExternalFile, PSPDFAnnotationSaveModeEmbedded and PSPDFAnnotationSaveModeEmbeddedWithExternalFileAsFallback. (default)</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -812,8 +807,7 @@ Written as the &ldquo;T&rdquo; (title/user) property of newly created annotation
 	<span class="tooltip">
 		<code><a href="#//api/name/annotationParser">&nbsp;&nbsp;annotationParser</a></code>
 		<span class="tooltip"><p>Link annotation parser class for current document.
-Can be overridden to use a subclassed annotation parser.
-Note: Only returns the parser for the first PDF file.</p></span>
+Can be overridden to use a subclassed annotation parser.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -835,7 +829,7 @@ This is a shortcut method that already compensates the page, replacing this code
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/allAnnotationsOfType:">&ndash;&nbsp;allAnnotationsOfType:</a></code>
-		<span class="tooltip"><p>Get all annotations of all <a href="#//api/name/documentProviders">documentProviders</a>.</p></span>
+		<span class="tooltip"><p>Returns all annotations of all <a href="#//api/name/documentProviders">documentProviders</a>.</p></span>
 	</span>
 	
 	
@@ -936,8 +930,7 @@ Older versions of PSPDFKit used kCGPDFCropBox by default.</p></span>
 	<span class="tooltip">
 		<code><a href="#//api/name/aspectRatioVariance">&ndash;&nbsp;aspectRatioVariance</a></code>
 		<span class="tooltip"><p>Scan the whole document and analyzes if the aspect ratio is equal or not.
-If this returns 0 or a very small value, it&rsquo;s perfectly suitable for pageCurl.
-Note: this might take a second on larger documents, as the page structure needs to be parsed.</p></span>
+If this returns 0 or a very small value, it&rsquo;s perfectly suitable for pageCurl.</p></span>
 	</span>
 	
 	
@@ -1013,7 +1006,8 @@ Set this to PSPDFDiskCacheNothing for sensible/encrypted documents!</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/displayingPage">&nbsp;&nbsp;displayingPage</a></code>
-		<span class="tooltip"><p>Currently displayed page. Updated by <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>. Used to make the memory cache smarter.</p></span>
+		<span class="tooltip"><p>Currently displayed page. Updated by <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>. Used to make the memory cache smarter.
+Set to NSNotFound if no controller displays the document.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1053,16 +1047,14 @@ Might need file operations to parse the document (slow)</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/allowsPrinting">&nbsp;&nbsp;allowsPrinting</a></code>
-		<span class="tooltip"><p>Do the PDF digital right allow for printing?
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p></span>
+		<span class="tooltip"><p>Do the PDF digital right allow for printing?</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/isEncrypted">&nbsp;&nbsp;isEncrypted</a></code>
-		<span class="tooltip"><p>Was the PDF file encrypted at file creation time?
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p></span>
+		<span class="tooltip"><p>Was the PDF file encrypted at file creation time?</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1070,25 +1062,21 @@ Note: only evaluates the first file if multiple <a href="#//api/name/files">file
 	<span class="tooltip">
 		<code><a href="#//api/name/encryptionFilter">&nbsp;&nbsp;encryptionFilter</a></code>
 		<span class="tooltip"><p>Name of the encryption filter used, e.g. Adobe.APS. If this is set, the document can&rsquo;t be unlocked.
-See &ldquo;Adobe LifeCycle DRM, <a href="http://www.adobe.com/products/livecycle/rightsmanagement">http://www.adobe.com/products/livecycle/rightsmanagement</a>
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p></span>
+See &ldquo;Adobe LifeCycle DRM, <a href="http://www.adobe.com/products/livecycle/rightsmanagement">http://www.adobe.com/products/livecycle/rightsmanagement</a></p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/isLocked">&nbsp;&nbsp;isLocked</a></code>
-		<span class="tooltip"><p>Has the PDF file been unlocked? (is it still locked?).
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p></span>
+		<span class="tooltip"><p>Has the PDF file been unlocked? (is it still locked?).</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/allowsCopying">&nbsp;&nbsp;allowsCopying</a></code>
-		<span class="tooltip"><p>A flag that indicates whether copying text is allowed
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.
-Can also be overridden manually.</p></span>
+		<span class="tooltip"><p>A flag that indicates whether copying text is allowed</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1259,8 +1247,7 @@ Returns objects in certain key dictionaries (kPSPDFGlyphs, etc)</p></span>
 		<span class="tooltip"><p>Use this to use specific subclasses instead of the default PSPDF* classes.
 e.g. add an entry of [PSPDFAnnotationParser class] / [MyCustomAnnotationParser class] as key/value pair to use the custom subclass. (MyCustomAnnotationParser must be a subclass of <a href="../Classes/PSPDFAnnotationParser.html">PSPDFAnnotationParser</a>)
 Throws an exception if the overriding class is not a subclass of the overridden class.
-Hide the warning &ldquo;Incompatible pointer types sending &lsquo;Class&rsquo; to parameter of type &lsquo;id<NSCopying>&rsquo; &rdquo; with casting class to (id). It&rsquo;s perfectly safe to do so. Alternatively you can also use NSStrings.
-Note: does not get serialized when saved to disk.</p></span>
+Hide the warning &ldquo;Incompatible pointer types sending &lsquo;Class&rsquo; to parameter of type &lsquo;id<NSCopying>&rsquo; &rdquo; with casting class to (id). It&rsquo;s perfectly safe to do so. Alternatively you can also use NSStrings.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1293,8 +1280,7 @@ Returns nil in the default implementation.</p></span>
 	<span class="tooltip">
 		<code><a href="#//api/name/pageContentForPage:">&ndash;&nbsp;pageContentForPage:</a></code>
 		<span class="tooltip"><p>Can be overridden to provide custom text. Defaults to nil.
-if this returns nil for a site, we&rsquo;ll try to extract text ourselves.
-Note: If you return text here, text highlighting cannot be used for this page.</p></span>
+if this returns nil for a site, we&rsquo;ll try to extract text ourselves.</p></span>
 	</span>
 	
 	
@@ -1419,9 +1405,7 @@ Older versions of PSPDFKit used kCGPDFCropBox by default.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>A flag that indicates whether copying text is allowed
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.
-Can also be overridden manually.</p>
+		<p>A flag that indicates whether copying text is allowed</p>
 	</div>		
 	
 	
@@ -1433,6 +1417,12 @@ Can also be overridden manually.</p>
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.
+Can also be overridden manually.</p></div>
+	</div>
 	
 	
 	
@@ -1455,8 +1445,7 @@ Can also be overridden manually.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Do the PDF digital right allow for printing?
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p>
+		<p>Do the PDF digital right allow for printing?</p>
 	</div>		
 	
 	
@@ -1468,6 +1457,11 @@ Note: only evaluates the first file if multiple <a href="#//api/name/files">file
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p></div>
+	</div>
 	
 	
 	
@@ -1491,8 +1485,7 @@ Note: only evaluates the first file if multiple <a href="#//api/name/files">file
 	
 	<div class="method-subsection brief-description">
 		<p>Link annotation parser class for current document.
-Can be overridden to use a subclassed annotation parser.
-Note: Only returns the parser for the first PDF file.</p>
+Can be overridden to use a subclassed annotation parser.</p>
 	</div>		
 	
 	
@@ -1504,6 +1497,11 @@ Note: Only returns the parser for the first PDF file.</p>
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Only returns the parser for the first PDF file.</p></div>
+	</div>
 	
 	
 	
@@ -1527,7 +1525,7 @@ Note: Only returns the parser for the first PDF file.</p>
 	
 	<div class="method-subsection brief-description">
 		<p>Control if and where custom created PSPDFAnnotations are saved.
-Defaults to PSPDFAnnotationSaveModeEmbeddedWithExternalFileAsFallback.</p>
+Possible options are PSPDFAnnotationSaveModeDisabled, PSPDFAnnotationSaveModeExternalFile, PSPDFAnnotationSaveModeEmbedded and PSPDFAnnotationSaveModeEmbeddedWithExternalFileAsFallback. (default)</p>
 	</div>		
 	
 	
@@ -1539,12 +1537,6 @@ Defaults to PSPDFAnnotationSaveModeEmbeddedWithExternalFileAsFallback.</p>
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Note: Currently PSPDFLinkAnnotations cannot be saved.
-(See <a href="#//api/name/editableAnnotationTypes">editableAnnotationTypes</a> for annotations that can be written)</p>
-	</div>
 	
 	
 	
@@ -1775,9 +1767,7 @@ Will <em>always</em> be appended by <a href="#//api/name/UID">UID</a>. Don&rsquo
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Can PDF annotations be embedded?
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.
-This might block for a while since the PDF needs to be parsed to determine this.</p>
+		<p>Can PDF annotations be embedded?</p>
 	</div>		
 	
 	
@@ -1789,6 +1779,12 @@ This might block for a while since the PDF needs to be parsed to determine this.
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.
+This might block for a while since the PDF needs to be parsed to determine this.</p></div>
+	</div>
 	
 	
 	
@@ -1846,8 +1842,7 @@ This is a shortcut to the first entry of <a href="#//api/name/dataArray">dataArr
 	
 	
 	<div class="method-subsection brief-description">
-		<p>A document can also have multiple NSData objects.
-Note: If writing annotations is enabled, the dataArray&rsquo;s content will change after a save.</p>
+		<p>A document can also have multiple NSData objects.</p>
 	</div>		
 	
 	
@@ -1859,6 +1854,11 @@ Note: If writing annotations is enabled, the dataArray&rsquo;s content will chan
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> If writing annotations is enabled, the dataArray&rsquo;s content will change after a save.</p></div>
+	</div>
 	
 	
 	
@@ -2025,7 +2025,8 @@ Set this to PSPDFDiskCacheNothing for sensible/encrypted documents!</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Currently displayed page. Updated by <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>. Used to make the memory cache smarter.</p>
+		<p>Currently displayed page. Updated by <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>. Used to make the memory cache smarter.
+Set to NSNotFound if no controller displays the document.</p>
 	</div>		
 	
 	
@@ -2170,8 +2171,7 @@ Set this to an empty set to disable annotation editing/creation.</p>
 	
 	<div class="method-subsection brief-description">
 		<p>Name of the encryption filter used, e.g. Adobe.APS. If this is set, the document can&rsquo;t be unlocked.
-See &ldquo;Adobe LifeCycle DRM, <a href="http://www.adobe.com/products/livecycle/rightsmanagement">http://www.adobe.com/products/livecycle/rightsmanagement</a>
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p>
+See &ldquo;Adobe LifeCycle DRM, <a href="http://www.adobe.com/products/livecycle/rightsmanagement">http://www.adobe.com/products/livecycle/rightsmanagement</a></p>
 	</div>		
 	
 	
@@ -2183,6 +2183,11 @@ Note: only evaluates the first file if multiple <a href="#//api/name/files">file
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p></div>
+	</div>
 	
 	
 	
@@ -2241,8 +2246,7 @@ nil if the document was initialized with initWithData:</p>
 	
 	<div class="method-subsection brief-description">
 		<p>Array of NSString pdf files. If <a href="#//api/name/basePath">basePath</a> is set, this will be combined with the file name.
-If <a href="#//api/name/basePath">basePath</a> is not set, add the full path (as NSString) to the files.
-Note: it&rsquo;s currently not possible to add the file multiple times, this will fail to display correctly.</p>
+If <a href="#//api/name/basePath">basePath</a> is not set, add the full path (as NSString) to the files.</p>
 	</div>		
 	
 	
@@ -2254,6 +2258,11 @@ Note: it&rsquo;s currently not possible to add the file multiple times, this wil
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> It&rsquo;s currently not possible to add the file multiple times, this will fail to display correctly.</p></div>
+	</div>
 	
 	
 	
@@ -2276,8 +2285,7 @@ Note: it&rsquo;s currently not possible to add the file multiple times, this wil
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Was the PDF file encrypted at file creation time?
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p>
+		<p>Was the PDF file encrypted at file creation time?</p>
 	</div>		
 	
 	
@@ -2289,6 +2297,11 @@ Note: only evaluates the first file if multiple <a href="#//api/name/files">file
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p></div>
+	</div>
 	
 	
 	
@@ -2311,8 +2324,7 @@ Note: only evaluates the first file if multiple <a href="#//api/name/files">file
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Has the PDF file been unlocked? (is it still locked?).
-Note: only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p>
+		<p>Has the PDF file been unlocked? (is it still locked?).</p>
 	</div>		
 	
 	
@@ -2324,6 +2336,11 @@ Note: only evaluates the first file if multiple <a href="#//api/name/files">file
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Only evaluates the first file if multiple <a href="#//api/name/files">files</a> are set.</p></div>
+	</div>
 	
 	
 	
@@ -2425,8 +2442,7 @@ It&rsquo;s possible that there are keys that don&rsquo;t have a PSPDFKit define,
 		<p>Use this to use specific subclasses instead of the default PSPDF* classes.
 e.g. add an entry of [PSPDFAnnotationParser class] / [MyCustomAnnotationParser class] as key/value pair to use the custom subclass. (MyCustomAnnotationParser must be a subclass of <a href="../Classes/PSPDFAnnotationParser.html">PSPDFAnnotationParser</a>)
 Throws an exception if the overriding class is not a subclass of the overridden class.
-Hide the warning &ldquo;Incompatible pointer types sending &lsquo;Class&rsquo; to parameter of type &lsquo;id<NSCopying>&rsquo; &rdquo; with casting class to (id). It&rsquo;s perfectly safe to do so. Alternatively you can also use NSStrings.
-Note: does not get serialized when saved to disk.</p>
+Hide the warning &ldquo;Incompatible pointer types sending &lsquo;Class&rsquo; to parameter of type &lsquo;id<NSCopying>&rsquo; &rdquo; with casting class to (id). It&rsquo;s perfectly safe to do so. Alternatively you can also use NSStrings.</p>
 	</div>		
 	
 	
@@ -2438,6 +2454,11 @@ Note: does not get serialized when saved to disk.</p>
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Does not get serialized when saved to disk.</p></div>
+	</div>
 	
 	
 	
@@ -3155,7 +3176,7 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Get all annotations of all <a href="#//api/name/documentProviders">documentProviders</a>.</p>
+		<p>Returns all annotations of all <a href="#//api/name/documentProviders">documentProviders</a>.</p>
 	</div>		
 	
 	
@@ -3167,6 +3188,11 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns dictionary NSNumber->NSArray. Only adds entries for a page if there are annotations.</p><div class="warning"><p><strong>Warning:</strong> This might take some time if the annotation cache hasn&rsquo;t been built yet.</p></div>
+	</div>
 	
 	
 	
@@ -3311,8 +3337,7 @@ Adding the same file multiple times is allowed.</p>
 	
 	<div class="method-subsection brief-description">
 		<p>Scan the whole document and analyzes if the aspect ratio is equal or not.
-If this returns 0 or a very small value, it&rsquo;s perfectly suitable for pageCurl.
-Note: this might take a second on larger documents, as the page structure needs to be parsed.</p>
+If this returns 0 or a very small value, it&rsquo;s perfectly suitable for pageCurl.</p>
 	</div>		
 	
 	
@@ -3324,6 +3349,11 @@ Note: this might take a second on larger documents, as the page structure needs 
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> this might take a second on larger documents, as the page structure needs to be parsed.</p></div>
+	</div>
 	
 	
 	
@@ -4110,8 +4140,7 @@ Returns objects in certain key dictionaries (kPSPDFGlyphs, etc)</p>
 	
 	<div class="method-subsection brief-description">
 		<p>Can be overridden to provide custom text. Defaults to nil.
-if this returns nil for a site, we&rsquo;ll try to extract text ourselves.
-Note: If you return text here, text highlighting cannot be used for this page.</p>
+if this returns nil for a site, we&rsquo;ll try to extract text ourselves.</p>
 	</div>		
 	
 	
@@ -4123,6 +4152,11 @@ Note: If you return text here, text highlighting cannot be used for this page.</
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> If you return text here, text highlighting cannot be used for this page.</p></div>
+	</div>
 	
 	
 	
@@ -4354,8 +4388,7 @@ Can be used to calculate from the document provider page to the PS<a href="#//ap
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns path for a single page (in case pages are split up). Page starts at 0.
-Note: uses fileIndexForPage and URLForFileIndex internally. Override those instead of pathForPage.</p>
+		<p>Returns path for a single page (in case pages are split up). Page starts at 0.</p>
 	</div>		
 	
 	
@@ -4367,6 +4400,11 @@ Note: uses fileIndexForPage and URLForFileIndex internally. Override those inste
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Uses fileIndexForPage and URLForFileIndex internally. Override those instead of pathForPage.</p></div>
+	</div>
 	
 	
 	
@@ -4428,14 +4466,14 @@ maybe needs a pdf lock if not already cached.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (UIImage *)renderImageForPage:(NSUInteger)<em>page</em> withSize:(CGSize)<em>fullSize</em> clippedToRect:(CGRect)<em>clipRect</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em> receipt:(PSPDFRenderReceipt **)<em>receipt</em> error:(NSError **)<em>error</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (UIImage *)renderImageForPage:(NSUInteger)<em>page</em> withSize:(CGSize)<em>size</em> clippedToRect:(CGRect)<em>clipRect</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em> receipt:(PSPDFRenderReceipt **)<em>receipt</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>fullSize</em></dt>
+			<dt><em>size</em></dt>
 			<dd><p>The size of the page, in pixels, if it was rendered without clipping</p></dd>
 		</dl>
 		
@@ -4461,7 +4499,7 @@ maybe needs a pdf lock if not already cached.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>clippedToRect</em></dt>
-			<dd><p>A rectangle, relative to fullSize, that specifies the area of the page that should be rendered. CGRectZero = automatic.</p></dd>
+			<dd><p>A rectangle, relative to size, that specifies the area of the page that should be rendered. CGRectZero = automatic.</p></dd>
 		</dl>
 		
 	</div>
@@ -4735,7 +4773,7 @@ This doesn&rsquo;t harm if the document is already unlocked.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-26)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-27)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

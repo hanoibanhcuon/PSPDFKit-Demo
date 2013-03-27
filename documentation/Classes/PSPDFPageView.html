@@ -209,9 +209,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_AnnotationViews Methods">AnnotationViews Methods</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_AnnotationMenu Methods">AnnotationMenu Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_AnnotationViews Methods">AnnotationViews Methods</a></span></li>
 	
 </ul></li>
 
@@ -390,7 +390,7 @@
 	<td class="specification-value">UIView</td>
 </tr><tr>
 	<td class="specification-title">Conforms to</td>
-	<td class="specification-value"><a href="../Protocols/PSPDFColorSelectionViewControllerDelegate.html">PSPDFColorSelectionViewControllerDelegate</a><br /><a href="../Protocols/PSPDFFontSelectorViewControllerDelegate.html">PSPDFFontSelectorViewControllerDelegate</a><br />PSPDFFontStyleViewControllerDelegate<br /><a href="../Protocols/PSPDFLongPressGestureRecognizerDelegate.html">PSPDFLongPressGestureRecognizerDelegate</a><br /><a href="../Protocols/PSPDFNoteAnnotationControllerDelegate.html">PSPDFNoteAnnotationControllerDelegate</a><br /><a href="../Protocols/PSPDFRenderDelegate.html">PSPDFRenderDelegate</a><br /><a href="../Protocols/PSPDFResizableViewDelegate.html">PSPDFResizableViewDelegate</a><br /><a href="../Protocols/PSPDFSignatureSelectorViewControllerDelegate.html">PSPDFSignatureSelectorViewControllerDelegate</a><br /><a href="../Protocols/PSPDFSignatureViewControllerDelegate.html">PSPDFSignatureViewControllerDelegate</a><br /><a href="../Protocols/PSPDFStampViewControllerDelegate.html">PSPDFStampViewControllerDelegate</a><br />UIImagePickerControllerDelegate<br />UIScrollViewDelegate<br />UITextFieldDelegate</td>
+	<td class="specification-value"><a href="../Protocols/PSPDFCacheDelegate.html">PSPDFCacheDelegate</a><br /><a href="../Protocols/PSPDFColorSelectionViewControllerDelegate.html">PSPDFColorSelectionViewControllerDelegate</a><br /><a href="../Protocols/PSPDFFontSelectorViewControllerDelegate.html">PSPDFFontSelectorViewControllerDelegate</a><br />PSPDFFontStyleViewControllerDelegate<br /><a href="../Protocols/PSPDFLongPressGestureRecognizerDelegate.html">PSPDFLongPressGestureRecognizerDelegate</a><br /><a href="../Protocols/PSPDFNoteAnnotationControllerDelegate.html">PSPDFNoteAnnotationControllerDelegate</a><br /><a href="../Protocols/PSPDFRenderDelegate.html">PSPDFRenderDelegate</a><br /><a href="../Protocols/PSPDFResizableViewDelegate.html">PSPDFResizableViewDelegate</a><br /><a href="../Protocols/PSPDFSignatureSelectorViewControllerDelegate.html">PSPDFSignatureSelectorViewControllerDelegate</a><br /><a href="../Protocols/PSPDFSignatureViewControllerDelegate.html">PSPDFSignatureViewControllerDelegate</a><br /><a href="../Protocols/PSPDFStampViewControllerDelegate.html">PSPDFStampViewControllerDelegate</a><br />UIImagePickerControllerDelegate<br />UIScrollViewDelegate<br />UITextFieldDelegate</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
 	<td class="specification-value">PSPDFPageView.h</td>
@@ -646,9 +646,7 @@ Usage e.g. NSDictionary *objects = [pageView objectsAtRect:rect options:@{kPSPDF
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/scrollView">&ndash;&nbsp;scrollView</a></code>
-		<span class="tooltip"><p>Access parent <a href="../Classes/PSPDFScrollView.html">PSPDFScrollView</a> if available. (zoom controller)
-Note: this only lets you access the scrollView if it&rsquo;s in the view hierarchy.
-If we use pageCurl mode, we have a global scrollView which can be accessed with <a href="#//api/name/pdfController">pdfController</a>.pagingScrollView</p></span>
+		<span class="tooltip"><p>Access parent <a href="../Classes/PSPDFScrollView.html">PSPDFScrollView</a> if available. (zoom controller)</p></span>
 	</span>
 	
 	
@@ -838,54 +836,6 @@ Return nil if you don&rsquo;t show the actionSheet, or return the object you&rsq
 						</ul>
 						
 						
-						<a title="AnnotationViews Methods" name="task_AnnotationViews Methods"></a>
-						<h3 class="subsubtitle task-title">AnnotationViews Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/selectedAnnotation">&nbsp;&nbsp;selectedAnnotation</a></code>
-		<span class="tooltip"><p>Currently selected annotation (selected by a tap; showing a menu)</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/singleTapped:">&ndash;&nbsp;singleTapped:</a></code>
-		<span class="tooltip"><p>Hit-testing for a single PSPDFPage. This is usually a relayed event from the parent PSPDFScrollView.
-Returns YES if the tap has been handled, else NO.</p>
-
-<p>All annotations for the current page are loaded and hit-tested (except PSPDFAnnotationTypeLink; which has already been handled by now)</p>
-
-<p>If an annotation has been hit (via [annotation hitTest:tapPoint]; convert the tapPoint in PDF coordinate space via convertViewPointToPDFPoint) then we call showMenuForAnnotation.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/longPress:">&ndash;&nbsp;longPress:</a></code>
-		<span class="tooltip"><p>Handle long press, potentially relay to subviews.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/addAnnotation:animated:">&ndash;&nbsp;addAnnotation:animated:</a></code>
-		<span class="tooltip"><p>In PSPDFKit, annotations are managed in two ways:</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/removeAnnotation:animated:">&ndash;&nbsp;removeAnnotation:animated:</a></code>
-		<span class="tooltip"><p>Remove an annotation from the view.</p></span>
-	</span>
-	
-	
-</li>
-						</ul>
-						
-						
 						<a title="AnnotationMenu Methods" name="task_AnnotationMenu Methods"></a>
 						<h3 class="subsubtitle task-title">AnnotationMenu Methods</h3>
 
@@ -975,6 +925,54 @@ This will usually call menuItemsForAnnotation to show a UIMenuController, except
 		<code><a href="#//api/name/passthroughViewsForPopoverController">&ndash;&nbsp;passthroughViewsForPopoverController</a></code>
 		<span class="tooltip"><p>Returns the passthrough views for the popover controllers (e.g. color picker).
 By default this is fairly aggressive and returns the pdfController/navController. If you dislike this behavior return nil to enforce the rule first touch after popover = no reaction. However the passthroughViews allow a faster editing of annotations.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="AnnotationViews Methods" name="task_AnnotationViews Methods"></a>
+						<h3 class="subsubtitle task-title">AnnotationViews Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/selectedAnnotation">&nbsp;&nbsp;selectedAnnotation</a></code>
+		<span class="tooltip"><p>Currently selected annotation (selected by a tap; showing a menu)</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/singleTapped:">&ndash;&nbsp;singleTapped:</a></code>
+		<span class="tooltip"><p>Hit-testing for a single PSPDFPage. This is usually a relayed event from the parent PSPDFScrollView.
+Returns YES if the tap has been handled, else NO.</p>
+
+<p>All annotations for the current page are loaded and hit-tested (except PSPDFAnnotationTypeLink; which has already been handled by now)</p>
+
+<p>If an annotation has been hit (via [annotation hitTest:tapPoint]; convert the tapPoint in PDF coordinate space via convertViewPointToPDFPoint) then we call showMenuForAnnotation.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/longPress:">&ndash;&nbsp;longPress:</a></code>
+		<span class="tooltip"><p>Handle long press, potentially relay to subviews.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addAnnotation:animated:">&ndash;&nbsp;addAnnotation:animated:</a></code>
+		<span class="tooltip"><p>In PSPDFKit, annotations are managed in two ways:</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeAnnotation:animated:">&ndash;&nbsp;removeAnnotation:animated:</a></code>
+		<span class="tooltip"><p>Remove an annotation from the view.</p></span>
 	</span>
 	
 	
@@ -2784,9 +2782,7 @@ See <a href="../Classes/PSPDFPageRenderer.html">PSPDFPageRenderer</a> for a list
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Access parent <a href="../Classes/PSPDFScrollView.html">PSPDFScrollView</a> if available. (zoom controller)
-Note: this only lets you access the scrollView if it&rsquo;s in the view hierarchy.
-If we use pageCurl mode, we have a global scrollView which can be accessed with <a href="#//api/name/pdfController">pdfController</a>.pagingScrollView</p>
+		<p>Access parent <a href="../Classes/PSPDFScrollView.html">PSPDFScrollView</a> if available. (zoom controller)</p>
 	</div>		
 	
 	
@@ -2798,6 +2794,12 @@ If we use pageCurl mode, we have a global scrollView which can be accessed with 
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> this only lets you access the scrollView if it&rsquo;s in the view hierarchy.
+If we use pageCurl mode, we have a global scrollView which can be accessed with <a href="#//api/name/pdfController">pdfController</a>.pagingScrollView</p></div>
+	</div>
 	
 	
 	
@@ -3354,7 +3356,7 @@ The point will have a variance of a few pixels to improve touch recognition.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-26)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-27)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
