@@ -27,6 +27,8 @@
 					<select id="jumpTo">
 	<option value="top">Jump To&#133;</option>
 	
+	<option value="overview">Overview</option>
+	
 	
 	
 	
@@ -34,6 +36,13 @@
 	
 	
 	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/availableControllerOptions">&nbsp;&nbsp;&nbsp;&nbsp;availableControllerOptions</option>
+	
+	<option value="//api/name/didCreateControllerBlock">&nbsp;&nbsp;&nbsp;&nbsp;didCreateControllerBlock</option>
 	
 	
 	
@@ -53,6 +62,8 @@
 		<nav id="tocContainer" class="isShowingTOC">
 			<ul id="toc" role="tree">
 				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
 
 
 
@@ -63,6 +74,14 @@
 
 
 
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/availableControllerOptions">availableControllerOptions</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/didCreateControllerBlock">didCreateControllerBlock</a></span></li>
+	
+</ul></li>
 
 
 
@@ -106,6 +125,14 @@
 					
 					
 					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The outline button shows a controller that can be a container for several different controllers, like outline, bookmark or annotation list.</p>
+					</div>
+					
+					
+					
 					
 					
 					<div class="section section-tasks">
@@ -126,6 +153,21 @@ Use this blocking check to make a synchronous check for the availability.</p></s
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/availableControllerOptions">&nbsp;&nbsp;availableControllerOptions</a></code>
+		<span class="tooltip"><p>Choose the controller type.
+Defaults to PSPDFOutlineControllerOptionOutline, PSPDFOutlineControllerOptionBookmarks, PSPDFOutlineControllerOptionAnnotations.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/didCreateControllerBlock">&nbsp;&nbsp;didCreateControllerBlock</a></code>
+		<span class="tooltip"><p>Called after a controller has been created. Set a block to allow custom modifications.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
 </li>
 						</ul>
 						
@@ -134,6 +176,86 @@ Use this blocking check to make a synchronous check for the availability.</p></s
 					
 					
 					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/availableControllerOptions" title="availableControllerOptions"></a>
+	<h3 class="subsubtitle method-title">availableControllerOptions</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Choose the controller type.
+Defaults to PSPDFOutlineControllerOptionOutline, PSPDFOutlineControllerOptionBookmarks, PSPDFOutlineControllerOptionAnnotations.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSOrderedSet *availableControllerOptions</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Change this before the controller is being displayed.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFOutlineBarButtonItem.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/didCreateControllerBlock" title="didCreateControllerBlock"></a>
+	<h3 class="subsubtitle method-title">didCreateControllerBlock</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called after a controller has been created. Set a block to allow custom modifications.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) void ( ^ ) ( UIViewController *controller , PSPDFOutlineControllerOption option ) didCreateControllerBlock</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFOutlineBarButtonItem.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
 					
 					
@@ -165,6 +287,11 @@ Use this blocking check to make a synchronous check for the availability.</p>
 	
 	
 	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> If <a href="#//api/name/availableControllerOptions"><code>availableControllerOptions</code></a> contains anything else than just <code>PSPDFOutlineControllerOptionOutline</code> this will always return YES.</p></div>
+	</div>
+	
 	
 	
 	
@@ -192,7 +319,7 @@ Use this blocking check to make a synchronous check for the availability.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-27)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-01)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

@@ -57,7 +57,7 @@
 	
 	<option value="//api/name/cacheInfoForImageWithUID:andPage:withSize:infoSelector:">&nbsp;&nbsp;&nbsp;&nbsp;- cacheInfoForImageWithUID:andPage:withSize:infoSelector:</option>
 	
-	<option value="//api/name/cancelWriteRequestsWithUID:andPage:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelWriteRequestsWithUID:andPage:</option>
+	<option value="//api/name/cancelWriteRequestsWithUID:andPage:infoArraySelector:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelWriteRequestsWithUID:andPage:infoArraySelector:</option>
 	
 	<option value="//api/name/clearCache">&nbsp;&nbsp;&nbsp;&nbsp;- clearCache</option>
 	
@@ -67,7 +67,7 @@
 	
 	<option value="//api/name/invalidateAllImagesWithUID:">&nbsp;&nbsp;&nbsp;&nbsp;- invalidateAllImagesWithUID:</option>
 	
-	<option value="//api/name/invalidateAllImagesWithUID:andPage:">&nbsp;&nbsp;&nbsp;&nbsp;- invalidateAllImagesWithUID:andPage:</option>
+	<option value="//api/name/invalidateAllImagesWithUID:andPage:infoArraySelector:">&nbsp;&nbsp;&nbsp;&nbsp;- invalidateAllImagesWithUID:andPage:infoArraySelector:</option>
 	
 	<option value="//api/name/scheduleLoadImageWithUID:andPage:withSize:infoSelector:decryptionHelper:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- scheduleLoadImageWithUID:andPage:withSize:infoSelector:decryptionHelper:completionBlock:</option>
 	
@@ -123,7 +123,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cacheInfoForImageWithUID:andPage:withSize:infoSelector:">cacheInfoForImageWithUID:andPage:withSize:infoSelector:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelWriteRequestsWithUID:andPage:">cancelWriteRequestsWithUID:andPage:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelWriteRequestsWithUID:andPage:infoArraySelector:">cancelWriteRequestsWithUID:andPage:infoArraySelector:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearCache">clearCache</a></span></li>
 	
@@ -133,7 +133,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/invalidateAllImagesWithUID:">invalidateAllImagesWithUID:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/invalidateAllImagesWithUID:andPage:">invalidateAllImagesWithUID:andPage:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/invalidateAllImagesWithUID:andPage:infoArraySelector:">invalidateAllImagesWithUID:andPage:infoArraySelector:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scheduleLoadImageWithUID:andPage:withSize:infoSelector:decryptionHelper:completionBlock:">scheduleLoadImageWithUID:andPage:withSize:infoSelector:decryptionHelper:completionBlock:</a></span></li>
 	
@@ -263,15 +263,15 @@ The <code>encryptionHelper</code> is mandatory.</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/invalidateAllImagesWithUID:andPage:">&ndash;&nbsp;invalidateAllImagesWithUID:andPage:</a></code>
-		<span class="tooltip"><p>Invalidate all images that match <code>UID</code> and <code>page</code>. Will also invalidate any open writes.</p></span>
+		<code><a href="#//api/name/invalidateAllImagesWithUID:andPage:infoArraySelector:">&ndash;&nbsp;invalidateAllImagesWithUID:andPage:infoArraySelector:</a></code>
+		<span class="tooltip"><p>Invalidate all images that match <code>UID</code> and <code>page</code> that match <code>infoSelector</code>. Will also invalidate any open writes.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/cancelWriteRequestsWithUID:andPage:">&ndash;&nbsp;cancelWriteRequestsWithUID:andPage:</a></code>
-		<span class="tooltip"><p>Invalidate cancel all write requests that match <code>UID</code> and <code>page</code>.
+		<code><a href="#//api/name/cancelWriteRequestsWithUID:andPage:infoArraySelector:">&ndash;&nbsp;cancelWriteRequestsWithUID:andPage:infoArraySelector:</a></code>
+		<span class="tooltip"><p>Invalidate cancel all write requests that match <code>UID</code> and <code>page</code> that match <code>infoSelector</code>.
 Use NSNotFound as a wildcard for all pages.</p></span>
 	</span>
 	
@@ -518,18 +518,18 @@ Use NSNotFound as a wildcard for all pages.</p></span>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/cancelWriteRequestsWithUID:andPage:" title="cancelWriteRequestsWithUID:andPage:"></a>
-	<h3 class="subsubtitle method-title">cancelWriteRequestsWithUID:andPage:</h3>
+	<a name="//api/name/cancelWriteRequestsWithUID:andPage:infoArraySelector:" title="cancelWriteRequestsWithUID:andPage:infoArraySelector:"></a>
+	<h3 class="subsubtitle method-title">cancelWriteRequestsWithUID:andPage:infoArraySelector:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Invalidate cancel all write requests that match <code>UID</code> and <code>page</code>.
+		<p>Invalidate cancel all write requests that match <code>UID</code> and <code>page</code> that match <code>infoSelector</code>.
 Use NSNotFound as a wildcard for all pages.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)cancelWriteRequestsWithUID:(NSString *)<em>UID</em> andPage:(NSUInteger)<em>page</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)cancelWriteRequestsWithUID:(NSString *)<em>UID</em> andPage:(NSUInteger)<em>page</em> infoArraySelector:(PSPDFCacheInfoArraySelector)<em>infoSelector</em></code></div>
 	
 	
 	
@@ -689,17 +689,17 @@ Use NSNotFound as a wildcard for all pages.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/invalidateAllImagesWithUID:andPage:" title="invalidateAllImagesWithUID:andPage:"></a>
-	<h3 class="subsubtitle method-title">invalidateAllImagesWithUID:andPage:</h3>
+	<a name="//api/name/invalidateAllImagesWithUID:andPage:infoArraySelector:" title="invalidateAllImagesWithUID:andPage:infoArraySelector:"></a>
+	<h3 class="subsubtitle method-title">invalidateAllImagesWithUID:andPage:infoArraySelector:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Invalidate all images that match <code>UID</code> and <code>page</code>. Will also invalidate any open writes.</p>
+		<p>Invalidate all images that match <code>UID</code> and <code>page</code> that match <code>infoSelector</code>. Will also invalidate any open writes.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (BOOL)invalidateAllImagesWithUID:(NSString *)<em>UID</em> andPage:(NSUInteger)<em>page</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)invalidateAllImagesWithUID:(NSString *)<em>UID</em> andPage:(NSUInteger)<em>page</em> infoArraySelector:(PSPDFCacheInfoArraySelector)<em>infoSelector</em></code></div>
 	
 	
 	
@@ -805,7 +805,7 @@ The <code>encryptionHelper</code> is mandatory.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-27)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-01)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

@@ -104,6 +104,8 @@
 	
 	<option value="//api/name/pageCount">&nbsp;&nbsp;&nbsp;&nbsp;pageCount</option>
 	
+	<option value="//api/name/pageLabelsEnabled">&nbsp;&nbsp;&nbsp;&nbsp;pageLabelsEnabled</option>
+	
 	<option value="//api/name/pageRange">&nbsp;&nbsp;&nbsp;&nbsp;pageRange</option>
 	
 	<option value="//api/name/password">&nbsp;&nbsp;&nbsp;&nbsp;password</option>
@@ -339,6 +341,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/overrideClassNames">overrideClassNames</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pageCount">pageCount</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pageLabelsEnabled">pageLabelsEnabled</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pageRange">pageRange</a></span></li>
 	
@@ -861,7 +865,8 @@ Might need file operations to parse the document (slow)</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pageRange">&nbsp;&nbsp;pageRange</a></code>
-		<span class="tooltip"><p>Limit pages to a certain page range.</p></span>
+		<span class="tooltip"><p>Limit pages to a certain page range.
+If document has a pageRange set, the visible pages can be limited to a certain subset. Defaults to nil.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1166,6 +1171,13 @@ Bookmarks are handled on document level, not on documentProvider.</p></span>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/pageLabelsEnabled">&nbsp;&nbsp;pageLabelsEnabled</a></code>
+		<span class="tooltip"><p>Set to NO to disable the custom PDF page labels and simply use page numbers. Defaults to YES.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/pageLabelForPage:substituteWithPlainLabel:">&ndash;&nbsp;pageLabelForPage:substituteWithPlainLabel:</a></code>
 		<span class="tooltip"><p>Page labels (NSString) for the current document.
 Might be nil if PageLabels isn&rsquo;t set in the PDF.
@@ -1256,8 +1268,7 @@ Hide the warning &ldquo;Incompatible pointer types sending &lsquo;Class&rsquo; t
 		<code><a href="#//api/name/didCreateDocumentProvider:">&ndash;&nbsp;didCreateDocumentProvider:</a></code>
 		<span class="tooltip"><p>Hook to modify/return a different document provider. Called each time a documentProvider is created (which is usually on first access, and cached afterwards)
 During PS<a href="#//api/name/PDFDocument">PDFDocument</a> lifetime, document providers might be created at any time, lazily, and destroyed when memory is low.
-This might be used to change the <a href="#//api/name/delegate">delegate</a> of the <a href="../Classes/PSPDFDocumentProvider.html">PSPDFDocumentProvider</a>.
-Don&rsquo;t forget calling super on this!</p></span>
+This might be used to change the <a href="#//api/name/delegate">delegate</a> of the <a href="../Classes/PSPDFDocumentProvider.html">PSPDFDocumentProvider</a>.</p></span>
 	</span>
 	
 	
@@ -2510,13 +2521,48 @@ Might need file operations to parse the document (slow)</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/pageLabelsEnabled" title="pageLabelsEnabled"></a>
+	<h3 class="subsubtitle method-title">pageLabelsEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set to NO to disable the custom PDF page labels and simply use page numbers. Defaults to YES.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL pageLabelsEnabled</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFDocument.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/pageRange" title="pageRange"></a>
 	<h3 class="subsubtitle method-title">pageRange</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Limit pages to a certain page range.</p>
+		<p>Limit pages to a certain page range.
+If document has a pageRange set, the visible pages can be limited to a certain subset. Defaults to nil.</p>
 	</div>		
 	
 	
@@ -2531,8 +2577,7 @@ Might need file operations to parse the document (slow)</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>If document has a pageRange set, the visible pages can be limited to a certain subset.
-Defaults to nil.</p><div class="warning"><p><strong>Warning:</strong> This is still an experimental feature and doesn&rsquo;t yet support multiple document sources. Changing this will require a reloadData on the <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> and also a <a href="#//api/name/clearCache">clearCache</a> for this document (as the cached pages will be different after changing this!)</p></div>
+		<div class="warning"><p><strong>Warning:</strong> Changing this will require a reloadData on the <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> and also a <a href="#//api/name/clearCache">clearCache</a> for this document (as the cached pages will be different after changing this!)</p></div>
 	</div>
 	
 	
@@ -3580,8 +3625,7 @@ To analyze the whole document, use [NSIndexSet indexSetWithIndexesInRange:NSMake
 	<div class="method-subsection brief-description">
 		<p>Hook to modify/return a different document provider. Called each time a documentProvider is created (which is usually on first access, and cached afterwards)
 During PS<a href="#//api/name/PDFDocument">PDFDocument</a> lifetime, document providers might be created at any time, lazily, and destroyed when memory is low.
-This might be used to change the <a href="#//api/name/delegate">delegate</a> of the <a href="../Classes/PSPDFDocumentProvider.html">PSPDFDocumentProvider</a>.
-Don&rsquo;t forget calling super on this!</p>
+This might be used to change the <a href="#//api/name/delegate">delegate</a> of the <a href="../Classes/PSPDFDocumentProvider.html">PSPDFDocumentProvider</a>.</p>
 	</div>		
 	
 	
@@ -4297,6 +4341,11 @@ If substituteWithPlainLabel is set to YES then this always returns a <a href="#/
 	
 	
 	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> If <a href="#//api/name/pageLabelsEnabled"><code>pageLabelsEnabled</code></a> is set to NO, then this method will either return nil or the plain label if <code>substite</code> is YES.</p></div>
+	</div>
+	
 	
 	
 	
@@ -4773,7 +4822,7 @@ This doesn&rsquo;t harm if the document is already unlocked.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-27)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-01)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

@@ -653,7 +653,7 @@ Usage e.g. NSDictionary *objects = [pageView objectsAtRect:rect options:@{kPSPDF
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/visibleAnnotationViews">&ndash;&nbsp;visibleAnnotationViews</a></code>
-		<span class="tooltip"><p>Returns an array of UIView <a href="../Protocols/PSPDFAnnotationView.html">PSPDFAnnotationView</a> objects currently in the view hierarchy.</p></span>
+		<span class="tooltip"><p>Returns an array of UIView <a href="../Protocols/PSPDFAnnotationViewProtocol.html">PSPDFAnnotationViewProtocol</a> objects currently in the view hierarchy.</p></span>
 	</span>
 	
 	
@@ -946,12 +946,8 @@ By default this is fairly aggressive and returns the pdfController/navController
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/singleTapped:">&ndash;&nbsp;singleTapped:</a></code>
-		<span class="tooltip"><p>Hit-testing for a single PSPDFPage. This is usually a relayed event from the parent PSPDFScrollView.
-Returns YES if the tap has been handled, else NO.</p>
-
-<p>All annotations for the current page are loaded and hit-tested (except PSPDFAnnotationTypeLink; which has already been handled by now)</p>
-
-<p>If an annotation has been hit (via [annotation hitTest:tapPoint]; convert the tapPoint in PDF coordinate space via convertViewPointToPDFPoint) then we call showMenuForAnnotation.</p></span>
+		<span class="tooltip"><p>Hit-testing for a single PSPDFPage. This is usually a relayed event from the parent <a href="../Classes/PSPDFScrollView.html">PSPDFScrollView</a>.
+Returns YES if the tap has been handled, else NO.</p></span>
 	</span>
 	
 	
@@ -1048,7 +1044,7 @@ Returns YES if the tap has been handled, else NO.</p>
 		<p>This is just a named subclass of UIView that will always track the frame of the PSPDFPageView.
 It&rsquo;s useful to coordinate this with your own subviews to get the zIndex right.</p><div class="warning"><p><strong>Warning:</strong> Most annotations will not be rendered as overlays or only when they are currently being selected.
 Rendering annotations within the pageView has several advantages including performance or view color multiplication (in case of highlight annotations)
-Do not manually add/remove views into the container view. Contents is managed. Views should respond to the <a href="../Protocols/PSPDFAnnotationView.html">PSPDFAnnotationView</a> protocol, especially the annotation method.</p></div>
+Do not manually add/remove views into the container view. Contents is managed. Views should respond to the <a href="../Protocols/PSPDFAnnotationViewProtocol.html">PSPDFAnnotationViewProtocol</a> protocol, especially the annotation method.</p></div>
 	</div>
 	
 	
@@ -1924,7 +1920,7 @@ Those annotations return YES on the isOverlay property.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (UIView&lt;PSPDFAnnotationView&gt; *)cachedAnnotationViewForAnnotation:(PSPDFAnnotation *)<em>annotation</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (UIView&lt;PSPDFAnnotationViewProtocol&gt; *)cachedAnnotationViewForAnnotation:(PSPDFAnnotation *)<em>annotation</em></code></div>
 	
 	
 	
@@ -3067,12 +3063,8 @@ This will usually call menuItemsForAnnotation to show a UIMenuController, except
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Hit-testing for a single PSPDFPage. This is usually a relayed event from the parent PSPDFScrollView.
+		<p>Hit-testing for a single PSPDFPage. This is usually a relayed event from the parent <a href="../Classes/PSPDFScrollView.html">PSPDFScrollView</a>.
 Returns YES if the tap has been handled, else NO.</p>
-
-<p>All annotations for the current page are loaded and hit-tested (except PSPDFAnnotationTypeLink; which has already been handled by now)</p>
-
-<p>If an annotation has been hit (via [annotation hitTest:tapPoint]; convert the tapPoint in PDF coordinate space via convertViewPointToPDFPoint) then we call showMenuForAnnotation.</p>
 	</div>		
 	
 	
@@ -3087,7 +3079,11 @@ Returns YES if the tap has been handled, else NO.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>If the tap didn&rsquo;t hit an annotation but we are showing a UIMenuController menu; we hide that and set the touch as processed.</p>
+		<p>All annotations for the current page are loaded and hit-tested (except PSPDFAnnotationTypeLink; which has already been handled by now)</p>
+
+<p>If an annotation has been hit (via [annotation hitTest:tapPoint]; convert the tapPoint in PDF coordinate space via convertViewPointToPDFPoint) then we call showMenuForAnnotation.</p>
+
+<p>If the tap didn&rsquo;t hit an annotation but we are showing a UIMenuController menu; we hide that and set the touch as processed.</p>
 	</div>
 	
 	
@@ -3184,7 +3180,7 @@ The point will have a variance of a few pixels to improve touch recognition.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)updatePageAnnotationView:(UIView&lt;PSPDFAnnotationView&gt; *)<em>annotationView</em> usingBlock:(void ( ^ ) ( PSPDFAnnotation *annotation ))<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)updatePageAnnotationView:(UIView&lt;PSPDFAnnotationViewProtocol&gt; *)<em>annotationView</em> usingBlock:(void ( ^ ) ( PSPDFAnnotation *annotation ))<em>block</em></code></div>
 	
 	
 	
@@ -3316,7 +3312,7 @@ The point will have a variance of a few pixels to improve touch recognition.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns an array of UIView <a href="../Protocols/PSPDFAnnotationView.html">PSPDFAnnotationView</a> objects currently in the view hierarchy.</p>
+		<p>Returns an array of UIView <a href="../Protocols/PSPDFAnnotationViewProtocol.html">PSPDFAnnotationViewProtocol</a> objects currently in the view hierarchy.</p>
 	</div>		
 	
 	
@@ -3356,7 +3352,7 @@ The point will have a variance of a few pixels to improve touch recognition.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-27)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-01)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

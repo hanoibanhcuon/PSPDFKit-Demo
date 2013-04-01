@@ -88,6 +88,8 @@
 	
 	<option value="//api/name/pageRotation">&nbsp;&nbsp;&nbsp;&nbsp;pageRotation</option>
 	
+	<option value="//api/name/points">&nbsp;&nbsp;&nbsp;&nbsp;points</option>
+	
 	<option value="//api/name/popupIndex">&nbsp;&nbsp;&nbsp;&nbsp;popupIndex</option>
 	
 	<option value="//api/name/previousIndexOnPage">&nbsp;&nbsp;&nbsp;&nbsp;previousIndexOnPage</option>
@@ -133,6 +135,8 @@
 	<option value="//api/name/hitTest:">&nbsp;&nbsp;&nbsp;&nbsp;- hitTest:</option>
 	
 	<option value="//api/name/imageWithSize:withOptions:">&nbsp;&nbsp;&nbsp;&nbsp;- imageWithSize:withOptions:</option>
+	
+	<option value="//api/name/infoDescription">&nbsp;&nbsp;&nbsp;&nbsp;- infoDescription</option>
 	
 	<option value="//api/name/initWithAnnotationDictionary:inAnnotsArray:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAnnotationDictionary:inAnnotsArray:</option>
 	
@@ -226,6 +230,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pageRotation">pageRotation</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/points">points</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/popupIndex">popupIndex</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/previousIndexOnPage">previousIndexOnPage</a></span></li>
@@ -273,6 +279,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hitTest:">hitTest:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageWithSize:withOptions:">imageWithSize:withOptions:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/infoDescription">infoDescription</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAnnotationDictionary:inAnnotsArray:">initWithAnnotationDictionary:inAnnotsArray:</a></span></li>
 	
@@ -599,6 +607,13 @@ Defaults to 0. Allowed values are between 0 and 360.</p></span>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/points">&nbsp;&nbsp;points</a></code>
+		<span class="tooltip"><p>Line, Polyline and Polygon annotations have points.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/user">&nbsp;&nbsp;user</a></code>
 		<span class="tooltip"><p>User (title) flag. (&ldquo;T&rdquo; property)</p></span>
 	</span>
@@ -662,6 +677,13 @@ After the annotation has been written to the file, this will be reset until the 
 Will be preserved within app sessions and copy, but NOT serialized to disk or within the PDF.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/infoDescription">&ndash;&nbsp;infoDescription</a></code>
+		<span class="tooltip"><p>Returns self.<a href="#//api/name/contents">contents</a> or something appropriate per annotation <a href="#//api/name/type">type</a> to describe the object.</p></span>
+	</span>
+	
 	
 </li><li>
 	<span class="tooltip">
@@ -1594,6 +1616,40 @@ If overlay is set to YES, you must also register the corresponding *annotationVi
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/points" title="points"></a>
+	<h3 class="subsubtitle method-title">points</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Line, Polyline and Polygon annotations have points.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSArray *points</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFAnnotation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/popupIndex" title="popupIndex"></a>
 	<h3 class="subsubtitle method-title">popupIndex</h3>
 	
@@ -2238,6 +2294,40 @@ Currently used to allow different annotation drawings during the annotation flat
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/infoDescription" title="infoDescription"></a>
+	<h3 class="subsubtitle method-title">infoDescription</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns self.<a href="#//api/name/contents">contents</a> or something appropriate per annotation <a href="#//api/name/type">type</a> to describe the object.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)infoDescription</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFAnnotation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/initWithAnnotationDictionary:inAnnotsArray:" title="initWithAnnotationDictionary:inAnnotsArray:"></a>
 	<h3 class="subsubtitle method-title">initWithAnnotationDictionary:inAnnotsArray:</h3>
 	
@@ -2558,7 +2648,7 @@ Per convention, the first returned object has to be an annotation objects, all o
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-27)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-01)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

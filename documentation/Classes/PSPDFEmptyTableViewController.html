@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>PSPDFAnnotationController Class Reference</title>
+		<title>PSPDFEmptyTableViewController Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">PSPDFAnnotationController Class Reference</h1>
+				<h1 class="hideInXcode">PSPDFEmptyTableViewController Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -26,6 +26,8 @@
 				<li id="jumpto_button" role="navigation">
 					<select id="jumpTo">
 	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
 	
 	
 	
@@ -36,19 +38,20 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/emptyLabel">&nbsp;&nbsp;&nbsp;&nbsp;emptyLabel</option>
+	
+	
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/clearCache">&nbsp;&nbsp;&nbsp;&nbsp;- clearCache</option>
+	<option value="//api/name/isEmpty">&nbsp;&nbsp;&nbsp;&nbsp;- isEmpty</option>
 	
-	<option value="//api/name/createAnnotationViewForAnnotation:frame:">&nbsp;&nbsp;&nbsp;&nbsp;- createAnnotationViewForAnnotation:frame:</option>
-	
-	<option value="//api/name/dequeueViewFromCacheForAnnotation:class:">&nbsp;&nbsp;&nbsp;&nbsp;- dequeueViewFromCacheForAnnotation:class:</option>
-	
-	<option value="//api/name/recycleAnnotationView:">&nbsp;&nbsp;&nbsp;&nbsp;- recycleAnnotationView:</option>
+	<option value="//api/name/updateEmptyStateAnimated:">&nbsp;&nbsp;&nbsp;&nbsp;- updateEmptyStateAnimated:</option>
 	
 	
 	
@@ -59,14 +62,12 @@
 		<nav id="tocContainer" class="isShowingTOC">
 			<ul id="toc" role="tree">
 				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
 
 
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Cache">Cache</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
 	
 </ul></li>
 
@@ -74,19 +75,21 @@
 
 
 
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/emptyLabel">emptyLabel</a></span></li>
+	
+</ul></li>
+
 
 
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearCache">clearCache</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isEmpty">isEmpty</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createAnnotationViewForAnnotation:frame:">createAnnotationViewForAnnotation:frame:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dequeueViewFromCacheForAnnotation:class:">dequeueViewFromCacheForAnnotation:class:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/recycleAnnotationView:">recycleAnnotationView:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateEmptyStateAnimated:">updateEmptyStateAnimated:</a></span></li>
 	
 </ul></li>
 
@@ -95,7 +98,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="PSPDFAnnotationController Class Reference" name="top"></a>
+				<a title="PSPDFEmptyTableViewController Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -104,7 +107,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">PSPDFAnnotationController Class Reference</h1>
+						<h1 class="title title-header">PSPDFEmptyTableViewController Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -112,13 +115,21 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value">NSObject</td>
+	<td class="specification-value">UITableViewController</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">PSPDFAnnotationController.h</td>
+	<td class="specification-value">PSPDFEmptyTableViewController.h</td>
 </tr>
 						</tbody></table></div>
 					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Shows a message when the controller is empty.</p>
+					</div>
 					
 					
 					
@@ -129,45 +140,28 @@
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						<a title="Cache" name="task_Cache"></a>
-						<h3 class="subsubtitle task-title">Cache</h3>
+						
+						
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/recycleAnnotationView:">&ndash;&nbsp;recycleAnnotationView:</a></code>
-		<span class="tooltip"><p>Enqueues a annotationView for later reuse</p></span>
+		<code><a href="#//api/name/emptyLabel">&nbsp;&nbsp;emptyLabel</a></code>
+		<span class="tooltip"><p>Empty label.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isEmpty">&ndash;&nbsp;isEmpty</a></code>
+		<span class="tooltip"><p>Implement in subclass.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/dequeueViewFromCacheForAnnotation:class:">&ndash;&nbsp;dequeueViewFromCacheForAnnotation:class:</a></code>
-		<span class="tooltip"><p>Dequeues an annotation view, if available from the cache.
-If there&rsquo;s a match with the current annotation, this view is picked in favor of a random cached view.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/clearCache">&ndash;&nbsp;clearCache</a></code>
-		<span class="tooltip"><p>Clears all cached objects.</p></span>
-	</span>
-	
-	
-</li>
-						</ul>
-						
-						
-						<a title="SubclassingHooks Methods" name="task_SubclassingHooks Methods"></a>
-						<h3 class="subsubtitle task-title">SubclassingHooks Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/createAnnotationViewForAnnotation:frame:">&ndash;&nbsp;createAnnotationViewForAnnotation:frame:</a></code>
-		<span class="tooltip"><p>Annotation factory for built-in types.
-Can be overridden, but usually reacting to the various annotation-delegate methods is enough.</p></span>
+		<code><a href="#//api/name/updateEmptyStateAnimated:">&ndash;&nbsp;updateEmptyStateAnimated:</a></code>
+		<span class="tooltip"><p>Call to check and update state.</p></span>
 	</span>
 	
 	
@@ -180,6 +174,46 @@ Can be overridden, but usually reacting to the various annotation-delegate metho
 					
 					
 					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/emptyLabel" title="emptyLabel"></a>
+	<h3 class="subsubtitle method-title">emptyLabel</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Empty label.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) UILabel *emptyLabel</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFEmptyTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
 					
 					
 					
@@ -189,17 +223,17 @@ Can be overridden, but usually reacting to the various annotation-delegate metho
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/clearCache" title="clearCache"></a>
-	<h3 class="subsubtitle method-title">clearCache</h3>
+	<a name="//api/name/isEmpty" title="isEmpty"></a>
+	<h3 class="subsubtitle method-title">isEmpty</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Clears all cached objects.</p>
+		<p>Implement in subclass.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)clearCache</code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)isEmpty</code></div>
 	
 	
 	
@@ -216,25 +250,24 @@ Can be overridden, but usually reacting to the various annotation-delegate metho
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFAnnotationController.h</code><br />
+		<code class="declared-in-ref">PSPDFEmptyTableViewController.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/createAnnotationViewForAnnotation:frame:" title="createAnnotationViewForAnnotation:frame:"></a>
-	<h3 class="subsubtitle method-title">createAnnotationViewForAnnotation:frame:</h3>
+	<a name="//api/name/updateEmptyStateAnimated:" title="updateEmptyStateAnimated:"></a>
+	<h3 class="subsubtitle method-title">updateEmptyStateAnimated:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Annotation factory for built-in types.
-Can be overridden, but usually reacting to the various annotation-delegate methods is enough.</p>
+		<p>Call to check and update state.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (UIView&lt;PSPDFAnnotationView&gt; *)createAnnotationViewForAnnotation:(PSPDFAnnotation *)<em>annotation</em> frame:(CGRect)<em>annotationRect</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)updateEmptyStateAnimated:(BOOL)<em>animated</em></code></div>
 	
 	
 	
@@ -242,6 +275,11 @@ Can be overridden, but usually reacting to the various annotation-delegate metho
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> <code>animated</code> currently is just a placeholder.</p></div>
+	</div>
 	
 	
 	
@@ -251,76 +289,7 @@ Can be overridden, but usually reacting to the various annotation-delegate metho
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFAnnotationController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/dequeueViewFromCacheForAnnotation:class:" title="dequeueViewFromCacheForAnnotation:class:"></a>
-	<h3 class="subsubtitle method-title">dequeueViewFromCacheForAnnotation:class:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Dequeues an annotation view, if available from the cache.
-If there&rsquo;s a match with the current annotation, this view is picked in favor of a random cached view.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (UIView&lt;PSPDFAnnotationView&gt; *)dequeueViewFromCacheForAnnotation:(PSPDFAnnotation *)<em>annotation</em> class:(Class)<em>annotationViewClass</em></code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFAnnotationController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/recycleAnnotationView:" title="recycleAnnotationView:"></a>
-	<h3 class="subsubtitle method-title">recycleAnnotationView:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Enqueues a annotationView for later reuse</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (void)recycleAnnotationView:(id&lt;PSPDFAnnotationView&gt;)<em>annotationView</em></code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFAnnotationController.h</code><br />
+		<code class="declared-in-ref">PSPDFEmptyTableViewController.h</code><br />
 	</div>				
 	
 	
@@ -339,7 +308,7 @@ If there&rsquo;s a match with the current annotation, this view is picked in fav
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-03-27)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-01)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
