@@ -51,9 +51,9 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/generatePDFFromDocument:pageRange:options:error:">&nbsp;&nbsp;&nbsp;&nbsp;- generatePDFFromDocument:pageRange:options:error:</option>
+	<option value="//api/name/generatePDFFromDocument:pageRange:options:progressBlock:error:">&nbsp;&nbsp;&nbsp;&nbsp;- generatePDFFromDocument:pageRange:options:progressBlock:error:</option>
 	
-	<option value="//api/name/generatePDFFromDocument:pageRange:outputFileURL:options:error:">&nbsp;&nbsp;&nbsp;&nbsp;- generatePDFFromDocument:pageRange:outputFileURL:options:error:</option>
+	<option value="//api/name/generatePDFFromDocument:pageRange:outputFileURL:options:progressBlock:error:">&nbsp;&nbsp;&nbsp;&nbsp;- generatePDFFromDocument:pageRange:outputFileURL:options:progressBlock:error:</option>
 	
 	<option value="//api/name/generatePDFFromHTMLString:outputFileURL:options:">&nbsp;&nbsp;&nbsp;&nbsp;- generatePDFFromHTMLString:outputFileURL:options:</option>
 	
@@ -95,9 +95,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/generatePDFFromDocument:pageRange:options:error:">generatePDFFromDocument:pageRange:options:error:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/generatePDFFromDocument:pageRange:options:progressBlock:error:">generatePDFFromDocument:pageRange:options:progressBlock:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/generatePDFFromDocument:pageRange:outputFileURL:options:error:">generatePDFFromDocument:pageRange:outputFileURL:options:error:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/generatePDFFromDocument:pageRange:outputFileURL:options:progressBlock:error:">generatePDFFromDocument:pageRange:outputFileURL:options:progressBlock:error:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/generatePDFFromHTMLString:outputFileURL:options:">generatePDFFromHTMLString:outputFileURL:options:</a></span></li>
 	
@@ -165,14 +165,14 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/generatePDFFromDocument:pageRange:outputFileURL:options:error:">&ndash;&nbsp;generatePDFFromDocument:pageRange:outputFileURL:options:error:</a></code>
+		<code><a href="#//api/name/generatePDFFromDocument:pageRange:outputFileURL:options:progressBlock:error:">&ndash;&nbsp;generatePDFFromDocument:pageRange:outputFileURL:options:progressBlock:error:</a></code>
 		<span class="tooltip"><p>Generate a PDF from a <a href="../Classes/PSPDFDocument.html">PSPDFDocument</a> into a file. &lsquo;options&rsquo; can also contain CGPDFContext options.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/generatePDFFromDocument:pageRange:options:error:">&ndash;&nbsp;generatePDFFromDocument:pageRange:options:error:</a></code>
+		<code><a href="#//api/name/generatePDFFromDocument:pageRange:options:progressBlock:error:">&ndash;&nbsp;generatePDFFromDocument:pageRange:options:progressBlock:error:</a></code>
 		<span class="tooltip"><p>Generate a PDF from a <a href="../Classes/PSPDFDocument.html">PSPDFDocument</a> into data. &lsquo;options&rsquo; can also contain CGPDFContext options.</p></span>
 	</span>
 	
@@ -292,8 +292,8 @@ Upon completion, the completionBlock will be called.</p></span>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/generatePDFFromDocument:pageRange:options:error:" title="generatePDFFromDocument:pageRange:options:error:"></a>
-	<h3 class="subsubtitle method-title">generatePDFFromDocument:pageRange:options:error:</h3>
+	<a name="//api/name/generatePDFFromDocument:pageRange:options:progressBlock:error:" title="generatePDFFromDocument:pageRange:options:progressBlock:error:"></a>
+	<h3 class="subsubtitle method-title">generatePDFFromDocument:pageRange:options:progressBlock:error:</h3>
 	
 	
 	
@@ -302,7 +302,7 @@ Upon completion, the completionBlock will be called.</p></span>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (NSData *)generatePDFFromDocument:(PSPDFDocument *)<em>document</em> pageRange:(NSIndexSet *)<em>pageRange</em> options:(NSDictionary *)<em>options</em> error:(NSError **)<em>error</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (NSData *)generatePDFFromDocument:(PSPDFDocument *)<em>document</em> pageRange:(NSIndexSet *)<em>pageRange</em> options:(NSDictionary *)<em>options</em> progressBlock:(PSPDFProgressBlock)<em>progressBlock</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	
@@ -331,8 +331,8 @@ Upon completion, the completionBlock will be called.</p></span>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/generatePDFFromDocument:pageRange:outputFileURL:options:error:" title="generatePDFFromDocument:pageRange:outputFileURL:options:error:"></a>
-	<h3 class="subsubtitle method-title">generatePDFFromDocument:pageRange:outputFileURL:options:error:</h3>
+	<a name="//api/name/generatePDFFromDocument:pageRange:outputFileURL:options:progressBlock:error:" title="generatePDFFromDocument:pageRange:outputFileURL:options:progressBlock:error:"></a>
+	<h3 class="subsubtitle method-title">generatePDFFromDocument:pageRange:outputFileURL:options:progressBlock:error:</h3>
 	
 	
 	
@@ -341,7 +341,7 @@ Upon completion, the completionBlock will be called.</p></span>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (BOOL)generatePDFFromDocument:(PSPDFDocument *)<em>document</em> pageRange:(NSIndexSet *)<em>pageRange</em> outputFileURL:(NSURL *)<em>fileURL</em> options:(NSDictionary *)<em>options</em> error:(NSError **)<em>error</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)generatePDFFromDocument:(PSPDFDocument *)<em>document</em> pageRange:(NSIndexSet *)<em>pageRange</em> outputFileURL:(NSURL *)<em>fileURL</em> options:(NSDictionary *)<em>options</em> progressBlock:(PSPDFProgressBlock)<em>progressBlock</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	
@@ -479,7 +479,7 @@ If this helper is used, operation will be automatically queued in <a href="#//ap
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-03)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

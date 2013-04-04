@@ -44,6 +44,8 @@
 	
 	<option value="//api/name/UID">&nbsp;&nbsp;&nbsp;&nbsp;UID</option>
 	
+	<option value="//api/name/allowedMenuActions">&nbsp;&nbsp;&nbsp;&nbsp;allowedMenuActions</option>
+	
 	<option value="//api/name/allowsCopying">&nbsp;&nbsp;&nbsp;&nbsp;allowsCopying</option>
 	
 	<option value="//api/name/allowsPrinting">&nbsp;&nbsp;&nbsp;&nbsp;allowsPrinting</option>
@@ -83,8 +85,6 @@
 	<option value="//api/name/displayingPage">&nbsp;&nbsp;&nbsp;&nbsp;displayingPage</option>
 	
 	<option value="//api/name/displayingPdfController">&nbsp;&nbsp;&nbsp;&nbsp;displayingPdfController</option>
-	
-	<option value="//api/name/documentProviders">&nbsp;&nbsp;&nbsp;&nbsp;documentProviders</option>
 	
 	<option value="//api/name/editableAnnotationTypes">&nbsp;&nbsp;&nbsp;&nbsp;editableAnnotationTypes</option>
 	
@@ -179,6 +179,8 @@
 	<option value="//api/name/documentParserForPage:">&nbsp;&nbsp;&nbsp;&nbsp;- documentParserForPage:</option>
 	
 	<option value="//api/name/documentProviderForPage:">&nbsp;&nbsp;&nbsp;&nbsp;- documentProviderForPage:</option>
+	
+	<option value="//api/name/documentProviders">&nbsp;&nbsp;&nbsp;&nbsp;- documentProviders</option>
 	
 	<option value="//api/name/ensureCacheDirectoryExistsWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- ensureCacheDirectoryExistsWithError:</option>
 	
@@ -284,6 +286,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/UID">UID</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/allowedMenuActions">allowedMenuActions</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/allowsCopying">allowsCopying</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/allowsPrinting">allowsPrinting</a></span></li>
@@ -323,8 +327,6 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayingPage">displayingPage</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayingPdfController">displayingPdfController</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentProviders">documentProviders</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/editableAnnotationTypes">editableAnnotationTypes</a></span></li>
 	
@@ -421,6 +423,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentParserForPage:">documentParserForPage:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentProviderForPage:">documentProviderForPage:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentProviders">documentProviders</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ensureCacheDirectoryExistsWithError:">ensureCacheDirectoryExistsWithError:</a></span></li>
 	
@@ -1055,13 +1059,6 @@ Might need file operations to parse the document (slow)</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/allowsPrinting">&nbsp;&nbsp;allowsPrinting</a></code>
-		<span class="tooltip"><p>Do the PDF digital right allow for printing?</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/isEncrypted">&nbsp;&nbsp;isEncrypted</a></code>
 		<span class="tooltip"><p>Was the PDF file encrypted at file creation time?</p></span>
 	</span>
@@ -1084,8 +1081,23 @@ See &ldquo;Adobe LifeCycle DRM, <a href="http://www.adobe.com/products/livecycle
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/allowsPrinting">&nbsp;&nbsp;allowsPrinting</a></code>
+		<span class="tooltip"><p>Do the PDF digital right allow for printing?</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/allowsCopying">&nbsp;&nbsp;allowsCopying</a></code>
 		<span class="tooltip"><p>A flag that indicates whether copying text is allowed</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/allowedMenuActions">&nbsp;&nbsp;allowedMenuActions</a></code>
+		<span class="tooltip"><p>Allows to customize other displayed menu actions when text is selected.
+Defaults to PSPDFDocumentMenuActionSearch|PSPDFDocumentMenuActionDefine|PSPDFDocumentMenuActionWikipediaAsFallback</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1145,10 +1157,10 @@ Can be used to calculate from the document provider page to the PS<a href="#//ap
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/documentProviders">&nbsp;&nbsp;documentProviders</a></code>
+		<code><a href="#//api/name/documentProviders">&ndash;&nbsp;documentProviders</a></code>
 		<span class="tooltip"><p>Get an array of documentProviders to easily manage documents with multiple <a href="#//api/name/files">files</a>.</p></span>
 	</span>
-	<span class="task-item-suffix">property</span>
+	
 	
 </li><li>
 	<span class="tooltip">
@@ -1405,6 +1417,46 @@ Older versions of PSPDFKit used kCGPDFCropBox by default.</p>
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFDocument.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/allowedMenuActions" title="allowedMenuActions"></a>
+	<h3 class="subsubtitle method-title">allowedMenuActions</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Allows to customize other displayed menu actions when text is selected.
+Defaults to PSPDFDocumentMenuActionSearch|PSPDFDocumentMenuActionDefine|PSPDFDocumentMenuActionWikipediaAsFallback</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) PSPDFDocumentMenuAction allowedMenuActions</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> This is no flag that gets parsed from the document (like <a href="#//api/name/allowsCopying">allowsCopying</a>) but seems to be  a better fit here than on the controller, since almost all menu related options are controller from the document.</p></div>
+	</div>
 	
 	
 	
@@ -1907,7 +1959,7 @@ This is a shortcut to the first entry of <a href="#//api/name/dataArray">dataArr
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NSArray *dataArray</code></div>
+	<div class="method-subsection method-declaration"><code>@property (atomic, copy, readonly) NSArray *dataArray</code></div>
 	
 	
 	
@@ -2126,40 +2178,6 @@ Set to NSNotFound if no controller displays the document.</p>
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (atomic, weak) PSPDFViewController *displayingPdfController</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFDocument.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/documentProviders" title="documentProviders"></a>
-	<h3 class="subsubtitle method-title">documentProviders</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Get an array of documentProviders to easily manage documents with multiple <a href="#//api/name/files">files</a>.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NSArray *documentProviders</code></div>
 	
 	
 	
@@ -3772,6 +3790,40 @@ This might be used to change the <a href="#//api/name/delegate">delegate</a> of 
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/documentProviders" title="documentProviders"></a>
+	<h3 class="subsubtitle method-title">documentProviders</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get an array of documentProviders to easily manage documents with multiple <a href="#//api/name/files">files</a>.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSArray *)documentProviders</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFDocument.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/ensureCacheDirectoryExistsWithError:" title="ensureCacheDirectoryExistsWithError:"></a>
 	<h3 class="subsubtitle method-title">ensureCacheDirectoryExistsWithError:</h3>
 	
@@ -4872,7 +4924,7 @@ This doesn&rsquo;t harm if the document is already unlocked.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-03)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

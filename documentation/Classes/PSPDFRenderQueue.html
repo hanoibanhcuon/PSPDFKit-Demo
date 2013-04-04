@@ -60,9 +60,9 @@
 	
 	<option value="//api/name/cancelJob:onlyIfQueued:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelJob:onlyIfQueued:</option>
 	
-	<option value="//api/name/cancelRenderingForDelegate:async:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelRenderingForDelegate:async:</option>
+	<option value="//api/name/cancelRenderingForDelegate:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelRenderingForDelegate:</option>
 	
-	<option value="//api/name/cancelRenderingForDocument:andPage:delegate:async:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelRenderingForDocument:andPage:delegate:async:</option>
+	<option value="//api/name/cancelRenderingForDocument:andPage:delegate:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelRenderingForDocument:andPage:delegate:</option>
 	
 	<option value="//api/name/hasRenderJobsForDelegate:">&nbsp;&nbsp;&nbsp;&nbsp;- hasRenderJobsForDelegate:</option>
 	
@@ -87,6 +87,12 @@
 
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Requests">Requests</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Cancellation">Cancellation</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Settings">Settings</a></span></li>
 	
 </ul></li>
 
@@ -118,9 +124,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelJob:onlyIfQueued:">cancelJob:onlyIfQueued:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelRenderingForDelegate:async:">cancelRenderingForDelegate:async:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelRenderingForDelegate:">cancelRenderingForDelegate:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelRenderingForDocument:andPage:delegate:async:">cancelRenderingForDocument:andPage:delegate:async:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelRenderingForDocument:andPage:delegate:">cancelRenderingForDocument:andPage:delegate:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasRenderJobsForDelegate:">hasRenderJobsForDelegate:</a></span></li>
 	
@@ -180,7 +186,7 @@
 						
 						
 						
-						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
 
 						<ul class="task-list">
 							<li>
@@ -190,7 +196,15 @@
 	</span>
 	
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Requests" name="task_Requests"></a>
+						<h3 class="subsubtitle task-title">Requests</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:">&ndash;&nbsp;requestRenderedImageForDocument:andPage:withSize:clippedToRect:withAnnotations:options:priority:queueAsNext:delegate:</a></code>
 		<span class="tooltip"><p>Requests a (freshly) rendered image from a specified document. Does not use the file cache.
@@ -201,38 +215,8 @@ IF <code>queueAsNext</code> is set, the request will be processed ASAP, skipping
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/cancelRenderingForDocument:andPage:delegate:async:">&ndash;&nbsp;cancelRenderingForDocument:andPage:delegate:async:</a></code>
-		<span class="tooltip"><p>Cancel job.
-Use NSNotFound for <code>page</code> to delete all requests for the document.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/renderJobsForDocument:andPage:delegate:">&ndash;&nbsp;renderJobsForDocument:andPage:delegate:</a></code>
 		<span class="tooltip"><p>Return all queued jobs for the current <code>document</code> and <code>page</code>. (bound to <code>delegate</code>)</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/cancelJob:onlyIfQueued:">&ndash;&nbsp;cancelJob:onlyIfQueued:</a></code>
-		<span class="tooltip"><p>Cancel a single render job.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/cancelAllJobs">&ndash;&nbsp;cancelAllJobs</a></code>
-		<span class="tooltip"><p>Cancel all queued and running jobs.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/cancelRenderingForDelegate:async:">&ndash;&nbsp;cancelRenderingForDelegate:async:</a></code>
-		<span class="tooltip"><p>Cancels all queued render-calls.
-Async will perform on the next thread. (don&rsquo;t use async in dealloc)</p></span>
 	</span>
 	
 	
@@ -250,7 +234,52 @@ Async will perform on the next thread. (don&rsquo;t use async in dealloc)</p></s
 	</span>
 	
 	
+</li>
+						</ul>
+						
+						
+						<a title="Cancellation" name="task_Cancellation"></a>
+						<h3 class="subsubtitle task-title">Cancellation</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelJob:onlyIfQueued:">&ndash;&nbsp;cancelJob:onlyIfQueued:</a></code>
+		<span class="tooltip"><p>Cancel a single render job.</p></span>
+	</span>
+	
+	
 </li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelAllJobs">&ndash;&nbsp;cancelAllJobs</a></code>
+		<span class="tooltip"><p>Cancel all queued and running jobs.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelRenderingForDocument:andPage:delegate:">&ndash;&nbsp;cancelRenderingForDocument:andPage:delegate:</a></code>
+		<span class="tooltip"><p>Cancel job.
+Use NSNotFound for <code>page</code> to delete all requests for the document.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelRenderingForDelegate:">&ndash;&nbsp;cancelRenderingForDelegate:</a></code>
+		<span class="tooltip"><p>Cancels all queued render-calls.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Settings" name="task_Settings"></a>
+						<h3 class="subsubtitle task-title">Settings</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/minimumProcessPriority">&nbsp;&nbsp;minimumProcessPriority</a></code>
 		<span class="tooltip"><p>The minimum priority for requests. Defaults to PSPDFRenderQueuePriorityVeryLow.
@@ -471,18 +500,17 @@ Set to PSPDFRenderQueuePriorityNormal to temporarily pause cache requests.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/cancelRenderingForDelegate:async:" title="cancelRenderingForDelegate:async:"></a>
-	<h3 class="subsubtitle method-title">cancelRenderingForDelegate:async:</h3>
+	<a name="//api/name/cancelRenderingForDelegate:" title="cancelRenderingForDelegate:"></a>
+	<h3 class="subsubtitle method-title">cancelRenderingForDelegate:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Cancels all queued render-calls.
-Async will perform on the next thread. (don&rsquo;t use async in dealloc)</p>
+		<p>Cancels all queued render-calls.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)cancelRenderingForDelegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em> async:(BOOL)<em>async</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)cancelRenderingForDelegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em></code></div>
 	
 	
 	
@@ -506,8 +534,8 @@ Async will perform on the next thread. (don&rsquo;t use async in dealloc)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/cancelRenderingForDocument:andPage:delegate:async:" title="cancelRenderingForDocument:andPage:delegate:async:"></a>
-	<h3 class="subsubtitle method-title">cancelRenderingForDocument:andPage:delegate:async:</h3>
+	<a name="//api/name/cancelRenderingForDocument:andPage:delegate:" title="cancelRenderingForDocument:andPage:delegate:"></a>
+	<h3 class="subsubtitle method-title">cancelRenderingForDocument:andPage:delegate:</h3>
 	
 	
 	
@@ -517,7 +545,7 @@ Use NSNotFound for <code>page</code> to delete all requests for the document.</p
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)cancelRenderingForDocument:(PSPDFDocument *)<em>document</em> andPage:(NSUInteger)<em>page</em> delegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em> async:(BOOL)<em>async</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)cancelRenderingForDocument:(PSPDFDocument *)<em>document</em> andPage:(NSUInteger)<em>page</em> delegate:(id&lt;PSPDFRenderDelegate&gt;)<em>delegate</em></code></div>
 	
 	
 	
@@ -691,7 +719,7 @@ IF <code>queueAsNext</code> is set, the request will be processed ASAP, skipping
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-03)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

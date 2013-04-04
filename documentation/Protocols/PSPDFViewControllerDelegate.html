@@ -116,6 +116,10 @@
 	
 	<option value="//api/name/pdfViewController:willUnloadPageView:">&nbsp;&nbsp;&nbsp;&nbsp;- pdfViewController:willUnloadPageView:</option>
 	
+	<option value="//api/name/pdfViewControllerDidDismiss:">&nbsp;&nbsp;&nbsp;&nbsp;- pdfViewControllerDidDismiss:</option>
+	
+	<option value="//api/name/pdfViewControllerWillDismiss:">&nbsp;&nbsp;&nbsp;&nbsp;- pdfViewControllerWillDismiss:</option>
+	
 	
 	
 </select>
@@ -231,6 +235,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pdfViewController:willShowHUD:">pdfViewController:willShowHUD:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pdfViewController:willUnloadPageView:">pdfViewController:willUnloadPageView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pdfViewControllerDidDismiss:">pdfViewControllerDidDismiss:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pdfViewControllerWillDismiss:">pdfViewControllerWillDismiss:</a></span></li>
 	
 </ul></li>
 
@@ -553,6 +561,21 @@ If you implement this delegate, the default UIToolbar-update-code will not be ca
 	<span class="tooltip">
 		<code><a href="#//api/name/pdfViewController:didChangeViewMode:">&ndash;&nbsp;pdfViewController:didChangeViewMode:</a></code>
 		<span class="tooltip"><p>Will be called when viewMode changes.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pdfViewControllerWillDismiss:">&ndash;&nbsp;pdfViewControllerWillDismiss:</a></code>
+		<span class="tooltip"><p>Called before the view controller will be dismissed (either by modal dismissal, or popping from the navigation stack).
+Called before PSPDFKit tries to save any dirty annotation.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pdfViewControllerDidDismiss:">&ndash;&nbsp;pdfViewControllerDidDismiss:</a></code>
+		<span class="tooltip"><p>Called after the view controller has been dismissed (either by modal dismissal, or popping from the navigation stack).</p></span>
 	</span>
 	
 	
@@ -1948,6 +1971,85 @@ PSPDFLinkAnnotations are handled differently (they don&rsquo;t have a selected s
 	
 </div>
 						
+						<div class="section-method">
+	<a name="//api/name/pdfViewControllerDidDismiss:" title="pdfViewControllerDidDismiss:"></a>
+	<h3 class="subsubtitle method-title">pdfViewControllerDidDismiss:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called after the view controller has been dismissed (either by modal dismissal, or popping from the navigation stack).</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)pdfViewControllerDidDismiss:(PSPDFViewController *)<em>pdfController</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> If you use child view containment then the dismissal might not be properly detected.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewControllerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pdfViewControllerWillDismiss:" title="pdfViewControllerWillDismiss:"></a>
+	<h3 class="subsubtitle method-title">pdfViewControllerWillDismiss:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called before the view controller will be dismissed (either by modal dismissal, or popping from the navigation stack).
+Called before PSPDFKit tries to save any dirty annotation.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)pdfViewControllerWillDismiss:(PSPDFViewController *)<em>pdfController</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> If you use child view containment then the dismissal might not be properly detected.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewControllerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
 					</div>
 					
 					
@@ -1961,7 +2063,7 @@ PSPDFLinkAnnotations are handled differently (they don&rsquo;t have a selected s
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-03)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
