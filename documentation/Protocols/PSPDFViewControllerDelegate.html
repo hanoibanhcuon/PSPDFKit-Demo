@@ -46,6 +46,10 @@
 	
 	<option value="//api/name/pdfViewController:annotationView:forAnnotation:onPageView:">&nbsp;&nbsp;&nbsp;&nbsp;- pdfViewController:annotationView:forAnnotation:onPageView:</option>
 	
+	<option value="//api/name/pdfViewController:didBeginPageDragging:">&nbsp;&nbsp;&nbsp;&nbsp;- pdfViewController:didBeginPageDragging:</option>
+	
+	<option value="//api/name/pdfViewController:didBeginPageZooming:">&nbsp;&nbsp;&nbsp;&nbsp;- pdfViewController:didBeginPageZooming:</option>
+	
 	<option value="//api/name/pdfViewController:didChangeViewMode:">&nbsp;&nbsp;&nbsp;&nbsp;- pdfViewController:didChangeViewMode:</option>
 	
 	<option value="//api/name/pdfViewController:didDisplayDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- pdfViewController:didDisplayDocument:</option>
@@ -165,6 +169,10 @@
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pdfViewController:annotationView:forAnnotation:onPageView:">pdfViewController:annotationView:forAnnotation:onPageView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pdfViewController:didBeginPageDragging:">pdfViewController:didBeginPageDragging:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pdfViewController:didBeginPageZooming:">pdfViewController:didBeginPageZooming:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pdfViewController:didChangeViewMode:">pdfViewController:didChangeViewMode:</a></span></li>
 	
@@ -362,8 +370,15 @@ This will also be called for broken documents. use document.isValid to check.</p
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/pdfViewController:didBeginPageDragging:">&ndash;&nbsp;pdfViewController:didBeginPageDragging:</a></code>
+		<span class="tooltip"><p>Will be called before the page rect has been dragged.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/pdfViewController:didEndPageDragging:willDecelerate:withVelocity:targetContentOffset:">&ndash;&nbsp;pdfViewController:didEndPageDragging:willDecelerate:withVelocity:targetContentOffset:</a></code>
-		<span class="tooltip"><p>Will be called after page rect has been dragged.
+		<span class="tooltip"><p>Will be called after the page rect has been dragged.
 If decelerate is YES, this will be called again after deceleration is complete.</p></span>
 	</span>
 	
@@ -371,14 +386,21 @@ If decelerate is YES, this will be called again after deceleration is complete.<
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pdfViewController:didEndPageScrollingAnimation:">&ndash;&nbsp;pdfViewController:didEndPageScrollingAnimation:</a></code>
-		<span class="tooltip"><p>Will be called after zooming animation is complete.</p></span>
+		<span class="tooltip"><p>Will be called after the zooming animation is complete.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pdfViewController:didBeginPageZooming:">&ndash;&nbsp;pdfViewController:didBeginPageZooming:</a></code>
+		<span class="tooltip"><p>Will be called before the zoom level starts to change.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pdfViewController:didEndPageZooming:atScale:">&ndash;&nbsp;pdfViewController:didEndPageZooming:atScale:</a></code>
-		<span class="tooltip"><p>Will be called after zoom level has been changed, either programmatically or manually.</p></span>
+		<span class="tooltip"><p>Will be called after the zoom level has been changed, either programmatically or manually.</p></span>
 	</span>
 	
 	
@@ -683,6 +705,74 @@ To get the targeted rect use [annotation rectForPageRect:pageView.bounds];</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/pdfViewController:didBeginPageDragging:" title="pdfViewController:didBeginPageDragging:"></a>
+	<h3 class="subsubtitle method-title">pdfViewController:didBeginPageDragging:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Will be called before the page rect has been dragged.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)pdfViewController:(PSPDFViewController *)<em>pdfController</em> didBeginPageDragging:(UIScrollView *)<em>scrollView</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewControllerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pdfViewController:didBeginPageZooming:" title="pdfViewController:didBeginPageZooming:"></a>
+	<h3 class="subsubtitle method-title">pdfViewController:didBeginPageZooming:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Will be called before the zoom level starts to change.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)pdfViewController:(PSPDFViewController *)<em>pdfController</em> didBeginPageZooming:(UIScrollView *)<em>scrollView</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewControllerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/pdfViewController:didChangeViewMode:" title="pdfViewController:didChangeViewMode:"></a>
 	<h3 class="subsubtitle method-title">pdfViewController:didChangeViewMode:</h3>
 	
@@ -764,7 +854,7 @@ This will also be called for broken documents. use document.isValid to check.</p
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Will be called after page rect has been dragged.
+		<p>Will be called after the page rect has been dragged.
 If decelerate is YES, this will be called again after deceleration is complete.</p>
 	</div>		
 	
@@ -782,9 +872,10 @@ If decelerate is YES, this will be called again after deceleration is complete.<
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>You can also change the target with changing targetContentOffset.</p>
 
-<p>This delegate combines following scrollViewDelegates:
+<p>This delegate combines the following scrollViewDelegates:
 &ndash; scrollViewWillEndDragging / scrollViewDidEndDragging
-&ndash; scrollViewDidEndDecelerating</p><div class="note"><p><strong>Note:</strong> Be careful to not dereference a nil pointer in targetContentOffset.</p></div>
+&ndash; scrollViewDidEndDecelerating</p><div class="note"><p><strong>Note:</strong> Be careful to not dereference a nil pointer in targetContentOffset.
+To get more delegate options, you can subclass <a href="../Classes/PSPDFScrollView.html">PSPDFScrollView</a> and use all available delegates of UIScrollViewDelegate (don&rsquo;t forget calling super)</p></div>
 	</div>
 	
 	
@@ -808,7 +899,7 @@ If decelerate is YES, this will be called again after deceleration is complete.<
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Will be called after zooming animation is complete.</p>
+		<p>Will be called after the zooming animation is complete.</p>
 	</div>		
 	
 	
@@ -842,7 +933,7 @@ If decelerate is YES, this will be called again after deceleration is complete.<
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Will be called after zoom level has been changed, either programmatically or manually.</p>
+		<p>Will be called after the zoom level has been changed, either programmatically or manually.</p>
 	</div>		
 	
 	
@@ -2063,7 +2154,7 @@ Called before PSPDFKit tries to save any dirty annotation.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-04)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-11)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

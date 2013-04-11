@@ -208,6 +208,8 @@
 	
 	<option value="//api/name/objectsAtPDFRect:page:options:">&nbsp;&nbsp;&nbsp;&nbsp;- objectsAtPDFRect:page:options:</option>
 	
+	<option value="//api/name/overrideClass:withClass:">&nbsp;&nbsp;&nbsp;&nbsp;- overrideClass:withClass:</option>
+	
 	<option value="//api/name/pageContentForPage:">&nbsp;&nbsp;&nbsp;&nbsp;- pageContentForPage:</option>
 	
 	<option value="//api/name/pageForPageLabel:partialMatching:">&nbsp;&nbsp;&nbsp;&nbsp;- pageForPageLabel:partialMatching:</option>
@@ -451,6 +453,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/objectsAtPDFPoint:page:options:">objectsAtPDFPoint:page:options:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/objectsAtPDFRect:page:options:">objectsAtPDFRect:page:options:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/overrideClass:withClass:">overrideClass:withClass:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pageContentForPage:">pageContentForPage:</a></span></li>
 	
@@ -1278,11 +1282,18 @@ Returns objects in certain key dictionaries (kPSPDFGlyphs, etc)</p></span>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/overrideClassNames">&nbsp;&nbsp;overrideClassNames</a></code>
+		<code><a href="#//api/name/overrideClass:withClass:">&ndash;&nbsp;overrideClass:withClass:</a></code>
 		<span class="tooltip"><p>Use this to use specific subclasses instead of the default PSPDF* classes.
-e.g. add an entry of [PSPDFAnnotationParser class] / [MyCustomAnnotationParser class] as key/value pair to use the custom subclass. (MyCustomAnnotationParser must be a subclass of <a href="../Classes/PSPDFAnnotationParser.html">PSPDFAnnotationParser</a>)
-Throws an exception if the overriding class is not a subclass of the overridden class.
-Hide the warning &ldquo;Incompatible pointer types sending &lsquo;Class&rsquo; to parameter of type &lsquo;id<NSCopying>&rsquo; &rdquo; with casting class to (id). It&rsquo;s perfectly safe to do so. Alternatively you can also use NSStrings.</p></span>
+e.g. add an entry of [PSPDFAnnotationParser class] / [MyCustomAnnotationParser class] to use the custom subclass.
+(MyCustomAnnotationParser must be a subclass of <a href="../Classes/PSPDFAnnotationParser.html">PSPDFAnnotationParser</a>)
+@throws an exception if the overriding class is not a subclass of the overridden class.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/overrideClassNames">&nbsp;&nbsp;overrideClassNames</a></code>
+		<span class="tooltip"><p>Dictionary with key/value pairs of classes to override.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -2518,10 +2529,7 @@ It&rsquo;s possible that there are keys that don&rsquo;t have a PSPDFKit define,
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Use this to use specific subclasses instead of the default PSPDF* classes.
-e.g. add an entry of [PSPDFAnnotationParser class] / [MyCustomAnnotationParser class] as key/value pair to use the custom subclass. (MyCustomAnnotationParser must be a subclass of <a href="../Classes/PSPDFAnnotationParser.html">PSPDFAnnotationParser</a>)
-Throws an exception if the overriding class is not a subclass of the overridden class.
-Hide the warning &ldquo;Incompatible pointer types sending &lsquo;Class&rsquo; to parameter of type &lsquo;id<NSCopying>&rsquo; &rdquo; with casting class to (id). It&rsquo;s perfectly safe to do so. Alternatively you can also use NSStrings.</p>
+		<p>Dictionary with key/value pairs of classes to override.</p>
 	</div>		
 	
 	
@@ -2533,11 +2541,6 @@ Hide the warning &ldquo;Incompatible pointer types sending &lsquo;Class&rsquo; t
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<div class="note"><p><strong>Note:</strong> Does not get serialized when saved to disk.</p></div>
-	</div>
 	
 	
 	
@@ -4279,6 +4282,48 @@ Returns objects in certain key dictionaries (kPSPDFGlyphs, etc)</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/overrideClass:withClass:" title="overrideClass:withClass:"></a>
+	<h3 class="subsubtitle method-title">overrideClass:withClass:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Use this to use specific subclasses instead of the default PSPDF* classes.
+e.g. add an entry of [PSPDFAnnotationParser class] / [MyCustomAnnotationParser class] to use the custom subclass.
+(MyCustomAnnotationParser must be a subclass of <a href="../Classes/PSPDFAnnotationParser.html">PSPDFAnnotationParser</a>)
+@throws an exception if the overriding class is not a subclass of the overridden class.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)overrideClass:(Class)<em>builtinClass</em> withClass:(Class)<em>subclass</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> Does not get serialized when saved to disk. Only set from the main thread, before you first use the object.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFDocument.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/pageContentForPage:" title="pageContentForPage:"></a>
 	<h3 class="subsubtitle method-title">pageContentForPage:</h3>
 	
@@ -4924,7 +4969,7 @@ This doesn&rsquo;t harm if the document is already unlocked.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-04)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-11)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
