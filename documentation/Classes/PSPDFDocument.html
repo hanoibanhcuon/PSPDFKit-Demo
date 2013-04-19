@@ -131,19 +131,19 @@
 	
 	<option value="class_methods">Class Methods</option>
 	
-	<option value="//api/name/PDFDocument">&nbsp;&nbsp;&nbsp;&nbsp;+ PDFDocument</option>
+	<option value="//api/name/document">&nbsp;&nbsp;&nbsp;&nbsp;+ document</option>
 	
-	<option value="//api/name/PDFDocumentWithBaseURL:fileTemplate:startPage:endPage:">&nbsp;&nbsp;&nbsp;&nbsp;+ PDFDocumentWithBaseURL:fileTemplate:startPage:endPage:</option>
+	<option value="//api/name/documentWithBaseURL:fileTemplate:startPage:endPage:">&nbsp;&nbsp;&nbsp;&nbsp;+ documentWithBaseURL:fileTemplate:startPage:endPage:</option>
 	
-	<option value="//api/name/PDFDocumentWithBaseURL:files:">&nbsp;&nbsp;&nbsp;&nbsp;+ PDFDocumentWithBaseURL:files:</option>
+	<option value="//api/name/documentWithBaseURL:files:">&nbsp;&nbsp;&nbsp;&nbsp;+ documentWithBaseURL:files:</option>
 	
-	<option value="//api/name/PDFDocumentWithData:">&nbsp;&nbsp;&nbsp;&nbsp;+ PDFDocumentWithData:</option>
+	<option value="//api/name/documentWithData:">&nbsp;&nbsp;&nbsp;&nbsp;+ documentWithData:</option>
 	
-	<option value="//api/name/PDFDocumentWithDataArray:">&nbsp;&nbsp;&nbsp;&nbsp;+ PDFDocumentWithDataArray:</option>
+	<option value="//api/name/documentWithDataArray:">&nbsp;&nbsp;&nbsp;&nbsp;+ documentWithDataArray:</option>
 	
-	<option value="//api/name/PDFDocumentWithDataProvider:">&nbsp;&nbsp;&nbsp;&nbsp;+ PDFDocumentWithDataProvider:</option>
+	<option value="//api/name/documentWithDataProvider:">&nbsp;&nbsp;&nbsp;&nbsp;+ documentWithDataProvider:</option>
 	
-	<option value="//api/name/PDFDocumentWithURL:">&nbsp;&nbsp;&nbsp;&nbsp;+ PDFDocumentWithURL:</option>
+	<option value="//api/name/documentWithURL:">&nbsp;&nbsp;&nbsp;&nbsp;+ documentWithURL:</option>
 	
 	
 	
@@ -376,19 +376,19 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/PDFDocument">PDFDocument</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/document">document</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/PDFDocumentWithBaseURL:fileTemplate:startPage:endPage:">PDFDocumentWithBaseURL:fileTemplate:startPage:endPage:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentWithBaseURL:fileTemplate:startPage:endPage:">documentWithBaseURL:fileTemplate:startPage:endPage:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/PDFDocumentWithBaseURL:files:">PDFDocumentWithBaseURL:files:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentWithBaseURL:files:">documentWithBaseURL:files:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/PDFDocumentWithData:">PDFDocumentWithData:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentWithData:">documentWithData:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/PDFDocumentWithDataArray:">PDFDocumentWithDataArray:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentWithDataArray:">documentWithDataArray:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/PDFDocumentWithDataProvider:">PDFDocumentWithDataProvider:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentWithDataProvider:">documentWithDataProvider:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/PDFDocumentWithURL:">PDFDocumentWithURL:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentWithURL:">documentWithURL:</a></span></li>
 	
 </ul></li>
 
@@ -528,17 +528,17 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>PS<a href="#//api/name/PDFDocument">PDFDocument</a> represents a single document for the user.
+						<p>PSPDFDocument represents a single <a href="#//api/name/document">document</a> for the user.
 Internally it might come from several different sources, <a href="#//api/name/files">files</a> or <a href="#//api/name/data">data</a>.</p>
 
-<p>Ensure that a document is only opened within <em>one</em> <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> at a time.
+<p>Ensure that a <a href="#//api/name/document">document</a> is only opened within <em>one</em> <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> at a time.
 Documents fully support copy or serialization.</p>
 
-<p>To speed up <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> display, you can invoke <a href="#//api/name/fillCache">fillCache</a> on any thread. Most methods are thread safe. If you change settings here while the document is already being displayed, you most likely need to call reloadData on  <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> to refresh.</p>
+<p>To speed up <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> display, you can invoke <a href="#//api/name/fillCache">fillCache</a> on any thread. Most methods are thread safe. If you change settings here while the <a href="#//api/name/document">document</a> is already being displayed, you most likely need to call reloadData on  <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> to refresh.</p>
 
-<p>Remember that rendered images of PS<a href="#//api/name/PDFDocument">PDFDocument</a> will be cached using <a href="../Classes/PSPDFCache.html">PSPDFCache</a>. If you replace/modify a PDF that has already been cached, you need to clear the cache for that document.</p>
+<p>Remember that rendered images of PSPDFDocument will be cached using <a href="../Classes/PSPDFCache.html">PSPDFCache</a>. If you replace/modify a PDF that has already been cached, you need to clear the cache for that <a href="#//api/name/document">document</a>.</p>
 
-<p>PS<a href="#//api/name/PDFDocument">PDFDocument</a> is the default <a href="#//api/name/delegate">delegate</a> for <a href="../Protocols/PSPDFDocumentProviderDelegate.html">PSPDFDocumentProviderDelegate</a>.</p>
+<p>PSPDFDocument is the default <a href="#//api/name/delegate">delegate</a> for <a href="../Protocols/PSPDFDocumentProviderDelegate.html">PSPDFDocumentProviderDelegate</a>.</p>
 					</div>
 					
 					
@@ -556,49 +556,49 @@ Documents fully support copy or serialization.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/PDFDocument">+&nbsp;PDFDocument</a></code>
-		<span class="tooltip"><p>Initialize empty PSPDFDocument.</p></span>
+		<code><a href="#//api/name/document">+&nbsp;document</a></code>
+		<span class="tooltip"><p>Initialize empty PS<a href="#//api/name/PDFDocument">PDFDocument</a>.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/PDFDocumentWithURL:">+&nbsp;PDFDocumentWithURL:</a></code>
+		<code><a href="#//api/name/documentWithURL:">+&nbsp;documentWithURL:</a></code>
 		<span class="tooltip"><p>Initialize PS<a href="#//api/name/PDFDocument">PDFDocument</a> with a single file.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/PDFDocumentWithData:">+&nbsp;PDFDocumentWithData:</a></code>
+		<code><a href="#//api/name/documentWithData:">+&nbsp;documentWithData:</a></code>
 		<span class="tooltip"><p>Initialize PS<a href="#//api/name/PDFDocument">PDFDocument</a> with <a href="#//api/name/data">data</a>.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/PDFDocumentWithDataArray:">+&nbsp;PDFDocumentWithDataArray:</a></code>
+		<code><a href="#//api/name/documentWithDataArray:">+&nbsp;documentWithDataArray:</a></code>
 		<span class="tooltip"><p>Initialize PS<a href="#//api/name/PDFDocument">PDFDocument</a> with multiple <a href="#//api/name/data">data</a> objects</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/PDFDocumentWithDataProvider:">+&nbsp;PDFDocumentWithDataProvider:</a></code>
+		<code><a href="#//api/name/documentWithDataProvider:">+&nbsp;documentWithDataProvider:</a></code>
 		<span class="tooltip"><p>Initialize PS<a href="#//api/name/PDFDocument">PDFDocument</a> with a <a href="#//api/name/dataProvider">dataProvider</a>.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/PDFDocumentWithBaseURL:files:">+&nbsp;PDFDocumentWithBaseURL:files:</a></code>
+		<code><a href="#//api/name/documentWithBaseURL:files:">+&nbsp;documentWithBaseURL:files:</a></code>
 		<span class="tooltip"><p>Initialize PS<a href="#//api/name/PDFDocument">PDFDocument</a> with distinct path and an array of <a href="#//api/name/files">files</a>.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/PDFDocumentWithBaseURL:fileTemplate:startPage:endPage:">+&nbsp;PDFDocumentWithBaseURL:fileTemplate:startPage:endPage:</a></code>
+		<code><a href="#//api/name/documentWithBaseURL:fileTemplate:startPage:endPage:">+&nbsp;documentWithBaseURL:fileTemplate:startPage:endPage:</a></code>
 		<span class="tooltip"><p>If you have <a href="#//api/name/files">files</a> that have the pattern XXX_Page_0001 &ndash; XXX_Page_0200 use this initializer.
 fileTemplate needs to have exactly one &lsquo;%d&rsquo; marker where the page should be.
 For leading zeros, use the default printf syntax. (%04d = 0001)</p></span>
@@ -630,7 +630,7 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/appendFile:">&ndash;&nbsp;appendFile:</a></code>
-		<span class="tooltip"><p>Appends a file to the current document. No PDF gets modified, just displayed together. Can be a name or partial path (full path if <a href="#//api/name/basePath">basePath</a> is nil)
+		<span class="tooltip"><p>Appends a file to the current <a href="#//api/name/document">document</a>. No PDF gets modified, just displayed together. Can be a name or partial path (full path if <a href="#//api/name/basePath">basePath</a> is nil)
 Adding the same file multiple times is allowed.</p></span>
 	</span>
 	
@@ -699,7 +699,7 @@ If <a href="#//api/name/basePath">basePath</a> is not set, add the full path (as
 	<span class="tooltip">
 		<code><a href="#//api/name/fileURL">&nbsp;&nbsp;fileURL</a></code>
 		<span class="tooltip"><p>Usually, you have one single file URL representing the pdf. This is a shortcut setter for basePath* <a href="#//api/name/files">files</a>. Overrides all current settings if set.
-nil if the document was initialized with initWithData:</p></span>
+nil if the <a href="#//api/name/document">document</a> was initialized with initWithData:</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -714,14 +714,14 @@ This is a shortcut to the first entry of <a href="#//api/name/dataArray">dataArr
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/dataArray">&nbsp;&nbsp;dataArray</a></code>
-		<span class="tooltip"><p>A document can also have multiple NSData objects.</p></span>
+		<span class="tooltip"><p>A <a href="#//api/name/document">document</a> can also have multiple NSData objects.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/dataProvider">&nbsp;&nbsp;dataProvider</a></code>
-		<span class="tooltip"><p>PDF dataProvider (can be used to dynamically decrypt a document). Will be retained when set.</p></span>
+		<span class="tooltip"><p>PDF dataProvider (can be used to dynamically decrypt a <a href="#//api/name/document">document</a>). Will be retained when set.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -745,7 +745,7 @@ Use this to check if <a href="#//api/name/title">title</a> is loaded and access 
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/metadata">&nbsp;&nbsp;metadata</a></code>
-		<span class="tooltip"><p>Access the PDF meta<a href="#//api/name/data">data</a> of the first PDF document.
+		<span class="tooltip"><p>Access the PDF meta<a href="#//api/name/data">data</a> of the first PDF <a href="#//api/name/document">document</a>.
 A PDF might not have any meta<a href="#//api/name/data">data</a> at all.
 See kPSPDFMetadataKeyTitle and the following defines for keys that might be set.
 It&rsquo;s possible that there are keys that don&rsquo;t have a PSPDFKit define, loop the dictionary to find them all.</p></span>
@@ -815,14 +815,14 @@ Written as the &ldquo;T&rdquo; (title/user) property of newly created annotation
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/hasDirtyAnnotations">&ndash;&nbsp;hasDirtyAnnotations</a></code>
-		<span class="tooltip"><p>Returns YES if any provider of the document has dirty annotations that need saving.</p></span>
+		<span class="tooltip"><p>Returns YES if any provider of the <a href="#//api/name/document">document</a> has dirty annotations that need saving.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/annotationParser">&nbsp;&nbsp;annotationParser</a></code>
-		<span class="tooltip"><p>Link annotation parser class for current document.
+		<span class="tooltip"><p>Link annotation parser class for current <a href="#//api/name/document">document</a>.
 Can be overridden to use a subclassed annotation parser.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -870,7 +870,7 @@ page is needed if your PS<a href="#//api/name/PDFDocument">PDFDocument</a> conta
 	<span class="tooltip">
 		<code><a href="#//api/name/pageCount">&nbsp;&nbsp;pageCount</a></code>
 		<span class="tooltip"><p>Return pdf page count.
-Might need file operations to parse the document (slow)</p></span>
+Might need file operations to parse the <a href="#//api/name/document">document</a> (slow)</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -878,7 +878,7 @@ Might need file operations to parse the document (slow)</p></span>
 	<span class="tooltip">
 		<code><a href="#//api/name/pageRange">&nbsp;&nbsp;pageRange</a></code>
 		<span class="tooltip"><p>Limit pages to a certain page range.
-If document has a pageRange set, the visible pages can be limited to a certain subset. Defaults to nil.</p></span>
+If <a href="#//api/name/document">document</a> has a pageRange set, the visible pages can be limited to a certain subset. Defaults to nil.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -886,7 +886,7 @@ If document has a pageRange set, the visible pages can be limited to a certain s
 	<span class="tooltip">
 		<code><a href="#//api/name/pageNumberForPage:">&ndash;&nbsp;pageNumberForPage:</a></code>
 		<span class="tooltip"><p>Return PDF page number (PDF pages start at 1).
-This may be different if a collection of pdfs is used a one big document. Page starts at 0.</p></span>
+This may be different if a collection of pdfs is used a one big <a href="#//api/name/document">document</a>. Page starts at 0.</p></span>
 	</span>
 	
 	
@@ -946,7 +946,7 @@ Older versions of PSPDFKit used kCGPDFCropBox by default.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/aspectRatioVariance">&ndash;&nbsp;aspectRatioVariance</a></code>
-		<span class="tooltip"><p>Scan the whole document and analyzes if the aspect ratio is equal or not.
+		<span class="tooltip"><p>Scan the whole <a href="#//api/name/document">document</a> and analyzes if the aspect ratio is equal or not.
 If this returns 0 or a very small value, it&rsquo;s perfectly suitable for pageCurl.</p></span>
 	</span>
 	
@@ -1016,7 +1016,7 @@ Set this to PSPDFDiskCacheNothing for sensible/encrypted documents!</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/displayingPdfController">&nbsp;&nbsp;displayingPdfController</a></code>
-		<span class="tooltip"><p>If document is displayed, returns currently active pdfController. Don&rsquo;t set this yourself. Optimizes caching.</p></span>
+		<span class="tooltip"><p>If <a href="#//api/name/document">document</a> is displayed, returns currently active pdfController. Don&rsquo;t set this yourself. Optimizes caching.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1024,7 +1024,7 @@ Set this to PSPDFDiskCacheNothing for sensible/encrypted documents!</p></span>
 	<span class="tooltip">
 		<code><a href="#//api/name/displayingPage">&nbsp;&nbsp;displayingPage</a></code>
 		<span class="tooltip"><p>Currently displayed page. Updated by <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>. Used to make the memory cache smarter.
-Set to NSNotFound if no controller displays the document.</p></span>
+Set to NSNotFound if no controller displays the <a href="#//api/name/document">document</a>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1047,17 +1047,17 @@ Only saves the <a href="#//api/name/password">password</a> if unlocking was succ
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/password">&nbsp;&nbsp;password</a></code>
-		<span class="tooltip"><p>Set a base password to be used for all <a href="#//api/name/files">files</a> in this document (if the document is PDF encrypted).
+		<span class="tooltip"><p>Set a base password to be used for all <a href="#//api/name/files">files</a> in this <a href="#//api/name/document">document</a> (if the <a href="#//api/name/document">document</a> is PDF encrypted).
 Relays the password to all current and future <a href="#//api/name/documentProviders">documentProviders</a>.
-The password will be ignored if the document is not password protected.</p></span>
+The password will be ignored if the <a href="#//api/name/document">document</a> is not password protected.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/valid">&nbsp;&nbsp;valid</a></code>
-		<span class="tooltip"><p>Returns YES if the document is valid (if it has at least one page)
-Might need file operations to parse the document (slow)</p></span>
+		<span class="tooltip"><p>Returns YES if the <a href="#//api/name/document">document</a> is valid (if it has at least one page)
+Might need file operations to parse the <a href="#//api/name/document">document</a> (slow)</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1116,7 +1116,7 @@ Defaults to PSPDFDocumentMenuActionSearch|PSPDFDocumentMenuActionDefine|PSPDFDoc
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/textParserForPage:">&ndash;&nbsp;textParserForPage:</a></code>
-		<span class="tooltip"><p>Return a textParser for the specific document page.</p></span>
+		<span class="tooltip"><p>Return a textParser for the specific <a href="#//api/name/document">document</a> page.</p></span>
 	</span>
 	
 	
@@ -1139,7 +1139,7 @@ Defaults to YES.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/textSearch">&nbsp;&nbsp;textSearch</a></code>
-		<span class="tooltip"><p>Text extraction class for current document.
+		<span class="tooltip"><p>Text extraction class for current <a href="#//api/name/document">document</a>.
 Be careful where you&rsquo;re setting the <a href="#//api/name/delegate">delegate</a>. You can also create a private <a href="../Classes/PSPDFTextSearch.html">PSPDFTextSearch</a> class.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -1147,7 +1147,7 @@ Be careful where you&rsquo;re setting the <a href="#//api/name/delegate">delegat
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/documentProviderForPage:">&ndash;&nbsp;documentProviderForPage:</a></code>
-		<span class="tooltip"><p>Get the document provider for a specific page.</p></span>
+		<span class="tooltip"><p>Get the <a href="#//api/name/document">document</a> provider for a specific page.</p></span>
 	</span>
 	
 	
@@ -1155,7 +1155,7 @@ Be careful where you&rsquo;re setting the <a href="#//api/name/delegate">delegat
 	<span class="tooltip">
 		<code><a href="#//api/name/pageOffsetForDocumentProvider:">&ndash;&nbsp;pageOffsetForDocumentProvider:</a></code>
 		<span class="tooltip"><p>Get the page offset from a specific documentProvider.
-Can be used to calculate from the document provider page to the PS<a href="#//api/name/PDFDocument">PDFDocument</a> page.</p></span>
+Can be used to calculate from the <a href="#//api/name/document">document</a> provider page to the PS<a href="#//api/name/PDFDocument">PDFDocument</a> page.</p></span>
 	</span>
 	
 	
@@ -1177,7 +1177,7 @@ Can be used to calculate from the document provider page to the PS<a href="#//ap
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/outlineParser">&nbsp;&nbsp;outlineParser</a></code>
-		<span class="tooltip"><p>Outline extraction class for current document.</p></span>
+		<span class="tooltip"><p>Outline extraction class for current <a href="#//api/name/document">document</a>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1192,7 +1192,7 @@ Can be used to calculate from the document provider page to the PS<a href="#//ap
 	<span class="tooltip">
 		<code><a href="#//api/name/bookmarkParser">&nbsp;&nbsp;bookmarkParser</a></code>
 		<span class="tooltip"><p>Accesses the bookmark parser.
-Bookmarks are handled on document level, not on documentProvider.</p></span>
+Bookmarks are handled on <a href="#//api/name/document">document</a> level, not on documentProvider.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1206,7 +1206,7 @@ Bookmarks are handled on document level, not on documentProvider.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pageLabelForPage:substituteWithPlainLabel:">&ndash;&nbsp;pageLabelForPage:substituteWithPlainLabel:</a></code>
-		<span class="tooltip"><p>Page labels (NSString) for the current document.
+		<span class="tooltip"><p>Page labels (NSString) for the current <a href="#//api/name/document">document</a>.
 Might be nil if PageLabels isn&rsquo;t set in the PDF.
 If substituteWithPlainLabel is set to YES then this always returns a <a href="#//api/name/valid">valid</a> string.</p></span>
 	</span>
@@ -1241,7 +1241,7 @@ If for some reason renderPage: doesn&rsquo;t return a Render Receipt, an error o
 Options set here will override any options sent to renderImageForPage/renderPage.
 This is the perfect place to change the background fill color, e.g. you would do this for a black document:
 renderOptions = @{kPSPDFBackgroundFillColor : [UIColor blackColor]};
-This fixes tiny white/gray lines at the borders of a document that else might show up.</p></span>
+This fixes tiny white/gray lines at the borders of a <a href="#//api/name/document">document</a> that else might show up.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1300,8 +1300,8 @@ e.g. add an entry of [PSPDFAnnotationParser class] / [MyCustomAnnotationParser c
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/didCreateDocumentProvider:">&ndash;&nbsp;didCreateDocumentProvider:</a></code>
-		<span class="tooltip"><p>Hook to modify/return a different document provider. Called each time a documentProvider is created (which is usually on first access, and cached afterwards)
-During PS<a href="#//api/name/PDFDocument">PDFDocument</a> lifetime, document providers might be created at any time, lazily, and destroyed when memory is low.
+		<span class="tooltip"><p>Hook to modify/return a different <a href="#//api/name/document">document</a> provider. Called each time a documentProvider is created (which is usually on first access, and cached afterwards)
+During PSPDFDocument lifetime, <a href="#//api/name/document">document</a> providers might be created at any time, lazily, and destroyed when memory is low.
 This might be used to change the <a href="#//api/name/delegate">delegate</a> of the <a href="../Classes/PSPDFDocumentProvider.html">PSPDFDocumentProvider</a>.</p></span>
 	</span>
 	
@@ -1357,7 +1357,7 @@ Defaults to white.</p></span>
 		<code><a href="#//api/name/detectLinkTypes:forPagesInRange:">&ndash;&nbsp;detectLinkTypes:forPagesInRange:</a></code>
 		<span class="tooltip"><p>Experimental. Will iterate all pages and create new annotations for the set types.
 Will ignore any text that is already linked with the same URL.
-To analyze the whole document, use [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, document.<a href="#//api/name/pageCount">pageCount</a>)]</p></span>
+To analyze the whole <a href="#//api/name/document">document</a>, use [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, <a href="#//api/name/document">document</a>.<a href="#//api/name/pageCount">pageCount</a>)]</p></span>
 	</span>
 	
 	
@@ -1466,7 +1466,7 @@ Defaults to PSPDFDocumentMenuActionSearch|PSPDFDocumentMenuActionDefine|PSPDFDoc
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<div class="note"><p><strong>Note:</strong> This is no flag that gets parsed from the document (like <a href="#//api/name/allowsCopying">allowsCopying</a>) but seems to be  a better fit here than on the controller, since almost all menu related options are controller from the document.</p></div>
+		<div class="note"><p><strong>Note:</strong> This is no flag that gets parsed from the <a href="#//api/name/document">document</a> (like <a href="#//api/name/allowsCopying">allowsCopying</a>) but seems to be  a better fit here than on the controller, since almost all menu related options are controller from the <a href="#//api/name/document">document</a>.</p></div>
 	</div>
 	
 	
@@ -1569,7 +1569,7 @@ Can also be overridden manually.</p></div>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Link annotation parser class for current document.
+		<p>Link annotation parser class for current <a href="#//api/name/document">document</a>.
 Can be overridden to use a subclassed annotation parser.</p>
 	</div>		
 	
@@ -1787,7 +1787,7 @@ Defaults to white.</p>
 	
 	<div class="method-subsection brief-description">
 		<p>Accesses the bookmark parser.
-Bookmarks are handled on document level, not on documentProvider.</p>
+Bookmarks are handled on <a href="#//api/name/document">document</a> level, not on documentProvider.</p>
 	</div>		
 	
 	
@@ -1966,7 +1966,7 @@ This is a shortcut to the first entry of <a href="#//api/name/dataArray">dataArr
 	
 	
 	<div class="method-subsection brief-description">
-		<p>A document can also have multiple NSData objects.</p>
+		<p>A <a href="#//api/name/document">document</a> can also have multiple NSData objects.</p>
 	</div>		
 	
 	
@@ -2005,7 +2005,7 @@ This is a shortcut to the first entry of <a href="#//api/name/dataArray">dataArr
 	
 	
 	<div class="method-subsection brief-description">
-		<p>PDF dataProvider (can be used to dynamically decrypt a document). Will be retained when set.</p>
+		<p>PDF dataProvider (can be used to dynamically decrypt a <a href="#//api/name/document">document</a>). Will be retained when set.</p>
 	</div>		
 	
 	
@@ -2089,7 +2089,7 @@ Written as the &ldquo;T&rdquo; (title/user) property of newly created annotation
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<div class="warning"><p><strong>Warning:</strong> The document delegate should not be your view controller, since this could retain your controller and cause a release on a different thread than the main thread, which can be problematic in UIKit.</p></div>
+		<div class="warning"><p><strong>Warning:</strong> The <a href="#//api/name/document">document</a> delegate should not be your view controller, since this could retain your controller and cause a release on a different thread than the main thread, which can be problematic in UIKit.</p></div>
 	</div>
 	
 	
@@ -2150,7 +2150,7 @@ Set this to PSPDFDiskCacheNothing for sensible/encrypted documents!</p>
 	
 	<div class="method-subsection brief-description">
 		<p>Currently displayed page. Updated by <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>. Used to make the memory cache smarter.
-Set to NSNotFound if no controller displays the document.</p>
+Set to NSNotFound if no controller displays the <a href="#//api/name/document">document</a>.</p>
 	</div>		
 	
 	
@@ -2184,7 +2184,7 @@ Set to NSNotFound if no controller displays the document.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>If document is displayed, returns currently active pdfController. Don&rsquo;t set this yourself. Optimizes caching.</p>
+		<p>If <a href="#//api/name/document">document</a> is displayed, returns currently active pdfController. Don&rsquo;t set this yourself. Optimizes caching.</p>
 	</div>		
 	
 	
@@ -2301,7 +2301,7 @@ See &ldquo;Adobe LifeCycle DRM, <a href="http://www.adobe.com/products/livecycle
 	
 	<div class="method-subsection brief-description">
 		<p>Usually, you have one single file URL representing the pdf. This is a shortcut setter for basePath* <a href="#//api/name/files">files</a>. Overrides all current settings if set.
-nil if the document was initialized with initWithData:</p>
+nil if the <a href="#//api/name/document">document</a> was initialized with initWithData:</p>
 	</div>		
 	
 	
@@ -2453,7 +2453,7 @@ If <a href="#//api/name/basePath">basePath</a> is not set, add the full path (as
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Access the PDF meta<a href="#//api/name/data">data</a> of the first PDF document.
+		<p>Access the PDF meta<a href="#//api/name/data">data</a> of the first PDF <a href="#//api/name/document">document</a>.
 A PDF might not have any meta<a href="#//api/name/data">data</a> at all.
 See kPSPDFMetadataKeyTitle and the following defines for keys that might be set.
 It&rsquo;s possible that there are keys that don&rsquo;t have a PSPDFKit define, loop the dictionary to find them all.</p>
@@ -2490,7 +2490,7 @@ It&rsquo;s possible that there are keys that don&rsquo;t have a PSPDFKit define,
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Outline extraction class for current document.</p>
+		<p>Outline extraction class for current <a href="#//api/name/document">document</a>.</p>
 	</div>		
 	
 	
@@ -2564,7 +2564,7 @@ It&rsquo;s possible that there are keys that don&rsquo;t have a PSPDFKit define,
 	
 	<div class="method-subsection brief-description">
 		<p>Return pdf page count.
-Might need file operations to parse the document (slow)</p>
+Might need file operations to parse the <a href="#//api/name/document">document</a> (slow)</p>
 	</div>		
 	
 	
@@ -2633,7 +2633,7 @@ Might need file operations to parse the document (slow)</p>
 	
 	<div class="method-subsection brief-description">
 		<p>Limit pages to a certain page range.
-If document has a pageRange set, the visible pages can be limited to a certain subset. Defaults to nil.</p>
+If <a href="#//api/name/document">document</a> has a pageRange set, the visible pages can be limited to a certain subset. Defaults to nil.</p>
 	</div>		
 	
 	
@@ -2648,7 +2648,7 @@ If document has a pageRange set, the visible pages can be limited to a certain s
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<div class="warning"><p><strong>Warning:</strong> Changing this will require a reloadData on the <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> and also a <a href="#//api/name/clearCache">clearCache</a> for this document (as the cached pages will be different after changing this!)</p></div>
+		<div class="warning"><p><strong>Warning:</strong> Changing this will require a reloadData on the <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> and also a <a href="#//api/name/clearCache">clearCache</a> for this <a href="#//api/name/document">document</a> (as the cached pages will be different after changing this!)</p></div>
 	</div>
 	
 	
@@ -2672,9 +2672,9 @@ If document has a pageRange set, the visible pages can be limited to a certain s
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Set a base password to be used for all <a href="#//api/name/files">files</a> in this document (if the document is PDF encrypted).
+		<p>Set a base password to be used for all <a href="#//api/name/files">files</a> in this <a href="#//api/name/document">document</a> (if the <a href="#//api/name/document">document</a> is PDF encrypted).
 Relays the password to all current and future <a href="#//api/name/documentProviders">documentProviders</a>.
-The password will be ignored if the document is not password protected.</p>
+The password will be ignored if the <a href="#//api/name/document">document</a> is not password protected.</p>
 	</div>		
 	
 	
@@ -2747,7 +2747,7 @@ Set this to PSPDFAnnotationTypeLink|PSPDFAnnotationTypeHighlight for PSPDFKit v1
 Options set here will override any options sent to renderImageForPage/renderPage.
 This is the perfect place to change the background fill color, e.g. you would do this for a black document:
 renderOptions = @{kPSPDFBackgroundFillColor : [UIColor blackColor]};
-This fixes tiny white/gray lines at the borders of a document that else might show up.</p>
+This fixes tiny white/gray lines at the borders of a <a href="#//api/name/document">document</a> that else might show up.</p>
 	</div>		
 	
 	
@@ -2817,7 +2817,7 @@ Defaults to YES.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Text extraction class for current document.
+		<p>Text extraction class for current <a href="#//api/name/document">document</a>.
 Be careful where you&rsquo;re setting the <a href="#//api/name/delegate">delegate</a>. You can also create a private <a href="../Classes/PSPDFTextSearch.html">PSPDFTextSearch</a> class.</p>
 	</div>		
 	
@@ -2923,8 +2923,8 @@ Use this to check if <a href="#//api/name/title">title</a> is loaded and access 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns YES if the document is valid (if it has at least one page)
-Might need file operations to parse the document (slow)</p>
+		<p>Returns YES if the <a href="#//api/name/document">document</a> is valid (if it has at least one page)
+Might need file operations to parse the <a href="#//api/name/document">document</a> (slow)</p>
 	</div>		
 	
 	
@@ -2960,17 +2960,17 @@ Might need file operations to parse the document (slow)</p>
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/PDFDocument" title="PDFDocument"></a>
-	<h3 class="subsubtitle method-title">PDFDocument</h3>
+	<a name="//api/name/document" title="document"></a>
+	<h3 class="subsubtitle method-title">document</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Initialize empty PSPDFDocument.</p>
+		<p>Initialize empty PS<a href="#//api/name/PDFDocument">PDFDocument</a>.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (instancetype)PDFDocument</code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)document</code></div>
 	
 	
 	
@@ -2994,8 +2994,8 @@ Might need file operations to parse the document (slow)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/PDFDocumentWithBaseURL:fileTemplate:startPage:endPage:" title="PDFDocumentWithBaseURL:fileTemplate:startPage:endPage:"></a>
-	<h3 class="subsubtitle method-title">PDFDocumentWithBaseURL:fileTemplate:startPage:endPage:</h3>
+	<a name="//api/name/documentWithBaseURL:fileTemplate:startPage:endPage:" title="documentWithBaseURL:fileTemplate:startPage:endPage:"></a>
+	<h3 class="subsubtitle method-title">documentWithBaseURL:fileTemplate:startPage:endPage:</h3>
 	
 	
 	
@@ -3006,7 +3006,7 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (instancetype)PDFDocumentWithBaseURL:(NSURL *)<em>baseURL</em> fileTemplate:(NSString *)<em>fileTemplate</em> startPage:(NSInteger)<em>startPage</em> endPage:(NSInteger)<em>endPage</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)documentWithBaseURL:(NSURL *)<em>baseURL</em> fileTemplate:(NSString *)<em>fileTemplate</em> startPage:(NSInteger)<em>startPage</em> endPage:(NSInteger)<em>endPage</em></code></div>
 	
 	
 	
@@ -3030,8 +3030,8 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/PDFDocumentWithBaseURL:files:" title="PDFDocumentWithBaseURL:files:"></a>
-	<h3 class="subsubtitle method-title">PDFDocumentWithBaseURL:files:</h3>
+	<a name="//api/name/documentWithBaseURL:files:" title="documentWithBaseURL:files:"></a>
+	<h3 class="subsubtitle method-title">documentWithBaseURL:files:</h3>
 	
 	
 	
@@ -3040,7 +3040,7 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (instancetype)PDFDocumentWithBaseURL:(NSURL *)<em>baseURL</em> files:(NSArray *)<em>files</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)documentWithBaseURL:(NSURL *)<em>baseURL</em> files:(NSArray *)<em>files</em></code></div>
 	
 	
 	
@@ -3064,8 +3064,8 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/PDFDocumentWithData:" title="PDFDocumentWithData:"></a>
-	<h3 class="subsubtitle method-title">PDFDocumentWithData:</h3>
+	<a name="//api/name/documentWithData:" title="documentWithData:"></a>
+	<h3 class="subsubtitle method-title">documentWithData:</h3>
 	
 	
 	
@@ -3074,7 +3074,7 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (instancetype)PDFDocumentWithData:(NSData *)<em>data</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)documentWithData:(NSData *)<em>data</em></code></div>
 	
 	
 	
@@ -3103,8 +3103,8 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/PDFDocumentWithDataArray:" title="PDFDocumentWithDataArray:"></a>
-	<h3 class="subsubtitle method-title">PDFDocumentWithDataArray:</h3>
+	<a name="//api/name/documentWithDataArray:" title="documentWithDataArray:"></a>
+	<h3 class="subsubtitle method-title">documentWithDataArray:</h3>
 	
 	
 	
@@ -3113,7 +3113,7 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (instancetype)PDFDocumentWithDataArray:(NSArray *)<em>dataArray</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)documentWithDataArray:(NSArray *)<em>dataArray</em></code></div>
 	
 	
 	
@@ -3137,8 +3137,8 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/PDFDocumentWithDataProvider:" title="PDFDocumentWithDataProvider:"></a>
-	<h3 class="subsubtitle method-title">PDFDocumentWithDataProvider:</h3>
+	<a name="//api/name/documentWithDataProvider:" title="documentWithDataProvider:"></a>
+	<h3 class="subsubtitle method-title">documentWithDataProvider:</h3>
 	
 	
 	
@@ -3147,7 +3147,7 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (instancetype)PDFDocumentWithDataProvider:(CGDataProviderRef)<em>dataProvider</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)documentWithDataProvider:(CGDataProviderRef)<em>dataProvider</em></code></div>
 	
 	
 	
@@ -3176,8 +3176,8 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/PDFDocumentWithURL:" title="PDFDocumentWithURL:"></a>
-	<h3 class="subsubtitle method-title">PDFDocumentWithURL:</h3>
+	<a name="//api/name/documentWithURL:" title="documentWithURL:"></a>
+	<h3 class="subsubtitle method-title">documentWithURL:</h3>
 	
 	
 	
@@ -3186,7 +3186,7 @@ For leading zeros, use the default printf syntax. (%04d = 0001)</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (instancetype)PDFDocumentWithURL:(NSURL *)<em>URL</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)documentWithURL:(NSURL *)<em>URL</em></code></div>
 	
 	
 	
@@ -3417,7 +3417,7 @@ NSArray </em>annotations = [<a href="#//api/name/annotationParser">annotationPar
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Appends a file to the current document. No PDF gets modified, just displayed together. Can be a name or partial path (full path if <a href="#//api/name/basePath">basePath</a> is nil)
+		<p>Appends a file to the current <a href="#//api/name/document">document</a>. No PDF gets modified, just displayed together. Can be a name or partial path (full path if <a href="#//api/name/basePath">basePath</a> is nil)
 Adding the same file multiple times is allowed.</p>
 	</div>		
 	
@@ -3452,7 +3452,7 @@ Adding the same file multiple times is allowed.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Scan the whole document and analyzes if the aspect ratio is equal or not.
+		<p>Scan the whole <a href="#//api/name/document">document</a> and analyzes if the aspect ratio is equal or not.
 If this returns 0 or a very small value, it&rsquo;s perfectly suitable for pageCurl.</p>
 	</div>		
 	
@@ -3594,7 +3594,7 @@ The &lsquo;1&rsquo; is the first page. Careful; the accessor here is zero-based.
 		<p>This is called implicitly if you change the files array or append a file.</p>
 
 <p>Important! Unless you disable it, PSPDFKit also has an image cache who is not affected by this. If you replace the PDF document with new content, you also need to clear the image cache:
-[[PSPDFCache sharedCache] removeCacheForDocument:document deleteDocument:NO error:NULL];</p>
+[[PSPDFCache sharedCache] removeCacheForDocument:<a href="#//api/name/document">document</a> deleteDocument:NO error:NULL];</p>
 	</div>
 	
 	
@@ -3655,7 +3655,7 @@ The &lsquo;1&rsquo; is the first page. Careful; the accessor here is zero-based.
 	<div class="method-subsection brief-description">
 		<p>Experimental. Will iterate all pages and create new annotations for the set types.
 Will ignore any text that is already linked with the same URL.
-To analyze the whole document, use [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, document.<a href="#//api/name/pageCount">pageCount</a>)]</p>
+To analyze the whole <a href="#//api/name/document">document</a>, use [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, <a href="#//api/name/document">document</a>.<a href="#//api/name/pageCount">pageCount</a>)]</p>
 	</div>		
 	
 	
@@ -3670,7 +3670,7 @@ To analyze the whole document, use [NSIndexSet indexSetWithIndexesInRange:NSMake
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<div class="warning"><p><strong>Warning:</strong> Performs text and annotation extraction and analysis. Might be slow. Call this before showing the document in the <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> or manually add the link annotations.</p></div>
+		<div class="warning"><p><strong>Warning:</strong> Performs text and annotation extraction and analysis. Might be slow. Call this before showing the <a href="#//api/name/document">document</a> in the <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a> or manually add the link annotations.</p></div>
 	</div>
 	
 	
@@ -3694,8 +3694,8 @@ To analyze the whole document, use [NSIndexSet indexSetWithIndexesInRange:NSMake
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Hook to modify/return a different document provider. Called each time a documentProvider is created (which is usually on first access, and cached afterwards)
-During PS<a href="#//api/name/PDFDocument">PDFDocument</a> lifetime, document providers might be created at any time, lazily, and destroyed when memory is low.
+		<p>Hook to modify/return a different <a href="#//api/name/document">document</a> provider. Called each time a documentProvider is created (which is usually on first access, and cached afterwards)
+During PSPDFDocument lifetime, <a href="#//api/name/document">document</a> providers might be created at any time, lazily, and destroyed when memory is low.
 This might be used to change the <a href="#//api/name/delegate">delegate</a> of the <a href="../Classes/PSPDFDocumentProvider.html">PSPDFDocumentProvider</a>.</p>
 	</div>		
 	
@@ -3765,7 +3765,7 @@ This might be used to change the <a href="#//api/name/delegate">delegate</a> of 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Get the document provider for a specific page.</p>
+		<p>Get the <a href="#//api/name/document">document</a> provider for a specific page.</p>
 	</div>		
 	
 	
@@ -4045,7 +4045,7 @@ Uses PSPDFDocumentProviders dataRepresentationWithError. Errors are only logged.
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns YES if any provider of the document has dirty annotations that need saving.</p>
+		<p>Returns YES if any provider of the <a href="#//api/name/document">document</a> has dirty annotations that need saving.</p>
 	</div>		
 	
 	
@@ -4473,7 +4473,7 @@ Override the methods in <a href="../Classes/PSPDFDocumentProvider.html">PSPDFDoc
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Page labels (NSString) for the current document.
+		<p>Page labels (NSString) for the current <a href="#//api/name/document">document</a>.
 Might be nil if PageLabels isn&rsquo;t set in the PDF.
 If substituteWithPlainLabel is set to YES then this always returns a <a href="#//api/name/valid">valid</a> string.</p>
 	</div>		
@@ -4515,7 +4515,7 @@ If substituteWithPlainLabel is set to YES then this always returns a <a href="#/
 	
 	<div class="method-subsection brief-description">
 		<p>Return PDF page number (PDF pages start at 1).
-This may be different if a collection of pdfs is used a one big document. Page starts at 0.</p>
+This may be different if a collection of pdfs is used a one big <a href="#//api/name/document">document</a>. Page starts at 0.</p>
 	</div>		
 	
 	
@@ -4550,7 +4550,7 @@ This may be different if a collection of pdfs is used a one big document. Page s
 	
 	<div class="method-subsection brief-description">
 		<p>Get the page offset from a specific documentProvider.
-Can be used to calculate from the document provider page to the PS<a href="#//api/name/PDFDocument">PDFDocument</a> page.</p>
+Can be used to calculate from the <a href="#//api/name/document">document</a> provider page to the PS<a href="#//api/name/PDFDocument">PDFDocument</a> page.</p>
 	</div>		
 	
 	
@@ -4877,7 +4877,7 @@ Returns YES if there are no annotations that need to be saved.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Return a textParser for the specific document page.</p>
+		<p>Return a textParser for the specific <a href="#//api/name/document">document</a> page.</p>
 	</div>		
 	
 	
@@ -4927,17 +4927,17 @@ Only saves the <a href="#//api/name/password">password</a> if unlocking was succ
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>If the <a href="#//api/name/password">password</a> is correct, this method returns YES. Once unlocked, you cannot use this function to relock the document.</p>
+		<p>If the <a href="#//api/name/password">password</a> is correct, this method returns YES. Once unlocked, you cannot use this function to relock the <a href="#//api/name/document">document</a>.</p>
 
-<p>If you attempt to unlock an already unlocked document, one of the following occurs:
-If the document is unlocked with full owner permissions, unlockWithPassword: does nothing and returns YES. The <a href="#//api/name/password">password</a> string is ignored.
-If the document is unlocked with only user permissions, unlockWithPassword attempts to obtain full owner permissions with the <a href="#//api/name/password">password</a> string.
-If the string fails, the document maintains its user permissions. In either case, this method returns YES.</p>
+<p>If you attempt to unlock an already unlocked <a href="#//api/name/document">document</a>, one of the following occurs:
+If the <a href="#//api/name/document">document</a> is unlocked with full owner permissions, unlockWithPassword: does nothing and returns YES. The <a href="#//api/name/password">password</a> string is ignored.
+If the <a href="#//api/name/document">document</a> is unlocked with only user permissions, unlockWithPassword attempts to obtain full owner permissions with the <a href="#//api/name/password">password</a> string.
+If the string fails, the <a href="#//api/name/document">document</a> maintains its user permissions. In either case, this method returns YES.</p>
 
-<p>After unlocking a document, you need to call reloadData on the <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>.</p>
+<p>After unlocking a <a href="#//api/name/document">document</a>, you need to call reloadData on the <a href="../Classes/PSPDFViewController.html">PSPDFViewController</a>.</p>
 
 <p>If you&rsquo;re using multiple <a href="#//api/name/files">files</a> or appendFile, all new <a href="#//api/name/files">files</a> will be unlocked with the <a href="#//api/name/password">password</a>.
-This doesn&rsquo;t harm if the document is already unlocked.</p>
+This doesn&rsquo;t harm if the <a href="#//api/name/document">document</a> is already unlocked.</p>
 
 <p>If you have a mixture of <a href="#//api/name/files">files</a> with multiple different passwords, you need to subclass <a href="#//api/name/didCreateDocumentProvider:">didCreateDocumentProvider:</a> and unlock the documentProvider directly there.</p>
 	</div>
@@ -4969,7 +4969,7 @@ This doesn&rsquo;t harm if the document is already unlocked.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-18)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-19)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
