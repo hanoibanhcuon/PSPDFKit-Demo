@@ -73,7 +73,11 @@
 	
 	<option value="//api/name/initWithPDFController:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithPDFController:</option>
 	
+	<option value="//api/name/setupWithMode:">&nbsp;&nbsp;&nbsp;&nbsp;- setupWithMode:</option>
+	
 	<option value="//api/name/showToolbarInRect:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- showToolbarInRect:animated:</option>
+	
+	<option value="//api/name/updateToolbarButtons">&nbsp;&nbsp;&nbsp;&nbsp;- updateToolbarButtons</option>
 	
 	
 	
@@ -90,6 +94,8 @@
 
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_PSPDFSubclassing Methods">PSPDFSubclassing Methods</a></span></li>
 	
 </ul></li>
 
@@ -133,7 +139,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithPDFController:">initWithPDFController:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setupWithMode:">setupWithMode:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showToolbarInRect:animated:">showToolbarInRect:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateToolbarButtons">updateToolbarButtons</a></span></li>
 	
 </ul></li>
 
@@ -192,7 +202,7 @@
 						
 						
 						
-						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
 
 						<ul class="task-list">
 							<li>
@@ -222,6 +232,13 @@ You need to manually remove the toolbar from the view in the completion block. T
 	<span class="tooltip">
 		<code><a href="#//api/name/flashToolbar">&ndash;&nbsp;flashToolbar</a></code>
 		<span class="tooltip"><p>Flash toolbar (e.g. if user tries to hide the HUD)</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateToolbarButtons">&ndash;&nbsp;updateToolbarButtons</a></code>
+		<span class="tooltip"><p>Load the buttons into the toolbar.</p></span>
 	</span>
 	
 	
@@ -299,6 +316,21 @@ Since saving is slow, this defaults to NO.</p></span>
 Not all annotation modes block scrolling (but highlight, drawing, etc. do).</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="PSPDFSubclassing Methods" name="task_PSPDFSubclassing Methods"></a>
+						<h3 class="subsubtitle task-title">PSPDFSubclassing Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setupWithMode:">&ndash;&nbsp;setupWithMode:</a></code>
+		<span class="tooltip"><p>Load the buttons into the drawing toolbar.</p></span>
+	</span>
+	
 	
 </li>
 						</ul>
@@ -792,6 +824,40 @@ You need to manually remove the toolbar from the view in the completion block. T
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/setupWithMode:" title="setupWithMode:"></a>
+	<h3 class="subsubtitle method-title">setupWithMode:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Load the buttons into the drawing toolbar.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)setupWithMode:(PSPDFAnnotationToolbarMode)<em>mode</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFAnnotationToolbar.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/showToolbarInRect:animated:" title="showToolbarInRect:animated:"></a>
 	<h3 class="subsubtitle method-title">showToolbarInRect:animated:</h3>
 	
@@ -804,6 +870,40 @@ You need to manually add the toolbar to the view. This is just to get the animat
 	
 	
 	<div class="method-subsection method-declaration"><code>- (void)showToolbarInRect:(CGRect)<em>rect</em> animated:(BOOL)<em>animated</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFAnnotationToolbar.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateToolbarButtons" title="updateToolbarButtons"></a>
+	<h3 class="subsubtitle method-title">updateToolbarButtons</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Load the buttons into the toolbar.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)updateToolbarButtons</code></div>
 	
 	
 	
@@ -839,7 +939,7 @@ You need to manually add the toolbar to the view. This is just to get the animat
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-19)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-21)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
