@@ -42,6 +42,8 @@
 	
 	<option value="//api/name/HUDView">&nbsp;&nbsp;&nbsp;&nbsp;HUDView</option>
 	
+	<option value="//api/name/HUDViewAnimation">&nbsp;&nbsp;&nbsp;&nbsp;HUDViewAnimation</option>
+	
 	<option value="//api/name/HUDViewMode">&nbsp;&nbsp;&nbsp;&nbsp;HUDViewMode</option>
 	
 	<option value="//api/name/HUDVisible">&nbsp;&nbsp;&nbsp;&nbsp;HUDVisible</option>
@@ -354,6 +356,8 @@
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/HUDView">HUDView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/HUDViewAnimation">HUDViewAnimation</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/HUDViewMode">HUDViewMode</a></span></li>
 	
@@ -973,6 +977,13 @@ HUDView is created in viewDidLoad. Subclass or use KVO to add your custom views 
 		<code><a href="#//api/name/HUDViewMode">&nbsp;&nbsp;HUDViewMode</a></code>
 		<span class="tooltip"><p>Manages the show/hide mode of the HUD view. Defaults to PSPDFHUDViewAutomatic.
 If your statusbar setting is set to PSPDFStatusBarDefault; the HUD will be non-opaque and thus stay visible always.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/HUDViewAnimation">&nbsp;&nbsp;HUDViewAnimation</a></code>
+		<span class="tooltip"><p>Sets the way the HUD will be animated. Defaults to PSPDFHUDViewAnimationFade.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1744,6 +1755,40 @@ HUDView is created in viewDidLoad. Subclass or use KVO to add your custom views 
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) PSPDFHUDView *HUDView</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/HUDViewAnimation" title="HUDViewAnimation"></a>
+	<h3 class="subsubtitle method-title">HUDViewAnimation</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the way the HUD will be animated. Defaults to PSPDFHUDViewAnimationFade.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) PSPDFHUDViewAnimation HUDViewAnimation</code></div>
 	
 	
 	
