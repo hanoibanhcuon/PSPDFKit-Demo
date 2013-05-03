@@ -261,7 +261,7 @@
 	
 	<option value="//api/name/pageViewForPage:">&nbsp;&nbsp;&nbsp;&nbsp;- pageViewForPage:</option>
 	
-	<option value="//api/name/presentModalViewController:embeddedInNavigationController:withCloseButton:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- presentModalViewController:embeddedInNavigationController:withCloseButton:animated:</option>
+	<option value="//api/name/presentModalViewController:embeddedInNavigationController:withCloseButton:animated:options:">&nbsp;&nbsp;&nbsp;&nbsp;- presentModalViewController:embeddedInNavigationController:withCloseButton:animated:options:</option>
 	
 	<option value="//api/name/presentViewControllerModalOrPopover:embeddedInNavigationController:withCloseButton:animated:sender:options:">&nbsp;&nbsp;&nbsp;&nbsp;- presentViewControllerModalOrPopover:embeddedInNavigationController:withCloseButton:animated:sender:options:</option>
 	
@@ -340,8 +340,6 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Class Accessors">Class Accessors</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Thumbnail View">Thumbnail View</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Helpers">Helpers</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
 	
@@ -577,7 +575,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pageViewForPage:">pageViewForPage:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/presentModalViewController:embeddedInNavigationController:withCloseButton:animated:">presentModalViewController:embeddedInNavigationController:withCloseButton:animated:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/presentModalViewController:embeddedInNavigationController:withCloseButton:animated:options:">presentModalViewController:embeddedInNavigationController:withCloseButton:animated:options:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/presentViewControllerModalOrPopover:embeddedInNavigationController:withCloseButton:animated:sender:options:">presentViewControllerModalOrPopover:embeddedInNavigationController:withCloseButton:animated:sender:options:</a></span></li>
 	
@@ -1513,26 +1511,18 @@ Margin is extra space around the grid of thumbnails.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
-</li>
-						</ul>
-						
-						
-						<a title="Helpers" name="task_Helpers"></a>
-						<h3 class="subsubtitle task-title">Helpers</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/presentModalViewController:embeddedInNavigationController:withCloseButton:animated:">&ndash;&nbsp;presentModalViewController:embeddedInNavigationController:withCloseButton:animated:</a></code>
-		<span class="tooltip"><p>Show a modal view controller with automatically added close button on the left side.</p></span>
-	</span>
-	
-	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/presentViewControllerModalOrPopover:embeddedInNavigationController:withCloseButton:animated:sender:options:">&ndash;&nbsp;presentViewControllerModalOrPopover:embeddedInNavigationController:withCloseButton:animated:sender:options:</a></code>
 		<span class="tooltip"><p>Show a modal view controller or a popover with automatically added close button on the left side.
 Use sender (UIBarButtonitem or UIView) OR rect in options (both only needed for the popover)</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/presentModalViewController:embeddedInNavigationController:withCloseButton:animated:options:">&ndash;&nbsp;presentModalViewController:embeddedInNavigationController:withCloseButton:animated:options:</a></code>
+		<span class="tooltip"><p>Show a modal view controller with automatically added close button on the left side.</p></span>
 	</span>
 	
 	
@@ -5535,8 +5525,8 @@ Usually, using the delegates is a better idea to get the current <a href="#//api
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/presentModalViewController:embeddedInNavigationController:withCloseButton:animated:" title="presentModalViewController:embeddedInNavigationController:withCloseButton:animated:"></a>
-	<h3 class="subsubtitle method-title">presentModalViewController:embeddedInNavigationController:withCloseButton:animated:</h3>
+	<a name="//api/name/presentModalViewController:embeddedInNavigationController:withCloseButton:animated:options:" title="presentModalViewController:embeddedInNavigationController:withCloseButton:animated:options:"></a>
+	<h3 class="subsubtitle method-title">presentModalViewController:embeddedInNavigationController:withCloseButton:animated:options:</h3>
 	
 	
 	
@@ -5545,7 +5535,7 @@ Usually, using the delegates is a better idea to get the current <a href="#//api
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)presentModalViewController:(UIViewController *)<em>controller</em> embeddedInNavigationController:(BOOL)<em>embedded</em> withCloseButton:(BOOL)<em>closeButton</em> animated:(BOOL)<em>animated</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)presentModalViewController:(UIViewController *)<em>controller</em> embeddedInNavigationController:(BOOL)<em>embedded</em> withCloseButton:(BOOL)<em>closeButton</em> animated:(BOOL)<em>animated</em> options:(NSDictionary *)<em>options</em></code></div>
 	
 	
 	
@@ -6305,7 +6295,7 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-04-30)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
