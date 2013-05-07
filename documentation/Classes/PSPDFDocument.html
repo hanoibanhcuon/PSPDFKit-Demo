@@ -66,13 +66,13 @@
 	
 	<option value="//api/name/bookmarksEnabled">&nbsp;&nbsp;&nbsp;&nbsp;bookmarksEnabled</option>
 	
-	<option value="//api/name/cacheDirectory">&nbsp;&nbsp;&nbsp;&nbsp;cacheDirectory</option>
-	
 	<option value="//api/name/canEmbedAnnotations">&nbsp;&nbsp;&nbsp;&nbsp;canEmbedAnnotations</option>
 	
 	<option value="//api/name/data">&nbsp;&nbsp;&nbsp;&nbsp;data</option>
 	
 	<option value="//api/name/dataArray">&nbsp;&nbsp;&nbsp;&nbsp;dataArray</option>
+	
+	<option value="//api/name/dataDirectory">&nbsp;&nbsp;&nbsp;&nbsp;dataDirectory</option>
 	
 	<option value="//api/name/dataProvider">&nbsp;&nbsp;&nbsp;&nbsp;dataProvider</option>
 	
@@ -184,7 +184,7 @@
 	
 	<option value="//api/name/documentProviders">&nbsp;&nbsp;&nbsp;&nbsp;- documentProviders</option>
 	
-	<option value="//api/name/ensureCacheDirectoryExistsWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- ensureCacheDirectoryExistsWithError:</option>
+	<option value="//api/name/ensureDataDirectoryExistsWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- ensureDataDirectoryExistsWithError:</option>
 	
 	<option value="//api/name/fileIndexForPage:">&nbsp;&nbsp;&nbsp;&nbsp;- fileIndexForPage:</option>
 	
@@ -312,13 +312,13 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bookmarksEnabled">bookmarksEnabled</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cacheDirectory">cacheDirectory</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canEmbedAnnotations">canEmbedAnnotations</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/data">data</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dataArray">dataArray</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dataDirectory">dataDirectory</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dataProvider">dataProvider</a></span></li>
 	
@@ -432,7 +432,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/documentProviders">documentProviders</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ensureCacheDirectoryExistsWithError:">ensureCacheDirectoryExistsWithError:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ensureDataDirectoryExistsWithError:">ensureDataDirectoryExistsWithError:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fileIndexForPage:">fileIndexForPage:</a></span></li>
 	
@@ -979,7 +979,7 @@ If this returns 0 or a very small value, it&rsquo;s perfectly suitable for pageC
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/cacheDirectory">&nbsp;&nbsp;cacheDirectory</a></code>
+		<code><a href="#//api/name/dataDirectory">&nbsp;&nbsp;dataDirectory</a></code>
 		<span class="tooltip"><p>Path where backupable cache <a href="#//api/name/data">data</a> like <a href="#//api/name/bookmarks">bookmarks</a> are saved.
 Defaults to &lt;AppDirectory&gt;/Library/PrivateDocuments/PSPDFKit. Cannot be nil.
 Will <em>always</em> be appended by <a href="#//api/name/UID">UID</a>. Don&rsquo;t manually append <a href="#//api/name/UID">UID</a>.</p></span>
@@ -988,8 +988,8 @@ Will <em>always</em> be appended by <a href="#//api/name/UID">UID</a>. Don&rsquo
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/ensureCacheDirectoryExistsWithError:">&ndash;&nbsp;ensureCacheDirectoryExistsWithError:</a></code>
-		<span class="tooltip"><p>Make sure &lsquo;cacheDirectory&rsquo; exists. Returns error if creation is not possible.</p></span>
+		<code><a href="#//api/name/ensureDataDirectoryExistsWithError:">&ndash;&nbsp;ensureDataDirectoryExistsWithError:</a></code>
+		<span class="tooltip"><p>Make sure &lsquo;dataDirectory&rsquo; exists. Returns error if creation is not possible.</p></span>
 	</span>
 	
 	
@@ -1312,7 +1312,7 @@ e.g. add an entry of [PSPDFAnnotationParser class] / [MyCustomAnnotationParser c
 	<span class="tooltip">
 		<code><a href="#//api/name/didCreateDocumentProvider:">&ndash;&nbsp;didCreateDocumentProvider:</a></code>
 		<span class="tooltip"><p>Hook to modify/return a different <a href="#//api/name/document">document</a> provider. Called each time a documentProvider is created (which is usually on first access, and cached afterwards)
-During PSPDFDocument lifetime, <a href="#//api/name/document">document</a> providers might be created at any time, lazily, and destroyed when memory is low.
+During PS<a href="#//api/name/PDFDocument">PDFDocument</a> lifetime, <a href="#//api/name/document">document</a> providers might be created at any time, lazily, and destroyed when memory is low.
 This might be used to change the <a href="#//api/name/delegate">delegate</a> of the <a href="../Classes/PSPDFDocumentProvider.html">PSPDFDocumentProvider</a>.</p></span>
 	</span>
 	
@@ -1860,42 +1860,6 @@ Bookmarks are handled on <a href="#//api/name/document">document</a> level, not 
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/cacheDirectory" title="cacheDirectory"></a>
-	<h3 class="subsubtitle method-title">cacheDirectory</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Path where backupable cache <a href="#//api/name/data">data</a> like <a href="#//api/name/bookmarks">bookmarks</a> are saved.
-Defaults to &lt;AppDirectory&gt;/Library/PrivateDocuments/PSPDFKit. Cannot be nil.
-Will <em>always</em> be appended by <a href="#//api/name/UID">UID</a>. Don&rsquo;t manually append <a href="#//api/name/UID">UID</a>.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *cacheDirectory</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFDocument.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/canEmbedAnnotations" title="canEmbedAnnotations"></a>
 	<h3 class="subsubtitle method-title">canEmbedAnnotations</h3>
 	
@@ -1994,6 +1958,42 @@ This is a shortcut to the first entry of <a href="#//api/name/dataArray">dataArr
 		<h4 class="method-subtitle">Discussion</h4>
 		<div class="note"><p><strong>Note:</strong> If writing annotations is enabled, the dataArray&rsquo;s content will change after a save.</p></div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFDocument.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dataDirectory" title="dataDirectory"></a>
+	<h3 class="subsubtitle method-title">dataDirectory</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Path where backupable cache <a href="#//api/name/data">data</a> like <a href="#//api/name/bookmarks">bookmarks</a> are saved.
+Defaults to &lt;AppDirectory&gt;/Library/PrivateDocuments/PSPDFKit. Cannot be nil.
+Will <em>always</em> be appended by <a href="#//api/name/UID">UID</a>. Don&rsquo;t manually append <a href="#//api/name/UID">UID</a>.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *dataDirectory</code></div>
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -3745,7 +3745,7 @@ To analyze the whole <a href="#//api/name/document">document</a>, use [NSIndexSe
 	
 	<div class="method-subsection brief-description">
 		<p>Hook to modify/return a different <a href="#//api/name/document">document</a> provider. Called each time a documentProvider is created (which is usually on first access, and cached afterwards)
-During PSPDFDocument lifetime, <a href="#//api/name/document">document</a> providers might be created at any time, lazily, and destroyed when memory is low.
+During PS<a href="#//api/name/PDFDocument">PDFDocument</a> lifetime, <a href="#//api/name/document">document</a> providers might be created at any time, lazily, and destroyed when memory is low.
 This might be used to change the <a href="#//api/name/delegate">delegate</a> of the <a href="../Classes/PSPDFDocumentProvider.html">PSPDFDocumentProvider</a>.</p>
 	</div>		
 	
@@ -3877,17 +3877,17 @@ This might be used to change the <a href="#//api/name/delegate">delegate</a> of 
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/ensureCacheDirectoryExistsWithError:" title="ensureCacheDirectoryExistsWithError:"></a>
-	<h3 class="subsubtitle method-title">ensureCacheDirectoryExistsWithError:</h3>
+	<a name="//api/name/ensureDataDirectoryExistsWithError:" title="ensureDataDirectoryExistsWithError:"></a>
+	<h3 class="subsubtitle method-title">ensureDataDirectoryExistsWithError:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Make sure &lsquo;cacheDirectory&rsquo; exists. Returns error if creation is not possible.</p>
+		<p>Make sure &lsquo;dataDirectory&rsquo; exists. Returns error if creation is not possible.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (BOOL)ensureCacheDirectoryExistsWithError:(NSError **)<em>error</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)ensureDataDirectoryExistsWithError:(NSError **)<em>error</em></code></div>
 	
 	
 	
@@ -5024,7 +5024,7 @@ This doesn&rsquo;t harm if the <a href="#//api/name/document">document</a> is al
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-04)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-07)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

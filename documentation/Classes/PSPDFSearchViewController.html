@@ -42,9 +42,9 @@
 	
 	<option value="//api/name/clearHighlightsWhenClosed">&nbsp;&nbsp;&nbsp;&nbsp;clearHighlightsWhenClosed</option>
 	
-	<option value="//api/name/maximumNumberOfSearchResultsDisplayed">&nbsp;&nbsp;&nbsp;&nbsp;maximumNumberOfSearchResultsDisplayed</option>
+	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
 	
-	<option value="//api/name/pdfController">&nbsp;&nbsp;&nbsp;&nbsp;pdfController</option>
+	<option value="//api/name/maximumNumberOfSearchResultsDisplayed">&nbsp;&nbsp;&nbsp;&nbsp;maximumNumberOfSearchResultsDisplayed</option>
 	
 	<option value="//api/name/searchBar">&nbsp;&nbsp;&nbsp;&nbsp;searchBar</option>
 	
@@ -65,7 +65,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithDocument:pdfController:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithDocument:pdfController:</option>
+	<option value="//api/name/initWithDocument:delegate:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithDocument:delegate:</option>
 	
 	
 	
@@ -93,9 +93,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearHighlightsWhenClosed">clearHighlightsWhenClosed</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/maximumNumberOfSearchResultsDisplayed">maximumNumberOfSearchResultsDisplayed</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pdfController">pdfController</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/maximumNumberOfSearchResultsDisplayed">maximumNumberOfSearchResultsDisplayed</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/searchBar">searchBar</a></span></li>
 	
@@ -117,7 +117,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithDocument:pdfController:">initWithDocument:pdfController:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithDocument:delegate:">initWithDocument:delegate:</a></span></li>
 	
 </ul></li>
 
@@ -146,7 +146,7 @@
 	<td class="specification-value">UITableViewController</td>
 </tr><tr>
 	<td class="specification-title">Conforms to</td>
-	<td class="specification-value"><a href="../Protocols/PSPDFCacheDelegate.html">PSPDFCacheDelegate</a><br /><a href="../Protocols/PSPDFPopoverControllerDismissable.html">PSPDFPopoverControllerDismissable</a><br />PSPDFStatusBarStyleHint<br /><a href="../Protocols/PSPDFTextSearchDelegate.html">PSPDFTextSearchDelegate</a><br />UISearchBarDelegate<br />UISearchDisplayDelegate</td>
+	<td class="specification-value"><a href="../Protocols/PSPDFCacheDelegate.html">PSPDFCacheDelegate</a><br /><a href="../Protocols/PSPDFPopoverControllerDismissable.html">PSPDFPopoverControllerDismissable</a><br /><a href="../Protocols/PSPDFStatusBarStyleHint.html">PSPDFStatusBarStyleHint</a><br /><a href="../Protocols/PSPDFStyleable.html">PSPDFStyleable</a><br /><a href="../Protocols/PSPDFTextSearchDelegate.html">PSPDFTextSearchDelegate</a><br />UISearchBarDelegate<br />UISearchDisplayDelegate</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
 	<td class="specification-value">PSPDFSearchViewController.h</td>
@@ -177,7 +177,7 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithDocument:pdfController:">&ndash;&nbsp;initWithDocument:pdfController:</a></code>
+		<code><a href="#//api/name/initWithDocument:delegate:">&ndash;&nbsp;initWithDocument:delegate:</a></code>
 		<span class="tooltip"><p>initializes controller.</p></span>
 	</span>
 	
@@ -200,7 +200,7 @@
 	<span class="tooltip">
 		<code><a href="#//api/name/searchBar">&nbsp;&nbsp;searchBar</a></code>
 		<span class="tooltip"><p>Search bar for controller.
-You can change attributes (e.g. barStyle) but don&rsquo;t change the delegate!</p></span>
+You can change attributes (e.g. barStyle) but don&rsquo;t change the <a href="#//api/name/delegate">delegate</a>!</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -242,8 +242,8 @@ If not set, the natural page order is searched.</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/pdfController">&nbsp;&nbsp;pdfController</a></code>
-		<span class="tooltip"><p>Attached pdfController.</p></span>
+		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+		<span class="tooltip"><p>The delegate.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -272,6 +272,40 @@ If not set, the natural page order is searched.</p></span>
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL clearHighlightsWhenClosed</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFSearchViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="subsubtitle method-title">delegate</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The delegate.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;PSPDFSearchViewControllerDelegate&gt; delegate</code></div>
 	
 	
 	
@@ -329,40 +363,6 @@ If not set, the natural page order is searched.</p></span>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/pdfController" title="pdfController"></a>
-	<h3 class="subsubtitle method-title">pdfController</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Attached pdfController.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, weak, readonly) PSPDFViewController *pdfController</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFSearchViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/searchBar" title="searchBar"></a>
 	<h3 class="subsubtitle method-title">searchBar</h3>
 	
@@ -370,7 +370,7 @@ If not set, the natural page order is searched.</p></span>
 	
 	<div class="method-subsection brief-description">
 		<p>Search bar for controller.
-You can change attributes (e.g. barStyle) but don&rsquo;t change the delegate!</p>
+You can change attributes (e.g. barStyle) but don&rsquo;t change the <a href="#//api/name/delegate">delegate</a>!</p>
 	</div>		
 	
 	
@@ -584,8 +584,8 @@ If not set, the natural page order is searched.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithDocument:pdfController:" title="initWithDocument:pdfController:"></a>
-	<h3 class="subsubtitle method-title">initWithDocument:pdfController:</h3>
+	<a name="//api/name/initWithDocument:delegate:" title="initWithDocument:delegate:"></a>
+	<h3 class="subsubtitle method-title">initWithDocument:delegate:</h3>
 	
 	
 	
@@ -594,7 +594,7 @@ If not set, the natural page order is searched.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (id)initWithDocument:(PSPDFDocument *)<em>document</em> pdfController:(PSPDFViewController *)<em>pdfController</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithDocument:(PSPDFDocument *)<em>document</em> delegate:(id&lt;PSPDFSearchViewControllerDelegate&gt;)<em>delegate</em></code></div>
 	
 	
 	
@@ -630,7 +630,7 @@ If not set, the natural page order is searched.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-04)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-07)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

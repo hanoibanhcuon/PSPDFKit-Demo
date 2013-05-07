@@ -138,9 +138,9 @@
 	
 	<option value="//api/name/infoDescription">&nbsp;&nbsp;&nbsp;&nbsp;- infoDescription</option>
 	
-	<option value="//api/name/initWithAnnotationDictionary:inAnnotsArray:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAnnotationDictionary:inAnnotsArray:</option>
+	<option value="//api/name/initWithAnnotationDictionary:inAnnotsArray:documentRef:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAnnotationDictionary:inAnnotsArray:documentRef:</option>
 	
-	<option value="//api/name/initWithAnnotationDictionary:inAnnotsArray:type:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAnnotationDictionary:inAnnotsArray:type:</option>
+	<option value="//api/name/initWithAnnotationDictionary:inAnnotsArray:documentRef:type:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAnnotationDictionary:inAnnotsArray:documentRef:type:</option>
 	
 	<option value="//api/name/initWithType:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithType:</option>
 	
@@ -282,9 +282,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/infoDescription">infoDescription</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAnnotationDictionary:inAnnotsArray:">initWithAnnotationDictionary:inAnnotsArray:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAnnotationDictionary:inAnnotsArray:documentRef:">initWithAnnotationDictionary:inAnnotsArray:documentRef:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAnnotationDictionary:inAnnotsArray:type:">initWithAnnotationDictionary:inAnnotsArray:type:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAnnotationDictionary:inAnnotsArray:documentRef:type:">initWithAnnotationDictionary:inAnnotsArray:documentRef:type:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithType:">initWithType:</a></span></li>
 	
@@ -398,7 +398,7 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithAnnotationDictionary:inAnnotsArray:">&ndash;&nbsp;initWithAnnotationDictionary:inAnnotsArray:</a></code>
+		<code><a href="#//api/name/initWithAnnotationDictionary:inAnnotsArray:documentRef:">&ndash;&nbsp;initWithAnnotationDictionary:inAnnotsArray:documentRef:</a></code>
 		<span class="tooltip"><p>Designated initializer. Also used for generic PSPDFAnnotations (those that are not recognized by <a href="../Classes/PSPDFAnnotationParser.html">PSPDFAnnotationParser</a>)
 Implement this in your subclass.</p></span>
 	</span>
@@ -406,7 +406,7 @@ Implement this in your subclass.</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithAnnotationDictionary:inAnnotsArray:type:">&ndash;&nbsp;initWithAnnotationDictionary:inAnnotsArray:type:</a></code>
+		<code><a href="#//api/name/initWithAnnotationDictionary:inAnnotsArray:documentRef:type:">&ndash;&nbsp;initWithAnnotationDictionary:inAnnotsArray:documentRef:type:</a></code>
 		<span class="tooltip"><p>Initialize annotation with the corresponding PDF dictionary. Call this from your direct subclass.</p></span>
 	</span>
 	
@@ -467,7 +467,7 @@ Currently used to allow different annotation drawings during the annotation flat
 		<code><a href="#//api/name/overlay">&nbsp;&nbsp;overlay</a></code>
 		<span class="tooltip"><p>If YES, the annotation will be rendered as a overlay. If NO, it will be statically rendered within the PDF content image.
 PSPDFAnnotationTypeLink and PSPDFAnnotationTypeNote currently are rendered as overlay.
-If overlay is set to YES, you must also register the corresponding *annotationView class to render (override PSPDFAnnotationParser&rsquo;s annotationClassForAnnotation)</p></span>
+If overlay is set to YES, you must also register the corresponding *annotationView class to render (override PSPDFAnnotationParser&rsquo;s defaultAnnotationViewClassForAnnotation)</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1520,7 +1520,7 @@ Will be updated by PSPDFKit as soon as a property is changed.</p>
 	<div class="method-subsection brief-description">
 		<p>If YES, the annotation will be rendered as a overlay. If NO, it will be statically rendered within the PDF content image.
 PSPDFAnnotationTypeLink and PSPDFAnnotationTypeNote currently are rendered as overlay.
-If overlay is set to YES, you must also register the corresponding *annotationView class to render (override PSPDFAnnotationParser&rsquo;s annotationClassForAnnotation)</p>
+If overlay is set to YES, you must also register the corresponding *annotationView class to render (override PSPDFAnnotationParser&rsquo;s defaultAnnotationViewClassForAnnotation)</p>
 	</div>		
 	
 	
@@ -2328,8 +2328,8 @@ Currently used to allow different annotation drawings during the annotation flat
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithAnnotationDictionary:inAnnotsArray:" title="initWithAnnotationDictionary:inAnnotsArray:"></a>
-	<h3 class="subsubtitle method-title">initWithAnnotationDictionary:inAnnotsArray:</h3>
+	<a name="//api/name/initWithAnnotationDictionary:inAnnotsArray:documentRef:" title="initWithAnnotationDictionary:inAnnotsArray:documentRef:"></a>
+	<h3 class="subsubtitle method-title">initWithAnnotationDictionary:inAnnotsArray:documentRef:</h3>
 	
 	
 	
@@ -2339,7 +2339,7 @@ Implement this in your subclass.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (id)initWithAnnotationDictionary:(CGPDFDictionaryRef)<em>annotDict</em> inAnnotsArray:(CGPDFArrayRef)<em>annotsArray</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithAnnotationDictionary:(CGPDFDictionaryRef)<em>annotDict</em> inAnnotsArray:(CGPDFArrayRef)<em>annotsArray</em> documentRef:(CGPDFDocumentRef)<em>documentRef</em></code></div>
 	
 	
 	
@@ -2363,8 +2363,8 @@ Implement this in your subclass.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithAnnotationDictionary:inAnnotsArray:type:" title="initWithAnnotationDictionary:inAnnotsArray:type:"></a>
-	<h3 class="subsubtitle method-title">initWithAnnotationDictionary:inAnnotsArray:type:</h3>
+	<a name="//api/name/initWithAnnotationDictionary:inAnnotsArray:documentRef:type:" title="initWithAnnotationDictionary:inAnnotsArray:documentRef:type:"></a>
+	<h3 class="subsubtitle method-title">initWithAnnotationDictionary:inAnnotsArray:documentRef:type:</h3>
 	
 	
 	
@@ -2373,7 +2373,7 @@ Implement this in your subclass.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (id)initWithAnnotationDictionary:(CGPDFDictionaryRef)<em>annotationDictionary</em> inAnnotsArray:(CGPDFArrayRef)<em>annotsArray</em> type:(PSPDFAnnotationType)<em>annotationType</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithAnnotationDictionary:(CGPDFDictionaryRef)<em>annotationDictionary</em> inAnnotsArray:(CGPDFArrayRef)<em>annotsArray</em> documentRef:(CGPDFDocumentRef)<em>documentRef</em> type:(PSPDFAnnotationType)<em>annotationType</em></code></div>
 	
 	
 	
@@ -2648,7 +2648,7 @@ Per convention, the first returned object has to be an annotation objects, all o
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-04)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-07)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

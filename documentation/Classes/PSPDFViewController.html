@@ -341,9 +341,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Thumbnail View">Thumbnail View</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
 	
 </ul></li>
 
@@ -646,7 +646,7 @@
 	<td class="specification-value">PSPDFBaseViewController : UIViewController</td>
 </tr><tr>
 	<td class="specification-title">Conforms to</td>
-	<td class="specification-value">MFMailComposeViewControllerDelegate<br /><a href="../Protocols/PSPDFAnnotationTableViewControllerDelegate.html">PSPDFAnnotationTableViewControllerDelegate</a><br /><a href="../Protocols/PSPDFBookmarkViewControllerDelegate.html">PSPDFBookmarkViewControllerDelegate</a><br /><a href="../Protocols/PSPDFOutlineViewControllerDelegate.html">PSPDFOutlineViewControllerDelegate</a><br /><a href="../Protocols/PSPDFPasswordViewDelegate.html">PSPDFPasswordViewDelegate</a><br /><a href="../Protocols/PSPDFTextSearchDelegate.html">PSPDFTextSearchDelegate</a><br /><a href="../Protocols/PSPDFThumbnailViewControllerDelegate.html">PSPDFThumbnailViewControllerDelegate</a><br /><a href="../Protocols/PSPDFWebViewControllerDelegate.html">PSPDFWebViewControllerDelegate</a><br />UIPopoverControllerDelegate</td>
+	<td class="specification-value">MFMailComposeViewControllerDelegate<br /><a href="../Protocols/PSPDFAnnotationTableViewControllerDelegate.html">PSPDFAnnotationTableViewControllerDelegate</a><br /><a href="../Protocols/PSPDFBookmarkViewControllerDelegate.html">PSPDFBookmarkViewControllerDelegate</a><br /><a href="../Protocols/PSPDFOutlineViewControllerDelegate.html">PSPDFOutlineViewControllerDelegate</a><br /><a href="../Protocols/PSPDFPasswordViewDelegate.html">PSPDFPasswordViewDelegate</a><br /><a href="../Protocols/PSPDFSearchViewControllerDelegate.html">PSPDFSearchViewControllerDelegate</a><br /><a href="../Protocols/PSPDFTextSearchDelegate.html">PSPDFTextSearchDelegate</a><br /><a href="../Protocols/PSPDFThumbnailViewControllerDelegate.html">PSPDFThumbnailViewControllerDelegate</a><br /><a href="../Protocols/PSPDFWebViewControllerDelegate.html">PSPDFWebViewControllerDelegate</a><br />UIPopoverControllerDelegate</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
 	<td class="specification-value">PSPDFViewController.h</td>
@@ -1587,37 +1587,6 @@ If you get effects like the email controller not appearing at all, override this
 						</ul>
 						
 						
-						<a title="Internal Methods" name="task_Internal Methods"></a>
-						<h3 class="subsubtitle task-title">Internal Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
-		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
-Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
-		<span class="tooltip"><p>To handle external URLS.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
-		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
-Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-						
 						<a title="SubclassingHooks Methods" name="task_SubclassingHooks Methods"></a>
 						<h3 class="subsubtitle task-title">SubclassingHooks Methods</h3>
 
@@ -1716,6 +1685,37 @@ bottom of the screen, depending on whether the scrobble bar is enabled. Defaults
 	<span class="tooltip">
 		<code><a href="#//api/name/scrobbleBar">&nbsp;&nbsp;scrobbleBar</a></code>
 		<span class="tooltip"><p>Scrobble bar. Created lazily.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Internal Methods" name="task_Internal Methods"></a>
+						<h3 class="subsubtitle task-title">Internal Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
+		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
+Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
+		<span class="tooltip"><p>To handle external URLS.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
+		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
+Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -6295,7 +6295,7 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-04)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-07)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
