@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>PSPDFFreeTextAnnotationView Class Reference</title>
+		<title>PSPDFAnnotationStyle Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">PSPDFFreeTextAnnotationView Class Reference</h1>
+				<h1 class="hideInXcode">PSPDFAnnotationStyle Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -40,9 +40,9 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/resizableView">&nbsp;&nbsp;&nbsp;&nbsp;resizableView</option>
+	<option value="//api/name/styleDictionary">&nbsp;&nbsp;&nbsp;&nbsp;styleDictionary</option>
 	
-	<option value="//api/name/textView">&nbsp;&nbsp;&nbsp;&nbsp;textView</option>
+	<option value="//api/name/styleName">&nbsp;&nbsp;&nbsp;&nbsp;styleName</option>
 	
 	
 	
@@ -51,11 +51,11 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/beginEditing">&nbsp;&nbsp;&nbsp;&nbsp;- beginEditing</option>
+	<option value="//api/name/applyStyleToAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- applyStyleToAnnotation:</option>
 	
-	<option value="//api/name/endEditing">&nbsp;&nbsp;&nbsp;&nbsp;- endEditing</option>
+	<option value="//api/name/initWithName:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithName:</option>
 	
-	<option value="//api/name/initWithAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAnnotation:</option>
+	<option value="//api/name/setStyle:forKey:">&nbsp;&nbsp;&nbsp;&nbsp;- setStyle:forKey:</option>
 	
 	
 	
@@ -81,9 +81,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resizableView">resizableView</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/styleDictionary">styleDictionary</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/textView">textView</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/styleName">styleName</a></span></li>
 	
 </ul></li>
 
@@ -93,11 +93,11 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/beginEditing">beginEditing</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/applyStyleToAnnotation:">applyStyleToAnnotation:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endEditing">endEditing</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithName:">initWithName:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAnnotation:">initWithAnnotation:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setStyle:forKey:">setStyle:forKey:</a></span></li>
 	
 </ul></li>
 
@@ -106,7 +106,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="PSPDFFreeTextAnnotationView Class Reference" name="top"></a>
+				<a title="PSPDFAnnotationStyle Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -115,7 +115,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">PSPDFFreeTextAnnotationView Class Reference</h1>
+						<h1 class="title title-header">PSPDFAnnotationStyle Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -123,13 +123,10 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value"><a href="../Classes/PSPDFHostingAnnotationView.html">PSPDFHostingAnnotationView</a> : <a href="../Classes/PSPDFGenericAnnotationView.html">PSPDFGenericAnnotationView</a> : UIView</td>
-</tr><tr>
-	<td class="specification-title">Conforms to</td>
-	<td class="specification-value"><a href="../Protocols/PSPDFResizableTrackedViewDelegate.html">PSPDFResizableTrackedViewDelegate</a><br />UITextViewDelegate</td>
+	<td class="specification-value"><a href="../Classes/PSPDFModel.html">PSPDFModel</a> : NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">PSPDFFreeTextAnnotationView.h</td>
+	<td class="specification-value">PSPDFAnnotationStyle.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -139,7 +136,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Free Text View. Allows inline text editing.</p>
+						<p>Defines an annotation style.</p>
 					</div>
 					
 					
@@ -157,38 +154,38 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithAnnotation:">&ndash;&nbsp;initWithAnnotation:</a></code>
-		<span class="tooltip"><p>Designated initializer.</p></span>
+		<code><a href="#//api/name/initWithName:">&ndash;&nbsp;initWithName:</a></code>
+		<span class="tooltip"><p>Initializer.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/beginEditing">&ndash;&nbsp;beginEditing</a></code>
-		<span class="tooltip"><p>Start editing, shows the keyboard.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/endEditing">&ndash;&nbsp;endEditing</a></code>
-		<span class="tooltip"><p>Ends editing, hides the keyboard</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/textView">&nbsp;&nbsp;textView</a></code>
-		<span class="tooltip"><p>Internally used textView. Only valid during begin and before <a href="#//api/name/endEditing">endEditing</a>.</p></span>
+		<code><a href="#//api/name/styleName">&nbsp;&nbsp;styleName</a></code>
+		<span class="tooltip"><p>The name of the annotation style.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/resizableView">&nbsp;&nbsp;resizableView</a></code>
-		<span class="tooltip"><p>The dragging view, if we are currently dragged.</p></span>
+		<code><a href="#//api/name/styleDictionary">&nbsp;&nbsp;styleDictionary</a></code>
+		<span class="tooltip"><p>Key/Value pairs of style settings that should be applied to the object.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setStyle:forKey:">&ndash;&nbsp;setStyle:forKey:</a></code>
+		<span class="tooltip"><p>Populates the <a href="#//api/name/styleDictionary">styleDictionary</a>. use nil for <code>style</code> to remove a value</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/applyStyleToAnnotation:">&ndash;&nbsp;applyStyleToAnnotation:</a></code>
+		<span class="tooltip"><p>Applies all applicable style attribute to the annotation. Matching is done via property name comparison.</p></span>
+	</span>
+	
 	
 </li>
 						</ul>
@@ -204,17 +201,17 @@
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/resizableView" title="resizableView"></a>
-	<h3 class="subsubtitle method-title">resizableView</h3>
+	<a name="//api/name/styleDictionary" title="styleDictionary"></a>
+	<h3 class="subsubtitle method-title">styleDictionary</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The dragging view, if we are currently dragged.</p>
+		<p>Key/Value pairs of style settings that should be applied to the object.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) PSPDFResizableView *resizableView</code></div>
+	<div class="method-subsection method-declaration"><code>@property (atomic, copy) NSDictionary *styleDictionary</code></div>
 	
 	
 	
@@ -231,24 +228,24 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFFreeTextAnnotationView.h</code><br />
+		<code class="declared-in-ref">PSPDFAnnotationStyle.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/textView" title="textView"></a>
-	<h3 class="subsubtitle method-title">textView</h3>
+	<a name="//api/name/styleName" title="styleName"></a>
+	<h3 class="subsubtitle method-title">styleName</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Internally used textView. Only valid during begin and before <a href="#//api/name/endEditing">endEditing</a>.</p>
+		<p>The name of the annotation style.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) UITextView *textView</code></div>
+	<div class="method-subsection method-declaration"><code>@property (atomic, copy) NSString *styleName</code></div>
 	
 	
 	
@@ -265,7 +262,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFFreeTextAnnotationView.h</code><br />
+		<code class="declared-in-ref">PSPDFAnnotationStyle.h</code><br />
 	</div>				
 	
 	
@@ -282,17 +279,17 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/beginEditing" title="beginEditing"></a>
-	<h3 class="subsubtitle method-title">beginEditing</h3>
+	<a name="//api/name/applyStyleToAnnotation:" title="applyStyleToAnnotation:"></a>
+	<h3 class="subsubtitle method-title">applyStyleToAnnotation:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Start editing, shows the keyboard.</p>
+		<p>Applies all applicable style attribute to the annotation. Matching is done via property name comparison.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)beginEditing</code></div>
+	<div class="method-subsection method-declaration"><code>- (void)applyStyleToAnnotation:(PSPDFAnnotation *)<em>annotation</em></code></div>
 	
 	
 	
@@ -309,24 +306,24 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFFreeTextAnnotationView.h</code><br />
+		<code class="declared-in-ref">PSPDFAnnotationStyle.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/endEditing" title="endEditing"></a>
-	<h3 class="subsubtitle method-title">endEditing</h3>
+	<a name="//api/name/initWithName:" title="initWithName:"></a>
+	<h3 class="subsubtitle method-title">initWithName:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Ends editing, hides the keyboard</p>
+		<p>Initializer.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)endEditing</code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithName:(NSString *)<em>styleName</em></code></div>
 	
 	
 	
@@ -343,24 +340,24 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFFreeTextAnnotationView.h</code><br />
+		<code class="declared-in-ref">PSPDFAnnotationStyle.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithAnnotation:" title="initWithAnnotation:"></a>
-	<h3 class="subsubtitle method-title">initWithAnnotation:</h3>
+	<a name="//api/name/setStyle:forKey:" title="setStyle:forKey:"></a>
+	<h3 class="subsubtitle method-title">setStyle:forKey:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Designated initializer.</p>
+		<p>Populates the <a href="#//api/name/styleDictionary">styleDictionary</a>. use nil for <code>style</code> to remove a value</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (id)initWithAnnotation:(PSPDFFreeTextAnnotation *)<em>freeTextAnnotation</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)setStyle:(id)<em>style</em> forKey:(NSString *)<em>key</em></code></div>
 	
 	
 	
@@ -377,7 +374,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFFreeTextAnnotationView.h</code><br />
+		<code class="declared-in-ref">PSPDFAnnotationStyle.h</code><br />
 	</div>				
 	
 	
