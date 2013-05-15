@@ -160,8 +160,6 @@
 	
 	<option value="//api/name/scrobbleBar">&nbsp;&nbsp;&nbsp;&nbsp;scrobbleBar</option>
 	
-	<option value="//api/name/scrobbleBarEnabled">&nbsp;&nbsp;&nbsp;&nbsp;scrobbleBarEnabled</option>
-	
 	<option value="//api/name/scrollDirection">&nbsp;&nbsp;&nbsp;&nbsp;scrollDirection</option>
 	
 	<option value="//api/name/scrollOnTapPageEndAnimationEnabled">&nbsp;&nbsp;&nbsp;&nbsp;scrollOnTapPageEndAnimationEnabled</option>
@@ -195,6 +193,8 @@
 	<option value="//api/name/statusBarStyleSetting">&nbsp;&nbsp;&nbsp;&nbsp;statusBarStyleSetting</option>
 	
 	<option value="//api/name/textSelectionEnabled">&nbsp;&nbsp;&nbsp;&nbsp;textSelectionEnabled</option>
+	
+	<option value="//api/name/thumbnailBarMode">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailBarMode</option>
 	
 	<option value="//api/name/thumbnailController">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailController</option>
 	
@@ -279,8 +279,6 @@
 	
 	<option value="//api/name/setPage:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setPage:animated:</option>
 	
-	<option value="//api/name/setScrobbleBarEnabled:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setScrobbleBarEnabled:animated:</option>
-	
 	<option value="//api/name/setUpdateSettingsForRotationBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- setUpdateSettingsForRotationBlock:</option>
 	
 	<option value="//api/name/setViewMode:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setViewMode:animated:</option>
@@ -341,9 +339,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Thumbnail View">Thumbnail View</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
 	
 </ul></li>
 
@@ -473,8 +471,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scrobbleBar">scrobbleBar</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scrobbleBarEnabled">scrobbleBarEnabled</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scrollDirection">scrollDirection</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scrollOnTapPageEndAnimationEnabled">scrollOnTapPageEndAnimationEnabled</a></span></li>
@@ -508,6 +504,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/statusBarStyleSetting">statusBarStyleSetting</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/textSelectionEnabled">textSelectionEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailBarMode">thumbnailBarMode</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailController">thumbnailController</a></span></li>
 	
@@ -593,8 +591,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setPage:animated:">setPage:animated:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setScrobbleBarEnabled:animated:">setScrobbleBarEnabled:animated:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setUpdateSettingsForRotationBlock:">setUpdateSettingsForRotationBlock:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setViewMode:animated:">setViewMode:animated:</a></span></li>
@@ -646,7 +642,7 @@
 	<td class="specification-value">PSPDFBaseViewController : UIViewController</td>
 </tr><tr>
 	<td class="specification-title">Conforms to</td>
-	<td class="specification-value">MFMailComposeViewControllerDelegate<br /><a href="../Protocols/PSPDFAnnotationTableViewControllerDelegate.html">PSPDFAnnotationTableViewControllerDelegate</a><br /><a href="../Protocols/PSPDFBookmarkViewControllerDelegate.html">PSPDFBookmarkViewControllerDelegate</a><br /><a href="../Protocols/PSPDFOutlineViewControllerDelegate.html">PSPDFOutlineViewControllerDelegate</a><br /><a href="../Protocols/PSPDFPasswordViewDelegate.html">PSPDFPasswordViewDelegate</a><br /><a href="../Protocols/PSPDFSearchViewControllerDelegate.html">PSPDFSearchViewControllerDelegate</a><br /><a href="../Protocols/PSPDFTextSearchDelegate.html">PSPDFTextSearchDelegate</a><br /><a href="../Protocols/PSPDFThumbnailViewControllerDelegate.html">PSPDFThumbnailViewControllerDelegate</a><br /><a href="../Protocols/PSPDFWebViewControllerDelegate.html">PSPDFWebViewControllerDelegate</a><br />UIPopoverControllerDelegate</td>
+	<td class="specification-value">MFMailComposeViewControllerDelegate<br /><a href="../Protocols/PSPDFAnnotationTableViewControllerDelegate.html">PSPDFAnnotationTableViewControllerDelegate</a><br /><a href="../Protocols/PSPDFBookmarkViewControllerDelegate.html">PSPDFBookmarkViewControllerDelegate</a><br /><a href="../Protocols/PSPDFOutlineViewControllerDelegate.html">PSPDFOutlineViewControllerDelegate</a><br /><a href="../Protocols/PSPDFPasswordViewDelegate.html">PSPDFPasswordViewDelegate</a><br /><a href="../Protocols/PSPDFSearchViewControllerDelegate.html">PSPDFSearchViewControllerDelegate</a><br /><a href="../Protocols/PSPDFTextSearchDelegate.html">PSPDFTextSearchDelegate</a><br /><a href="../Protocols/PSPDFThumbnailBarDelegate.html">PSPDFThumbnailBarDelegate</a><br /><a href="../Protocols/PSPDFThumbnailViewControllerDelegate.html">PSPDFThumbnailViewControllerDelegate</a><br /><a href="../Protocols/PSPDFWebViewControllerDelegate.html">PSPDFWebViewControllerDelegate</a><br />UIPopoverControllerDelegate</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
 	<td class="specification-value">PSPDFViewController.h</td>
@@ -1044,17 +1040,10 @@ Defaults to NO on iPhone (no space) and YES on iPad.</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/scrobbleBarEnabled">&nbsp;&nbsp;scrobbleBarEnabled</a></code>
-		<span class="tooltip"><p>Enables bottom scrobble bar [if HUD is displayed]. will be hidden automatically when in thumbnail mode. Defaults to YES.</p></span>
+		<code><a href="#//api/name/thumbnailBarMode">&nbsp;&nbsp;thumbnailBarMode</a></code>
+		<span class="tooltip"><p>Sets the thumbnail bar mode. Defaults to PSPDFThumbnailBarModeScrobbleBar.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/setScrobbleBarEnabled:animated:">&ndash;&nbsp;setScrobbleBarEnabled:animated:</a></code>
-		<span class="tooltip"><p>Shows/Hides the scrobble bar if appropriate. Animatable.</p></span>
-	</span>
-	
 	
 </li><li>
 	<span class="tooltip">
@@ -1199,7 +1188,7 @@ Defaults to @[self.<a href="#//api/name/searchButtonItem">searchButtonItem</a>, 
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/additionalBarButtonItems">&nbsp;&nbsp;additionalBarButtonItems</a></code>
-		<span class="tooltip"><p>Displayed at the left of the rightBarButtonItems inside an action sheet. Items ust be PSPDFBarButtonItem instances.
+		<span class="tooltip"><p>Displayed at the left of the rightBarButtonItems inside an action sheet. Items must be PSPDFBarButtonItem instances.
 If [additionalRightToolbarButtonItems count] == 1 then no action sheet is displayed</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -1587,37 +1576,6 @@ If you get effects like the email controller not appearing at all, override this
 						</ul>
 						
 						
-						<a title="Internal Methods" name="task_Internal Methods"></a>
-						<h3 class="subsubtitle task-title">Internal Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
-		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
-Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
-		<span class="tooltip"><p>To handle external URLS.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
-		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
-Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-						
 						<a title="SubclassingHooks Methods" name="task_SubclassingHooks Methods"></a>
 						<h3 class="subsubtitle task-title">SubclassingHooks Methods</h3>
 
@@ -1716,6 +1674,37 @@ bottom of the screen, depending on whether the scrobble bar is enabled. Defaults
 	<span class="tooltip">
 		<code><a href="#//api/name/scrobbleBar">&nbsp;&nbsp;scrobbleBar</a></code>
 		<span class="tooltip"><p>Scrobble bar. Created lazily.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Internal Methods" name="task_Internal Methods"></a>
+						<h3 class="subsubtitle task-title">Internal Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
+		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
+Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
+		<span class="tooltip"><p>To handle external URLS.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
+		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
+Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -1957,7 +1946,7 @@ By default this button is added to the <a href="#//api/name/rightBarButtonItems"
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Displayed at the left of the rightBarButtonItems inside an action sheet. Items ust be PSPDFBarButtonItem instances.
+		<p>Displayed at the left of the rightBarButtonItems inside an action sheet. Items must be PSPDFBarButtonItem instances.
 If [additionalRightToolbarButtonItems count] == 1 then no action sheet is displayed</p>
 	</div>		
 	
@@ -2750,7 +2739,7 @@ Can be useful if you&rsquo;re doing custom drawing on the <a href="../Classes/PS
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<div class="warning"><p><strong>Warning:</strong> UIKit limits the left toolbar size if space is low in the toolbar, potentially cutting off buttons in those toolbars if the title is also too long. You can either reduce the number of buttons, cut down the text or use a titleView to fix this problem. It also appears that UIKit focuses on the leftToolbar, the right one is cut off much later. This problem only appears on the iPad in portrait mode. You can also use updateSettingsForRotation to adapt the toolbar for portrait/landscape mode.</p></div>
+		<div class="warning"><p><strong>Warning:</strong> UIKit limits the left toolbar size if space is low in the toolbar, potentially cutting off buttons in those toolbars if the title is also too long. You can either reduce the number of buttons, cut down the text or use a titleView to fix this problem. It also appears that UIKit focuses on the leftToolbar, the right one is cut off much later. This problem only appears on the iPad in portrait mode. You can also use updateSettingsForRotation to adapt the toolbar for portrait/landscape mode.</p></div><div class="note"><p><strong>Note:</strong> If you use any of the provided bar button items in a custom toolbar, make sure to set leftBarButtonItems and <a href="#//api/name/rightBarButtonItems">rightBarButtonItems</a> to nil &ndash; a UIBarButtonItem can only ever have one parent, else some icons might &ldquo;vanish&rdquo; from your toolbar.</p></div>
 	</div>
 	
 	
@@ -3743,6 +3732,11 @@ Defaults to @[self.<a href="#//api/name/searchButtonItem">searchButtonItem</a>, 
 	
 	
 	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> If you use any of the provided bar button items in a custom toolbar, make sure to set <a href="#//api/name/leftBarButtonItems">leftBarButtonItems</a> and rightBarButtonItems to nil &ndash; a UIBarButtonItem can only ever have one parent, else some icons might &ldquo;vanish&rdquo; from your toolbar.</p></div>
+	</div>
+	
 	
 	
 	
@@ -3839,40 +3833,6 @@ e.g. if you have 50 pages, you get 25/26 &ldquo;double pages&rdquo; when in doub
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) PSPDFScrobbleBar *scrobbleBar</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/scrobbleBarEnabled" title="scrobbleBarEnabled"></a>
-	<h3 class="subsubtitle method-title">scrobbleBarEnabled</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Enables bottom scrobble bar [if HUD is displayed]. will be hidden automatically when in thumbnail mode. Defaults to YES.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, getter=isScrobbleBarEnabled) BOOL scrobbleBarEnabled</code></div>
 	
 	
 	
@@ -4481,6 +4441,40 @@ Setting this will update <a href="#//api/name/statusBarStyle">statusBarStyle</a>
 		<h4 class="method-subtitle">Discussion</h4>
 		<div class="warning"><p><strong>Warning:</strong> This implies that the PDF file actually contains text glyphs. Sometimes text is represented via embedded images or vectors, in that case PSPDFKit can&rsquo;t select it.</p></div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/thumbnailBarMode" title="thumbnailBarMode"></a>
+	<h3 class="subsubtitle method-title">thumbnailBarMode</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the thumbnail bar mode. Defaults to PSPDFThumbnailBarModeScrobbleBar.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) PSPDFThumbnailBarMode thumbnailBarMode</code></div>
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -5834,40 +5828,6 @@ PSPDFConvertPDFRectToViewRect() or -convertPDFPointToViewPoint of <a href="../Cl
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/setScrobbleBarEnabled:animated:" title="setScrobbleBarEnabled:animated:"></a>
-	<h3 class="subsubtitle method-title">setScrobbleBarEnabled:animated:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Shows/Hides the scrobble bar if appropriate. Animatable.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (void)setScrobbleBarEnabled:(BOOL)<em>scrobbleBarEnabled</em> animated:(BOOL)<em>animated</em></code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/setUpdateSettingsForRotationBlock:" title="setUpdateSettingsForRotationBlock:"></a>
 	<h3 class="subsubtitle method-title">setUpdateSettingsForRotationBlock:</h3>
 	
@@ -6295,7 +6255,7 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-12)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-15)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
