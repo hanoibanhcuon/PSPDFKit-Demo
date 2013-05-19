@@ -40,15 +40,20 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/color">&nbsp;&nbsp;&nbsp;&nbsp;color</option>
+	<option value="//api/name/annotation">&nbsp;&nbsp;&nbsp;&nbsp;annotation</option>
 	
 	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
 	
-	<option value="//api/name/lineWidth">&nbsp;&nbsp;&nbsp;&nbsp;lineWidth</option>
+	<option value="//api/name/showPreviewArea">&nbsp;&nbsp;&nbsp;&nbsp;showPreviewArea</option>
 	
 	
 	
 	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/initWithAnnotation:delegate:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAnnotation:delegate:</option>
 	
 	
 	
@@ -74,17 +79,23 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/color">color</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/annotation">annotation</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/lineWidth">lineWidth</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showPreviewArea">showPreviewArea</a></span></li>
 	
 </ul></li>
 
 
 
 
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAnnotation:delegate:">initWithAnnotation:delegate:</a></span></li>
+	
+</ul></li>
 
 
 			</ul>
@@ -111,7 +122,7 @@
 	<td class="specification-value">PSPDFStaticTableViewController : UITableViewController</td>
 </tr><tr>
 	<td class="specification-title">Conforms to</td>
-	<td class="specification-value"><a href="../Protocols/PSPDFColorSelectionViewControllerDelegate.html">PSPDFColorSelectionViewControllerDelegate</a></td>
+	<td class="specification-value"><a href="../Protocols/PSPDFColorSelectionViewControllerDelegate.html">PSPDFColorSelectionViewControllerDelegate</a><br /><a href="../Protocols/PSPDFFontSelectorViewControllerDelegate.html">PSPDFFontSelectorViewControllerDelegate</a><br />PSPDFFontStyleViewControllerDelegate</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
 	<td class="specification-value">PSPDFAnnotationStyleViewController.h</td>
@@ -124,7 +135,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Allows to set/change the style of an annotation.</p>
+						<p>Allows to set/change the style of an <a href="#//api/name/annotation">annotation</a>.</p>
 					</div>
 					
 					
@@ -142,6 +153,13 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
+		<code><a href="#//api/name/initWithAnnotation:delegate:">&ndash;&nbsp;initWithAnnotation:delegate:</a></code>
+		<span class="tooltip"><p>Designated initializer.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
 		<span class="tooltip"><p>Controller delegate.</p></span>
 	</span>
@@ -149,15 +167,15 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/color">&nbsp;&nbsp;color</a></code>
-		<span class="tooltip"><p>Selected color.</p></span>
+		<code><a href="#//api/name/annotation">&nbsp;&nbsp;annotation</a></code>
+		<span class="tooltip"><p>The current selected annotation</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/lineWidth">&nbsp;&nbsp;lineWidth</a></code>
-		<span class="tooltip"><p>Selected line width.</p></span>
+		<code><a href="#//api/name/showPreviewArea">&nbsp;&nbsp;showPreviewArea</a></code>
+		<span class="tooltip"><p>Shows a preview area on top. Defaults to NO.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -175,17 +193,17 @@
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/color" title="color"></a>
-	<h3 class="subsubtitle method-title">color</h3>
+	<a name="//api/name/annotation" title="annotation"></a>
+	<h3 class="subsubtitle method-title">annotation</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Selected color.</p>
+		<p>The current selected annotation</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIColor *color</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) PSPDFAnnotation *annotation</code></div>
 	
 	
 	
@@ -243,17 +261,17 @@
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/lineWidth" title="lineWidth"></a>
-	<h3 class="subsubtitle method-title">lineWidth</h3>
+	<a name="//api/name/showPreviewArea" title="showPreviewArea"></a>
+	<h3 class="subsubtitle method-title">showPreviewArea</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Selected line width.</p>
+		<p>Shows a preview area on top. Defaults to NO.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat lineWidth</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL showPreviewArea</code></div>
 	
 	
 	
@@ -282,6 +300,46 @@
 					
 					
 					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithAnnotation:delegate:" title="initWithAnnotation:delegate:"></a>
+	<h3 class="subsubtitle method-title">initWithAnnotation:delegate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Designated initializer.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (id)initWithAnnotation:(PSPDFAnnotation *)<em>annotation</em> delegate:(id&lt;PSPDFAnnotationStyleViewControllerDelegate&gt;)<em>delegate</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFAnnotationStyleViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
 					
 				</div>
 				<div class="main-navigation navigation-bottom">
@@ -293,7 +351,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-15)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-19)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

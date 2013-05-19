@@ -194,6 +194,8 @@
 	
 	<option value="//api/name/textSelectionEnabled">&nbsp;&nbsp;&nbsp;&nbsp;textSelectionEnabled</option>
 	
+	<option value="//api/name/thumbnailBar">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailBar</option>
+	
 	<option value="//api/name/thumbnailBarMode">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailBarMode</option>
 	
 	<option value="//api/name/thumbnailController">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailController</option>
@@ -339,9 +341,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Thumbnail View">Thumbnail View</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SubclassingHooks Methods">SubclassingHooks Methods</a></span></li>
 	
 </ul></li>
 
@@ -504,6 +506,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/statusBarStyleSetting">statusBarStyleSetting</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/textSelectionEnabled">textSelectionEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailBar">thumbnailBar</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailBarMode">thumbnailBarMode</a></span></li>
 	
@@ -1576,6 +1580,37 @@ If you get effects like the email controller not appearing at all, override this
 						</ul>
 						
 						
+						<a title="Internal Methods" name="task_Internal Methods"></a>
+						<h3 class="subsubtitle task-title">Internal Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
+		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
+Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
+		<span class="tooltip"><p>To handle external URLS.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
+		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
+Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
 						<a title="SubclassingHooks Methods" name="task_SubclassingHooks Methods"></a>
 						<h3 class="subsubtitle task-title">SubclassingHooks Methods</h3>
 
@@ -1673,38 +1708,14 @@ bottom of the screen, depending on whether the scrobble bar is enabled. Defaults
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/scrobbleBar">&nbsp;&nbsp;scrobbleBar</a></code>
-		<span class="tooltip"><p>Scrobble bar. Created lazily.</p></span>
+		<span class="tooltip"><p>Scrobble bar. Created lazily. Available if PSPDFThumbnailBarModeScrobbleBar is set.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
-</li>
-						</ul>
-						
-						
-						<a title="Internal Methods" name="task_Internal Methods"></a>
-						<h3 class="subsubtitle task-title">Internal Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/calculatedVisiblePageNumbers">&ndash;&nbsp;calculatedVisiblePageNumbers</a></code>
-		<span class="tooltip"><p>Return <a href="#//api/name/page">page</a> numbers that are visible. Only returns the current set <a href="#//api/name/page">page</a> in continuous scroll mode
-Useful to get exact pages for double <a href="#//api/name/page">page</a> mode.</p></span>
-	</span>
-	
-	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/handleExternalURL:buttonCompletionBlock:">&ndash;&nbsp;handleExternalURL:buttonCompletionBlock:</a></code>
-		<span class="tooltip"><p>To handle external URLS.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/twoFingerScrollModeEnabled">&nbsp;&nbsp;twoFingerScrollModeEnabled</a></code>
-		<span class="tooltip"><p>Enables two finger scroll mode for the current <a href="#//api/name/page">page</a>.
-Depending on the <a href="#//api/name/pageTransition">pageTransition</a>, this will only allow the current <a href="#//api/name/page">page</a> or all to scroll.</p></span>
+		<code><a href="#//api/name/thumbnailBar">&nbsp;&nbsp;thumbnailBar</a></code>
+		<span class="tooltip"><p>Thumbnail bar. Created lazily. Available if PSPDFThumbnailBarModeScrollable is set.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -3828,7 +3839,7 @@ e.g. if you have 50 pages, you get 25/26 &ldquo;double pages&rdquo; when in doub
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Scrobble bar. Created lazily.</p>
+		<p>Scrobble bar. Created lazily. Available if PSPDFThumbnailBarModeScrobbleBar is set.</p>
 	</div>		
 	
 	
@@ -4441,6 +4452,40 @@ Setting this will update <a href="#//api/name/statusBarStyle">statusBarStyle</a>
 		<h4 class="method-subtitle">Discussion</h4>
 		<div class="warning"><p><strong>Warning:</strong> This implies that the PDF file actually contains text glyphs. Sometimes text is represented via embedded images or vectors, in that case PSPDFKit can&rsquo;t select it.</p></div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/thumbnailBar" title="thumbnailBar"></a>
+	<h3 class="subsubtitle method-title">thumbnailBar</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Thumbnail bar. Created lazily. Available if PSPDFThumbnailBarModeScrollable is set.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) PSPDFThumbnailBar *thumbnailBar</code></div>
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -6255,7 +6300,7 @@ The default implementation calls the block set in setUpdateSettingsForRotationBl
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-15)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-19)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

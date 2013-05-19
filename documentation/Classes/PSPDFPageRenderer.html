@@ -42,15 +42,20 @@
 	
 	<option value="class_methods">Class Methods</option>
 	
-	<option value="//api/name/renderAppearanceStream:inContext:">&nbsp;&nbsp;&nbsp;&nbsp;+ renderAppearanceStream:inContext:</option>
-	
-	<option value="//api/name/renderPage:inContext:atPoint:withZoom:pageInfo:withAnnotations:options:">&nbsp;&nbsp;&nbsp;&nbsp;+ renderPage:inContext:atPoint:withZoom:pageInfo:withAnnotations:options:</option>
-	
-	<option value="//api/name/renderPageRef:inContext:inRectangle:pageInfo:withAnnotations:options:">&nbsp;&nbsp;&nbsp;&nbsp;+ renderPageRef:inContext:inRectangle:pageInfo:withAnnotations:options:</option>
-	
-	<option value="//api/name/setupGraphicsContext:inRectangle:pageInfo:">&nbsp;&nbsp;&nbsp;&nbsp;+ setupGraphicsContext:inRectangle:pageInfo:</option>
+	<option value="//api/name/sharedPageRenderer">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedPageRenderer</option>
 	
 	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/renderAppearanceStream:inContext:">&nbsp;&nbsp;&nbsp;&nbsp;- renderAppearanceStream:inContext:</option>
+	
+	<option value="//api/name/renderPage:inContext:atPoint:withZoom:pageInfo:withAnnotations:options:">&nbsp;&nbsp;&nbsp;&nbsp;- renderPage:inContext:atPoint:withZoom:pageInfo:withAnnotations:options:</option>
+	
+	<option value="//api/name/renderPageRef:inContext:inRectangle:pageInfo:withAnnotations:options:">&nbsp;&nbsp;&nbsp;&nbsp;- renderPageRef:inContext:inRectangle:pageInfo:withAnnotations:options:</option>
+	
+	<option value="//api/name/setupGraphicsContext:inRectangle:pageInfo:">&nbsp;&nbsp;&nbsp;&nbsp;- setupGraphicsContext:inRectangle:pageInfo:</option>
 	
 	
 	
@@ -78,6 +83,14 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedPageRenderer">sharedPageRenderer</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderAppearanceStream:inContext:">renderAppearanceStream:inContext:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderPage:inContext:atPoint:withZoom:pageInfo:withAnnotations:options:">renderPage:inContext:atPoint:withZoom:pageInfo:withAnnotations:options:</a></span></li>
@@ -87,8 +100,6 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setupGraphicsContext:inRectangle:pageInfo:">setupGraphicsContext:inRectangle:pageInfo:</a></span></li>
 	
 </ul></li>
-
-
 
 
 			</ul>
@@ -143,14 +154,21 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/setupGraphicsContext:inRectangle:pageInfo:">+&nbsp;setupGraphicsContext:inRectangle:pageInfo:</a></code>
+		<code><a href="#//api/name/sharedPageRenderer">+&nbsp;sharedPageRenderer</a></code>
+		<span class="tooltip"><p>Access the style manager singleton.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setupGraphicsContext:inRectangle:pageInfo:">&ndash;&nbsp;setupGraphicsContext:inRectangle:pageInfo:</a></code>
 		<span class="tooltip"><p>Setup the graphics context to the current PDF.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/renderPageRef:inContext:inRectangle:pageInfo:withAnnotations:options:">+&nbsp;renderPageRef:inContext:inRectangle:pageInfo:withAnnotations:options:</a></code>
+		<code><a href="#//api/name/renderPageRef:inContext:inRectangle:pageInfo:withAnnotations:options:">&ndash;&nbsp;renderPageRef:inContext:inRectangle:pageInfo:withAnnotations:options:</a></code>
 		<span class="tooltip"><p>Renders a page inside a rectangle. Set context CTM and ClipRect to control rendering.
 Returns the renderingRectangle.</p></span>
 	</span>
@@ -158,14 +176,14 @@ Returns the renderingRectangle.</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/renderPage:inContext:atPoint:withZoom:pageInfo:withAnnotations:options:">+&nbsp;renderPage:inContext:atPoint:withZoom:pageInfo:withAnnotations:options:</a></code>
+		<code><a href="#//api/name/renderPage:inContext:atPoint:withZoom:pageInfo:withAnnotations:options:">&ndash;&nbsp;renderPage:inContext:atPoint:withZoom:pageInfo:withAnnotations:options:</a></code>
 		<span class="tooltip"><p>Render a page; defined by point and zoom. Use zoom=100 and point = CGPointMake(0, 0) for defaults.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/renderAppearanceStream:inContext:">+&nbsp;renderAppearanceStream:inContext:</a></code>
+		<code><a href="#//api/name/renderAppearanceStream:inContext:">&ndash;&nbsp;renderAppearanceStream:inContext:</a></code>
 		<span class="tooltip"><p>Renders a particular appearance stream (A PDF within a PDF) into a context.
 Will return NO if rendering failed.</p></span>
 	</span>
@@ -187,6 +205,48 @@ Will return NO if rendering failed.</p></span>
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/sharedPageRenderer" title="sharedPageRenderer"></a>
+	<h3 class="subsubtitle method-title">sharedPageRenderer</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Access the style manager singleton.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (instancetype)sharedPageRenderer</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFPageRenderer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
 	<a name="//api/name/renderAppearanceStream:inContext:" title="renderAppearanceStream:inContext:"></a>
 	<h3 class="subsubtitle method-title">renderAppearanceStream:inContext:</h3>
 	
@@ -198,7 +258,7 @@ Will return NO if rendering failed.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (BOOL)renderAppearanceStream:(PSPDFAnnotation *)<em>annotation</em> inContext:(CGContextRef)<em>context</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)renderAppearanceStream:(PSPDFAnnotation *)<em>annotation</em> inContext:(CGContextRef)<em>context</em></code></div>
 	
 	
 	
@@ -232,7 +292,7 @@ Will return NO if rendering failed.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (CGSize)renderPage:(CGPDFPageRef)<em>page</em> inContext:(CGContextRef)<em>context</em> atPoint:(CGPoint)<em>point</em> withZoom:(float)<em>zoom</em> pageInfo:(PSPDFPageInfo *)<em>pageInfo</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (CGSize)renderPage:(CGPDFPageRef)<em>page</em> inContext:(CGContextRef)<em>context</em> atPoint:(CGPoint)<em>point</em> withZoom:(float)<em>zoom</em> pageInfo:(PSPDFPageInfo *)<em>pageInfo</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em></code></div>
 	
 	
 	
@@ -267,7 +327,7 @@ Returns the renderingRectangle.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (CGRect)renderPageRef:(CGPDFPageRef)<em>page</em> inContext:(CGContextRef)<em>context</em> inRectangle:(CGRect)<em>rectangle</em> pageInfo:(PSPDFPageInfo *)<em>pageInfo</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (CGRect)renderPageRef:(CGPDFPageRef)<em>page</em> inContext:(CGContextRef)<em>context</em> inRectangle:(CGRect)<em>rectangle</em> pageInfo:(PSPDFPageInfo *)<em>pageInfo</em> withAnnotations:(NSArray *)<em>annotations</em> options:(NSDictionary *)<em>options</em></code></div>
 	
 	
 	
@@ -301,7 +361,7 @@ Returns the renderingRectangle.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (void)setupGraphicsContext:(CGContextRef)<em>context</em> inRectangle:(CGRect)<em>displayRectangle</em> pageInfo:(PSPDFPageInfo *)<em>pageInfo</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)setupGraphicsContext:(CGContextRef)<em>context</em> inRectangle:(CGRect)<em>displayRectangle</em> pageInfo:(PSPDFPageInfo *)<em>pageInfo</em></code></div>
 	
 	
 	
@@ -327,8 +387,6 @@ Returns the renderingRectangle.</p>
 					</div>
 					
 					
-					
-					
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -339,7 +397,7 @@ Returns the renderingRectangle.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-15)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-19)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
