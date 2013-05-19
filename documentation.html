@@ -184,14 +184,12 @@ documentation: current-menu-item current_page_item
 	  <h2 class="section-title">Appcelerator Titanium Module</h2>
 	 <p>
 	 	PSPDFKit is also available as an <a href="https://marketplace.appcelerator.com/apps/1072">Appcelerator Titanium Module. See the in the module included app.js for working example code.</a> Note that currently only a practical subset of the features of the ObjC-Version are exposed via the JavaScript bridge. This will be expanded on a need-basis. All available features are listed in the examples/app.js supplied with the module.<br><br>
-You need to have at least Xcode 4.6.0 installed and the latest available versions of Titanium Studio and the Titanium SDK (3.0.2 GA or higher). If you're getting errors like "unrecognized selector sent to instance", chances are high that your Xcode is too old.<p><br>
+You need to have at least Xcode 4.6.1 installed and the latest available versions of Titanium Studio and the Titanium SDK (3.1.0 GA or higher). If you're getting errors like "unrecognized selector sent to instance", chances are high that your Xcode is too old.<p><br>
 
 <p>You install the plugin via copying com.pspdfkit.source-iphone-xxx.zip (where xxx is the version number) to /Users/USERNAME/Library/Application\ Support/Titanium/ (where USERNAME is your mac user name). Note that on some installations, Titanium might be installed on root, then the target folder is /Library/Application\ Support/Titanium/.<br>
 Just copy the zip and then start Titanium Studio. Select tiapp.xml and press the [+] on Modules. Select com.pspdfkit (or.com.pspdfkit.source; depending on the version you downloaded). if pspdfkit doesn't appear, try to run your application and re-do the Module add step.</p><br>
 
 <p>You also need to <a href="images/titaniumbundle.png">add "PSPDFKit.bundle" to your resources.</a> You'll find it at /Users/USERNAME/Library/Application\ Support/Titanium/modules/iphone/com.pspdfkit.source/VERSIONNUMBER/example/PSPDFKit.bundle. Drop the whole PSPDFKit.bundle folder into the Resources/iphone folder of your Appcelerator project.</p><br>
-
-<p>As of PSPDFKit 2.7, you need to make a small patch in the Appcelerator sources if you require compiling from source. <a href="https://jira.appcelerator.org/browse/TC-1964">I've opened a JIRA issue, feel free to comment to increase pressure to fix this.</a> For now, open TiBuffer.h (e.g. here /Users/steipete/Library/Application Support/Titanium/mobilesdk/osx/3.0.2.GA/iphone/include/TiBuffer.h) and remove the 'NS_RETURNS_NOT_RETAINED' on copy: (Line 28). This doesn't concern you if you're using the pre-built binaries.<br><br>
 
 <p>You also will need to set the minimum iOS version to 5.0. Open tiapp.xml as source (right click, Open With... -> Text Editor) and add following inside the <ti:app> xml block:
 <script src="https://gist.github.com/4547044.js"></script>
