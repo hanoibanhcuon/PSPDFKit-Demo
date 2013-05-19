@@ -133,7 +133,7 @@ documentation: current-menu-item current_page_item
 	  A: You need to add the PSPDFKit.bundle to your project. If you're using the source code PSPDFkit-lib.xcodeproj, drag the PSPDFKit.bundle into Xcode's tree - anywhere you want (Resources folder is a good place). If you're using Appcelerator, <a href="#appcelerator">read up here</a> how to add it.</p><br>
 	 
 <p><b>Q: When I start the app, I get [__NSArrayI objectAtIndexedSubscript:]: unrecognized selector sent to instance.</b><br>
-	 A: You're most likely on Xcode 4.3. Upgrade to 4.5 or later to fix this problem. Also ensure you've added the linker flag -fobc-arc to your project.</p><br>
+	 A: You're most likely on Xcode 4.3. Upgrade to 4.6 or later to fix this problem. Also ensure you've added the linker flag -fobc-arc to your project.</p><br>
 	 
 	 <p><b>Q: The document doesn't show up, instead I get "Error: CFURLCreateDataAndPropertiesFromResource: failed with error code -15" in the debug log.</b><br>
 	 	 A: You need to initialize PSPDFDocument with a *file* URL or a URL from localhost. Remote URLs are not supported - download the PDF first, for example with AFDownloadRequestOperation, as used in the PSPDFCatalog.</p><br>
@@ -160,7 +160,7 @@ documentation: current-menu-item current_page_item
 		 A: You most likely use and old Xcode and/or compiler. PSPDFKit is designed for Xcode &#8805; 4.6 (with iOS SDK &#8805; 6.1) and LLVM/Clang.<br>If you get linker errors about missing symbols, be sure that your project includes the above listed frameworks and the linker flags -ObjC and -fobjc-arc.<br>
 		Also, check that you correctly included the combined header file PSPDFKit.h. When using the framework, add '#import <PSPDFKit/PSPDFKit.h>' to your global header file (.pch), when using source add '#import "PSPDFKit.h"'</p><br>
 
-		<p><b>Q: Is PSPDFKit AppStore-safe?</b><br>Yes. There is some careful use of private API that _can_ be used in DEBUG mode (e.g. for memory debugging), but that's automatically compiled out in non-debug builds. There are lots of apps in the store using PSPDFKit, <a href="http://itunes.apple.com/at/app/amano-media/id403978602?mt=8">like this one.</a></p><br>
+		<p><b>Q: Is PSPDFKit App Store safe?</b><br>Yes. PSPDFKit can use some carefully chosen private API to fix Apple bugs and enhance the experience. It's up to the developer to decide this (PSPDFKit Complete and higher). Either way, PSPDFKit is fully App Store safe.</p><br>
 
 <p><b>Q: Do I need to buy another license to make a second app?</b><br>
 	 A: Yes, the license is per app bundle ID. You'll find <a href="/purchase.html">more FAQ on the purchase page</a>.</p><br>
