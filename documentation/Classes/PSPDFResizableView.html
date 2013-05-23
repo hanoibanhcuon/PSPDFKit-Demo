@@ -50,17 +50,21 @@
 	
 	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
 	
-	<option value="//api/name/edgeInsets">&nbsp;&nbsp;&nbsp;&nbsp;edgeInsets</option>
-	
 	<option value="//api/name/enableResizingGuides">&nbsp;&nbsp;&nbsp;&nbsp;enableResizingGuides</option>
 	
+	<option value="//api/name/guideBorderColor">&nbsp;&nbsp;&nbsp;&nbsp;guideBorderColor</option>
+	
 	<option value="//api/name/guideSnapAllowance">&nbsp;&nbsp;&nbsp;&nbsp;guideSnapAllowance</option>
+	
+	<option value="//api/name/innerEdgeInsets">&nbsp;&nbsp;&nbsp;&nbsp;innerEdgeInsets</option>
 	
 	<option value="//api/name/minHeight">&nbsp;&nbsp;&nbsp;&nbsp;minHeight</option>
 	
 	<option value="//api/name/minWidth">&nbsp;&nbsp;&nbsp;&nbsp;minWidth</option>
 	
 	<option value="//api/name/mode">&nbsp;&nbsp;&nbsp;&nbsp;mode</option>
+	
+	<option value="//api/name/outerEdgeInsets">&nbsp;&nbsp;&nbsp;&nbsp;outerEdgeInsets</option>
 	
 	<option value="//api/name/preventsPositionOutsideSuperview">&nbsp;&nbsp;&nbsp;&nbsp;preventsPositionOutsideSuperview</option>
 	
@@ -77,7 +81,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/effectiveEdgeInsets">&nbsp;&nbsp;&nbsp;&nbsp;- effectiveEdgeInsets</option>
+	<option value="//api/name/effectiveInnerEdgeInsets">&nbsp;&nbsp;&nbsp;&nbsp;- effectiveInnerEdgeInsets</option>
 	
 	<option value="//api/name/initWithTrackedView:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithTrackedView:</option>
 	
@@ -115,17 +119,21 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/edgeInsets">edgeInsets</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/enableResizingGuides">enableResizingGuides</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/guideBorderColor">guideBorderColor</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/guideSnapAllowance">guideSnapAllowance</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/innerEdgeInsets">innerEdgeInsets</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/minHeight">minHeight</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/minWidth">minWidth</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mode">mode</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/outerEdgeInsets">outerEdgeInsets</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/preventsPositionOutsideSuperview">preventsPositionOutsideSuperview</a></span></li>
 	
@@ -143,7 +151,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/effectiveEdgeInsets">effectiveEdgeInsets</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/effectiveInnerEdgeInsets">effectiveInnerEdgeInsets</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithTrackedView:">initWithTrackedView:</a></span></li>
 	
@@ -227,16 +235,26 @@ This will call self.<a href="#//api/name/trackedView">trackedView</a>, so <a hre
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/edgeInsets">&nbsp;&nbsp;edgeInsets</a></code>
-		<span class="tooltip"><p>Will be applied to the <a href="#//api/name/contentFrame">contentFrame</a> to calculate frame if an annotation has more than 2 points.
-Use negative values to add space around the tracked annotation view. Defaults to -20.0f for top, bottom, right, and left.</p></span>
+		<code><a href="#//api/name/innerEdgeInsets">&nbsp;&nbsp;innerEdgeInsets</a></code>
+		<span class="tooltip"><p>The inner edge insets are used to create space between the bounding box (blue) and inner knobs (green).
+Will be applied to the <a href="#//api/name/contentFrame">contentFrame</a> to calculate frame if an annotation has more than 2 points. Use negative
+values to add space around the tracked annotation view. Defaults to -20.0f for top, bottom, right, and left.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/effectiveEdgeInsets">&ndash;&nbsp;effectiveEdgeInsets</a></code>
-		<span class="tooltip"><p>Returns the edge insets that are currently in effect. This is either UIEdgeInsetsZero or <a href="#//api/name/edgeInsets">edgeInsets</a>.</p></span>
+		<code><a href="#//api/name/outerEdgeInsets">&nbsp;&nbsp;outerEdgeInsets</a></code>
+		<span class="tooltip"><p>The outer edge insets are used to create space between the bounding box (blue) and the view bounds.
+Will be applied to the <a href="#//api/name/contentFrame">contentFrame</a> to calculate frame. Use negative values to add space around the
+tracked annnotation view. Defaults to -40.0f for top, bottom, right, and left.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/effectiveInnerEdgeInsets">&ndash;&nbsp;effectiveInnerEdgeInsets</a></code>
+		<span class="tooltip"><p>Returns the edge insets that are currently in effect. This is either UIEdgeInsetsZero or edgeInsets.</p></span>
 	</span>
 	
 	
@@ -274,7 +292,7 @@ Defaults to YES.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/guideSnapAllowance">&nbsp;&nbsp;guideSnapAllowance</a></code>
-		<span class="tooltip"><p>Defines how agressive the guide works. Defaults to 30.f</p></span>
+		<span class="tooltip"><p>Defines how agressive the guide works. Defaults to 20.f</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -303,6 +321,13 @@ Defaults to YES.</p></span>
 	<span class="tooltip">
 		<code><a href="#//api/name/selectionBorderColor">&nbsp;&nbsp;selectionBorderColor</a></code>
 		<span class="tooltip"><p>Border color. Defaults to [[UIColor pspdf_selectionColor] colorWithAlphaComponent:0.6f].</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/guideBorderColor">&nbsp;&nbsp;guideBorderColor</a></code>
+		<span class="tooltip"><p>Guide color. Defaults to [UIColor pspdf_guideColor].</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -521,41 +546,6 @@ directly!</p></div>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/edgeInsets" title="edgeInsets"></a>
-	<h3 class="subsubtitle method-title">edgeInsets</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Will be applied to the <a href="#//api/name/contentFrame">contentFrame</a> to calculate frame if an annotation has more than 2 points.
-Use negative values to add space around the tracked annotation view. Defaults to -20.0f for top, bottom, right, and left.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) UIEdgeInsets edgeInsets</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFResizableView.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/enableResizingGuides" title="enableResizingGuides"></a>
 	<h3 class="subsubtitle method-title">enableResizingGuides</h3>
 	
@@ -591,17 +581,87 @@ Defaults to YES.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/guideBorderColor" title="guideBorderColor"></a>
+	<h3 class="subsubtitle method-title">guideBorderColor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Guide color. Defaults to [UIColor pspdf_guideColor].</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIColor *guideBorderColor</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFResizableView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/guideSnapAllowance" title="guideSnapAllowance"></a>
 	<h3 class="subsubtitle method-title">guideSnapAllowance</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Defines how agressive the guide works. Defaults to 30.f</p>
+		<p>Defines how agressive the guide works. Defaults to 20.f</p>
 	</div>		
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat guideSnapAllowance</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFResizableView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/innerEdgeInsets" title="innerEdgeInsets"></a>
+	<h3 class="subsubtitle method-title">innerEdgeInsets</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The inner edge insets are used to create space between the bounding box (blue) and inner knobs (green).
+Will be applied to the <a href="#//api/name/contentFrame">contentFrame</a> to calculate frame if an annotation has more than 2 points. Use negative
+values to add space around the tracked annotation view. Defaults to -20.0f for top, bottom, right, and left.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) UIEdgeInsets innerEdgeInsets</code></div>
 	
 	
 	
@@ -704,6 +764,42 @@ Defaults to YES.</p>
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) PSPDFResizableViewMode mode</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFResizableView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/outerEdgeInsets" title="outerEdgeInsets"></a>
+	<h3 class="subsubtitle method-title">outerEdgeInsets</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The outer edge insets are used to create space between the bounding box (blue) and the view bounds.
+Will be applied to the <a href="#//api/name/contentFrame">contentFrame</a> to calculate frame. Use negative values to add space around the
+tracked annnotation view. Defaults to -40.0f for top, bottom, right, and left.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) UIEdgeInsets outerEdgeInsets</code></div>
 	
 	
 	
@@ -873,17 +969,17 @@ Defaults to YES.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/effectiveEdgeInsets" title="effectiveEdgeInsets"></a>
-	<h3 class="subsubtitle method-title">effectiveEdgeInsets</h3>
+	<a name="//api/name/effectiveInnerEdgeInsets" title="effectiveInnerEdgeInsets"></a>
+	<h3 class="subsubtitle method-title">effectiveInnerEdgeInsets</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the edge insets that are currently in effect. This is either UIEdgeInsetsZero or <a href="#//api/name/edgeInsets">edgeInsets</a>.</p>
+		<p>Returns the edge insets that are currently in effect. This is either UIEdgeInsetsZero or edgeInsets.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (UIEdgeInsets)effectiveEdgeInsets</code></div>
+	<div class="method-subsection method-declaration"><code>- (UIEdgeInsets)effectiveInnerEdgeInsets</code></div>
 	
 	
 	
@@ -954,7 +1050,7 @@ This will call self.<a href="#//api/name/trackedView">trackedView</a>, so <a hre
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-21)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-23)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

@@ -50,12 +50,14 @@
 	
 	<option value="//api/name/showExpandCollapseButton">&nbsp;&nbsp;&nbsp;&nbsp;showExpandCollapseButton</option>
 	
+	<option value="//api/name/showPageLabel">&nbsp;&nbsp;&nbsp;&nbsp;showPageLabel</option>
+	
 	
 	
 	
 	<option value="class_methods">Class Methods</option>
 	
-	<option value="//api/name/heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:">&nbsp;&nbsp;&nbsp;&nbsp;+ heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:</option>
+	<option value="//api/name/heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:showPageLabel:">&nbsp;&nbsp;&nbsp;&nbsp;+ heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:showPageLabel:</option>
 	
 	
 	
@@ -95,13 +97,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showExpandCollapseButton">showExpandCollapseButton</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showPageLabel">showPageLabel</a></span></li>
+	
 </ul></li>
 
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:">heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:showPageLabel:">heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:showPageLabel:</a></span></li>
 	
 </ul></li>
 
@@ -160,7 +164,7 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:">+&nbsp;heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:</a></code>
+		<code><a href="#//api/name/heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:showPageLabel:">+&nbsp;heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:showPageLabel:</a></code>
 		<span class="tooltip"><p>Dynamically calculates the height for a cell.</p></span>
 	</span>
 	
@@ -183,6 +187,13 @@
 	<span class="tooltip">
 		<code><a href="#//api/name/showExpandCollapseButton">&nbsp;&nbsp;showExpandCollapseButton</a></code>
 		<span class="tooltip"><p>Shows the expand/collapse button.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showPageLabel">&nbsp;&nbsp;showPageLabel</a></code>
+		<span class="tooltip"><p>Enables the page label on the right side of the cell.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -391,6 +402,40 @@
 	
 </div>
 						
+						<div class="section-method">
+	<a name="//api/name/showPageLabel" title="showPageLabel"></a>
+	<h3 class="subsubtitle method-title">showPageLabel</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Enables the page label on the right side of the cell.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL showPageLabel</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFOutlineCell.h</code><br />
+	</div>				
+	
+	
+</div>
+						
 					</div>
 					
 					
@@ -400,8 +445,8 @@
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:" title="heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:"></a>
-	<h3 class="subsubtitle method-title">heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:</h3>
+	<a name="//api/name/heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:showPageLabel:" title="heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:showPageLabel:"></a>
+	<h3 class="subsubtitle method-title">heightForCellWithOutlineElement:constrainedToSize:outlineIntentLeftOffset:outlineIntentMultiplier:showPageLabel:</h3>
 	
 	
 	
@@ -410,7 +455,7 @@
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (CGFloat)heightForCellWithOutlineElement:(PSPDFOutlineElement *)<em>outlineElement</em> constrainedToSize:(CGSize)<em>constraintSize</em> outlineIntentLeftOffset:(CGFloat)<em>leftOffset</em> outlineIntentMultiplier:(CGFloat)<em>multiplier</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (CGFloat)heightForCellWithOutlineElement:(PSPDFOutlineElement *)<em>outlineElement</em> constrainedToSize:(CGSize)<em>constraintSize</em> outlineIntentLeftOffset:(CGFloat)<em>leftOffset</em> outlineIntentMultiplier:(CGFloat)<em>multiplier</em> showPageLabel:(BOOL)<em>showPageLabel</em></code></div>
 	
 	
 	
@@ -448,7 +493,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-21)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-23)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
