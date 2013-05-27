@@ -48,6 +48,8 @@
 	
 	<option value="//api/name/encodingArray">&nbsp;&nbsp;&nbsp;&nbsp;encodingArray</option>
 	
+	<option value="//api/name/fontKey">&nbsp;&nbsp;&nbsp;&nbsp;fontKey</option>
+	
 	<option value="//api/name/isMultiByteFont">&nbsp;&nbsp;&nbsp;&nbsp;isMultiByteFont</option>
 	
 	<option value="//api/name/name">&nbsp;&nbsp;&nbsp;&nbsp;name</option>
@@ -66,7 +68,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithFontDictionary:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithFontDictionary:</option>
+	<option value="//api/name/initWithFontDictionary:fontKey:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithFontDictionary:fontKey:</option>
 	
 	<option value="//api/name/isEqualToFontInfo:">&nbsp;&nbsp;&nbsp;&nbsp;- isEqualToFontInfo:</option>
 	
@@ -104,6 +106,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/encodingArray">encodingArray</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fontKey">fontKey</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isMultiByteFont">isMultiByteFont</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/name">name</a></span></li>
@@ -124,7 +128,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithFontDictionary:">initWithFontDictionary:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithFontDictionary:fontKey:">initWithFontDictionary:fontKey:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isEqualToFontInfo:">isEqualToFontInfo:</a></span></li>
 	
@@ -196,6 +200,13 @@ This is a class cluster and part of the text parser engine.</p>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/fontKey">&nbsp;&nbsp;fontKey</a></code>
+		<span class="tooltip"><p>The <code>fontKey</code> is a document-global identifier for the fontKey.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/ascent">&nbsp;&nbsp;ascent</a></code>
 		<span class="tooltip"><p>Font ascent parameter.</p></span>
 	</span>
@@ -231,8 +242,8 @@ This is a class cluster and part of the text parser engine.</p>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithFontDictionary:">&ndash;&nbsp;initWithFontDictionary:</a></code>
-		<span class="tooltip"><p>Designated initializer</p></span>
+		<code><a href="#//api/name/initWithFontDictionary:fontKey:">&ndash;&nbsp;initWithFontDictionary:fontKey:</a></code>
+		<span class="tooltip"><p>Designated initializer. <a href="#//api/name/fontKey">fontKey</a> is optional.</p></span>
 	</span>
 	
 	
@@ -296,6 +307,11 @@ This is a class cluster and part of the text parser engine.</p>
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> This parameter is normalized (divided by 1000 vs the PDF spec)</p></div>
+	</div>
 	
 	
 	
@@ -365,6 +381,11 @@ This is a class cluster and part of the text parser engine.</p>
 	
 	
 	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> This parameter is normalized (divided by 1000 vs the PDF spec)</p></div>
+	</div>
+	
 	
 	
 	
@@ -391,6 +412,40 @@ This is a class cluster and part of the text parser engine.</p>
 	
 	
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NSArray *encodingArray</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PSPDFFontInfo.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fontKey" title="fontKey"></a>
+	<h3 class="subsubtitle method-title">fontKey</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The <code>fontKey</code> is a document-global identifier for the fontKey.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NSString *fontKey</code></div>
 	
 	
 	
@@ -566,17 +621,17 @@ This is a class cluster and part of the text parser engine.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithFontDictionary:" title="initWithFontDictionary:"></a>
-	<h3 class="subsubtitle method-title">initWithFontDictionary:</h3>
+	<a name="//api/name/initWithFontDictionary:fontKey:" title="initWithFontDictionary:fontKey:"></a>
+	<h3 class="subsubtitle method-title">initWithFontDictionary:fontKey:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Designated initializer</p>
+		<p>Designated initializer. <a href="#//api/name/fontKey">fontKey</a> is optional.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (id)initWithFontDictionary:(CGPDFDictionaryRef)<em>font</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithFontDictionary:(CGPDFDictionaryRef)<em>font</em> fontKey:(NSString *)<em>fontKey</em></code></div>
 	
 	
 	
@@ -653,6 +708,11 @@ This is a class cluster and part of the text parser engine.</p>
 	
 	
 	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="note"><p><strong>Note:</strong> This parameter is normalized (divided by 1000 vs the PDF spec)</p></div>
+	</div>
+	
 	
 	
 	
@@ -680,7 +740,7 @@ This is a class cluster and part of the text parser engine.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-23)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-27)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
