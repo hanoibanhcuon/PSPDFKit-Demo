@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>PSPDFActionRendition Class Reference</title>
+		<title>PSPDFRenderStatusView Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">PSPDFActionRendition Class Reference</h1>
+				<h1 class="hideInXcode">PSPDFRenderStatusView Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -40,18 +40,11 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/annotation">&nbsp;&nbsp;&nbsp;&nbsp;annotation</option>
-	
-	<option value="//api/name/operation">&nbsp;&nbsp;&nbsp;&nbsp;operation</option>
+	<option value="//api/name/activityIndicator">&nbsp;&nbsp;&nbsp;&nbsp;activityIndicator</option>
 	
 	
 	
 	
-	
-	
-	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/init">&nbsp;&nbsp;&nbsp;&nbsp;- init</option>
 	
 	
 	
@@ -77,28 +70,20 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/annotation">annotation</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/operation">operation</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/activityIndicator">activityIndicator</a></span></li>
 	
 </ul></li>
 
 
 
 
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/init">init</a></span></li>
-	
-</ul></li>
 
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="PSPDFActionRendition Class Reference" name="top"></a>
+				<a title="PSPDFRenderStatusView Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -107,7 +92,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">PSPDFActionRendition Class Reference</h1>
+						<h1 class="title title-header">PSPDFRenderStatusView Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -115,10 +100,10 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value"><a href="../Classes/PSPDFAction.html">PSPDFAction</a> : <a href="../Classes/PSPDFModel.html">PSPDFModel</a> : NSObject</td>
+	<td class="specification-value">UIView</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">PSPDFActionRendition.h</td>
+	<td class="specification-value">PSPDFRenderStatusView.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -128,7 +113,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>A rendition action (PDF 1.5) controls the playing of multimedia content (see PDF Refernce 1.7, 13.2, “Multimedia”).</p><div class="note"><p><strong>Note:</strong> JavaScript actions are not supported.</p></div>
+						<p>The render status view is used within <a href="../Classes/PSPDFPageView.html">PSPDFPageView</a> to show a progress indicator while we render the PDF.</p>
 					</div>
 					
 					
@@ -146,22 +131,8 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
-		<span class="tooltip"><p>Designated initializers</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/operation">&nbsp;&nbsp;operation</a></code>
-		<span class="tooltip"><p>The rendition action operation.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/annotation">&nbsp;&nbsp;annotation</a></code>
-		<span class="tooltip"><p>The associated screen annotation. Optional. Will link to an already existing annotation.</p></span>
+		<code><a href="#//api/name/activityIndicator">&nbsp;&nbsp;activityIndicator</a></code>
+		<span class="tooltip"><p>The internally used activity indicator.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -179,17 +150,17 @@
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/annotation" title="annotation"></a>
-	<h3 class="subsubtitle method-title">annotation</h3>
+	<a name="//api/name/activityIndicator" title="activityIndicator"></a>
+	<h3 class="subsubtitle method-title">activityIndicator</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The associated screen annotation. Optional. Will link to an already existing annotation.</p>
+		<p>The internally used activity indicator.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) PSPDFScreenAnnotation *annotation</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator</code></div>
 	
 	
 	
@@ -206,41 +177,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFActionRendition.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/operation" title="operation"></a>
-	<h3 class="subsubtitle method-title">operation</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The rendition action operation.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) PSPDFActionRenditionOperation operation</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFActionRendition.h</code><br />
+		<code class="declared-in-ref">PSPDFRenderStatusView.h</code><br />
 	</div>				
 	
 	
@@ -251,46 +188,6 @@
 					
 					
 					
-					
-					<div class="section section-methods">
-						<a title="Instance Methods" name="instance_methods"></a>
-						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/init" title="init"></a>
-	<h3 class="subsubtitle method-title">init</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Designated initializers</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (id)init</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PSPDFActionRendition.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
 					
 					
 				</div>
