@@ -89,7 +89,7 @@ __attribute__((constructor)) static void setupDefaults(void) {
         _settings[StringSEL(emailButtonItem)] = @YES;
         _settings[StringSEL(viewModeButtonItem)] = @YES;
         _settings[StringSEL(useBorderedToolbarStyle)] = @NO;
-        _settings[@"renderBackgroundColor"] = [UIColor whiteColor];
+        _settings[@"renderBackgroundColor"] = UIColor.whiteColor;
         _settings[@"renderContentOpacity"] = @(1.f);
         _settings[StringSEL(renderingMode)] = @(PSPDFPageRenderingModeThumbnailThenFullPage);
     }
@@ -149,7 +149,7 @@ __attribute__((constructor)) static void setupDefaults(void) {
         _contentOpacityControl = [[UISegmentedControl alloc] initWithItems:@[@"100%", @"90%", @"80%", @"70%", @"60%"]];
     	[_contentOpacityControl addTarget:self action:@selector(contentOpacityChanged:) forControlEvents:UIControlEventValueChanged];
 
-        _paperColors = @[[UIColor whiteColor],
+        _paperColors = @[UIColor.whiteColor,
             // 1-4: sepia, light to dark
             [UIColor colorWithRed:0.980f green:0.976f blue:0.949f alpha:1.0f],
             [UIColor colorWithRed:0.965f green:0.957f blue:0.906f alpha:1.0f],
@@ -160,7 +160,7 @@ __attribute__((constructor)) static void setupDefaults(void) {
             [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f],
             [UIColor colorWithRed:0.85f green:0.85f blue:0.85f alpha:1.0f]];
 
-        NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:[_paperColors count]];
+        NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:_paperColors.count];
         [_paperColors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [imageArray addObject:[self imageWithColor:obj]];
         }];
@@ -176,7 +176,7 @@ __attribute__((constructor)) static void setupDefaults(void) {
     UIGraphicsBeginImageContextWithOptions(imageSize, YES, 0.0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [color setFill];
-    [[UIColor blackColor] setStroke];
+    [UIColor.blackColor setStroke];
     CGContextSetLineWidth(context, 1.f);
     CGContextFillRect(context, (CGRect){.size=imageSize});
     CGContextStrokeRect(context, (CGRect){.size=imageSize});
@@ -219,7 +219,7 @@ static CGFloat pscSettingsLastYOffset = 0;
     if (_isSettingUpCells) return;
     int paperColorIndex = [sender selectedSegmentIndex];
     _settings[@"renderBackgroundColor"] = _paperColors[paperColorIndex];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kGlobalVarChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:kGlobalVarChangeNotification object:nil];
 }
 
 - (void)contentOpacityChanged:(id)sender {
@@ -227,7 +227,7 @@ static CGFloat pscSettingsLastYOffset = 0;
     int opacityIndex = [sender selectedSegmentIndex];
     float opacity = 1.f - ((float)opacityIndex * 0.1f);
     _settings[@"renderContentOpacity"] = @(opacity);
-    [[NSNotificationCenter defaultCenter] postNotificationName:kGlobalVarChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:kGlobalVarChangeNotification object:nil];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -242,7 +242,7 @@ static CGFloat pscSettingsLastYOffset = 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [_content count];
+    return _content.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -291,7 +291,7 @@ static CGFloat pscSettingsLastYOffset = 0;
         }break;
         default: break;
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:kGlobalVarChangeNotification object:indexPath];
+    [NSNotificationCenter.defaultCenter postNotificationName:kGlobalVarChangeNotification object:indexPath];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -417,7 +417,7 @@ static CGFloat pscSettingsLastYOffset = 0;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case PSPDFClearCacheButton: [[PSPDFCache sharedCache] clearCache]; break;
+        case PSPDFClearCacheButton: [PSPDFCache.sharedCache clearCache]; break;
         case PSPDFOpenAPIButton: {
             PSPDF_IF_SIMULATOR(system("open 'http://pspdfkit.com/documentation/'"); break;)
             UINavigationController *webController = [PSPDFWebViewController modalWebViewWithURL:[NSURL URLWithString:@"http://pspdfkit.com/documentation/"]];
@@ -441,13 +441,13 @@ static CGFloat pscSettingsLastYOffset = 0;
         case PSPDFThumbnailModeSettings: _settings[StringSEL(thumbnailBarMode)] = @(indexPath.row); break;
         case PSPDFLinkActionSettings: _settings[StringSEL(linkAction)] = @(indexPath.row); break;
         case PSPDFCacheSettings:
-            [[PSPDFCache sharedCache] clearCache];
-            [PSPDFCache sharedCache].diskCacheStrategy = indexPath.row;
+            [PSPDFCache.sharedCache clearCache];
+            PSPDFCache.sharedCache.diskCacheStrategy = indexPath.row;
             break;
         default: break;
     }
     [self.tableView reloadData];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kGlobalVarChangeNotification object:indexPath];
+    [NSNotificationCenter.defaultCenter postNotificationName:kGlobalVarChangeNotification object:indexPath];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -455,8 +455,8 @@ static CGFloat pscSettingsLastYOffset = 0;
 
 - (PSPDFViewController *)currentPDFController {
     PSPDFViewController *pdfController = nil;
-    if ([[(UINavigationController *)[UIApplication.sharedApplication keyWindow].rootViewController topViewController] isKindOfClass:[PSPDFViewController class]]) {
-        pdfController = (PSPDFViewController *)[(UINavigationController *)[UIApplication.sharedApplication keyWindow].rootViewController topViewController];
+    if ([[(UINavigationController *)UIApplication.sharedApplication.keyWindow.rootViewController topViewController] isKindOfClass:PSPDFViewController.class]) {
+        pdfController = (PSPDFViewController *)[(UINavigationController *)UIApplication.sharedApplication.keyWindow.rootViewController topViewController];
     }
     return pdfController;
 }
@@ -473,7 +473,7 @@ static CGFloat pscSettingsLastYOffset = 0;
     UITextView *configView = [UITextView new];
     configView.font = [UIFont fontWithName:@"Courier" size:14];
     NSMutableString *codeString = [NSMutableString string];
-    [codeString appendFormat:@"PSPDFDocument *pdfDocument = [PSPDFDocument documentWithURL:[NSURL fileURLWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@\"%@\"]]]\n\nPSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:pdfDocument];\n\n// Config properties. Use the enum values instead.\n// This is only for debugging.\n", pdfName];
+    [codeString appendFormat:@"PSPDFDocument *pdfDocument = [PSPDFDocument documentWithURL:[NSURL fileURLWithPath:[[NSBundle.mainBundle bundlePath] stringByAppendingPathComponent:@\"%@\"]]]\n\nPSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:pdfDocument];\n\n// Config properties. Use the enum values instead.\n// This is only for debugging.\n", pdfName];
     [_settings enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if ([key hasPrefix:@"is"]) {
             key = [self.class setterKeyForGetter:key];
@@ -518,9 +518,9 @@ static CGFloat pscSettingsLastYOffset = 0;
     NSArray *visiblePageNumbers = [pdfController visiblePageNumbers];
     for (NSNumber *pageNumber in visiblePageNumbers) {
         NSUInteger page = [pageNumber unsignedIntegerValue];
-        if ([visiblePageNumbers count] > 1) [text appendFormat:@"Page %d:\n\n", page+1];
+        if (visiblePageNumbers.count > 1) [text appendFormat:@"Page %d:\n\n", page+1];
         [text appendString:[pdfController.document textParserForPage:page].text];
-        if ([visiblePageNumbers count] > 1) [text appendString:@"\n-------------------------------------------------------\n\n"];
+        if (visiblePageNumbers.count > 1) [text appendString:@"\n-------------------------------------------------------\n\n"];
     }
     configView.text = text;
     configView.editable = NO;

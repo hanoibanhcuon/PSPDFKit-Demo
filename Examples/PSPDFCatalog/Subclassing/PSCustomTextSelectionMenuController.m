@@ -38,7 +38,7 @@
     // There is also a simpler way to disable wikipedia (document.allowedMenuActions)
     NSMutableArray *newMenuItems = [menuItems mutableCopy];
     for (PSPDFMenuItem *menuItem in menuItems) {
-        if ([menuItem isKindOfClass:[PSPDFMenuItem class]] && [menuItem.identifier isEqualToString:@"Wikipedia"]) {
+        if ([menuItem isKindOfClass:PSPDFMenuItem.class] && [menuItem.identifier isEqualToString:@"Wikipedia"]) {
             [newMenuItems removeObjectIdenticalTo:menuItem];
             break;
         }

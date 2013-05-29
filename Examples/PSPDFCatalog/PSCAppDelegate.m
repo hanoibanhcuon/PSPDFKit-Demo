@@ -29,7 +29,7 @@
 @implementation PSCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSString *appVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *appVersion = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     NSLog(@"Starting Catalog Example %@ with %@", appVersion, PSPDFVersionString());
 
     // Example how to localize strings in PSPDFKit.
@@ -63,11 +63,11 @@
     // Enable if you're having memory issues.
     //kPSPDFLowMemoryMode = YES;
 
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
 #if 0
     // Directly push a PSPDFViewController
-    NSURL *samplesURL = [[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"Samples" isDirectory:NO];
+    NSURL *samplesURL = [[NSBundle.mainBundle resourceURL] URLByAppendingPathComponent:@"Samples" isDirectory:NO];
     PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:kHackerMagazineExample isDirectory:YES]];
     PSPDFViewController *viewController = [[PSPDFViewController alloc] initWithDocument:document];
     self.catalog = [[UINavigationController alloc] initWithRootViewController:viewController];
@@ -92,9 +92,9 @@
         // HockeyApp (http://hockeyapp.net) is a *great* service to manage crashes and distribute beta builds. It's well worth the money.
 #if !defined(CONFIGURATION_Debug) && defined(PSPDF_USE_SOURCE) && defined(HOCKEY_ENABLED)
         NSLog(@"This example project uses HockeyApp for crash reports and Localytics for user statistics. Make sure to either remove that or change the identifiers before shipping your app, if you use PSPDFCatalog/PSPDFKiosk as the foundation of your application.");
-        [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"fa73e1f8f3806bcb3466c5ab16d70768" delegate:nil];
-        [[BITHockeyManager sharedHockeyManager] crashManager].crashManagerStatus = BITCrashManagerStatusAutoSend;
-        [[BITHockeyManager sharedHockeyManager] startManager];
+        [BITHockeyManager.sharedHockeyManager configureWithIdentifier:@"fa73e1f8f3806bcb3466c5ab16d70768" delegate:nil];
+        [BITHockeyManager.sharedHockeyManager crashManager].crashManagerStatus = BITCrashManagerStatusAutoSend;
+        [BITHockeyManager.sharedHockeyManager startManager];
 #endif
 #if defined(PSPDF_USE_SOURCE) && defined(DEBUG)
         // Only enabled during debugging.
@@ -111,15 +111,15 @@
 
 - (BOOL)handleOpenURL:(NSURL *)launchURL {
     // Add Dropbox hook
-    if ([[DBSession sharedSession] handleOpenURL:launchURL]) {
-        if ([[DBSession sharedSession] isLinked]) {
+    if ([DBSession.sharedSession handleOpenURL:launchURL]) {
+        if ([DBSession.sharedSession isLinked]) {
             PSCLog(@"App linked successfully!");
         }
         return YES;
     }
 
     // Directly open the PDF.
-    if ([launchURL isFileURL] && [[NSFileManager defaultManager] fileExistsAtPath:[launchURL path]]) {
+    if ([launchURL isFileURL] && [NSFileManager.defaultManager fileExistsAtPath:[launchURL path]]) {
         PSPDFDocument *document = [PSPDFDocument documentWithURL:launchURL];
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
         pdfController.rightBarButtonItems = @[pdfController.searchButtonItem, pdfController.outlineButtonItem, pdfController.annotationButtonItem, pdfController.viewModeButtonItem];
@@ -136,8 +136,8 @@
 - (NSString *)customDeviceIdentifierForUpdateManager:(BITUpdateManager *)updateManager {
 #ifndef CONFIGURATION_AppStore
     // This is only for Hockey app deployment for beta testing. Using uniqueIdentifier in AppStore apps is not allowed and will get your app rejected.
-    if ([[UIDevice currentDevice] respondsToSelector:@selector(uniqueIdentifier)])
-        return [[UIDevice currentDevice] performSelector:@selector(uniqueIdentifier)];
+    if ([UIDevice.currentDevice respondsToSelector:@selector(uniqueIdentifier)])
+        return [UIDevice.currentDevice performSelector:@selector(uniqueIdentifier)];
 #endif
     return nil;
 }

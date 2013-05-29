@@ -58,7 +58,7 @@ typedef void (^AFURLConnectionProgressiveOperationProgressBlock)(AFDownloadReque
 
         // Ee assume that at least the directory has to exist on the targetPath
         BOOL isDirectory;
-        if(![[NSFileManager defaultManager] fileExistsAtPath:targetPath isDirectory:&isDirectory]) {
+        if(![NSFileManager.defaultManager fileExistsAtPath:targetPath isDirectory:&isDirectory]) {
             isDirectory = NO;
         }
         // \If targetPath is a directory, use the file name we got from the urlRequest.
@@ -124,8 +124,8 @@ typedef void (^AFURLConnectionProgressiveOperationProgressBlock)(AFDownloadReque
 - (NSString *)tempPath {
     NSString *tempPath = nil;
     if (self.targetPath) {
-        NSString *md5URLString = [[self class] md5StringForString:self.targetPath];
-        tempPath = [[[self class] cacheFolder] stringByAppendingPathComponent:md5URLString];
+        NSString *md5URLString = [self.class md5StringForString:self.targetPath];
+        tempPath = [[self.class cacheFolder] stringByAppendingPathComponent:md5URLString];
     }
     return tempPath;
 }
@@ -216,7 +216,7 @@ typedef void (^AFURLConnectionProgressiveOperationProgressBlock)(AFDownloadReque
 
     // check if we have the correct response
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-    if (![httpResponse isKindOfClass:[NSHTTPURLResponse class]]) return;
+    if (![httpResponse isKindOfClass:NSHTTPURLResponse.class]) return;
 
     // check for valid response to resume the download if possible
     long long totalContentLength = self.response.expectedContentLength;
@@ -225,7 +225,7 @@ typedef void (^AFURLConnectionProgressiveOperationProgressBlock)(AFDownloadReque
         NSString *contentRange = [httpResponse.allHeaderFields valueForKey:@"Content-Range"];
         if ([contentRange hasPrefix:@"bytes"]) {
             NSArray *bytes = [contentRange componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" -/"]];
-            if ([bytes count] == 4) {
+            if (bytes.count == 4) {
                 fileOffset = [bytes[1] longLongValue];
                 totalContentLength = [bytes[2] longLongValue]; // if this is *, it's converted to 0
             }
@@ -242,11 +242,11 @@ typedef void (^AFURLConnectionProgressiveOperationProgressBlock)(AFDownloadReque
     [super connection:connection didReceiveData:data];
 
     // track custom bytes read because totalBytesRead persists between pause/resume.
-    self.totalBytesReadPerDownload += [data length];
+    self.totalBytesReadPerDownload += data.length;
 
     if (self.progressiveDownloadProgress) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.progressiveDownloadProgress(self,(long long)[data length], self.totalBytesRead, self.response.expectedContentLength,self.totalBytesReadPerDownload + self.offsetContentLength, self.totalContentLength);
+            self.progressiveDownloadProgress(self,(long long)data.length, self.totalBytesRead, self.response.expectedContentLength,self.totalBytesReadPerDownload + self.offsetContentLength, self.totalContentLength);
         });
     }
 }

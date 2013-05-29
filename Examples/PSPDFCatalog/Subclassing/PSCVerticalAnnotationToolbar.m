@@ -121,8 +121,8 @@
     }
 
     // update button selection status
-    self.drawButton.backgroundColor = newMode == PSPDFAnnotationToolbarDraw ? [UIColor whiteColor] : [UIColor clearColor];
-    self.freeTextButton.backgroundColor = newMode == PSPDFAnnotationToolbarFreeText ? [UIColor whiteColor] : [UIColor clearColor];
+    self.drawButton.backgroundColor = newMode == PSPDFAnnotationToolbarDraw ? UIColor.whiteColor : UIColor.clearColor;
+    self.freeTextButton.backgroundColor = newMode == PSPDFAnnotationToolbarFreeText ? UIColor.whiteColor : UIColor.clearColor;
 }
 
 @end

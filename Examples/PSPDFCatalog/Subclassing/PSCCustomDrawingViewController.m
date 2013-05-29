@@ -40,7 +40,7 @@
 
     // Setup graphics context for current PDF page.
     PSPDFPageInfo *pageInfo = [document pageInfoForPage:page];
-    [[PSPDFPageRenderer sharedPageRenderer] setupGraphicsContext:context inRectangle:clipRect pageInfo:pageInfo];
+    [PSPDFPageRenderer.sharedPageRenderer setupGraphicsContext:context inRectangle:clipRect pageInfo:pageInfo];
 
     // Flip drawing.
     CGContextTranslateCTM(context, 0, pageInfo.rotatedPageRect.size.height);
@@ -50,7 +50,7 @@
     NSString *fontName = @"Helvetica-Bold";
     CGFloat fontSize = 24.f;
     NSString *overlayText = @"Example overlay";
-    CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
+    CGContextSetFillColorWithColor(context, UIColor.blueColor.CGColor);
     CGContextSelectFont(context, [fontName cStringUsingEncoding:NSUTF8StringEncoding], fontSize, kCGEncodingMacRoman);
     CGAffineTransform xform = CGAffineTransformMake(1.0, 0.0, 0.0, -1.0, 0.0, 0.0);
     CGContextSetTextMatrix(context, xform);
@@ -60,7 +60,7 @@
     CGContextSetTextPosition(context, roundf((pageInfo.rotatedPageRect.size.width-boundingBox.width)/2), roundf((pageInfo.rotatedPageRect.size.height-boundingBox.height)/2));
 
     // Finally draw text.
-    CGContextShowText(context, [overlayText cStringUsingEncoding:NSUTF8StringEncoding], [overlayText length]);
+    CGContextShowText(context, [overlayText cStringUsingEncoding:NSUTF8StringEncoding], overlayText.length);
 }
 
 @end

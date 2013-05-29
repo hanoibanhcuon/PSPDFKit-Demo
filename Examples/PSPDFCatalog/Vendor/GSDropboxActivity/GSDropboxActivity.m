@@ -36,7 +36,7 @@
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {
     for (id obj in activityItems) {
-        if ([obj isKindOfClass:[NSURL class]] || [obj isKindOfClass:[UIImage class]]) {
+        if ([obj isKindOfClass:NSURL.class] || [obj isKindOfClass:UIImage.class]) {
             return YES;
         }
     }
@@ -64,8 +64,8 @@
 {
     for (__strong NSURL *fileURL in self.activityItems) {
         // only allow NSURL
-        if ([fileURL isKindOfClass:[NSURL class]]) {
-            [[GSDropboxUploader sharedUploader] uploadFileWithURL:fileURL toPath:destinationPath];
+        if ([fileURL isKindOfClass:NSURL.class]) {
+            [GSDropboxUploader.sharedUploader uploadFileWithURL:fileURL toPath:destinationPath];
         }
     }
     self.activityItems = nil;

@@ -29,7 +29,7 @@
         self.renderingMode = PSPDFPageRenderingModeFullPageBlocking;
         self.linkAction = PSPDFLinkActionInlineBrowser;
         self.statusBarStyleSetting = PSPDFStatusBarSmartBlackHideOnIpad;
-        self.tintColor = [UIColor orangeColor];
+        self.tintColor = UIColor.orangeColor;
         self.maximumZoomScale = 100; // as we have the selection zoom-in tool
 
         PSPDFBarButtonItem *playButtonItem = [[PSCPlayBarButtonItem alloc] initWithPDFViewController:self];
@@ -58,7 +58,7 @@
 
             // Variant two is directly setting the URL. Here PSPDFKit will not further parse the annotation, so the path must be correct (can't use relative path's here.)
             // Also note that while we are accepting a URL, annotations will only work with file-based URL's (unless it's invoking a UIWebView). Loading a remote image here is not (yet) supported.
-            //annotation.URL = [NSURL fileURLWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"exampleimage.jpg"]];
+            //annotation.URL = [NSURL fileURLWithPath:[[NSBundle.mainBundle bundlePath] stringByAppendingPathComponent:@"exampleimage.jpg"]];
 
             // annotation frame is in PDF coordinate space. Use pageRect for the full page.
             annotation.boundingBox = [self.document pageInfoForPage:0].rotatedPageRect;
@@ -119,7 +119,7 @@
 
 - (UIView <PSPDFAnnotationViewProtocol> *)pdfViewController:(PSPDFViewController *)pdfController annotationView:(UIView <PSPDFAnnotationViewProtocol> *)annotationView forAnnotation:(PSPDFAnnotation *)annotation onPageView:(PSPDFPageView *)pageView {
 
-    if ([annotation isKindOfClass:[PSPDFLinkAnnotation class]]) {
+    if ([annotation isKindOfClass:PSPDFLinkAnnotation.class]) {
         PSPDFLinkAnnotation *linkAnnotation = (PSPDFLinkAnnotation *)annotation;
         // example how to add a MapView with the url protocol map://lat,long,latspan,longspan
         if (linkAnnotation.linkType == PSPDFLinkAnnotationCustom && [linkAnnotation.URL.absoluteString hasPrefix:@"map://"]) {
@@ -128,7 +128,7 @@
             NSArray *token = [mapData componentsSeparatedByString:@","];
 
             // ensure we have token count of 4 (latitude, longitude, span la, span lo)
-            if ([token count] == 4) {
+            if (token.count == 4) {
                 CLLocationCoordinate2D location = CLLocationCoordinate2DMake([token[0] doubleValue],
                                                                              [token[1] doubleValue]);
 
@@ -161,10 +161,10 @@
     NSLog(@"willShowViewController: %@ embeddedIn:%@ animated: %d", viewController, controller, animated);
 
     // example how to intercept PSPDFSearchViewController and change the barStyle to black
-    if ([viewController isKindOfClass:[PSPDFSearchViewController class]]) {
+    if ([viewController isKindOfClass:PSPDFSearchViewController.class]) {
         PSPDFSearchViewController *searchController = (PSPDFSearchViewController *)viewController;
         searchController.searchBar.barStyle = UIBarStyleBlack;
-        searchController.searchBar.tintColor = [UIColor blackColor];
+        searchController.searchBar.tintColor = UIColor.blackColor;
     }
     return YES;
 }
@@ -200,7 +200,7 @@
 - (NSString *)pdfDocument:(PSPDFDocument *)document resolveCustomAnnotationPathToken:(NSString *)pathToken {
     NSString *resolvedPath = nil;
     if ([pathToken isEqualToString:@"TokenTest"]) {
-        resolvedPath = [[NSBundle mainBundle] bundlePath];
+        resolvedPath = [NSBundle.mainBundle bundlePath];
     }else {
         PSCLog(@"Token not recognized: %@", pathToken);
     }

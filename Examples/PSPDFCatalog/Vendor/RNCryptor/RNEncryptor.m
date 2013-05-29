@@ -67,7 +67,7 @@
 {
   self = [super initWithHandler:aHandler];
   if (self) {
-    self.IV = [[self class] randomDataOfLength:theSettings.IVSize];
+    self.IV = [self.class randomDataOfLength:theSettings.IVSize];
 
     if (anHMACKey) {
       CCHmacInit(&_HMACContext, theSettings.HMACAlgorithm, anHMACKey.bytes, anHMACKey.length);
@@ -94,11 +94,11 @@
 {
   NSParameterAssert(aPassword != nil);
 
-  NSData *encryptionSalt = [[self class] randomDataOfLength:theSettings.keySettings.saltSize];
-  NSData *encryptionKey = [[self class] keyForPassword:aPassword salt:encryptionSalt settings:theSettings.keySettings];
+  NSData *encryptionSalt = [self.class randomDataOfLength:theSettings.keySettings.saltSize];
+  NSData *encryptionKey = [self.class keyForPassword:aPassword salt:encryptionSalt settings:theSettings.keySettings];
 
-  NSData *HMACSalt = [[self class] randomDataOfLength:theSettings.HMACKeySettings.saltSize];
-  NSData *HMACKey = [[self class] keyForPassword:aPassword salt:HMACSalt settings:theSettings.HMACKeySettings];
+  NSData *HMACSalt = [self.class randomDataOfLength:theSettings.HMACKeySettings.saltSize];
+  NSData *HMACKey = [self.class keyForPassword:aPassword salt:HMACSalt settings:theSettings.HMACKeySettings];
 
   self = [self initWithSettings:theSettings
                   encryptionKey:encryptionKey
@@ -135,7 +135,7 @@
       NSData *header = [self header];
       [self.outData setData:header];
       if (self.hasHMAC) {
-        CCHmacUpdate(&_HMACContext, [header bytes], [header length]);
+        CCHmacUpdate(&_HMACContext, [header bytes], header.length);
       }
       self.haveWrittenHeader = YES;
     }

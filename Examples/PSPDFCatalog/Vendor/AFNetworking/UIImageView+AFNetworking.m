@@ -99,7 +99,7 @@ static char kAFImageRequestOperationObjectKey;
 {
     [self cancelImageRequestOperation];
 
-    UIImage *cachedImage = [[[self class] af_sharedImageCache] cachedImageForRequest:urlRequest];
+    UIImage *cachedImage = [[self.class af_sharedImageCache] cachedImageForRequest:urlRequest];
     if (cachedImage) {
         if (success) {
             success(nil, nil, cachedImage);
@@ -125,7 +125,7 @@ static char kAFImageRequestOperationObjectKey;
                 }
             }
 
-            [[[self class] af_sharedImageCache] cacheImage:responseObject forRequest:urlRequest];
+            [[self.class af_sharedImageCache] cacheImage:responseObject forRequest:urlRequest];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             if ([urlRequest isEqual:[self.af_imageRequestOperation request]]) {
                 if (failure) {
@@ -140,7 +140,7 @@ static char kAFImageRequestOperationObjectKey;
 
         self.af_imageRequestOperation = requestOperation;
 
-        [[[self class] af_sharedImageRequestOperationQueue] addOperation:self.af_imageRequestOperation];
+        [[self.class af_sharedImageRequestOperationQueue] addOperation:self.af_imageRequestOperation];
     }
 }
 
@@ -154,7 +154,7 @@ static char kAFImageRequestOperationObjectKey;
 #pragma mark -
 
 static inline NSString * AFImageCacheKeyFromURLRequest(NSURLRequest *request) {
-    return [[request URL] absoluteString];
+    return request.URL.absoluteString;
 }
 
 @implementation AFImageCache

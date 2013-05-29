@@ -45,8 +45,8 @@
     ];
     
     [self.navigationController setToolbarHidden:NO];
-    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
-    self.navigationController.toolbar.tintColor = [UIColor darkGrayColor];
+    self.navigationController.navigationBar.tintColor = UIColor.darkGrayColor;
+    self.navigationController.toolbar.tintColor = UIColor.darkGrayColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -69,8 +69,8 @@
 {
     [super viewDidAppear:animated];
     
-    if (![[DBSession sharedSession] isLinked]) {
-        [[DBSession sharedSession] linkFromController:self];
+    if (![DBSession.sharedSession isLinked]) {
+        [DBSession.sharedSession linkFromController:self];
     } else {
         [self.dropboxClient loadMetadata:self.rootPath];
     }
@@ -84,7 +84,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
         return YES;
     
     return toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
@@ -92,8 +92,8 @@
 
 - (DBRestClient *)dropboxClient
 {
-    if (_dropboxClient == nil && [DBSession sharedSession] != nil) {
-        _dropboxClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+    if (_dropboxClient == nil && DBSession.sharedSession != nil) {
+        _dropboxClient = [[DBRestClient alloc] initWithSession:DBSession.sharedSession];
         _dropboxClient.delegate = self;
     }
     return _dropboxClient;
@@ -103,10 +103,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.isLoading || self.subdirectories == nil || [self.subdirectories count] == 0) {
+    if (self.isLoading || self.subdirectories == nil || self.subdirectories.count == 0) {
         return 1;
     }
-    return [self.subdirectories count];
+    return self.subdirectories.count;
     
 }
 
@@ -123,7 +123,7 @@
         cell.textLabel.text = NSLocalizedString(@"Loading...", @"Progress message while app is loading a list of folders from Dropbox");
     } else if (self.subdirectories == nil) {
         cell.textLabel.text = NSLocalizedString(@"Error loading folder contents", @"Error message if the app couldn't load a list of a folder's contents from Dropbox");
-    } else if ([self.subdirectories count] == 0) {
+    } else if (self.subdirectories.count == 0) {
         cell.textLabel.text = NSLocalizedString(@"Contains no folders", @"Status message when the current folder contains no sub-folders");
     } else {
         cell.textLabel.text = [[self.subdirectories objectAtIndex:indexPath.row] lastPathComponent];
@@ -142,7 +142,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.subdirectories count] > indexPath.row) {
+    if (self.subdirectories.count > indexPath.row) {
         GSDropboxDestinationSelectionViewController *vc = [[GSDropboxDestinationSelectionViewController alloc] init];
         vc.delegate = self.delegate;
         vc.rootPath = [self.rootPath stringByAppendingPathComponent:[self.subdirectories objectAtIndex:indexPath.row]];
@@ -158,7 +158,7 @@
 {
     NSMutableArray *array = [NSMutableArray array];
     for (DBMetadata *file in metadata.contents) {
-        if (file.isDirectory && [file.filename length] > 0 && [file.filename characterAtIndex:0] != '.') {
+        if (file.isDirectory && file.filename.length > 0 && [file.filename characterAtIndex:0] != '.') {
             [array addObject:file.filename];
         }
     }

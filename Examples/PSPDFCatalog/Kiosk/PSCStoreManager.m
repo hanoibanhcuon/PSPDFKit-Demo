@@ -84,7 +84,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
     PSPDFDispatchRelease(_magazineFolderQueue);
 }
 
@@ -115,7 +115,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
         }
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [[PSPDFCache sharedCache] removeCacheForDocument:magazine deleteDocument:YES error:nil];
+            [PSPDFCache.sharedCache removeCacheForDocument:magazine deleteDocument:YES error:nil];
         });
     }
 
@@ -140,7 +140,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
     if (!magazine.URL) {
         [delegate magazineStoreMagazineDeleted:magazine];
 
-        if ([folder.magazines count] == 1) {
+        if (folder.magazines.count == 1) {
             [delegate magazineStoreFolderDeleted:folder];
         }
     }
@@ -153,14 +153,14 @@ static char kPSCKVOToken; // we need a static address for the kvo token
 
     // Clear everything
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[PSPDFCache sharedCache] removeCacheForDocument:magazine deleteDocument:YES error:nil];
+        [PSPDFCache.sharedCache removeCacheForDocument:magazine deleteDocument:YES error:nil];
     });
 
     // if magazine has no url - delete
     if (!magazine.URL) {
         [folder removeMagazine:magazine];
 
-        if ([folder.magazines count] > 0) {
+        if (folder.magazines.count > 0) {
             [delegate magazineStoreFolderModified:folder]; // was just modified
         }else {
             dispatch_barrier_sync(_magazineFolderQueue, ^{
@@ -207,7 +207,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
         [self finishDownload:download];
     }else if (download.status == PSCStoreDownloadStatusFailed) {
         if (!download.isCancelled) {
-            NSString *magazineTitle = [download.magazine.title length] ? download.magazine.title : NSLocalizedString(@"Magazine", @"");
+            NSString *magazineTitle = download.magazine.title.length ? download.magazine.title : NSLocalizedString(@"Magazine", @"");
             NSString *message = [NSString stringWithFormat:NSLocalizedString(@"%@ could not be downloaded. Please try again.", @""), magazineTitle];
 
             NSString *messageWithError = message;
@@ -231,13 +231,13 @@ static char kPSCKVOToken; // we need a static address for the kvo token
 
     // If no magazine is given, find the current.
     if (!magazine) {
-        NSString *UID = [[NSUserDefaults standardUserDefaults] objectForKey:kNewsstandIconUID];
+        NSString *UID = [NSUserDefaults.standardUserDefaults objectForKey:kNewsstandIconUID];
         if (UID) {
             magazine = [self magazineForUID:UID];
         }
 
         // if magazine doesn't exist anymore, choose the first magazine in the list
-        if (!magazine && [self.magazineFolders count]) {
+        if (!magazine && self.magazineFolders.count) {
             magazine = [(self.magazineFolders)[0] firstMagazine];
         }
     }
@@ -256,16 +256,16 @@ static char kPSCKVOToken; // we need a static address for the kvo token
          newsstandCoverImage = UIGraphicsGetImageFromCurrentImageContext();
          UIGraphicsEndImageContext();
          */
-        newsstandCoverImage = [magazine coverImageForSize:[PSPDFCache sharedCache].thumbnailSize];
+        newsstandCoverImage = [magazine coverImageForSize:PSPDFCache.sharedCache.thumbnailSize];
     }
 
     [UIApplication.sharedApplication setNewsstandIconImage:newsstandCoverImage];
 
     // update user defaults
     if (magazine.UID) {
-        [[NSUserDefaults standardUserDefaults] setObject:magazine.UID forKey:kNewsstandIconUID];
+        [NSUserDefaults.standardUserDefaults setObject:magazine.UID forKey:kNewsstandIconUID];
     }else {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kNewsstandIconUID];
+        [NSUserDefaults.standardUserDefaults removeObjectForKey:kNewsstandIconUID];
     }
 }
 
@@ -279,7 +279,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
         }
     }
 
-    if ([newMagazines count] > 0) {
+    if (newMagazines.count > 0) {
         id<PSCStoreManagerDelegate> delegate = self.delegate;
 
         [delegate magazineStoreBeginUpdate];
@@ -289,7 +289,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
 
 
             // folder fresh or updated?
-            if ([folder.magazines count] == 1) {
+            if (folder.magazines.count == 1) {
                 [delegate magazineStoreFolderAdded:folder];
             }else {
                 [delegate magazineStoreFolderModified:folder];
@@ -340,7 +340,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
                     }
                 }
 
-                if ([contentFolder.magazines count]) {
+                if (contentFolder.magazines.count) {
                     [folders addObject:contentFolder];
                 }
             }else if ([[fullPath lowercaseString] hasSuffix:@"pdf"]) {
@@ -351,7 +351,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
             }
         }
     }
-    if ([rootFolder.magazines count]) [folders addObject:rootFolder];
+    if (rootFolder.magazines.count) [folders addObject:rootFolder];
 
     return folders;
 }
@@ -360,16 +360,16 @@ static char kPSCKVOToken; // we need a static address for the kvo token
 - (NSMutableArray *)searchForMagazineFolders {
     NSMutableArray *folders = [NSMutableArray array];
 
-    NSString *sampleFolder = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Samples"];
+    NSString *sampleFolder = [NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"Samples"];
     [folders addObjectsFromArray:[self searchFolder:sampleFolder]];
 
-    NSString *dirPath = [[PSCStoreManager storagePath] stringByAppendingPathComponent:@"downloads"];
+    NSString *dirPath = [PSCStoreManager.storagePath stringByAppendingPathComponent:@"downloads"];
     [folders addObjectsFromArray:[self searchFolder:dirPath]];
 
     // flatten hierarchy
     if (kPSPDFStoreManagerPlain) {
         // if we don't have any folders, create one
-        if ([folders count] == 0) {
+        if (folders.count == 0) {
             PSCMagazineFolder *aFolder = [PSCMagazineFolder folderWithTitle:@""];
             [folders addObject:aFolder];
         }
@@ -398,7 +398,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
 - (PSCMagazineFolder *)addMagazineToFolder:(PSCMagazine *)magazine {
     PSCMagazineFolder *folder = [self.magazineFolders lastObject];
     [folder addMagazine:magazine];
-    PSPDFAssert([folder isKindOfClass:[PSCMagazineFolder class]], @"incorrect type");
+    PSPDFAssert([folder isKindOfClass:PSCMagazineFolder.class], @"incorrect type");
     return folder;
 }
 
@@ -416,7 +416,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
 - (PSCMagazine *)magazineForFileName:(NSString *)fileName {
     for (PSCMagazineFolder *folder in self.magazineFolders) {
         for (PSCMagazine *magazine in folder.magazines) {
-            if ([magazine.files count] && [(magazine.files)[0] isEqualToString:fileName]) {
+            if (magazine.files.count && [(magazine.files)[0] isEqualToString:fileName]) {
                 return magazine;
             }
         }
@@ -430,16 +430,16 @@ static char kPSCKVOToken; // we need a static address for the kvo token
         NSArray *dlMagazines = (NSArray *)JSON;
         NSMutableArray *newMagazines = [NSMutableArray array];
         for (NSDictionary *dlMagazine in dlMagazines) {
-            if (![dlMagazine isKindOfClass:[NSDictionary class]]) {
+            if (![dlMagazine isKindOfClass:NSDictionary.class]) {
                 PSCLog(@"Error while parsing magazine JSON - Dictionary expected. Got this instead: %@", dlMagazine);
             }else {
                 // create and fill PSPDFMagazine
                 NSString *title = dlMagazine[@"name"];
                 NSString *urlString = dlMagazine[@"url"];
                 NSString *imageURLString = dlMagazine[@"image"];
-                if ([imageURLString length] == 0) {
+                if (imageURLString.length == 0) {
                     // if no image key is set, try same location as the pdf, but with jpg ending.
-                    imageURLString = [urlString stringByReplacingOccurrencesOfString:@".pdf" withString:@".jpg" options:NSCaseInsensitiveSearch | NSBackwardsSearch range:NSMakeRange(0, [urlString length])];
+                    imageURLString = [urlString stringByReplacingOccurrencesOfString:@".pdf" withString:@".jpg" options:NSCaseInsensitiveSearch | NSBackwardsSearch range:NSMakeRange(0, urlString.length)];
                 }
                 NSString *fileName = [urlString lastPathComponent]; // we use fileName as our way to map files to files on disk - be sure to make it unique!
 
@@ -454,8 +454,8 @@ static char kPSCKVOToken; // we need a static address for the kvo token
                 // TODO: this is not optimal. The title from used in the web is saved nowhere.
                 // After a restart, the title within the pdf document's metadata is used, or if no title set there, the filename.
                 magazine.title = title;
-                magazine.URL = [urlString length] ? [NSURL URLWithString:urlString] : nil;
-                magazine.imageURL = [imageURLString length] ? [NSURL URLWithString:imageURLString] : nil;
+                magazine.URL = urlString.length ? [NSURL URLWithString:urlString] : nil;
+                magazine.imageURL = imageURLString.length ? [NSURL URLWithString:imageURLString] : nil;
             }
         }
         [self addMagazinesToStore:newMagazines];
@@ -485,7 +485,7 @@ static char kPSCKVOToken; // we need a static address for the kvo token
             [self loadMagazinesAvailableFromWeb];
         });
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:kPSPDFStoreDiskLoadFinishedNotification object:magazineFolders];
+        [NSNotificationCenter.defaultCenter postNotificationName:kPSPDFStoreDiskLoadFinishedNotification object:magazineFolders];
     });
 }
 

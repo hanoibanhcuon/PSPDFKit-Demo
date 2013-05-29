@@ -117,7 +117,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
 - (void)createTableContent {
     // common paths
-    NSURL *samplesURL = [[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"Samples"];
+    NSURL *samplesURL = [[NSBundle.mainBundle resourceURL] URLByAppendingPathComponent:@"Samples"];
     NSURL *hackerMagURL = [samplesURL URLByAppendingPathComponent:kHackerMagazineExample];
 
     NSMutableOrderedSet *content = [NSMutableOrderedSet orderedSet];
@@ -135,7 +135,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
         return controller;
     }]];
 
-    [appSection addContent:[[PSContent alloc] initWithTitle:@"PSPDFKit Kiosk" class:[PSCGridViewController class]]];
+    [appSection addContent:[[PSContent alloc] initWithTitle:@"PSPDFKit Kiosk" class:PSCGridViewController.class]];
 
     [appSection addContent:[[PSContent alloc] initWithTitle:@"Tabbed Browser" block:^{
         if (PSIsIpad()) {
@@ -377,7 +377,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
     [documentTests addContent:[[PSContent alloc] initWithTitle:@"Limit pages to 5-10 via pageRange" block:^{
         // cache needs to be cleared since pages will change.
-        [[PSPDFCache sharedCache] clearCache];
+        [PSPDFCache.sharedCache clearCache];
         _clearCacheNeeded = YES;
 
         PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:kHackerMagazineExample]];
@@ -653,7 +653,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
         PSPDFDocument *document = [PSPDFDocument documentWithURL:hackerMagURL];
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
         pdfController.title = @"Custom toolbar icon for bookmark item";
-        [pdfController overrideClass:[PSPDFBookmarkBarButtonItem class] withClass:[PSCCustomBookmarkBarButtonItem class]];
+        [pdfController overrideClass:PSPDFBookmarkBarButtonItem.class withClass:PSCCustomBookmarkBarButtonItem.class];
         pdfController.bookmarkButtonItem.tapChangesBookmarkStatus = NO;
         pdfController.rightBarButtonItems = @[pdfController.bookmarkButtonItem, pdfController.viewModeButtonItem];
         return pdfController;
@@ -737,17 +737,17 @@ const char kPSPDFSignatureCompletionBlock = 0;
     [customizationSection addContent:[[PSContent alloc] initWithTitle:@"Custom Background Color" block:^{
         PSPDFDocument *document = [PSPDFDocument documentWithURL:hackerMagURL];
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
-        pdfController.backgroundColor = [UIColor brownColor];
+        pdfController.backgroundColor = UIColor.brownColor;
         return pdfController;
     }]];
 
     [customizationSection addContent:[[PSContent alloc] initWithTitle:@"Night Mode" block:^{
-        [[PSPDFCache sharedCache] clearCache];
+        [PSPDFCache.sharedCache clearCache];
         PSPDFDocument *document = [PSPDFDocument documentWithURL:hackerMagURL];
         document.renderOptions = @{kPSPDFInvertRendering : @YES};
-        document.backgroundColor = [UIColor blackColor];
+        document.backgroundColor = UIColor.blackColor;
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
-        pdfController.backgroundColor = [UIColor blackColor];
+        pdfController.backgroundColor = UIColor.blackColor;
         _clearCacheNeeded = YES;
         return pdfController;
     }]];
@@ -850,7 +850,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
     // Encrypting the images will be a 5-10% slowdown, nothing substantial at all.
     [passwordSection addContent:[[PSContent alloc] initWithTitle:@"Enable PSPDFCache encryption" block:^UIViewController *{
-        PSPDFCache *cache = [PSPDFCache sharedCache];
+        PSPDFCache *cache = PSPDFCache.sharedCache;
         // Clear existing cache
         [cache clearCache];
 
@@ -918,7 +918,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
     // Bookmarks
     [subclassingSection addContent:[[PSContent alloc] initWithTitle:@"Capture Bookmarks" block:^UIViewController *{
         PSPDFDocument *document = [PSPDFDocument documentWithURL:hackerMagURL];
-        [document overrideClass:[PSPDFBookmarkParser class] withClass:[PSCBookmarkParser class]];
+        [document overrideClass:PSPDFBookmarkParser.class withClass:PSCBookmarkParser.class];
         PSPDFViewController *controller = [[PSPDFViewController alloc] initWithDocument:document];
         controller.rightBarButtonItems = @[controller.bookmarkButtonItem, controller.searchButtonItem, controller.outlineButtonItem, controller.viewModeButtonItem];
         return controller;
@@ -955,7 +955,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
         document.annotationSaveMode = PSPDFAnnotationSaveModeDisabled; // don't confuse other examples
         // add shape annotation if there isn't one already.
         NSUInteger targetPage = 0;
-        if ([[document annotationsForPage:targetPage type:PSPDFAnnotationTypeShape] count] == 0) {
+        if ([document annotationsForPage:targetPage type:PSPDFAnnotationTypeShape].count == 0) {
             PSPDFShapeAnnotation *annotation = [[PSPDFShapeAnnotation alloc] initWithShapeType:PSPDFShapeAnnotationSquare];
             annotation.boundingBox = CGRectInset([document pageInfoForPage:targetPage].rotatedPageRect, 100, 100);
             annotation.color = [UIColor colorWithRed:0.0 green:100.0/255.f blue:0.f alpha:1.f];
@@ -976,7 +976,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
         document.annotationSaveMode = PSPDFAnnotationSaveModeDisabled; // don't confuse other examples
         // add shape annotation if there isn't one already.
         NSUInteger targetPage = 0;
-        if ([[document annotationsForPage:targetPage type:PSPDFAnnotationTypePolygon] count] == 0) {
+        if ([document annotationsForPage:targetPage type:PSPDFAnnotationTypePolygon].count == 0) {
             PSPDFPolygonAnnotation *polyline = [[PSPDFPolygonAnnotation alloc] initWithPolygonType:PSPDFPolygonAnnotationPolyLine];
             polyline.points = @[[NSValue valueWithCGPoint:CGPointMake(52, 633)], [NSValue valueWithCGPoint:CGPointMake(67, 672)], [NSValue valueWithCGPoint:CGPointMake(131, 685)], [NSValue valueWithCGPoint:CGPointMake(178, 654)], [NSValue valueWithCGPoint:CGPointMake(115, 622)]];
             polyline.color = [UIColor colorWithRed:0.0 green:1.f blue:0.f alpha:1.f];
@@ -1004,7 +1004,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
                     CGRect boundingBox;
                     NSArray *highlighedRects = PSPDFRectsFromGlyphs(word.glyphs, [document pageInfoForPage:pageIndex].pageRotationTransform, &boundingBox);
                     PSPDFHighlightAnnotation *annotation = [[PSPDFHighlightAnnotation alloc] initWithHighlightType:PSPDFHighlightAnnotationHighlight];
-                    annotation.color = [UIColor orangeColor];
+                    annotation.color = UIColor.orangeColor;
                     annotation.boundingBox = boundingBox;
                     annotation.rects = highlighedRects;
                     annotation.contents = [NSString stringWithFormat:@"This is automatically created highlight #%d", annotationCounter];
@@ -1031,7 +1031,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
         // add shape annotation if there isn't one already.
         NSUInteger targetPage = 0;
-        if ([[document annotationsForPage:targetPage type:PSPDFAnnotationTypeInk] count] == 0) {
+        if ([document annotationsForPage:targetPage type:PSPDFAnnotationTypeInk].count == 0) {
 
             // Check the header for more helper methods; PSPDFBezierPathGetPoints() might be useful depending on your use case.
             PSPDFInkAnnotation *annotation = [PSPDFInkAnnotation new];
@@ -1043,7 +1043,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
             // convert view line points into PDF line points.
             PSPDFPageInfo *pageInfo = [document pageInfoForPage:targetPage];
-            CGRect viewRect = [UIScreen mainScreen].bounds; // this is your drawing view rect - we don't have one yet, so lets just assume the whole screen for this example. You can also directly write the points in PDF coordinate space, then you don't need to convert, but usually your user draws and you need to convert the points afterwards.
+            CGRect viewRect = UIScreen.mainScreen.bounds; // this is your drawing view rect - we don't have one yet, so lets just assume the whole screen for this example. You can also directly write the points in PDF coordinate space, then you don't need to convert, but usually your user draws and you need to convert the points afterwards.
             annotation.lineWidth = 5;
             annotation.lines = PSPDFConvertViewLinesToPDFLines(lines, pageInfo.pageRect, pageInfo.pageRotation, viewRect);
 
@@ -1156,15 +1156,15 @@ const char kPSPDFSignatureCompletionBlock = 0;
         // Very simple approach to show upload status.
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            [[NSNotificationCenter defaultCenter] addObserverForName:GSDropboxUploaderDidGetProgressUpdateNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+            [NSNotificationCenter.defaultCenter addObserverForName:GSDropboxUploaderDidGetProgressUpdateNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
                 [PSPDFProgressHUD showProgress:[note.userInfo[GSDropboxUploaderProgressKey] floatValue] status:@"Uploading..."];
             }];
 
-            [[NSNotificationCenter defaultCenter] addObserverForName:GSDropboxUploaderDidFinishUploadingFileNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+            [NSNotificationCenter.defaultCenter addObserverForName:GSDropboxUploaderDidFinishUploadingFileNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
                 [PSPDFProgressHUD showSuccessWithStatus:@"Upload Finished."];
             }];
 
-            [[NSNotificationCenter defaultCenter] addObserverForName:GSDropboxUploaderDidFailNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+            [NSNotificationCenter.defaultCenter addObserverForName:GSDropboxUploaderDidFailNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
                 [PSPDFProgressHUD showErrorWithStatus:@"Upload failed."];
             }];
         });
@@ -1636,7 +1636,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
     // Check that page labels work correctly, even if we use the pageRange feature.
     [testSection addContent:[[PSContent alloc] initWithTitle:@"PageLabels test + pageRange" block:^UIViewController *{
         PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"pagelabels-test.pdf"]];
-        [[PSPDFCache sharedCache] removeCacheForDocument:document deleteDocument:NO error:NULL];
+        [PSPDFCache.sharedCache removeCacheForDocument:document deleteDocument:NO error:NULL];
         _clearCacheNeeded = YES;
         document.pageRange = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(5, 15)];
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
@@ -1646,7 +1646,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
     // Check that there's no transparent border around images.
     [testSection addContent:[[PSContent alloc] initWithTitle:@"Thumbnails Aspect Ratio Test" block:^UIViewController *{
-        [[PSPDFCache sharedCache] clearCache];
+        [PSPDFCache.sharedCache clearCache];
         PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Testcase_aspectratio.pdf"]];
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
         pdfController.viewMode = PSPDFViewModeThumbnails;
@@ -1656,7 +1656,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
     // Test HSV color picker
     [testSection addContent:[[PSContent alloc] initWithTitle:@"Color picker test" block:^UIViewController *{
         PSPDFHSVColorPickerController *picker = [PSPDFHSVColorPickerController new];
-        picker.selectionColor = [UIColor yellowColor];
+        picker.selectionColor = UIColor.yellowColor;
         return picker;
     }]];
 
@@ -1899,7 +1899,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
     // Ensure that videos do display.
     [testSection addContent:[[PSContent alloc] initWithTitle:@"Test large video extraction code" block:^UIViewController *{
         // clear temp directory to force video extraction.
-        [[NSFileManager defaultManager] removeItemAtPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"PSPDFKit"] error:NULL];
+        [NSFileManager.defaultManager removeItemAtPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"PSPDFKit"] error:NULL];
         PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Embedded-video-large.pdf"]];
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
         pdfController.page = 11;
@@ -1924,7 +1924,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
         // add shape annotation if there isn't one already.
         NSUInteger targetPage = 0;
-        if ([[document annotationsForPage:targetPage type:PSPDFAnnotationTypeInk] count] == 0) {
+        if ([document annotationsForPage:targetPage type:PSPDFAnnotationTypeInk].count == 0) {
 
             // Check the header for more helper methods; PSPDFBezierPathGetPoints() might be useful depending on your use case.
             PSPDFInkAnnotation *annotation = [PSPDFInkAnnotation new];
@@ -1936,7 +1936,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
             // convert view line points into PDF line points.
             PSPDFPageInfo *pageInfo = [document pageInfoForPage:targetPage];
-            CGRect viewRect = [UIScreen mainScreen].bounds; // this is your drawing view rect - we don't have one yet, so lets just assume the whole screen for this example. You can also directly write the points in PDF coordinate space, then you don't need to convert, but usually your user draws and you need to convert the points afterwards.
+            CGRect viewRect = UIScreen.mainScreen.bounds; // this is your drawing view rect - we don't have one yet, so lets just assume the whole screen for this example. You can also directly write the points in PDF coordinate space, then you don't need to convert, but usually your user draws and you need to convert the points afterwards.
             annotation.lineWidth = 5;
             annotation.lines = PSPDFConvertViewLinesToPDFLines(lines, pageInfo.pageRect, pageInfo.pageRotation, viewRect);
 
@@ -2487,7 +2487,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
     }]];
 
     [testSection addContent:[[PSContent alloc] initWithTitle:@"Tests thumbnail extraction" block:^UIViewController *{
-        NSURL *URL = [[[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"Samples"] URLByAppendingPathComponent:@"landscapetest.pdf"];
+        NSURL *URL = [[[NSBundle.mainBundle resourceURL] URLByAppendingPathComponent:@"Samples"] URLByAppendingPathComponent:@"landscapetest.pdf"];
         PSPDFDocument *doc = [PSPDFDocument documentWithURL:URL];
         NSError *error = nil;
         UIImage *thumbnail = [doc renderImageForPage:0 withSize:CGSizeMake(300, 300) clippedToRect:CGRectZero withAnnotations:nil options:nil receipt:NULL error:&error];
@@ -2680,7 +2680,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
     // clear cache (for night mode)
     if (_clearCacheNeeded) {
         _clearCacheNeeded = NO;
-        [[PSPDFCache sharedCache] clearCache];
+        [PSPDFCache.sharedCache clearCache];
     }
 }
 
@@ -2702,7 +2702,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
     // Load last state
     if (!_firstShown) {
-        NSData *indexData = [[NSUserDefaults standardUserDefaults] objectForKey:kPSPDFLastIndexPath];
+        NSData *indexData = [NSUserDefaults.standardUserDefaults objectForKey:kPSPDFLastIndexPath];
         if (indexData) {
             NSIndexPath *indexPath = nil;
             @try { indexPath = [NSKeyedUnarchiver unarchiveObjectWithData:indexData]; }
@@ -2714,7 +2714,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
         _firstShown = YES;
     }else {
         // Second display, remove user default.
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPSPDFLastIndexPath];
+        [NSUserDefaults.standardUserDefaults removeObjectForKey:kPSPDFLastIndexPath];
     }
 }
 
@@ -2747,15 +2747,15 @@ const char kPSPDFSignatureCompletionBlock = 0;
     NSString *newPath = [docsFolder stringByAppendingPathComponent:[documentURL lastPathComponent]];
     NSURL *newURL = [NSURL fileURLWithPath:newPath];
 
-    BOOL needsCopy = ![[NSFileManager defaultManager] fileExistsAtPath:newPath];
+    BOOL needsCopy = ![NSFileManager.defaultManager fileExistsAtPath:newPath];
     if (override) {
         needsCopy = YES;
-        [[NSFileManager defaultManager] removeItemAtURL:newURL error:NULL];
+        [NSFileManager.defaultManager removeItemAtURL:newURL error:NULL];
     }
 
     NSError *error;
     if (needsCopy &&
-        ![[NSFileManager defaultManager] copyItemAtURL:documentURL toURL:newURL error:&error]) {
+        ![NSFileManager.defaultManager copyItemAtURL:documentURL toURL:newURL error:&error]) {
         NSLog(@"Error while copying %@: %@", documentURL.path, error.localizedDescription);
     }
 
@@ -2767,7 +2767,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (tableView == self.tableView) {
-        return [_content count];
+        return _content.count;
     }else {
         return 1;
     }
@@ -2775,7 +2775,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.tableView) {
-        return [[_content[section] contentDescriptors] count];
+        return [_content[section] contentDescriptors].count;
     }else {
         return self.filteredContent.count;
     }
@@ -2841,8 +2841,8 @@ const char kPSPDFSignatureCompletionBlock = 0;
     }
 
     // Persist state
-    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:unfilteredIndexPath] forKey:kPSPDFLastIndexPath];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUserDefaults.standardUserDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:unfilteredIndexPath] forKey:kPSPDFLastIndexPath];
+    [NSUserDefaults.standardUserDefaults synchronize];
     _firstShown = YES; // don't re-show after saving it first.
 
     UIViewController *controller;
@@ -2852,7 +2852,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
         controller = contentDescriptor.block();
     }
     if (controller) {
-        if ([controller isKindOfClass:[UINavigationController class]]) {
+        if ([controller isKindOfClass:UINavigationController.class]) {
             controller = [((UINavigationController *)controller) topViewController];
         }
         [self.navigationController pushViewController:controller animated:YES];
@@ -2953,11 +2953,11 @@ const char kPSPDFSignatureCompletionBlock = 0;
 - (void)debugCreateLowMemoryWarning {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [[UIApplication sharedApplication] performSelector:NSSelectorFromString(@"_performMemoryWarning")];
+    [UIApplication.sharedApplication performSelector:NSSelectorFromString(@"_performMemoryWarning")];
 #pragma clang diagnostic pop
     
     // Clear any reference of items that would retain controllers/pages.
-    [[UIMenuController sharedMenuController] setMenuItems:nil];
+    [UIMenuController.sharedMenuController setMenuItems:nil];
 }
 
 - (void)debugClearCache {

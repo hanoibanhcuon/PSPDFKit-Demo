@@ -51,7 +51,7 @@
 #pragma mark - Private
 
 - (void)updateTextHighlight {
-    if ([self.highlightedSearchText length]) {
+    if (self.highlightedSearchText.length) {
         [self.document.textSearch searchForString:self.highlightedSearchText];
     }else {
         [self clearHighlightedSearchResults];

@@ -75,7 +75,7 @@ static dispatch_queue_t property_list_request_operation_processing_queue() {
 
 
 - (id)responsePropertyList {
-    if (!_responsePropertyList && [self.responseData length] > 0 && [self isFinished]) {
+    if (!_responsePropertyList && self.responseData.length > 0 && [self isFinished]) {
         NSPropertyListFormat format;
         NSError *error = nil;
         self.responsePropertyList = [NSPropertyListSerialization propertyListWithData:self.responseData options:self.propertyListReadOptions format:&format error:&error];
@@ -101,7 +101,7 @@ static dispatch_queue_t property_list_request_operation_processing_queue() {
 }
 
 + (BOOL)canProcessRequest:(NSURLRequest *)request {
-    return [[[request URL] pathExtension] isEqualToString:@"plist"] || [super canProcessRequest:request];
+    return [request.URL.pathExtension isEqualToString:@"plist"] || [super canProcessRequest:request];
 }
 
 - (void)setCompletionBlockWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success

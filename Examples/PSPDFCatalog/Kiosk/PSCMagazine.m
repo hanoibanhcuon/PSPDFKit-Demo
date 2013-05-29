@@ -75,7 +75,7 @@
 
     // Restore viewState (sadly, NSKeyedUnarchiver might throw an exception on error)
     if (self.isValid) {
-        NSData *viewStateData = [[NSUserDefaults standardUserDefaults] objectForKey:self.UID];
+        NSData *viewStateData = [NSUserDefaults.standardUserDefaults objectForKey:self.UID];
         @try {
             if (viewStateData) {
                 viewState = [NSKeyedUnarchiver unarchiveObjectWithData:viewStateData];
@@ -83,7 +83,7 @@
         }
         @catch (NSException *exception) {
             PSCLog(@"Failed to load saved viewState: %@", exception);
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:self.UID];
+            [NSUserDefaults.standardUserDefaults removeObjectForKey:self.UID];
         }
     }
     return viewState;
@@ -93,9 +93,9 @@
     if (self.isValid) {
         if (lastViewState) {
             NSData *viewStateData = [NSKeyedArchiver archivedDataWithRootObject:lastViewState];
-            [[NSUserDefaults standardUserDefaults] setObject:viewStateData forKey:self.UID];
+            [NSUserDefaults.standardUserDefaults setObject:viewStateData forKey:self.UID];
         }else {
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:self.UID];
+            [NSUserDefaults.standardUserDefaults removeObjectForKey:self.UID];
         }
     }
 }
@@ -115,7 +115,7 @@
     static NSString *bundlePath;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        bundlePath = [[NSBundle mainBundle] bundlePath];
+        bundlePath = [NSBundle.mainBundle bundlePath];
     });
 
     // if magazine is within the app bundle, we can't delete it.

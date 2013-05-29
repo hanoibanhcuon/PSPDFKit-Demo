@@ -45,7 +45,7 @@
 }
 
 - (NSString *)description {
-    NSString *description = [NSString stringWithFormat:@"<%@ %p: %@, %d magazines>", self.class, self, self.title, [self.magazines count]];
+    NSString *description = [NSString stringWithFormat:@"<%@ %p: %@, %d magazines>", self.class, self, self.title, self.magazines.count];
     return description;
 }
 
@@ -83,11 +83,11 @@
 }
 
 - (BOOL)isSingleMagazine {
-    return [self.magazines count] == 1;
+    return self.magazines.count == 1;
 }
 
 - (PSCMagazine *)firstMagazine {
-    PSCMagazine *firstMagazine = [self.magazines count] ? (self.magazines)[0] : nil;
+    PSCMagazine *firstMagazine = self.magazines.count ? (self.magazines)[0] : nil;
     return firstMagazine;
 }
 

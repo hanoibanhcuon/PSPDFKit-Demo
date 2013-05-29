@@ -12,7 +12,7 @@
 @implementation PSCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
     PSCGridViewController *gridController = [[PSCGridViewController alloc] init];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:gridController];

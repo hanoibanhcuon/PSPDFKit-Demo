@@ -53,7 +53,7 @@
         _documents = [self.class documentsFromDirectory:_directory];
         _filteredDocuments = [NSMutableArray new];
         _deletableFileStatus = [NSMutableDictionary new];
-        [[PSPDFCache sharedCache] addDelegate:self];
+        [PSPDFCache.sharedCache addDelegate:self];
 
         _showSectionIndexes = YES;
         [self updateSections];
@@ -70,7 +70,7 @@
     _searchDisplayController.delegate = nil;
     _searchDisplayController.searchResultsDelegate = nil;
     _searchDisplayController.searchResultsDataSource = nil;
-    [[PSPDFCache sharedCache] removeDelegate:self];
+    [PSPDFCache.sharedCache removeDelegate:self];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -173,14 +173,14 @@
     directory = PSPDFResolvePathNames(directory, [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ps_firstObject]);
 
     NSError *error = nil;
-    NSArray *documentContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:&error];
+    NSArray *documentContents = [NSFileManager.defaultManager contentsOfDirectoryAtPath:directory error:&error];
 
     NSMutableArray *folders = [NSMutableArray array];
     for (NSString *folder in documentContents) {
         // check if target path is a directory (all magazines are in directories)
         NSString *fullPath = [directory stringByAppendingPathComponent:folder];
         BOOL isDir;
-        if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir]) {
+        if ([NSFileManager.defaultManager fileExistsAtPath:fullPath isDirectory:&isDir]) {
             if (!isDir && [[fullPath lowercaseString] hasSuffix:@"pdf"]) {
                 PSPDFDocument *document = [PSPDFDocument documentWithURL:[NSURL fileURLWithPath:fullPath isDirectory:NO]];
                 document.aspectRatioEqual = NO; // let them calculate!
@@ -200,11 +200,11 @@
 
 - (void)updateSections {
     if (_showSectionIndexes) {
-        UILocalizedIndexedCollation *collation = [UILocalizedIndexedCollation currentCollation];
+        UILocalizedIndexedCollation *collation = UILocalizedIndexedCollation.currentCollation;
 
         SEL titleSelector = self.titleSelector;
-        NSMutableArray *unsortedSections = [[NSMutableArray alloc] initWithCapacity:[[collation sectionTitles] count]];
-        for (NSUInteger i = 0; i < [[collation sectionTitles] count]; i++) {
+        NSMutableArray *unsortedSections = [[NSMutableArray alloc] initWithCapacity:[collation sectionTitles].count];
+        for (NSUInteger i = 0; i < [collation sectionTitles].count; i++) {
             [unsortedSections addObject:[NSMutableArray array]];
         }
         for (PSPDFDocument *document in self.documents) {
@@ -298,7 +298,7 @@
 
             // If the document is within the bundle, deletion will fail.
             NSError *error = nil;
-            if (![[NSFileManager defaultManager] removeItemAtPath:[document.fileURL path] error:&error]) {
+            if (![NSFileManager.defaultManager removeItemAtPath:[document.fileURL path] error:&error]) {
                 NSLog(@"Deletion failed: %@",[error localizedDescription]);
             }
 
@@ -314,7 +314,7 @@
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     if (tableView == self.tableView && self.showSectionIndexes) {
-        return [@[UITableViewIndexSearch] arrayByAddingObjectsFromArray:[[UILocalizedIndexedCollation currentCollation] sectionIndexTitles]];
+        return [@[UITableViewIndexSearch] arrayByAddingObjectsFromArray:[UILocalizedIndexedCollation.currentCollation sectionIndexTitles]];
     } else {
         return nil;
     }
@@ -323,7 +323,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (tableView == self.tableView && self.showSectionIndexes) {
         if ([(self.sections)[section] count] > 0) {
-            return [[UILocalizedIndexedCollation currentCollation] sectionTitles][section];
+            return [UILocalizedIndexedCollation.currentCollation sectionTitles][section];
         } else {
             return nil;
         }
@@ -345,7 +345,7 @@
         [self scrollTableViewToSearchBarAnimated:NO];
         return NSNotFound;
     } else {
-        return [[UILocalizedIndexedCollation currentCollation] sectionForSectionIndexTitleAtIndex:index] - 1; // -1 because we add the search symbol
+        return [UILocalizedIndexedCollation.currentCollation sectionForSectionIndexTitleAtIndex:index] - 1; // -1 because we add the search symbol
     }
 }
 
@@ -389,7 +389,7 @@
     [_filteredDocuments removeAllObjects]; // First clear the filtered array.
 
     // ignore scope.
-    if ([searchText length]) {
+    if (searchText.length) {
         // Getting the title can be quite expensive, so only use it if that one is already loaded.
         NSString *predicate = [NSString stringWithFormat:@"(isTitleLoaded == 1 && title CONTAINS[cd] '%@') || fileURL.path CONTAINS[cd] '%@'", searchText, searchText];
         NSArray *filteredContent = [_documents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:predicate]];

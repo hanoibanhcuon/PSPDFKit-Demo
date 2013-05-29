@@ -72,7 +72,7 @@
 - (NSData *)addData:(NSData *)data error:(NSError **)error
 {
   NSMutableData *buffer = self.buffer;
-  [buffer setLength:CCCryptorGetOutputLength(self.cryptor, [data length], true)]; // We'll reuse the buffer in -finish
+  [buffer setLength:CCCryptorGetOutputLength(self.cryptor, data.length, true)]; // We'll reuse the buffer in -finish
 
   size_t dataOutMoved;
   CCCryptorStatus

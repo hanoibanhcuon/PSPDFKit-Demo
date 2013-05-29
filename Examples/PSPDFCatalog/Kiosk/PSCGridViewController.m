@@ -69,7 +69,7 @@
         // custom back button for smaller wording
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:_(@"Kiosk") style:UIBarButtonItemStylePlain target:nil action:nil];
 
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(diskDataLoaded) name:kPSPDFStoreDiskLoadFinishedNotification object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(diskDataLoaded) name:kPSPDFStoreDiskLoadFinishedNotification object:nil];
     }
     return self;
 }
@@ -83,7 +83,7 @@
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
     _searchBar.delegate = nil;
 }
 
@@ -117,7 +117,7 @@
     self.shadowView = [[PSCShadowView alloc] initWithFrame:CGRectMake(0, -toolbarHeight, self.view.bounds.size.width, toolbarHeight)];
     _shadowView.shadowOffset = toolbarHeight;
     _shadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    _shadowView.backgroundColor = [UIColor clearColor];
+    _shadowView.backgroundColor = UIColor.clearColor;
     _shadowView.userInteractionEnabled = NO;
     [self.view addSubview:_shadowView];
 
@@ -136,10 +136,10 @@
     flowLayout.minimumInteritemSpacing = spacing;
     flowLayout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing);
 
-    [collectionView registerClass:[PSCImageGridViewCell class] forCellWithReuseIdentifier:NSStringFromClass([PSCImageGridViewCell class])];
+    [collectionView registerClass:PSCImageGridViewCell.class forCellWithReuseIdentifier:NSStringFromClass(PSCImageGridViewCell.class)];
     collectionView.delegate = self;
     collectionView.dataSource = self;
-    collectionView.backgroundColor = [UIColor clearColor];
+    collectionView.backgroundColor = UIColor.clearColor;
     collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.collectionView = collectionView;
 
@@ -152,8 +152,8 @@
     CGFloat searchBarWidth = 290.f;
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectIntegral(CGRectMake((self.collectionView.bounds.size.width-searchBarWidth)/2, -44.f, searchBarWidth, 44.f))];
     _searchBar.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
-    _searchBar.tintColor = [UIColor blackColor];
-    _searchBar.backgroundColor = [UIColor clearColor];
+    _searchBar.tintColor = UIColor.blackColor;
+    _searchBar.backgroundColor = UIColor.clearColor;
     _searchBar.alpha = 0.5;
     _searchBar.delegate = self;
 
@@ -162,7 +162,7 @@
 
     // Set the return key and keyboard appearance of the search bar.
     // Since we do live-filtering, the search bar should just dismiss the keyboard.
-    for (UITextField *searchBarTextField in [_searchBar subviews]) {
+    for (UITextField *searchBarTextField in _searchBar.subviews) {
         if ([searchBarTextField conformsToProtocol:@protocol(UITextInputTraits)]) {
             @try {
                 searchBarTextField.enablesReturnKeyAutomatically = NO;
@@ -206,7 +206,7 @@
     PSPDFFixNavigationBarForNavigationControllerAnimated(self.navigationController, animated);
 
     // Only one delegate at a time (only one grid is displayed at a time)
-    [PSCStoreManager sharedStoreManager].delegate = self;
+    PSCStoreManager.sharedStoreManager.delegate = self;
 
     // Ensure everything is up to date (we could change magazines in other controllers)
     self.immediatelyLoadCellImages = YES;
@@ -276,7 +276,7 @@
     [super viewWillDisappear:animated];
 
     // Only deregister if not attached to anything else.
-    if ([PSCStoreManager sharedStoreManager].delegate == self) [PSCStoreManager sharedStoreManager].delegate = nil;
+    if (PSCStoreManager.sharedStoreManager.delegate == self) PSCStoreManager.sharedStoreManager.delegate = nil;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -339,7 +339,7 @@
 
 // toggle the options/settings button.
 - (void)optionsButtonPressed {
-    BOOL alreadyDisplayed = PSPDFIsControllerClassInPopoverAndVisible(self.popoverController, [PSCSettingsController class]);
+    BOOL alreadyDisplayed = PSPDFIsControllerClassInPopoverAndVisible(self.popoverController, PSCSettingsController.class);
     if (alreadyDisplayed) {
         [self.popoverController dismissPopoverAnimated:YES];
         self.popoverController = nil;
@@ -365,7 +365,7 @@
     // compensate for transparent statusbar. Change this var if you're not using PSPDFStatusBarSmartBlackHideOnIpad
     BOOL iPadFadesOutStatusBar = YES;
     if (!PSIsIpad() || iPadFadesOutStatusBar) {
-        CGRect statusBarFrame = [UIApplication.sharedApplication statusBarFrame];
+        CGRect statusBarFrame = UIApplication.sharedApplication.statusBarFrame;
         BOOL isPortrait = UIInterfaceOrientationIsPortrait(UIApplication.sharedApplication.statusBarOrientation);
         CGFloat statusBarHeight = isPortrait ? statusBarFrame.size.height : statusBarFrame.size.width;
         newFrame.origin.y -= statusBarHeight;
@@ -470,7 +470,7 @@
     [self setProgressIndicatorVisible:PSCStoreManager.sharedStoreManager.isDiskDataLoaded animated:YES];
 
     // Not finished yet? return early.
-    if ([[PSCStoreManager sharedStoreManager].magazineFolders count] == 0) return;
+    if (PSCStoreManager.sharedStoreManager.magazineFolders.count == 0) return;
 
     // If we're in plain mode, pre-set a folder.
     if (kPSPDFStoreManagerPlain) self.magazineFolder = PSCStoreManager.sharedStoreManager.magazineFolders.lastObject;
@@ -496,7 +496,7 @@
             editing =  cell.magazine.isDownloading || (cell.magazine.isAvailable && cell.magazine.isDeletable);
         }else {
             NSArray *fixedMagazines = [self.magazineFolder.magazines filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isDeletable = NO || isAvailable = NO || isDownloading = YES"]];
-            editing = [fixedMagazines count] == 0;
+            editing = fixedMagazines.count == 0;
         }
     }
     return editing;
@@ -506,7 +506,7 @@
     NSArray *visibleCells = [self.collectionView visibleCells];
 
     for (PSCImageGridViewCell *cell in visibleCells) {
-        if ([cell isKindOfClass:[PSCImageGridViewCell class]]) {
+        if ([cell isKindOfClass:PSCImageGridViewCell.class]) {
 
             BOOL editing = [self canEditCell:cell];
             if (editing) cell.showDeleteImage = editing;
@@ -540,25 +540,25 @@
     if (self.magazineFolder) {
         _filteredData = self.magazineFolder.magazines;
     }else {
-        _filteredData = [PSCStoreManager sharedStoreManager].magazineFolders;
+        _filteredData = PSCStoreManager.sharedStoreManager.magazineFolders;
     }
 
     NSString *searchString = _searchBar.text;
-    if ([searchString length]) { // title CONTAINS[cd] '%@' ||
+    if (searchString.length) { // title CONTAINS[cd] '%@' ||
         NSString *predicate = [NSString stringWithFormat:@"fileURL.path CONTAINS[cd] '%@'", searchString];
         _filteredData = [_filteredData filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:predicate]];
     }else {
         _filteredData = [_filteredData copy];
     }
 
-    return [_filteredData count];
+    return _filteredData.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PSCImageGridViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([PSCImageGridViewCell class]) forIndexPath:indexPath];
+    PSCImageGridViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(PSCImageGridViewCell.class) forIndexPath:indexPath];
 
     // connect the delete button
-    if ([[cell.deleteButton allTargets] count] == 0) {
+    if ([cell.deleteButton allTargets].count == 0) {
         [cell.deleteButton addTarget:self action:@selector(processDeleteAction:) forControlEvents:UIControlEventTouchUpInside];
     }
 
@@ -583,8 +583,8 @@
 
     BOOL canDelete = YES;
     NSString *message = nil;
-    if ([folder.magazines count] > 1 && !self.magazineFolder) {
-        message = [NSString stringWithFormat:_(@"DeleteMagazineMultiple"), folder.title, [folder.magazines count]];
+    if (folder.magazines.count > 1 && !self.magazineFolder) {
+        message = [NSString stringWithFormat:_(@"DeleteMagazineMultiple"), folder.title, folder.magazines.count];
     }else {
         message = [NSString stringWithFormat:_(@"DeleteMagazineSingle"), magazine.title];
         if (kPSPDFShouldShowDeleteConfirmationDialog) {
@@ -595,12 +595,12 @@
     dispatch_block_t deleteBlock = ^{
         if (self.magazineFolder) {
             if (magazine.isDownloading) {
-                [[PSCStoreManager sharedStoreManager] cancelDownloadForMagazine:magazine];
+                [PSCStoreManager.sharedStoreManager cancelDownloadForMagazine:magazine];
             }else {
-                [[PSCStoreManager sharedStoreManager] deleteMagazine:magazine];
+                [PSCStoreManager.sharedStoreManager deleteMagazine:magazine];
             }
         }else {
-            [[PSCStoreManager sharedStoreManager] deleteMagazineFolder:folder];
+            [PSCStoreManager.sharedStoreManager deleteMagazineFolder:folder];
         }
     };
 
@@ -650,7 +650,7 @@
                               otherButtonTitles:nil] show];
         } else if (!magazine.isAvailable && !magazine.isDownloading) {
             if (!self.isEditing) {
-                [[PSCStoreManager sharedStoreManager] downloadMagazine:magazine];
+                [PSCStoreManager.sharedStoreManager downloadMagazine:magazine];
                 [collectionView deselectItemAtIndexPath:indexPath animated:YES];
             }
         } else {
@@ -695,7 +695,7 @@
     if (self.isSearchModeActive) return; // don't animate if we're in search mode
 
     if (!self.magazineFolder) {
-        NSUInteger cellIndex = [[PSCStoreManager sharedStoreManager].magazineFolders indexOfObject:magazineFolder];
+        NSUInteger cellIndex = [PSCStoreManager.sharedStoreManager.magazineFolders indexOfObject:magazineFolder];
         if (cellIndex != NSNotFound) {
             [self.collectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:cellIndex inSection:0]]];
         }else {
@@ -708,7 +708,7 @@
     if (self.isSearchModeActive) return; // don't animate if we're in search mode
 
     if (!self.magazineFolder) {
-        NSUInteger cellIndex = [[PSCStoreManager sharedStoreManager].magazineFolders indexOfObject:magazineFolder];
+        NSUInteger cellIndex = [PSCStoreManager.sharedStoreManager.magazineFolders indexOfObject:magazineFolder];
         if (cellIndex != NSNotFound) {
             [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:cellIndex inSection:0]]];
         }else {
@@ -721,7 +721,7 @@
     if (self.isSearchModeActive) return; // don't animate if we're in search mode
 
     if (!self.magazineFolder) {
-        NSUInteger cellIndex = [[PSCStoreManager sharedStoreManager].magazineFolders indexOfObject:magazineFolder];
+        NSUInteger cellIndex = [PSCStoreManager.sharedStoreManager.magazineFolders indexOfObject:magazineFolder];
         if (cellIndex != NSNotFound) {
             [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:cellIndex inSection:0]]];
         }else {
@@ -829,9 +829,9 @@ __attribute__((constructor)) static void PSPDFFixCollectionViewUpdateItemWhenKey
     @autoreleasepool {
         if (![UICollectionViewUpdateItem instancesRespondToSelector:@selector(action)]) {
             IMP updateIMP = imp_implementationWithBlock(^(id _self) {});
-            Method method = class_getInstanceMethod([UICollectionViewUpdateItem class], @selector(action));
+            Method method = class_getInstanceMethod(UICollectionViewUpdateItem.class, @selector(action));
             const char *encoding = method_getTypeEncoding(method);
-            if (!class_addMethod([UICollectionViewUpdateItem class], @selector(action), updateIMP, encoding)) {
+            if (!class_addMethod(UICollectionViewUpdateItem.class, @selector(action), updateIMP, encoding)) {
                 PSPDFLogError(@"Failed to add action: workaround");
             }
         }

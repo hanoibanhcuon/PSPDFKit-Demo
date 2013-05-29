@@ -86,9 +86,9 @@
 
 // simple example how to re-color the link annotations
 - (void)pdfViewController:(PSPDFViewController *)pdfController willShowAnnotationView:(UIView <PSPDFAnnotationViewProtocol> *)annotationView onPageView:(PSPDFPageView *)pageView {
-    if ([annotationView isKindOfClass:[PSPDFLinkAnnotationView class]]) {
+    if ([annotationView isKindOfClass:PSPDFLinkAnnotationView.class]) {
         PSPDFLinkAnnotationView *linkAnnotation = (PSPDFLinkAnnotationView *)annotationView;
-        linkAnnotation.borderColor = [[UIColor blueColor] colorWithAlphaComponent:0.7f];
+        linkAnnotation.borderColor = [UIColor.blueColor colorWithAlphaComponent:0.7f];
     }
 }
 

@@ -12,8 +12,8 @@
 + (GSDropboxUploadJob *)uploadJobWithFileURL:(NSURL *)fileURL andDestinationPath:(NSString *)destinationPath
 {
     GSDropboxUploadJob *job = [[GSDropboxUploadJob alloc] init];
-    NSParameterAssert([fileURL isKindOfClass:[NSURL class]]);
-    NSParameterAssert([destinationPath isKindOfClass:[NSString class]]);
+    NSParameterAssert([fileURL isKindOfClass:NSURL.class]);
+    NSParameterAssert([destinationPath isKindOfClass:NSString.class]);
     job.fileURL = fileURL;
     job.destinationPath = destinationPath;
     return job;

@@ -31,8 +31,8 @@
 
         // override certain classes to achieve the book-style layout
         self.overrideClassNames = @{
-            (id)PSPDFPageViewController.class : [PSCBookPageViewController class],
-            (id)[PSPDFSinglePageViewController class] : [PSCBookSinglePageViewController class]
+            (id)PSPDFPageViewController.class : PSCBookPageViewController.class,
+            (id)PSPDFSinglePageViewController.class : PSCBookSinglePageViewController.class
         };
     }
     return self;

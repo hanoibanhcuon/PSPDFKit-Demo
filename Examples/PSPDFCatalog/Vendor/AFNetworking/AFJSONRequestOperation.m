@@ -65,12 +65,12 @@ static dispatch_queue_t json_request_operation_processing_queue() {
 
 - (id)responseJSON {
     [self.lock lock];
-    if (!_responseJSON && [self.responseData length] > 0 && [self isFinished] && !self.JSONError) {
+    if (!_responseJSON && self.responseData.length > 0 && [self isFinished] && !self.JSONError) {
         NSError *error = nil;
 
         // Workaround for behavior of Rails to return a single space for `head :ok` (a workaround for a bug in Safari), which is not interpreted as valid input by NSJSONSerialization.
         // See https://github.com/rails/rails/issues/1742
-        if ([self.responseData length] == 0 || [self.responseString isEqualToString:@" "]) {
+        if (self.responseData.length == 0 || [self.responseString isEqualToString:@" "]) {
             self.responseJSON = nil;
         } else {
             // Workaround for a bug in NSJSONSerialization when Unicode character escape codes are used instead of the actual character
@@ -101,7 +101,7 @@ static dispatch_queue_t json_request_operation_processing_queue() {
 }
 
 + (BOOL)canProcessRequest:(NSURLRequest *)request {
-    return [[[request URL] pathExtension] isEqualToString:@"json"] || [super canProcessRequest:request];
+    return [request.URL.pathExtension isEqualToString:@"json"] || [super canProcessRequest:request];
 }
 
 - (void)setCompletionBlockWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success

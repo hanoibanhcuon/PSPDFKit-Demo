@@ -31,7 +31,7 @@
 
         // add timer in a way so it works while we're dragging pages (NSRunLoopCommonModes)
         _timer = [NSTimer timerWithTimeInterval:1.f target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+        [NSRunLoop.currentRunLoop addTimer:_timer forMode:NSRunLoopCommonModes];
     }
     return self;
 }

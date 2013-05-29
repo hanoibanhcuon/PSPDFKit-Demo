@@ -49,7 +49,7 @@
 #pragma mark - Public
 
 - (NSString *)downloadDirectory {
-    return [[PSCStoreManager storagePath] stringByAppendingPathComponent:@"downloads"];
+    return [PSCStoreManager.storagePath stringByAppendingPathComponent:@"downloads"];
 }
 
 - (PSCMagazine *)magazine {
@@ -136,7 +136,7 @@
     [pdfRequest start];
 
     self.request = pdfRequest; // save request
-    [[PSCStoreManager sharedStoreManager] addMagazinesToStore:@[self.magazine]];
+    [PSCStoreManager.sharedStoreManager addMagazinesToStore:@[self.magazine]];
 }
 
 - (void)cancelDownload {
@@ -151,7 +151,7 @@
 // https://developer.apple.com/library/ios/#qa/qa1719/_index.html
 #include <sys/xattr.h>
 - (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL {
-    assert([[NSFileManager defaultManager] fileExistsAtPath:URL.path]);
+    assert([NSFileManager.defaultManager fileExistsAtPath:URL.path]);
     BOOL success = NO;
 
     // Weak-linking of NSURLIsExcludedFromBackupKey works in Xcode 4.5 and above.

@@ -118,9 +118,9 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
 - (void)updatePageLabel {
     if (self.isShowingPageLabel && !self.pageLabel.superview) {
         UILabel *pageLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        pageLabel.backgroundColor = [UIColor clearColor];
+        pageLabel.backgroundColor = UIColor.clearColor;
         pageLabel.textColor = [UIColor colorWithWhite:1.f alpha:1.f];
-        pageLabel.shadowColor = [UIColor blackColor];
+        pageLabel.shadowColor = UIColor.blackColor;
         pageLabel.shadowOffset = CGSizeMake(0.f, 1.f);
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 60000
         pageLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
@@ -150,7 +150,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
 - (void)updateProgressAnimated:(BOOL)animated {
     float progressTotal = 1.f;
 
-    if ([_observedMagazineDownloads count]) {
+    if (_observedMagazineDownloads.count) {
         progressTotal = [[_observedMagazineDownloads valueForKeyPath:@"@avg.downloadProgress"] floatValue];
     }
 
@@ -263,7 +263,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
 
         NSString *pageLabelText = PSPDFStripPDFFileType([magazine.files ps_firstObject]);
         [self updatePageLabel]; // create lazily
-        self.pageLabel.text = [pageLabelText length] ? pageLabelText : magazine.title;
+        self.pageLabel.text = pageLabelText.length ? pageLabelText : magazine.title;
         [self updatePageLabel];
         self.accessibilityLabel = self.pageLabel.text;
     }
@@ -284,7 +284,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
 
         // setup for folder
         if (magazineFolder) {
-            NSUInteger magazineCount = [magazineFolder.magazines count];
+            NSUInteger magazineCount = magazineFolder.magazines.count;
             self.magazineCount = magazineCount;
 
             PSCMagazine *coverMagazine = [magazineFolder firstMagazine];
@@ -314,10 +314,10 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
 
         _magazineCounter = [[UILabel alloc] init];
         _magazineCounter.font = [UIFont boldSystemFontOfSize:20.f];
-        _magazineCounter.textColor = [UIColor whiteColor];
-        _magazineCounter.shadowColor = [UIColor blackColor];
+        _magazineCounter.textColor = UIColor.whiteColor;
+        _magazineCounter.shadowColor = UIColor.blackColor;
         _magazineCounter.shadowOffset = CGSizeMake(1.f, 1.f);
-        _magazineCounter.backgroundColor = [UIColor clearColor];
+        _magazineCounter.backgroundColor = UIColor.clearColor;
         _magazineCounter.frame = CGRectMake(1.f, 1.f, 25.f, 25.f);
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 60000
         _magazineCounter.textAlignment = UITextAlignmentCenter;
@@ -363,7 +363,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
     if (darken && !_progressViewBackground) {
         _progressViewBackground = [[UIView alloc] initWithFrame:self.imageView.bounds];
         _progressViewBackground.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-        _progressViewBackground.backgroundColor = [UIColor blackColor];
+        _progressViewBackground.backgroundColor = UIColor.blackColor;
         _progressViewBackground.alpha = 0.5f;
     }
 
@@ -464,7 +464,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
 
 - (void)checkMagazineAndObserveProgressIfDownloading:(PSCMagazine *)magazine {
     if (magazine.isDownloading) {
-        PSCDownload *download = [[PSCStoreManager sharedStoreManager] downloadObjectForMagazine:magazine];
+        PSCDownload *download = [PSCStoreManager.sharedStoreManager downloadObjectForMagazine:magazine];
         if (!download) {
             PSPDFLogError(@"failed to find associated download object for %@", magazine); return;
         }

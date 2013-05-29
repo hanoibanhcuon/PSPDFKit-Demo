@@ -26,7 +26,7 @@
     self.renderingMode = PSPDFPageRenderingModeFullPageBlocking;
 
     // Optional: Allow rotation via a gesture.
-    self.overrideClassNames = @{(id)[PSPDFScrollView class] : [PSPDFRotatableScrollView class]};
+    self.overrideClassNames = @{(id)PSPDFScrollView.class : PSPDFRotatableScrollView.class};
 
     // Add manual rotation button.
     UIBarButtonItem *rotate = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(rotateAction:)];
@@ -104,7 +104,7 @@
 
 // Allow zooming and rotating at the same time.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    if ([gestureRecognizer isKindOfClass:[UIRotationGestureRecognizer class]]) return YES;
+    if ([gestureRecognizer isKindOfClass:UIRotationGestureRecognizer.class]) return YES;
     return [super gestureRecognizer:gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:otherGestureRecognizer];
 }
 

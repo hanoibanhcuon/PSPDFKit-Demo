@@ -20,10 +20,10 @@
 // We don't have enough semantics to tell with just IB that we do want to use the content of the table cells, so we add some additional logic.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // only apply this if our destination is a PSPDFViewController.
-    if ([segue.destinationViewController isKindOfClass:[PSPDFViewController class]]) {
+    if ([segue.destinationViewController isKindOfClass:PSPDFViewController.class]) {
         PSPDFViewController *pdfController = (PSPDFViewController *)segue.destinationViewController;
 
-        if ([sender isKindOfClass:[UITableViewCell class]]) {
+        if ([sender isKindOfClass:UITableViewCell.class]) {
             UITableViewCell *cell = (UITableViewCell *)sender;
 
             // this works, because document also accepts NSString and does a conversion.
@@ -32,7 +32,7 @@
 
             /*
             // ideally, you would do it like this:
-            NSString *pdfPath = [[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Samples"] stringByAppendingPathComponent:cell.textLabel.text];
+            NSString *pdfPath = [[[NSBundle.mainBundle bundlePath] stringByAppendingPathComponent:@"Samples"] stringByAppendingPathComponent:cell.textLabel.text];
             pdfController.document = [PSPDFDocument documentWithUrl:[NSURL fileURLWithPath:pdfPath]];
             */
         }

@@ -48,7 +48,7 @@
         [self globalVarChanged];
 
         // Register for global var change notifications from PSPDFCacheSettingsController.
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(globalVarChanged) name:kGlobalVarChangeNotification object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(globalVarChanged) name:kGlobalVarChangeNotification object:nil];
 
         // Don't clip pages that have a high aspect ration variance. (for pageCurl, optional but useful check)
         // Use a dispatch thread because calculating the aspectRatioVariance is expensive.
@@ -85,7 +85,7 @@
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (PSCMagazine *)magazine {
@@ -95,8 +95,8 @@
 - (void)close:(id)sender {
     // If parent is PSCGridController, we have a custom animation in place.
     BOOL animated = YES;
-    NSUInteger controllerCount = [self.navigationController.viewControllers count];
-    if (controllerCount > 1 && [self.navigationController.viewControllers[controllerCount-2] isKindOfClass:[PSCGridViewController class]]) {
+    NSUInteger controllerCount = self.navigationController.viewControllers.count;
+    if (controllerCount > 1 && [self.navigationController.viewControllers[controllerCount-2] isKindOfClass:PSCGridViewController.class]) {
         animated = NO;
     }
     // Support the case where we pop in the nav stack
@@ -129,7 +129,7 @@
     NSArray *leftToolbarItems = PSIsIpad() && UIInterfaceOrientationIsLandscape(self.interfaceOrientation) ? @[_closeButtonItem, _settingsButtomItem, _metadataButtonItem] : @[_closeButtonItem, _settingsButtomItem];
 
     // Simple performance optimization.
-    if ([leftToolbarItems count] != [self.leftBarButtonItems count] || force) {
+    if (leftToolbarItems.count != self.leftBarButtonItems.count || force) {
         self.leftBarButtonItems = leftToolbarItems;
     }
 }
@@ -356,7 +356,7 @@ static NSString *PSCGestureStateToString(UIGestureRecognizerState state) {
 
 - (BOOL)pdfViewController:(PSPDFViewController *)pdfController shouldSelectText:(NSString *)text withGlyphs:(NSArray *)glyphs atRect:(CGRect)rect onPageView:(PSPDFPageView *)pageView {
     // Example how to limit text selection.
-    // return [text length] > 10;
+    // return text.length > 10;
     return YES;
 }
 

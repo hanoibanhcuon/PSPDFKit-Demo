@@ -91,7 +91,7 @@ static dispatch_queue_t xml_request_operation_processing_queue() {
 
 
 - (NSXMLParser *)responseXMLParser {
-    if (!_responseXMLParser && [self.responseData length] > 0 && [self isFinished]) {
+    if (!_responseXMLParser && self.responseData.length > 0 && [self isFinished]) {
         self.responseXMLParser = [[NSXMLParser alloc] initWithData:self.responseData];
     }
 
@@ -100,7 +100,7 @@ static dispatch_queue_t xml_request_operation_processing_queue() {
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 - (NSXMLDocument *)responseXMLDocument {
-    if (!_responseXMLDocument && [self.responseData length] > 0 && [self isFinished]) {
+    if (!_responseXMLDocument && self.responseData.length > 0 && [self isFinished]) {
         NSError *error = nil;
         self.responseXMLDocument = [[NSXMLDocument alloc] initWithData:self.responseData options:0 error:&error];
         self.XMLError = error;
@@ -133,7 +133,7 @@ static dispatch_queue_t xml_request_operation_processing_queue() {
 }
 
 + (BOOL)canProcessRequest:(NSURLRequest *)request {
-    return [[[request URL] pathExtension] isEqualToString:@"xml"] || [super canProcessRequest:request];
+    return [request.URL.pathExtension isEqualToString:@"xml"] || [super canProcessRequest:request];
 }
 
 - (void)setCompletionBlockWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success

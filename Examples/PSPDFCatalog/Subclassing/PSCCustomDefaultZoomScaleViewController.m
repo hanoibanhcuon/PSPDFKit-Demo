@@ -39,7 +39,7 @@
     self.documentLabelEnabled = NO;
     self.textSelectionEnabled = NO;
     self.shadowEnabled = NO;
-    self.backgroundColor = [UIColor blackColor];
+    self.backgroundColor = UIColor.blackColor;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -79,7 +79,7 @@
 }
 
 - (void)pdfViewController:(PSPDFViewController *)pdfController willShowAnnotationView:(UIView<PSPDFAnnotationViewProtocol> *)annotationView onPageView:(PSPDFPageView *)pageView {
-    if ([annotationView isKindOfClass:[PSPDFVideoAnnotationView class]]) {
+    if ([annotationView isKindOfClass:PSPDFVideoAnnotationView.class]) {
         PSPDFVideoAnnotationView *videoView = (PSPDFVideoAnnotationView *)annotationView;
         videoView.autoplayEnabled = YES;
 
@@ -97,7 +97,7 @@
 - (void)pdfViewController:(PSPDFViewController *)pdfController
     didShowAnnotationView:(UIView<PSPDFAnnotationViewProtocol> *)annotationView
                onPageView:(PSPDFPageView *)pageView {
-    if([annotationView isKindOfClass:[PSPDFVideoAnnotationView class]]) {
+    if([annotationView isKindOfClass:PSPDFVideoAnnotationView.class]) {
         PSPDFVideoAnnotationView *videoView = (PSPDFVideoAnnotationView *)annotationView;
         MPMoviePlayerController *player = videoView.player;
         player.scalingMode = MPMovieScalingModeAspectFill;

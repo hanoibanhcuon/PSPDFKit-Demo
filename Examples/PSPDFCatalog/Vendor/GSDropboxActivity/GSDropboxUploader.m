@@ -61,15 +61,15 @@ NSString *const GSDropboxUploaderProgressKey = @"GSDropboxUploaderProgressKey";
 
 - (void)_serviceQueue
 {
-    if ([self._uploadQueue count] > 0 && self._inFlightUploadJob == nil) {
+    if (self._uploadQueue.count > 0 && self._inFlightUploadJob == nil) {
         @synchronized(self) {
             self._inFlightUploadJob = [self._uploadQueue objectAtIndex:0];
             [self._uploadQueue removeObjectAtIndex:0];
         }
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:GSDropboxUploaderDidStartUploadingFileNotification
-                                                            object:self
-                                                          userInfo:@{GSDropboxUploaderFileURLKey: self._inFlightUploadJob.fileURL}];
+        [NSNotificationCenter.defaultCenter postNotificationName:GSDropboxUploaderDidStartUploadingFileNotification
+                                                          object:self
+                                                        userInfo:@{GSDropboxUploaderFileURLKey: self._inFlightUploadJob.fileURL}];
         [self._dropboxClient uploadFile:self._inFlightUploadJob.fileURL.lastPathComponent
                                 toPath:self._inFlightUploadJob.destinationPath
                          withParentRev:nil
@@ -79,13 +79,13 @@ NSString *const GSDropboxUploaderProgressKey = @"GSDropboxUploaderProgressKey";
 
 - (NSUInteger)pendingUploadCount
 {
-    return [self._uploadQueue count];
+    return self._uploadQueue.count;
 }
 
 - (DBRestClient *)_dropboxClient
 {
-    if (__dropboxClient == nil && [DBSession sharedSession] != nil) {
-        __dropboxClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+    if (__dropboxClient == nil && DBSession.sharedSession != nil) {
+        __dropboxClient = [[DBRestClient alloc] initWithSession:DBSession.sharedSession];
         __dropboxClient.delegate = self;
     }
     return __dropboxClient;
@@ -94,18 +94,18 @@ NSString *const GSDropboxUploaderProgressKey = @"GSDropboxUploaderProgressKey";
 #pragma mark - Dropbox client delegate methods
 
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString *)destPath from:(NSString *)srcPath metadata:(DBMetadata*)metadata {
-    [[NSNotificationCenter defaultCenter] postNotificationName:GSDropboxUploaderDidFinishUploadingFileNotification
-                                                        object:self
-                                                      userInfo:@{GSDropboxUploaderFileURLKey: self._inFlightUploadJob.fileURL}];
+    [NSNotificationCenter.defaultCenter postNotificationName:GSDropboxUploaderDidFinishUploadingFileNotification
+                                                      object:self
+                                                    userInfo:@{GSDropboxUploaderFileURLKey: self._inFlightUploadJob.fileURL}];
     self._inFlightUploadJob = nil;
     [self _serviceQueue];
 //    NSLog(@"Upload finished");
 }
 
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error {
-    [[NSNotificationCenter defaultCenter] postNotificationName:GSDropboxUploaderDidFailNotification
-                                                        object:self
-                                                      userInfo:@{GSDropboxUploaderFileURLKey: self._inFlightUploadJob.fileURL}];
+    [NSNotificationCenter.defaultCenter postNotificationName:GSDropboxUploaderDidFailNotification
+                                                      object:self
+                                                    userInfo:@{GSDropboxUploaderFileURLKey: self._inFlightUploadJob.fileURL}];
     self._inFlightUploadJob = nil;
     [self _serviceQueue];
 //    NSLog(@"Upload failed with error: %@", error);
@@ -119,9 +119,9 @@ NSString *const GSDropboxUploaderProgressKey = @"GSDropboxUploaderProgressKey";
         GSDropboxUploaderProgressKey: @(progress),
     };
 //    NSLog(@"%@", userInfo);
-    [[NSNotificationCenter defaultCenter] postNotificationName:GSDropboxUploaderDidGetProgressUpdateNotification
-                                                        object:self
-                                                      userInfo:userInfo];
+    [NSNotificationCenter.defaultCenter postNotificationName:GSDropboxUploaderDidGetProgressUpdateNotification
+                                                      object:self
+                                                    userInfo:userInfo];
 }
 
 @end

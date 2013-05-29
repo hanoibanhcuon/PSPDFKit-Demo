@@ -27,7 +27,7 @@
     self.rightBarButtonItems = @[self.annotationButtonItem, self.viewModeButtonItem];
 
     // register our custom annotation provider as subclass.
-    document.overrideClassNames = @{(id)[PSPDFFileAnnotationProvider class] : [PSCOverlayFileAnnotationProvider class]};
+    document.overrideClassNames = @{(id)PSPDFFileAnnotationProvider.class : PSCOverlayFileAnnotationProvider.class};
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -53,7 +53,7 @@
     // make all annotations overlay annotations (they will be rendered in their own views instead of within the page image)
     for (PSPDFAnnotation *annotation in annotations) {
         // Making highlights as overlay really really doesn't look good. (since they are multiplied into the page content, this is not possible with regular UIView composition, so you'd completely overlap the text, unless you make them semi-transparent)
-        if (![annotation isKindOfClass:[PSPDFHighlightAnnotation class]]) {
+        if (![annotation isKindOfClass:PSPDFHighlightAnnotation.class]) {
             annotation.overlay = YES;
         }
     }
@@ -63,7 +63,7 @@
 // Set annotations to render as overlay right after they are inserted.
 - (BOOL)addAnnotations:(NSArray *)annotations forPage:(NSUInteger)page {
     for (PSPDFAnnotation *annotation in annotations) {
-        if (![annotation isKindOfClass:[PSPDFHighlightAnnotation class]]) {
+        if (![annotation isKindOfClass:PSPDFHighlightAnnotation.class]) {
             annotation.overlay = YES;
         }
     }

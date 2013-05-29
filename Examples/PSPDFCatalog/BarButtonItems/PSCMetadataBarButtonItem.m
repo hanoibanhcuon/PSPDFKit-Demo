@@ -25,7 +25,7 @@
 #pragma mark - PSPDFBarButtonItem
 
 - (BOOL)isAvailable {
-    return [self.pdfController.document.metadata count] > 0;
+    return self.pdfController.document.metadata.count > 0;
 }
 
 - (NSString *)actionName {
@@ -55,7 +55,7 @@
     if ((self = [super init])) {
         _document = document;
         self.title = [document.fileURL lastPathComponent];
-        self.contentSizeForViewInPopover = CGSizeMake(350, [self.document.metadata count] * 44);
+        self.contentSizeForViewInPopover = CGSizeMake(350, self.document.metadata.count * 44);
     }
     return self;
 }
@@ -68,8 +68,8 @@
     
     NSArray *sortedKeys = [[document.metadata allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     NSString *metadata = document.metadata[sortedKeys[row]];
-    if (![metadata isKindOfClass:[NSString class]]) {
-        if ([metadata isKindOfClass:[NSArray class]]) {
+    if (![metadata isKindOfClass:NSString.class]) {
+        if ([metadata isKindOfClass:NSArray.class]) {
             metadata = [(NSArray *)metadata componentsJoinedByString:@", "];
         }else {
             metadata = [metadata description];
@@ -84,11 +84,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.document.metadata count] > 0 ? 1 : 0;
+    return self.document.metadata.count > 0 ? 1 : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.document.metadata count];
+    return self.document.metadata.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -109,7 +109,7 @@
 
 - (void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
     if (action == @selector(copy:)) {
-        [UIPasteboard generalPasteboard].string = [self metadataForRow:indexPath.row];
+        UIPasteboard.generalPasteboard.string = [self metadataForRow:indexPath.row];
     }
 }
 

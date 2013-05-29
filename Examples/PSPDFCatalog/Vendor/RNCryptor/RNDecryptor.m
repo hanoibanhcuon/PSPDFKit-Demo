@@ -213,8 +213,8 @@ static const NSUInteger kPreambleSize = 2;
 
     NSData *encryptionKeySalt = [data _RNConsumeToIndex:self.settings.keySettings.saltSize];
     NSData *HMACKeySalt = [data _RNConsumeToIndex:self.settings.HMACKeySettings.saltSize];
-    self.encryptionKey = [[self class] keyForPassword:self.password salt:encryptionKeySalt settings:self.settings.keySettings];
-    self.HMACKey = [[self class] keyForPassword:self.password salt:HMACKeySalt settings:self.settings.HMACKeySettings];
+    self.encryptionKey = [self.class keyForPassword:self.password salt:encryptionKeySalt settings:self.settings.keySettings];
+    self.HMACKey = [self.class keyForPassword:self.password salt:HMACKeySalt settings:self.settings.HMACKeySettings];
 
     self.password = nil;  // Don't need this anymore.
   }
@@ -234,7 +234,7 @@ static const NSUInteger kPreambleSize = 2;
     self.HMACKey = nil; // Don't need this anymore
 
     if (! self.hasV1HMAC) {
-      CCHmacUpdate(&_HMACContext, [header bytes], [header length]);
+      CCHmacUpdate(&_HMACContext, [header bytes], header.length);
     }
   }
 }

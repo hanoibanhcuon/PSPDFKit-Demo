@@ -29,7 +29,7 @@
 
 - (void)commonInitWithDocument:(PSPDFDocument *)document {
     [super commonInitWithDocument:document];
-    self.overrideClassNames = @{(id)[PSPDFPagingScrollView class] : [PSCSwipePagingScrollView class], (id)[PSPDFScrollView class] : [PSCSwipeScrollView class]};
+    self.overrideClassNames = @{(id)PSPDFPagingScrollView.class : PSCSwipePagingScrollView.class, (id)PSPDFScrollView.class : PSCSwipeScrollView.class};
 }
 
 @end
@@ -96,7 +96,7 @@
     [super displayDocument:document withPage:page];
     if (!self.hasGesturesConfigured) {
         PSCSwipePagingScrollView *pagingScrollView = (PSCSwipePagingScrollView *)self.pdfController.pagingScrollView;
-        if ([pagingScrollView isKindOfClass:[PSCSwipePagingScrollView class]]) {
+        if ([pagingScrollView isKindOfClass:PSCSwipePagingScrollView.class]) {
             [self.panGestureRecognizer requireGestureRecognizerToFail:pagingScrollView.customPanRecognizer];
             [self.pinchGestureRecognizer requireGestureRecognizerToFail:pagingScrollView.leftSwipeRecognizer];
             [self.pinchGestureRecognizer requireGestureRecognizerToFail:pagingScrollView.rightSwipeRecognizer];

@@ -25,13 +25,13 @@
 
 - (id)init {
     if ((self = [super init])) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidePopover:) name:kDismissActivePopover object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(hidePopover:) name:kDismissActivePopover object:nil];
     }
     return self;
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
     self.popoverController.delegate = nil;
 }
 
@@ -68,7 +68,7 @@
 #pragma mark - Private
 
 - (void)hidePopover:(NSNotification *)notification {
-    if ([notification.object isKindOfClass:[self.popoverController.contentViewController class]]) {
+    if ([notification.object isKindOfClass:self.popoverController.contentViewController.class]) {
         PSCLog(@"dismissing popover: %@", self.popoverController);
         [self.popoverController dismissPopoverAnimated:NO];
         self.popoverController = nil;

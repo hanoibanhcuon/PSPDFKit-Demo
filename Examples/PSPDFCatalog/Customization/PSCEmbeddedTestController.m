@@ -49,7 +49,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = UIColor.lightGrayColor;
 
     // Example to test CGDataProvider support.
     NSString *path = [[self documentsFolder] stringByAppendingPathComponent:@"PSPDFKit.pdf"];
@@ -90,7 +90,7 @@
     }
 
     // add a border
-    self.pdfController.view.layer.borderColor = [UIColor blackColor].CGColor;
+    self.pdfController.view.layer.borderColor = UIColor.blackColor.CGColor;
     self.pdfController.view.layer.borderWidth = 2.f;
 }
 
@@ -145,10 +145,10 @@
         NSError *error = nil;
         NSString *path = [[self samplesFolder] stringByAppendingPathComponent:kPaperExampleFileName];
         NSString *newPath = [[self documentsFolder] stringByAppendingPathComponent:@"PSPDFKit.pdf"];
-        if (![[NSFileManager defaultManager] removeItemAtPath:newPath error:&error]) {
+        if (![NSFileManager.defaultManager removeItemAtPath:newPath error:&error]) {
             NSLog(@"error while deleting: %@", [error localizedDescription]);
         }
-        if (![[NSFileManager defaultManager] copyItemAtPath:path toPath:newPath error:&error]) {
+        if (![NSFileManager.defaultManager copyItemAtPath:path toPath:newPath error:&error]) {
             NSLog(@"error while copying: %@", [error localizedDescription]);
         }
         replace = NO;
@@ -172,7 +172,7 @@
     // although replacing a document *inline* is possible, it's not advised.
     // it's better to re-create the PSPDFDocument and set a new uid
     //[self.pdfController.document clearCacheForced:YES];
-    //[[PSPDFCache sharedPSPDFCache] clearCache];
+    //[PSPDFCache.sharedPSPDFCache clearCache];
     //[self.pdfController reloadData];
 
     // create new document
@@ -183,14 +183,14 @@
     document.aspectRatioEqual = NO;
 
     // we have to clear the cache, because we *replaced* a file, and there may be old images cached for it.
-    [[PSPDFCache sharedCache] clearCache];
+    [PSPDFCache.sharedCache clearCache];
 
     // set document on active controller
     self.pdfController.document = document;
 }
 
 - (IBAction)clearCache {
-    [[PSPDFCache sharedCache] clearCache];
+    [PSPDFCache.sharedCache clearCache];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -202,7 +202,7 @@
 }
 
 - (NSString *)samplesFolder {
-    NSString *samplesFolder = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Samples"];
+    NSString *samplesFolder = [NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"Samples"];
     return samplesFolder;
 }
 
@@ -210,11 +210,11 @@
     NSError *error = nil;
     NSString *path = [[self samplesFolder] stringByAppendingPathComponent:fileName];
     NSString *newPath = [[self documentsFolder] stringByAppendingPathComponent:fileName];
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:path];
-    if (fileExists && ![[NSFileManager defaultManager] removeItemAtPath:newPath error:&error]) {
+    BOOL fileExists = [NSFileManager.defaultManager fileExistsAtPath:path];
+    if (fileExists && ![NSFileManager.defaultManager removeItemAtPath:newPath error:&error]) {
         NSLog(@"error while deleting: %@", [error localizedDescription]);
     }
-    [[NSFileManager defaultManager] copyItemAtPath:path toPath:newPath error:nil];
+    [NSFileManager.defaultManager copyItemAtPath:path toPath:newPath error:nil];
 }
 
 - (void)pushView {

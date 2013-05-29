@@ -71,7 +71,7 @@
 #pragma mark - PSPDFTextSearchDelegate
 
 - (void)didUpdateSearch:(PSPDFTextSearch *)textSearch forTerm:(NSString *)searchTerm newSearchResults:(NSArray *)searchResults forPage:(NSUInteger)page {
-    if ([searchResults count]) {
+    if (searchResults.count) {
         //NSLog(@"found term in %@", textSearch.document);
         [_internalResults addObject:textSearch.document];
 

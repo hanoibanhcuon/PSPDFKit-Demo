@@ -139,7 +139,7 @@ static dispatch_queue_t image_request_operation_processing_queue() {
     }
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-    self.imageScale = [[UIScreen mainScreen] scale];
+    self.imageScale = UIScreen.mainScreen.scale;
 #endif
 
     return self;
@@ -148,7 +148,7 @@ static dispatch_queue_t image_request_operation_processing_queue() {
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 - (UIImage *)responseImage {
-    if (!_responseImage && [self.responseData length] > 0 && [self isFinished]) {
+    if (!_responseImage && self.responseData.length > 0 && [self isFinished]) {
         UIImage *image = [UIImage imageWithData:self.responseData];
 
         self.responseImage = [UIImage imageWithCGImage:[image CGImage] scale:self.imageScale orientation:image.imageOrientation];
@@ -171,7 +171,7 @@ static dispatch_queue_t image_request_operation_processing_queue() {
 }
 #elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)
 - (NSImage *)responseImage {
-    if (!_responseImage && [self.responseData length] > 0 && [self isFinished]) {
+    if (!_responseImage && self.responseData.length > 0 && [self isFinished]) {
         // Ensure that the image is set to it's correct pixel width and height
         NSBitmapImageRep *bitimage = [[NSBitmapImageRep alloc] initWithData:self.responseData];
         self.responseImage = [[NSImage alloc] initWithSize:NSMakeSize([bitimage pixelsWide], [bitimage pixelsHigh])];
@@ -195,7 +195,7 @@ static dispatch_queue_t image_request_operation_processing_queue() {
         _acceptablePathExtension = [[NSSet alloc] initWithObjects:@"tif", @"tiff", @"jpg", @"jpeg", @"gif", @"png", @"ico", @"bmp", @"cur", nil];
     });
 
-    return [_acceptablePathExtension containsObject:[[request URL] pathExtension]] || [super canProcessRequest:request];
+    return [_acceptablePathExtension containsObject:request.URL.pathExtension] || [super canProcessRequest:request];
 }
 
 - (void)setCompletionBlockWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success

@@ -43,7 +43,7 @@
         resizeButton.targetPDFRect = [imageInfo boundingBox];
         resizeButton.imageInfo = imageInfo;
         resizeButton.showsTouchWhenHighlighted = YES;
-        resizeButton.layer.borderColor = [UIColor redColor].CGColor;
+        resizeButton.layer.borderColor = UIColor.redColor.CGColor;
         resizeButton.layer.borderWidth = 2.f;
         resizeButton.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.2f];
         [resizeButton addTarget:self action:@selector(imageButtonPressed:) forControlEvents:UIControlEventTouchUpInside];

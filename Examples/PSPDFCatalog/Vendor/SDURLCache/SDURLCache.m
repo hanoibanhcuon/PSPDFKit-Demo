@@ -423,7 +423,7 @@ static dispatch_queue_t get_disk_io_queue() {
     // Define "now" based on the request
     NSString *date = [headers objectForKey:@"Date"];
     // If no Date: header, define now from local clock
-    NSDate *now = date ? [SDURLCache dateFromHttpDateString:date] : [NSDate date];
+    NSDate *now = date ? [SDURLCache dateFromHttpDateString:date] : NSDate.date;
     
     // Look at info from the Cache-Control: max-age=n header
     NSString *cacheControl = [[headers objectForKey:@"Cache-Control"] lowercaseString];
@@ -608,7 +608,7 @@ static dispatch_queue_t get_disk_io_queue() {
         _diskCacheUsage += [cacheItemSize unsignedIntegerValue];
         
         // Update cache info for the stored item
-        [(NSMutableDictionary *)[self.diskCacheInfo objectForKey:kAFURLCacheInfoAccessesKey] setObject:[NSDate date] forKey:cacheKey];
+        [(NSMutableDictionary *)[self.diskCacheInfo objectForKey:kAFURLCacheInfoAccessesKey] setObject:NSDate.date forKey:cacheKey];
         [(NSMutableDictionary *)[self.diskCacheInfo objectForKey:kAFURLCacheInfoSizesKey] setObject:cacheItemSize forKey:cacheKey];
         
         [self saveCacheInfo];
@@ -711,7 +711,7 @@ static dispatch_queue_t get_disk_io_queue() {
                 if (response) {
                     // OPTI: Log the entry last access time for LRU cache eviction algorithm but don't save the dictionary
                     //       on disk now in order to save IO and time
-                    [accesses setObject:[NSDate date] forKey:cacheKey];
+                    [accesses setObject:NSDate.date forKey:cacheKey];
                     _diskCacheInfoDirty = YES;
                 }
             }
