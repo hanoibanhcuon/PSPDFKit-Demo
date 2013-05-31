@@ -46,9 +46,9 @@
 	
 	<option value="//api/name/boundingBox">&nbsp;&nbsp;&nbsp;&nbsp;- boundingBox</option>
 	
-	<option value="//api/name/image">&nbsp;&nbsp;&nbsp;&nbsp;- image</option>
+	<option value="//api/name/imageInRGBColorSpaceWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- imageInRGBColorSpaceWithError:</option>
 	
-	<option value="//api/name/imageInRGBColorSpace">&nbsp;&nbsp;&nbsp;&nbsp;- imageInRGBColorSpace</option>
+	<option value="//api/name/imageWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- imageWithError:</option>
 	
 	<option value="//api/name/isPointInImage:">&nbsp;&nbsp;&nbsp;&nbsp;- isPointInImage:</option>
 	
@@ -82,9 +82,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/boundingBox">boundingBox</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/image">image</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageInRGBColorSpaceWithError:">imageInRGBColorSpaceWithError:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageInRGBColorSpace">imageInRGBColorSpace</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageWithError:">imageWithError:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isPointInImage:">isPointInImage:</a></span></li>
 	
@@ -125,7 +125,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Defines the position if an <a href="#//api/name/image">image</a> in the PDF.</p>
+						<p>Defines the position if an image in the PDF.</p>
 					</div>
 					
 					
@@ -157,17 +157,17 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/image">&ndash;&nbsp;image</a></code>
+		<code><a href="#//api/name/imageWithError:">&ndash;&nbsp;imageWithError:</a></code>
 		<span class="tooltip"><p>The actual image. Will be extracted on the fly. Might have other dimensions than the displayed dimensions.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/imageInRGBColorSpace">&ndash;&nbsp;imageInRGBColorSpace</a></code>
+		<code><a href="#//api/name/imageInRGBColorSpaceWithError:">&ndash;&nbsp;imageInRGBColorSpaceWithError:</a></code>
 		<span class="tooltip"><p>Some PDF images are in CMYK color space, which is not a supported encoding.
 (UIImageJPEGRepresentation will return nil in that case)
-This method checks against this case and converts the <a href="#//api/name/image">image</a> into RGB color space.</p></span>
+This method checks against this case and converts the image into RGB color space.</p></span>
 	</span>
 	
 	
@@ -223,17 +223,19 @@ This method checks against this case and converts the <a href="#//api/name/image
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/image" title="image"></a>
-	<h3 class="subsubtitle method-title">image</h3>
+	<a name="//api/name/imageInRGBColorSpaceWithError:" title="imageInRGBColorSpaceWithError:"></a>
+	<h3 class="subsubtitle method-title">imageInRGBColorSpaceWithError:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The actual image. Will be extracted on the fly. Might have other dimensions than the displayed dimensions.</p>
+		<p>Some PDF images are in CMYK color space, which is not a supported encoding.
+(UIImageJPEGRepresentation will return nil in that case)
+This method checks against this case and converts the image into RGB color space.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (UIImage *)image</code></div>
+	<div class="method-subsection method-declaration"><code>- (UIImage *)imageInRGBColorSpaceWithError:(NSError **)<em>error</em></code></div>
 	
 	
 	
@@ -257,19 +259,17 @@ This method checks against this case and converts the <a href="#//api/name/image
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/imageInRGBColorSpace" title="imageInRGBColorSpace"></a>
-	<h3 class="subsubtitle method-title">imageInRGBColorSpace</h3>
+	<a name="//api/name/imageWithError:" title="imageWithError:"></a>
+	<h3 class="subsubtitle method-title">imageWithError:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Some PDF images are in CMYK color space, which is not a supported encoding.
-(UIImageJPEGRepresentation will return nil in that case)
-This method checks against this case and converts the <a href="#//api/name/image">image</a> into RGB color space.</p>
+		<p>The actual image. Will be extracted on the fly. Might have other dimensions than the displayed dimensions.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (UIImage *)imageInRGBColorSpace</code></div>
+	<div class="method-subsection method-declaration"><code>- (UIImage *)imageWithError:(NSError **)<em>error</em></code></div>
 	
 	
 	
@@ -339,7 +339,7 @@ This method checks against this case and converts the <a href="#//api/name/image
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-29)</span><br />
+						<p><span class="copyright">&copy; 2013 Peter Steinberger. All rights reserved. (Last updated: 2013-05-31)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
