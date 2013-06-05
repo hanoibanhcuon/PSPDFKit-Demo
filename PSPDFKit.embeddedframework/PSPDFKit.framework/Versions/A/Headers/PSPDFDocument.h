@@ -95,7 +95,7 @@ extern NSString *const PSPDFDocumentWillSaveNotification;
 
 /// Delegate. Used for annotation calls.
 /// @warning The document delegate should not be your view controller, since this could retain your controller and cause a release on a different thread than the main thread, which can be problematic in UIKit.
-@property (nonatomic, weak) id<PSPDFDocumentDelegate> delegate;
+@property (atomic, weak) id<PSPDFDocumentDelegate> delegate;
 
 /// @name File Access / Modification
 
@@ -186,7 +186,7 @@ extern NSString *const PSPDFDocumentWillSaveNotification;
 
  Since PSPDFKit 2.8, this now is an ordered set - the order will change the button order in the toolbar and the page menu.
 
- @warning Some annotation types are only behaviorally different in PSPDFKit but in are mapped to basic annotation types, so adding those will only change the creation of those types, not editing. Example: If you add PSPDFAnnotationTypeStringInk but not PSPDFAnnotationTypeStringSignature, signatures added in previous session will still be editable (since they are Ink annotations). On the other hand, if you set PSPDFAnnotationTypeStringSignature but not PSPDFAnnotationTypeStringInk, then your newly created signatures will not be movable. See PSPDFAnnotation.h for comments
+ @warning Some annotation types are only behaviorally different in PSPDFKit but are mapped to basic annotation types, so adding those will only change the creation of those types, not editing. Example: If you add PSPDFAnnotationTypeStringInk but not PSPDFAnnotationTypeStringSignature, signatures added in previous session will still be editable (since they are Ink annotations). On the other hand, if you set PSPDFAnnotationTypeStringSignature but not PSPDFAnnotationTypeStringInk, then your newly created signatures will not be movable. See PSPDFAnnotation.h for comments
 */
 @property (nonatomic, copy) NSOrderedSet *editableAnnotationTypes;
 
@@ -320,10 +320,10 @@ extern NSString *const PSPDFDocumentWillSaveNotification;
 /// Path where backupable cache data like bookmarks are saved.
 /// Defaults to &lt;AppDirectory&gt;/Library/PrivateDocuments/PSPDFKit. Cannot be nil.
 /// Will *always* be appended by UID. Don't manually append UID.
-@property (nonatomic, copy) NSString *cacheDirectory;
+@property (nonatomic, copy) NSString *dataDirectory;
 
-/// Make sure 'cacheDirectory' exists. Returns error if creation is not possible.
-- (BOOL)ensureCacheDirectoryExistsWithError:(NSError **)error;
+/// Make sure 'dataDirectory' exists. Returns error if creation is not possible.
+- (BOOL)ensureDataDirectoryExistsWithError:(NSError **)error;
 
 /// Overrides the global disk caching strategy in PSPDFCache.
 /// Defaults to -1; which equals to the setting in PSPDFCache.
@@ -468,10 +468,10 @@ extern NSString *const kPSPDFIgnoreDisplaySettings;   // Always draw pixels with
 
 /// Renders the page or a part of it with default display settings into a new image.
 /// @param size          The size of the page, in pixels, if it was rendered without clipping
-/// @param clippedToRect A rectangle, relative to size, that specifies the area of the page that should be rendered. CGRectZero = automatic.
+/// @param clipRect      A rectangle, relative to size, that specifies the area of the page that should be rendered. CGRectZero = automatic.
 /// @param annotations   Annotations that should be rendered with the view
 /// @param options       Dictionary with options that modify the render process (see PSPDFPageRenderer)
-/// @param receit        Returns the render receipt for the render action.
+/// @param receipt       Returns the render receipt for the render action.
 /// @param error         Returns an error object. (then image will be nil)
 /// @return              A new UIImage with the rendered page content
 - (UIImage *)renderImageForPage:(NSUInteger)page withSize:(CGSize)size clippedToRect:(CGRect)clipRect withAnnotations:(NSArray *)annotations options:(NSDictionary *)options receipt:(PSPDFRenderReceipt **)receipt error:(NSError **)error;
@@ -481,6 +481,7 @@ extern NSString *const kPSPDFIgnoreDisplaySettings;   // Always draw pixels with
 
 /// Draw a page into a specified context.
 /// If for some reason renderPage: doesn't return a Render Receipt, an error occured.
+/// @note if `annotations` is nil, they will be auto-fetched. Add an empty array if you don't want to render annotations.
 - (PSPDFRenderReceipt *)renderPage:(NSUInteger)page inContext:(CGContextRef)context withSize:(CGSize)size clippedToRect:(CGRect)clipRect withAnnotations:(NSArray *)annotations options:(NSDictionary *)options error:(NSError **)error;
 
 /// Set custom render options (see PSPDFPageRenderer.h for options)
@@ -624,12 +625,13 @@ typedef NSInteger PSPDFCacheStrategy;
 #define PSPDFCacheOpportunistic 2
 @property (nonatomic, assign) PSPDFCacheStrategy cacheStrategy __attribute__ ((deprecated("Use diskCacheStragegy instead")));
 
+@property (nonatomic, copy) NSString *cacheDirectory __attribute__ ((deprecated("Use dataDirectory instead")));
 + (instancetype)PDFDocument __attribute__ ((deprecated("Use document instead")));
 + (instancetype)PDFDocumentWithURL:(NSURL *)URL __attribute__ ((deprecated("Use documentWithURL: instead")));
 + (instancetype)PDFDocumentWithData:(NSData *)data __attribute__ ((deprecated("Use documentWithData: instead")));
-+ (instancetype)PDFDocumentWithDataArray:(NSArray *)dataArray __attribute__ ((deprecated("Use documentWithDataArrayL instead")));
-+ (instancetype)PDFDocumentWithDataProvider:(CGDataProviderRef)dataProvider __attribute__ ((deprecated("Use PDFDocumentWithDataProvider: instead")));
-+ (instancetype)PDFDocumentWithBaseURL:(NSURL *)baseURL files:(NSArray *)files __attribute__ ((deprecated("Use PDFDocumentWithBaseURL:files: instead")));
-+ (instancetype)PDFDocumentWithBaseURL:(NSURL *)baseURL fileTemplate:(NSString *)fileTemplate startPage:(NSInteger)startPage endPage:(NSInteger)endPage __attribute__ ((deprecated("Use PDFDocumentWithBaseURL:fileTemplate:startPage:endPage: instead")));
++ (instancetype)PDFDocumentWithDataArray:(NSArray *)dataArray __attribute__ ((deprecated("Use documentWithDataArray: instead")));
++ (instancetype)PDFDocumentWithDataProvider:(CGDataProviderRef)dataProvider __attribute__ ((deprecated("Use documentWithDataProvider: instead")));
++ (instancetype)PDFDocumentWithBaseURL:(NSURL *)baseURL files:(NSArray *)files __attribute__ ((deprecated("Use documentWithBaseURL:files: instead")));
++ (instancetype)PDFDocumentWithBaseURL:(NSURL *)baseURL fileTemplate:(NSString *)fileTemplate startPage:(NSInteger)startPage endPage:(NSInteger)endPage __attribute__ ((deprecated("Use documentWithBaseURL:fileTemplate:startPage:endPage: instead")));
 
 @end

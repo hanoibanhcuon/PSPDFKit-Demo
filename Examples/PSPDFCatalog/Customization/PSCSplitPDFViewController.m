@@ -33,7 +33,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Public
 
-- (void)displayDocument:(PSPDFDocument *)document; {
+- (void)displayDocument:(PSPDFDocument *)document {
     // Dismiss any open popovers.
     if (self.masterPopoverController != nil) {
         [self.masterPopoverController dismissPopoverAnimated:YES];
@@ -41,6 +41,13 @@
 
     // anyway, set document
     self.document = document;
+
+#if defined(kPSPDFEnableDocumentStressTest) && kPSPDFEnableDocumentStressTest
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [[document outlineParser] outline];
+        [[document copy] renderImageForPage:0 withSize:CGSizeMake(200, 200) clippedToRect:CGRectZero withAnnotations:nil options:nil];
+    });
+#endif
 
     // Initially manually call the delegate for first load.
     [self updateTitle];

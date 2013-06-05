@@ -40,7 +40,7 @@ typedef NS_ENUM(NSUInteger, PSPDFThumbnailViewFilter) {
 @property (nonatomic, strong) PSPDFDocument *document;
 
 /// Delegate for the thumbnail controller.
-@property (nonatomic, weak) id<PSPDFThumbnailViewControllerDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<PSPDFThumbnailViewControllerDelegate> delegate;
 
 /// Get the cell for certain page. Compensates against open filters.
 - (PSUICollectionViewCell *)cellForPage:(NSUInteger)page;
@@ -56,7 +56,7 @@ typedef NS_ENUM(NSUInteger, PSPDFThumbnailViewFilter) {
 
 /// Should the thumbnails be displayed in a fixed grid, or dynamically adapt to different page sizes?
 /// Defaults to YES. Most documents will look better when this is set to NO.
-@property (nonatomic , assign) BOOL fixedItemSizeEnabled;
+@property (nonatomic, assign) BOOL fixedItemSizeEnabled;
 
 /// Defines the filter options. Set to nil or empty to hide the filter bar.
 /// Defaults to PSPDFThumbnailViewFilterShowAll, PSPDFThumbnailViewFilterBookmarks, PSPDFThumbnailViewFilterAnnotations.

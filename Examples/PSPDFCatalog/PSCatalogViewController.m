@@ -122,10 +122,11 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
     [appSection addContent:[[PSContent alloc] initWithTitle:@"PSPDFViewController playground" block:^{
         PSPDFDocument *document = [PSPDFDocument documentWithURL:hackerMagURL];
-        //        PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Annotation Test.pdf"]];
+        // PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Annotation Test.pdf"]];
 
         PSPDFViewController *controller = [[PSCKioskPDFViewController alloc] initWithDocument:document];
         controller.statusBarStyleSetting = PSPDFStatusBarDefault;
+        controller.imageSelectionEnabled = NO;
         return controller;
     }]];
 
@@ -148,31 +149,33 @@ const char kPSPDFSignatureCompletionBlock = 0;
         return documentSelector;
     }]];
 
-    PSPDFDocument *hackerMagDoc = [PSPDFDocument documentWithURL:hackerMagURL];
-    hackerMagDoc.UID = @"HACKERMAGDOC"; // set custom UID so it doesn't interfere with other examples
-
     [appSection addContent:[[PSContent alloc] initWithTitle:@"Settings for a magazine" block:^{
+        PSPDFDocument *hackerMagDoc = [PSPDFDocument documentWithURL:hackerMagURL];
+        hackerMagDoc.UID = @"HACKERMAGDOC"; // set custom UID so it doesn't interfere with other examples
         hackerMagDoc.title = @"HACKER MONTHLY Issue 12";
         PSPDFViewController *controller = [[PSPDFViewController alloc] initWithDocument:hackerMagDoc];
         controller.pageTransition = PSPDFPageCurlTransition;
         controller.pageMode = PSPDFPageModeAutomatic;
         controller.HUDViewAnimation = PSPDFHUDViewAnimationSlide;
         controller.statusBarStyleSetting = PSPDFStatusBarSmartBlackHideOnIpad;
+        controller.thumbnailBarMode = PSPDFThumbnailBarModeScrollable;
 
         // don't use thumbnails if the PDF is not rendered.
         // FullPageBlocking feels good when combined with pageCurl, less great with other scroll modes, especially PSPDFPageScrollContinuousTransition.
         controller.renderingMode = PSPDFPageRenderingModeFullPageBlocking;
 
-        PSCRotationLockBarButtonItem *rotationLock = [[PSCRotationLockBarButtonItem alloc] initWithPDFViewController:controller];
+        //PSCRotationLockBarButtonItem *rotationLock = [[PSCRotationLockBarButtonItem alloc] initWithPDFViewController:controller];
 
         // setup toolbar
-        controller.outlineButtonItem.availableControllerOptions = [NSOrderedSet orderedSetWithObjects:@(PSPDFOutlineBarButtonItemOptionOutline), @(PSPDFOutlineBarButtonItemOptionBookmarks), nil];
-        controller.rightBarButtonItems = PSIsIpad() ? @[rotationLock, controller.brightnessButtonItem, controller.activityButtonItem, controller.searchButtonItem, controller.outlineButtonItem, controller.bookmarkButtonItem] : @[controller.activityButtonItem, controller.searchButtonItem, controller.outlineButtonItem, controller.bookmarkButtonItem];
+        controller.outlineButtonItem.availableControllerOptions = [NSOrderedSet orderedSetWithObject:@(PSPDFOutlineBarButtonItemOptionOutline)];
+        controller.rightBarButtonItems = PSIsIpad() ? @[controller.brightnessButtonItem, controller.activityButtonItem, controller.searchButtonItem, controller.outlineButtonItem, controller.bookmarkButtonItem] : @[controller.activityButtonItem, controller.searchButtonItem, controller.outlineButtonItem, controller.bookmarkButtonItem];
 
         // show the thumbnail button on the HUD, but not on the toolbar (we're not adding viewModeButtonItem here)
         controller.documentLabel.labelStyle = PSPDFLabelStyleBordered;
         controller.pageLabel.labelStyle = PSPDFLabelStyleBordered;
         controller.pageLabel.showThumbnailGridButton = YES;
+
+        controller.activityButtonItem.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
 
         // Hide thumbnail filter bar.
         controller.thumbnailController.filterOptions = [NSOrderedSet orderedSetWithArray:@[@(PSPDFThumbnailViewFilterShowAll), @(PSPDFThumbnailViewFilterBookmarks)]];
@@ -420,7 +423,6 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
     [annotationSection addContent:[[PSContent alloc] initWithTitle:@"PDF annotation writing" block:^{
         NSURL *annotationSavingURL = [samplesURL URLByAppendingPathComponent:@"Annotation Test.pdf"];
-        //NSURL *annotationSavingURL = [samplesURL URLByAppendingPathComponent:kHackerMagazineExample];
 
         // Copy file from the bundle to a location where we can write on it.
         NSURL *newURL = [self copyFileURLToDocumentFolder:annotationSavingURL overrideFile:NO];
@@ -440,6 +442,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
                                             PSPDFAnnotationTypeStringSignature,
                                             PSPDFAnnotationTypeStringStamp,
                                             PSPDFAnnotationTypeStringImage,
+                                            PSPDFAnnotationTypeStringPolygon,
                                             nil];
         document.delegate = self;
         return [[PSCEmbeddedAnnotationTestViewController alloc] initWithDocument:document];
@@ -677,7 +680,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
         // simple subclass that shows/hides the navigationController bottom toolbar
         PSCBottomToolbarViewController *pdfController = [[PSCBottomToolbarViewController alloc] initWithDocument:document];
         pdfController.statusBarStyleSetting = PSPDFStatusBarDefault;
-        pdfController.scrobbleBarEnabled = NO; // would look to crowded.
+        pdfController.thumbnailBarMode = PSPDFThumbnailBarModeNone;
         UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
         pdfController.bookmarkButtonItem.tapChangesBookmarkStatus = NO;
         pdfController.toolbarItems = @[space, pdfController.bookmarkButtonItem, space, pdfController.annotationButtonItem, space, pdfController.searchButtonItem, space, pdfController.outlineButtonItem, space, pdfController.emailButtonItem, space, pdfController.printButtonItem, space, pdfController.openInButtonItem, space];
@@ -693,7 +696,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
         self.navigationController.navigationBarHidden = YES;
 
         // pop back after 5 seconds.
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 5.f * NSEC_PER_SEC);
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self.navigationController popViewControllerAnimated:YES];
             [alertView dismissWithClickedButtonIndex:1 animated:YES];
@@ -763,6 +766,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
     }]];
 
     [customizationSection addContent:[[PSContent alloc] initWithTitle:@"Hide HUD with delayed document set" block:^UIViewController *{
+        PSPDFDocument *hackerMagDoc = [PSPDFDocument documentWithURL:hackerMagURL];
         PSPDFViewController *pdfController = [[PSCHideHUDDelayedDocumentViewController alloc] init];
 
         int64_t delayInSeconds = 2.0;
@@ -799,11 +803,13 @@ const char kPSPDFSignatureCompletionBlock = 0;
         // create new file that is protected
         NSString *password = @"test123";
         NSURL *tempURL = PSPDFTempFileURLWithPathExtension(@"protected", @"pdf");
+        PSPDFDocument *hackerMagDoc = [PSPDFDocument documentWithURL:hackerMagURL];
 
         // With password protected pages, PSPDFProcessor can only add link annotations.
         [[PSPDFProcessor defaultProcessor] generatePDFFromDocument:hackerMagDoc pageRange:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, hackerMagDoc.pageCount)] outputFileURL:tempURL options:@{(id)kCGPDFContextUserPassword : password, (id)kCGPDFContextOwnerPassword : password, (id)kCGPDFContextEncryptionKeyLength : @(128), kPSPDFProcessorAnnotationAsDictionary : @YES, kPSPDFProcessorAnnotationTypes : @(PSPDFAnnotationTypeLink)} progressBlock:^(NSUInteger currentPage, NSUInteger numberOfProcessedPages, NSUInteger totalPages) {
             [PSPDFProgressHUD showProgress:numberOfProcessedPages/(float)totalPages status:PSPDFLocalize(@"Preparing...")];
         } error:NULL];
+
         [PSPDFProgressHUD dismiss];
 
         // show file
@@ -837,7 +843,6 @@ const char kPSPDFSignatureCompletionBlock = 0;
     }
 
     // Encrypting the images will be a 5-10% slowdown, nothing substantial at all.
-    // TODO: Update RNCryptor as soon as file format v2 has been released: http://robnapier.net/blog/rncryptor-hmac-vulnerability-827
     [passwordSection addContent:[[PSContent alloc] initWithTitle:@"Enable PSPDFCache encryption" block:^UIViewController *{
         PSPDFCache *cache = [PSPDFCache sharedCache];
         // Clear existing cache
@@ -948,6 +953,28 @@ const char kPSPDFSignatureCompletionBlock = 0;
             annotation.fillColor = annotation.color;
             annotation.alpha = 0.5f;
             [document addAnnotations:@[annotation] forPage:targetPage];
+        }
+
+        PSPDFViewController *controller = [[PSPDFViewController alloc] initWithDocument:document];
+        controller.textSelectionEnabled = NO;
+        controller.rightBarButtonItems = @[controller.searchButtonItem, controller.openInButtonItem, controller.viewModeButtonItem];
+        return controller;
+    }]];
+
+    // As a second test, this example disables text selection, test that the shape still can be resized.
+    [subclassingSection addContent:[[PSContent alloc] initWithTitle:@"Programmatically add a Polyline annotation" block:^UIViewController *{
+        PSPDFDocument *document = [PSPDFDocument documentWithURL:hackerMagURL];
+        document.annotationSaveMode = PSPDFAnnotationSaveModeDisabled; // don't confuse other examples
+        // add shape annotation if there isn't one already.
+        NSUInteger targetPage = 0;
+        if ([[document annotationsForPage:targetPage type:PSPDFAnnotationTypePolygon] count] == 0) {
+            PSPDFPolygonAnnotation *polyline = [[PSPDFPolygonAnnotation alloc] initWithPolygonType:PSPDFPolygonAnnotationPolyLine];
+            polyline.points = @[[NSValue valueWithCGPoint:CGPointMake(52, 633)], [NSValue valueWithCGPoint:CGPointMake(67, 672)], [NSValue valueWithCGPoint:CGPointMake(131, 685)], [NSValue valueWithCGPoint:CGPointMake(178, 654)], [NSValue valueWithCGPoint:CGPointMake(115, 622)]];
+            polyline.color = [UIColor colorWithRed:0.0 green:1.f blue:0.f alpha:1.f];
+            polyline.fillColor = UIColor.yellowColor;
+            polyline.lineEnd2 = PSPDFLineEndTypeClosedArrow;
+            polyline.lineWidth = 5.f;
+            [document addAnnotations:@[polyline] forPage:targetPage];
         }
 
         PSPDFViewController *controller = [[PSPDFViewController alloc] initWithDocument:document];
@@ -1206,7 +1233,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
     }]];
 
     [subclassingSection addContent:[[PSContent alloc] initWithTitle:@"Sign all pages." block:^UIViewController *{
-        UIColor *penBlueColor = [UIColor colorWithRed:0.000 green:0.030 blue:0.516 alpha:1.000];
+        UIColor *penBlueColor = [UIColor colorWithRed:0.000f green:0.030f blue:0.516f alpha:1.000f];
 
         // Show the signature controller
         PSPDFSignatureViewController *signatureController = [[PSPDFSignatureViewController alloc] init];
@@ -1355,6 +1382,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
     // Check if scrolling works after the document is set delayed.
     [testSection addContent:[[PSContent alloc] initWithTitle:@"Delayed document set" block:^UIViewController *{
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] init];
+        PSPDFDocument *hackerMagDoc = [PSPDFDocument documentWithURL:hackerMagURL];
 
         int64_t delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -1455,6 +1483,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
     // Tests if the placement of the search controller is correct, even for zoomed documents.
     [testSection addContent:[[PSContent alloc] initWithTitle:@"Inline search test" block:^UIViewController *{
+        PSPDFDocument *hackerMagDoc = [PSPDFDocument documentWithURL:hackerMagURL];
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:hackerMagDoc];
         pdfController.fitToWidthEnabled = YES;
         pdfController.rightBarButtonItems = @[pdfController.viewModeButtonItem];
@@ -1598,6 +1627,15 @@ const char kPSPDFSignatureCompletionBlock = 0;
         return pdfController;
     }]];
 
+    // Check that there's no transparent border around images.
+    [testSection addContent:[[PSContent alloc] initWithTitle:@"Thumbnails Aspect Ratio Test" block:^UIViewController *{
+        [[PSPDFCache sharedCache] clearCache];
+        PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Testcase_aspectratio.pdf"]];
+        PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
+        pdfController.viewMode = PSPDFViewModeThumbnails;
+        return pdfController;
+    }]];
+
     // Test HSV color picker
     [testSection addContent:[[PSContent alloc] initWithTitle:@"Color picker test" block:^UIViewController *{
         PSPDFHSVColorPickerController *picker = [PSPDFHSVColorPickerController new];
@@ -1665,6 +1703,33 @@ const char kPSPDFSignatureCompletionBlock = 0;
         return pdfController;
     }]];
 
+    [testSection addContent:[[PSContent alloc] initWithTitle:@"Freetext annotation on rotated PDF" block:^UIViewController *{
+        PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Testcase_Rotated PDF.pdf"]];
+        document.annotationSaveMode = PSPDFAnnotationSaveModeDisabled;
+        PSPDFFreeTextAnnotation *freeText = [PSPDFFreeTextAnnotation new];
+        freeText.contents = @"This is a test.\n1\n2\n3\n4\n5";
+        freeText.boundingBox = CGRectMake(100, 100, 400, 200);
+        freeText.fillColor = UIColor.yellowColor;
+        freeText.fontSize = 40;
+        [document addAnnotations:@[freeText] forPage:0];
+        PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
+        return pdfController;
+    }]];
+
+    [testSection addContent:[[PSContent alloc] initWithTitle:@"Freetext annotation on 90g rotated PDF" block:^UIViewController *{
+        PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Testcase_rotated-northern.pdf"]];
+        document.annotationSaveMode = PSPDFAnnotationSaveModeDisabled;
+        PSPDFFreeTextAnnotation *freeText = [PSPDFFreeTextAnnotation new];
+        freeText.contents = @"This is a test.\n1\n2\n3\n4\n5";
+        freeText.boundingBox = CGRectMake(100, 100, 400, 200);
+        freeText.fillColor = UIColor.yellowColor;
+        freeText.fontSize = 30;
+        [document addAnnotations:@[freeText] forPage:0];
+        [document addAnnotations:@[[freeText copy]] forPage:1];
+        PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
+        return pdfController;
+    }]];
+
     // Check that free text annotation doesn't has a fillColor set.
     [testSection addContent:[[PSContent alloc] initWithTitle:@"Freetext annotation with border, no fill color" block:^UIViewController *{
         PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Testcase_FreeText_no_background.pdf"]];
@@ -1680,6 +1745,29 @@ const char kPSPDFSignatureCompletionBlock = 0;
 
         NSArray *glyphs = [[document textParserForPage:1] glyphs];
         NSLog(@"glyphs: %@", glyphs);
+
+        return pdfController;
+    }]];
+
+    // There's a ffi ligature on the first page.
+    [testSection addContent:[[PSContent alloc] initWithTitle:@"Test ffi ligature parsing" block:^UIViewController *{
+        PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Testcase_ffi-glyph-manyongeAMS89-92-2012.pdf"]];
+        PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
+
+        NSArray *glyphs = [[document textParserForPage:0] glyphs];
+        NSLog(@"glyphs: %@", glyphs);
+
+        BOOL foundWord = NO;
+        NSArray *words = [document textParserForPage:0].words;
+        for (PSPDFWord *word in words) {
+            if ([word.stringValue isEqualToString:@"Coefficient"]) {
+                foundWord = YES;
+                break;
+            }
+        }
+
+        // One day this will be a real testcase. For now, that'll have to do.
+        PSPDFAssert(foundWord, @"Test failed!");
 
         return pdfController;
     }]];
@@ -1791,6 +1879,50 @@ const char kPSPDFSignatureCompletionBlock = 0;
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
         pdfController.page = 8;
         return pdfController;
+    }]];
+
+    // Test that PSPDFProcessor doesn't flatten when you add annotations programmatically.
+    [testSection addContent:[[PSContent alloc] initWithTitle:@"Ink annotation + PSPDFProcessor" block:^UIViewController *{
+
+        NSURL *URL = [self copyFileURLToDocumentFolder:hackerMagURL overrideFile:YES];
+        PSPDFDocument *document = [PSPDFDocument documentWithURL:URL];
+        document.annotationSaveMode = PSPDFAnnotationSaveModeDisabled; // don't confuse other examples
+
+        // add shape annotation if there isn't one already.
+        NSUInteger targetPage = 0;
+        if ([[document annotationsForPage:targetPage type:PSPDFAnnotationTypeInk] count] == 0) {
+
+            // Check the header for more helper methods; PSPDFBezierPathGetPoints() might be useful depending on your use case.
+            PSPDFInkAnnotation *annotation = [PSPDFInkAnnotation new];
+
+            // example how to create a line rect. Boxed is just shorthand for [NSValue valueWithCGRect:]
+            NSArray *lines = @[@[BOXED(CGPointMake(100,100)), BOXED(CGPointMake(100,200)), BOXED(CGPointMake(150,300))], // first line
+                               @[BOXED(CGPointMake(200,100)), BOXED(CGPointMake(200,200)), BOXED(CGPointMake(250,300))]  // second line
+                               ];
+
+            // convert view line points into PDF line points.
+            PSPDFPageInfo *pageInfo = [document pageInfoForPage:targetPage];
+            CGRect viewRect = [UIScreen mainScreen].bounds; // this is your drawing view rect - we don't have one yet, so lets just assume the whole screen for this example. You can also directly write the points in PDF coordinate space, then you don't need to convert, but usually your user draws and you need to convert the points afterwards.
+            annotation.lineWidth = 5;
+            annotation.lines = PSPDFConvertViewLinesToPDFLines(lines, pageInfo.pageRect, pageInfo.pageRotation, viewRect);
+
+            annotation.color = [UIColor colorWithRed:0.667 green:0.279 blue:0.748 alpha:1.000];
+            [document addAnnotations:@[annotation] forPage:targetPage];
+        }
+
+        //Here we should figure out which pages have annotations
+        NSDictionary *annotationsDictionary = [document allAnnotationsOfType:PSPDFAnnotationTypeInk];
+        NSArray *annotatedPages = annotationsDictionary.allKeys;
+        NSIndexSet *pageNumbers = PSPDFIndexSetFromArray(annotatedPages);
+        NSDictionary *processorOptions = @{kPSPDFProcessorAnnotationAsDictionary : @YES, kPSPDFProcessorAnnotationTypes : @(PSPDFAnnotationTypeAll)};
+
+        NSURL *outputFileURL = document.fileURL;
+        [[PSPDFProcessor defaultProcessor] generatePDFFromDocument:document pageRange:pageNumbers outputFileURL:outputFileURL options:processorOptions progressBlock:NULL error:NULL];
+
+        [document clearCache];
+
+        PSPDFViewController *controller = [[PSPDFViewController alloc] initWithDocument:document];
+        return controller;
     }]];
 
     // Test that stamps are correctly displayed and movable.
@@ -1965,7 +2097,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
         NSArray *newAnnotations = [document detectLinkTypes:PSPDFTextCheckingTypeAll forPagesInRange:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, document.pageCount)]];
         NSLog(@"Created %d new annotations: %@", newAnnotations.count, newAnnotations);
         __unused NSArray *newAnnotations2 = [document detectLinkTypes:PSPDFTextCheckingTypeAll forPagesInRange:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, document.pageCount)]];
-        NSAssert(newAnnotations2.count == 0, @"A second run should not create new annotations");
+        PSPDFAssert(newAnnotations2.count == 0, @"A second run should not create new annotations");
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
         return pdfController;
     }]];
@@ -1985,8 +2117,7 @@ const char kPSPDFSignatureCompletionBlock = 0;
         pdfController.page = 12;
         //[PSPDFFontCacheTest runWithDocumentAtPath:[document.fileURL path]];
 
-        int64_t delayInSeconds = 0.5f;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [pdfController searchForString:@"control points" animated:YES];
         });
@@ -2071,6 +2202,13 @@ const char kPSPDFSignatureCompletionBlock = 0;
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [pdfController.outlineButtonItem action:pdfController.outlineButtonItem];
         });
+        return pdfController;
+    }]];
+
+    // Test that showing all annotations doesn't kill the app due to memory pressure.
+    [testSection addContent:[[PSContent alloc] initWithTitle:@"Test 22000 pages with annotations" block:^UIViewController *{
+        PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Testcase_22000_pages.pdf"]];
+        PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
         return pdfController;
     }]];
 
@@ -2170,6 +2308,13 @@ const char kPSPDFSignatureCompletionBlock = 0;
         return pdfController;
     }]];
 
+    // Check that there's a link inside that document.
+    [testSection addContent:[[PSContent alloc] initWithTitle:@"Test URL parsing" block:^UIViewController *{
+        PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Testcase_URL-broken.pdf"]];
+        PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
+        return pdfController;
+    }]];
+
     // Test that the link correctly opens a new document.
     // Correct if it doesn't crash and then shows "PROCEDURES" as document.
     [testSection addContent:[[PSContent alloc] initWithTitle:@"Test GoToR actions" block:^UIViewController *{
@@ -2249,6 +2394,26 @@ const char kPSPDFSignatureCompletionBlock = 0;
         PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
         return pdfController;
     }]];
+
+    // Ensure that a word is highlighted and that the we don't crash in saveChangedAnnotationsWithError
+    [testSection addContent:[[PSContent alloc] initWithTitle:@"Test annotation writing with invalid page object 2" block:^UIViewController *{
+        PSPDFDocument *document = [PSPDFDocument documentWithURL:[samplesURL URLByAppendingPathComponent:@"Testcase_corrupt_stream_add_annotations.pdf"]];
+
+        for (NSUInteger idx = 0; idx < 6; idx++) {
+            PSPDFWord *word = [[document textParserForPage:0].words objectAtIndex:idx];
+            PSPDFHighlightAnnotation *annotation = [[PSPDFHighlightAnnotation alloc] initWithHighlightType:PSPDFHighlightAnnotationHighlight];
+            CGRect boundingBox;
+            annotation.rects = PSPDFRectsFromGlyphs(word.glyphs, [document pageInfoForPage:0].pageRotationTransform, &boundingBox);
+            annotation.boundingBox = boundingBox;
+            [document addAnnotations:@[annotation] forPage:0];
+            [document saveChangedAnnotationsWithError:NULL];
+        }
+        // NSLog(@"annots: %@", [document allAnnotationsOfType:PSPDFAnnotationTypeHighlight]);
+
+        PSPDFViewController *pdfController = [[PSPDFViewController alloc] initWithDocument:document];
+        return pdfController;
+    }]];
+    
 
     // If the encoding is wrong, the freeText annotation will not be displayed.
     [testSection addContent:[[PSContent alloc] initWithTitle:@"Test annotation encoding" block:^UIViewController *{

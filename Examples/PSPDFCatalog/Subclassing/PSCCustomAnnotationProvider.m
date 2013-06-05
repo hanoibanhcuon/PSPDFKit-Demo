@@ -54,14 +54,15 @@
         annotations = _annotationDict[@(page)];
         if (!annotations) {
             // create new note annotation and add it to the dict.
+            PSPDFDocumentProvider *documentProvider = [self.providerDelegate parentDocumentProvider];
             PSPDFNoteAnnotation *noteAnnotation = [PSPDFNoteAnnotation new];
             noteAnnotation.page = page;
-            noteAnnotation.documentProvider = [self.providerDelegate parentDocumentProvider];
+            noteAnnotation.documentProvider = documentProvider;
             noteAnnotation.contents = [NSString stringWithFormat:@"Annotation from the custom annotationProvider for page %d.", page+1];
 
             // place it top left (PDF coordinate space starts from bottom left)
-            PSPDFPageInfo *pageInfo = [noteAnnotation.documentProvider.document pageInfoForPage:page];
-            noteAnnotation.boundingBox = CGRectMake(100, pageInfo.rotatedPageRect.size.height-100, 32, 32);
+            PSPDFPageInfo *pageInfo = [documentProvider.document pageInfoForPage:page];
+            noteAnnotation.boundingBox = CGRectMake(100.f, pageInfo.rotatedPageRect.size.height-100.f, 32.f, 32.f);
             _annotationDict[@(page)] = @[noteAnnotation];
             annotations = @[noteAnnotation];
             noteAnnotation.editable = NO;
@@ -75,10 +76,10 @@
 
 // Helper to generate a random color.
 static UIColor *PSCRandomColor(void) {
-    CGFloat hue = arc4random() % 256 / 256.0;  //  0.0 to 1.0
-    CGFloat saturation = (arc4random() % 128 / 256.0) + 0.5;  //  0.5 to 1.0, away from white
-    CGFloat brightness = (arc4random() % 128 / 256.0) + 0.5;  //  0.5 to 1.0, away from black
-    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+    CGFloat hue = arc4random() % 256 / 256.0f;  //  0.0 to 1.0
+    CGFloat saturation = (arc4random() % 128 / 256.0f) + 0.5f;  //  0.5 to 1.0, away from white
+    CGFloat brightness = (arc4random() % 128 / 256.0f) + 0.5f;  //  0.5 to 1.0, away from black
+    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1.f];
 }
 
 // Change annotation color and notify the delegate that we have updates.

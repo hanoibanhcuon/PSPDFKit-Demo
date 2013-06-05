@@ -17,6 +17,9 @@
 #import "PSPDFBookmarkViewController.h"
 #import "PSPDFThumbnailViewController.h"
 #import "PSPDFAnnotationTableViewController.h"
+#import "PSPDFSearchViewController.h"
+#import "PSPDFStatusBarStyleHint.h"
+#import "PSPDFThumbnailBar.h"
 
 @protocol PSPDFViewControllerDelegate;
 @class PSPDFDocument, PSPDFScrollView, PSPDFScrobbleBar, PSPDFPageView, PSPDFHUDView, PSPDFPageViewController, PSPDFSearchResult, PSPDFViewState, PSPDFBarButtonItem, PSPDFPageLabelView, PSPDFDocumentLabelView, PSPDFEmailBarButtonItem, PSPDFOpenInBarButtonItem, PSPDFCloseBarButtonItem, PSPDFMoreBarButtonItem, PSPDFBrightnessBarButtonItem, PSPDFBookmarkBarButtonItem, PSPDFViewModeBarButtonItem, PSPDFActivityBarButtonItem, PSPDFAnnotationBarButtonItem, PSPDFSearchBarButtonItem, PSPDFOutlineBarButtonItem, PSPDFPrintBarButtonItem, PSPDFAnnotationToolbar, PSPDFAnnotationViewCache;
@@ -70,6 +73,12 @@ typedef NS_ENUM(NSInteger, PSPDFHUDViewAnimation) {
     PSPDFHUDViewAnimationSlide,           // Slide HUD.
 };
 
+typedef NS_ENUM(NSInteger, PSPDFThumbnailBarMode) {
+    PSPDFThumbnailBarModeNone,            // Don't show thumbnail bottom bar.
+    PSPDFThumbnailBarModeScrobbleBar,     // Show scrobble bar (like iBooks, PSPDFScrobbleBar)
+    PSPDFThumbnailBarModeScrollable,      // Show scrollable thumbnail bar (PSPDFThumbnailBar)
+};
+
 /// Default action for PDF link annotations.
 typedef NS_ENUM(NSInteger, PSPDFLinkAction) {
     PSPDFLinkActionNone,         // Link actions are ignored.
@@ -96,7 +105,7 @@ typedef NS_ENUM(NSInteger, PSPDFPageRenderingMode) {
 
  The best time for setting the properties is during initialization, in commonInitWithDocument:. Some properties require a call to reloadData if they are changed after the controller has been displayed. Do not set properties during a rotation phase or view appearance (e.g. viewWillAppear is bad, viewDidAppear is ok) since that could corrupt internal state, instead use updateSettingsForRotation:.
 */
-@interface PSPDFViewController : PSPDFBaseViewController <PSPDFOutlineViewControllerDelegate, PSPDFPasswordViewDelegate, PSPDFTextSearchDelegate, PSPDFWebViewControllerDelegate, PSPDFBookmarkViewControllerDelegate, PSPDFAnnotationTableViewControllerDelegate, PSPDFThumbnailViewControllerDelegate, UIPopoverControllerDelegate, MFMailComposeViewControllerDelegate>
+@interface PSPDFViewController : PSPDFBaseViewController <PSPDFOutlineViewControllerDelegate, PSPDFPasswordViewDelegate, PSPDFTextSearchDelegate, PSPDFWebViewControllerDelegate, PSPDFBookmarkViewControllerDelegate, PSPDFSearchViewControllerDelegate, PSPDFAnnotationTableViewControllerDelegate, PSPDFThumbnailViewControllerDelegate, PSPDFThumbnailBarDelegate, UIPopoverControllerDelegate, MFMailComposeViewControllerDelegate>
 
 /// @name Initialization and esential properties
 
@@ -273,11 +282,8 @@ typedef NS_ENUM(NSInteger, PSPDFPageRenderingMode) {
 /// @warning Requires isToolbarEnabled = YES to work.
 @property (nonatomic, assign) BOOL allowToolbarTitleChange;
 
-/// Enables bottom scrobble bar [if HUD is displayed]. will be hidden automatically when in thumbnail mode. Defaults to YES.
-@property (nonatomic, assign, getter=isScrobbleBarEnabled) BOOL scrobbleBarEnabled;
-
-/// Shows/Hides the scrobble bar if appropriate. Animatable.
-- (void)setScrobbleBarEnabled:(BOOL)scrobbleBarEnabled animated:(BOOL)animated;
+/// Sets the thumbnail bar mode. Defaults to PSPDFThumbnailBarModeScrobbleBar.
+@property (nonatomic, assign) PSPDFThumbnailBarMode thumbnailBarMode;
 
 /// Enables/Disables the bottom document site position overlay.
 /// Defaults to YES. Animatable. Will be added to the HUDView.
@@ -341,13 +347,15 @@ typedef NS_ENUM(NSInteger, PSPDFPageRenderingMode) {
 
 /// Bar button items displayed at the left of the toolbar. Must be UIBarButtonItem or PSPDFBarButtonItem instances. Defaults to @[closeButtonItem] if view is presented modally.
 /// @warning UIKit limits the left toolbar size if space is low in the toolbar, potentially cutting off buttons in those toolbars if the title is also too long. You can either reduce the number of buttons, cut down the text or use a titleView to fix this problem. It also appears that UIKit focuses on the leftToolbar, the right one is cut off much later. This problem only appears on the iPad in portrait mode. You can also use updateSettingsForRotation to adapt the toolbar for portrait/landscape mode.
+/// @note If you use any of the provided bar button items in a custom toolbar, make sure to set leftBarButtonItems and rightBarButtonItems to nil - a UIBarButtonItem can only ever have one parent, else some icons might "vanish" from your toolbar.
 @property (nonatomic, copy) NSArray *leftBarButtonItems;
 
 /// Bar button items displayed at the right of the toolbar. Must be UIBarButtonItem or PSPDFBarButtonItem instances.
 /// Defaults to @[self.searchButtonItem, self.outlineButtonItem, self.viewModeButtonItem];
+/// @note If you use any of the provided bar button items in a custom toolbar, make sure to set leftBarButtonItems and rightBarButtonItems to nil - a UIBarButtonItem can only ever have one parent, else some icons might "vanish" from your toolbar.
 @property (nonatomic, copy) NSArray *rightBarButtonItems;
 
-/// Displayed at the left of the rightBarButtonItems inside an action sheet. Items ust be PSPDFBarButtonItem instances.
+/// Displayed at the left of the rightBarButtonItems inside an action sheet. Items must be PSPDFBarButtonItem instances.
 /// If [additionalRightToolbarButtonItems count] == 1 then no action sheet is displayed
 @property (nonatomic, copy) NSArray *additionalBarButtonItems; // defaults to nil
 
@@ -445,6 +453,7 @@ typedef NS_ENUM(NSInteger, PSPDFPageRenderingMode) {
 
 /// Enable to allow tinting of PSPDFAlertView. Defaults to YES.
 @property (nonatomic, assign) BOOL shouldTintAlertView;
+
 - (UIColor *)alertViewTintColor; // Helper
 
 /// If not set, we'll use scrollViewTexturedBackgroundColor as default.
@@ -525,6 +534,7 @@ extern NSString *const PSPDFPresentOptionWillDismissBlock;              // dispa
 
 /// Depending on pageMode, this returns true if two pages are displayed.
 - (BOOL)isDoublePageMode;
+
 - (BOOL)isDoublePageModeForOrientation:(UIInterfaceOrientation)interfaceOrientation;
 
 /// There are certain cases where even in double page situations one page has to be displayed. (e.g. cover page; last page)
@@ -564,6 +574,7 @@ extern NSString *const PSPDFPresentOptionWillDismissBlock;              // dispa
 /// Override if you're changing the toolbar to your own.
 /// The toolbar is only displayed, if PSPDFViewController is inside a UINavigationController.
 - (void)createToolbarAnimated:(BOOL)animated;
+
 - (void)updateToolbarAnimated:(BOOL)animated;
 
 /// Request to update a specific barButton. Might be more efficient than using createToolbar.
@@ -606,8 +617,11 @@ extern NSString *const PSPDFPresentOptionWillDismissBlock;              // dispa
 /// Document title label view. (default iPhone only)
 @property (nonatomic, strong) PSPDFDocumentLabelView *documentLabel;
 
-/// Scrobble bar. Created lazily.
+/// Scrobble bar. Created lazily. Available if PSPDFThumbnailBarModeScrobbleBar is set.
 @property (nonatomic, strong, readonly) PSPDFScrobbleBar *scrobbleBar;
+
+/// Thumbnail bar. Created lazily. Available if PSPDFThumbnailBarModeScrollable is set.
+@property (nonatomic, strong, readonly) PSPDFThumbnailBar *thumbnailBar;
 
 // Allows access to the annotation cache.
 @property (nonatomic, strong, readonly) PSPDFAnnotationViewCache *annotationViewCache;
@@ -618,14 +632,9 @@ extern NSString *const PSPDFPresentOptionWillDismissBlock;              // dispa
 
 @end
 
-// Allows better guessing of the status bar style.
-@protocol PSPDFStatusBarStyleHint <NSObject>
-- (UIStatusBarStyle)preferredStatusBarStyle;
-@end
 
 @interface PSPDFViewController (Deprecated)
+@property (nonatomic, assign, getter=isScrobbleBarEnabled) BOOL scrobbleBarEnabled __attribute__ ((deprecated("Use thumbnailBarMode instead")));
 @property (nonatomic, strong, readonly) PSUICollectionView *gridView __attribute__ ((deprecated("Use thumbnailController.collectionView instead")));
-
 @property (nonatomic, assign) PSPDFAnnotationType renderAnnotationTypes __attribute__ ((deprecated("Use document.renderAnnotationTypes instead")));
-
 @end

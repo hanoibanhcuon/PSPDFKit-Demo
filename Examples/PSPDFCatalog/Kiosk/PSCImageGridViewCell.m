@@ -49,7 +49,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
 
         self.imageView.clipsToBounds = YES;
         self.showingPageLabel = YES;
-        self.edgeInsets = UIEdgeInsetsMake(0, 0, 10, 0);
+        self.edgeInsets = UIEdgeInsetsMake(0.f, 0.f, 10.f, 0.f);
 
         _deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_deleteButton setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
@@ -94,9 +94,11 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
     // Progress bar.
     if (!_progressView.hidden) {
         _progressView.frame = CGRectMake(0.f, 0.f, self.imageView.frame.size.width*0.8, 21.f);
-        CGFloat pageLabelHeight = 0;//self.isShowingPageLabel ? self.pageLabel.frame.size.width : 0.f;
+        CGFloat pageLabelHeight = 0.f;//self.isShowingPageLabel ? self.pageLabel.frame.size.width : 0.f;
         _progressView.center = CGPointMake(roundf(CGRectGetMaxX(self.imageView.frame)/2.f), roundf(CGRectGetMaxY(self.imageView.frame)*9.f/10.f - pageLabelHeight));
     }
+
+    self.selectedBackgroundView.frame = CGRectInset(self.imageView.frame, -4.f, -4.f);
 }
 
 - (void)setFrame:(CGRect)frame {
@@ -114,7 +116,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
         pageLabel.backgroundColor = [UIColor clearColor];
         pageLabel.textColor = [UIColor colorWithWhite:1.f alpha:1.f];
         pageLabel.shadowColor = [UIColor blackColor];
-        pageLabel.shadowOffset = CGSizeMake(0, 1);
+        pageLabel.shadowOffset = CGSizeMake(0.f, 1.f);
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 60000
         pageLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
         pageLabel.textAlignment = UITextAlignmentCenter;
@@ -122,7 +124,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
         pageLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
         pageLabel.textAlignment = NSTextAlignmentCenter;
 #endif
-        pageLabel.font = [UIFont boldSystemFontOfSize:PSIsIpad() ? 16 : 12];
+        pageLabel.font = [UIFont boldSystemFontOfSize:PSIsIpad() ? 16.f : 12.f];
         self.pageLabel = (PSPDFRoundedLabel *)pageLabel;
         [self.contentView addSubview:pageLabel];
     }else if (!self.isShowingPageLabel && self.pageLabel.superview) {
@@ -130,7 +132,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
     }
 
     // Calculate new frame and position correct.
-    self.pageLabel.frame = CGRectIntegral(CGRectMake(0, self.imageView.frame.origin.y+self.imageView.frame.size.height, self.frame.size.width, 20));
+    self.pageLabel.frame = CGRectIntegral(CGRectMake(0.f, self.imageView.frame.origin.y+self.imageView.frame.size.height, self.frame.size.width, 20.f));
 
     if (self.pageLabel.superview) {
         [self.contentView bringSubviewToFront:self.pageLabel];
@@ -219,10 +221,11 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
                                 [request setHTTPShouldHandleCookies:NO];
                                 [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
 
-                                __weak typeof (self) weakSelf = self;
+                                __weak typeof(self) weakSelf = self;
                                 [self.imageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request_, NSHTTPURLResponse *response, UIImage *image) {
-                                    [weakSelf setNeedsLayout];
-                                    weakSelf.imageView.image = image;
+                                    __strong typeof(self) strongSelf = weakSelf;
+                                    [strongSelf setNeedsLayout];
+                                    strongSelf.imageView.image = image;
                                 } failure:^(NSURLRequest *aRequest, NSHTTPURLResponse *aResponse, NSError *error) {
                                     PSCLog(@"Failed to download image: %@", error.localizedDescription);
                                 }];
@@ -293,7 +296,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
 }
 
 - (void)updateMagazineBadgeFrame {
-    _magazineCounterBadgeImage.frame = CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, 50, 50);
+    _magazineCounterBadgeImage.frame = CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, 50.f, 50.f);
 }
 
 #define kMagazineCountLabelTag 32443
@@ -305,12 +308,12 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
         [self.contentView addSubview:_magazineCounterBadgeImage];
 
         _magazineCounter = [[UILabel alloc] init];
-        _magazineCounter.font = [UIFont boldSystemFontOfSize:20];
+        _magazineCounter.font = [UIFont boldSystemFontOfSize:20.f];
         _magazineCounter.textColor = [UIColor whiteColor];
         _magazineCounter.shadowColor = [UIColor blackColor];
-        _magazineCounter.shadowOffset = CGSizeMake(1, 1);
+        _magazineCounter.shadowOffset = CGSizeMake(1.f, 1.f);
         _magazineCounter.backgroundColor = [UIColor clearColor];
-        _magazineCounter.frame = CGRectMake(1, 1, 25, 25);
+        _magazineCounter.frame = CGRectMake(1.f, 1.f, 25.f, 25.f);
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 60000
         _magazineCounter.textAlignment = UITextAlignmentCenter;
 #else
@@ -364,7 +367,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
         [self.imageView addSubview:_progressViewBackground];
         [self.contentView bringSubviewToFront:_progressView];
         if (animated) {
-            [UIView animateWithDuration:0.25 animations:^{
+            [UIView animateWithDuration:0.25f animations:^{
                 _progressViewBackground.alpha = 0.5f;
             }];
         }else {
@@ -372,7 +375,7 @@ static void PSPDFDispatchIfNotOnMainThread(dispatch_block_t block) {
         }
     }else if (!darken && _progressViewBackground.superview) {
         if (animated) {
-            [UIView animateWithDuration:0.25 animations:^{
+            [UIView animateWithDuration:0.25f animations:^{
                 _progressViewBackground.alpha = 0.f;
             } completion:^(BOOL finished) {
                 if (finished) {

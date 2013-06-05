@@ -2,6 +2,103 @@
 
 Subscribe to updates: [RSS](https://github.com/PSPDFKit/PSPDFKit-Demo/commits/master.atom) | [Twitter](http://twitter.com/PSPDFKit)
 
+__v2.14.2 - 19/May/2013__
+
+*  PSPDFViewController now unloads its views when not visible on a memory warning even on iOS6. This saves memory especially when multiple stacks of viewControllers are used in a navigationController.
+*  Improves the thumbnail quality.
+*  Polyline/Polygon how shows boundingBox resize knobs + knobs for each line end point. Inner points are green.
+*  When no fillColor is defined, color will be used instead of black. This is not defined in the PDF Reference, but more closely matches Apple's Preview.app and looks better.
+*  Glyph ligature breaks (e.g. ffi) now no longer are marked as WordBreaker.
+*  Improves default boundingBox calculation for new annotations on rotated PDF documents.
+*  PSPDFPageRenderer can now be subclassed/changed.
+*  Improves bounding box calculation for small FreeText annotations.
+*  Stamps are now properly rendered on rotated pages.
+*  If a stamp annotation is an appearance stream, PSPDFKit now tries to extract the image when using Copy/Paste.
+*  Font variant picker now shows font in title and filters name for better display, e.g. 'Helvetivca-Bold' becomes just 'Bold'.
+*  Several improvements to the PSPDFMultiDocumentController.
+*  The thumbnail selection background now properly sizes itself based on the negative edgeInsets of the thumbnail cell (= looks better for non-portrait documents)
+*  Dashed border now factors in lineWidth.
+*  Improves parsing of certain GoToR Actions.
+*  Made the color preview in UITableViewCell pixel perfect.
+*  Improves title detection to filter out white space, now correctly handles cases where the title is missing but ' ' is set instead.
+*  PSPDFKit is now compiled with -O3 (instead of -Os) and and uses link-time optimization to further improve performance.
+*  Fixes placement of the image and signature picker for rotated documents.
+*  Fixes a rare issue where a annotation could stuck in an invisible state because of a bug in the trackedView when selecting + scrolling happened at the same time.
+*  Fixes a regression where thumbnail images could become sized wrongly in their aspect ratio under certain conditions for non-uniformly sized documents.
+*  Fixes an offset by one error when resolving named destinations for a specific outline action destination type when there are > 500 outline entries.
+*  Fixes a potential crash related to the color picker.
+*  Fixes a crash related to parsing invalid outline elements.
+
+__v2.14.1 - 15/May/2013__
+
+*  Add write support for Polygon/Polyline annotations. (In the API, there's no UI for creating yet, but editing the points works)
+*  Add new PSPDFThumbnailBar to display scrollable thumbnails as an alternative to the scrobbleBar. The thumbnail bar is a preview and might change API/Featureset in the next releases. We have some big plans for this but couldn't wait to get it out of the door!
+*  The PSPDFOutlineViewController now no longer shows a title on iPad if no modes are set. As a detail, its search bar now is named as "Search Outline" instead of just "Search".
+*  FreeText annotation is now correctly rotated on rotated PDF pages and also respects the annotation rotation setting (0, 90, 180, 270).
+*  Fix password view state positioning when the keyboard is up and the parent resizes itself.
+*  Fixes a potential regression/assertion when the PSPDFViewController was used without a navigationController.
+*  Fixes an regression where words with ligatures (like the ffi liagure glyph) would be split into two words with certain encodings.
+*  Fixes a race condition that could lead to a warning named '<NSRecursiveLock> deallocated while still in use'.
+*  Fixes a line annotation serialization issue where line endings would only be serialized if both are set.
+*  Fixes an issue for Copy/Paste where preexisting annotations could disappear after they have been copied and edited.
+*  Fixes an exception in the PDF parser if a PDF with a corrupt stream object is analyzed.
+
+__v2.14.0 - 12/May/2013__
+
+*  Add support to Copy/Paste annotations. This creates a global UIPasteboard and will work for all apps that use the PSPDFKit framework with 2.14 and up. Alternatively a JSON object is created as well, so that other applications can add support to parse and support PSPDFKit-style-annotations as well.
+*  Paste also supports general pasteboard types like Text, URL or Image and will create the appropriate annotations (if this is allowed)
+
+*  New global PSPDFStyleManager that saves various annotation properties and applies them to new annotations. For example, if you change the color of a highlight to red, all future annotations are created red until you change the color back. This already worked in the PSPDFAnnotationToolbar before but is now unified and applied globally (will also save properties like fillColor or fontName). You can disable this with nilling out the styleKeys property of PSPDFStyleManager.
+
+*  The PSPDFFreeTextAnnotationView is now always sharp, even when zoomed in. Because we have to work around the broken contentsScale property, the API has changed a bit. If you previously had textView overridden, you now need to subclass PSPDFFreeTextAnnotationView and change the textViewForEditing method to apply your custom textView.
+*  PSPDFStampViewController is now more flexible and will evaluate the new PSPDFStampAnnotationSuggestedSizeKey key for the default annotations. Images in default annotations are now supported as well and the checkmark and X annotation are now added with the correct aspect ratio size. With the new setDefaultStampAnnotations: a different set of default annotations can be set.
+*  Various smaller UX fixes inside the  PSPDFNoteViewController.
+*  Improves memory usage with very large documents (1000 pages and up)
+*  Various smaller performance improvements in the cache.
+*  Tinting has been improved for various view controllers.
+*  The global "Text..." option has been renamed to "Note..." to make its function more clear.
+*  The global "Appearance..." has ben renamed to "Style..." because this is more concise and better fits the iPhone.
+*  Fixes an issue where unless controls:YES was set the wrong default was used for web links in the internal browser.
+*  Fixes an edge case where the PSPDFPasswordView would not adapt itself correctly if the keyboard was already up before the controller has been pushed.
+*  Fixes an issue with opening external URLs via dialog where the preview of the URL could fail.
+
+__v2.13.2 - 10/May/2013__
+
+*  The text selection delegate pdfViewController:didSelectText:withGlyphs:atRect:onPageView: is now also called for deselection.
+*  Fixes an issue where PSPDFProcessor would flatten AND add annotations if kPSPDFProcessorAnnotationAsDictionary was used.
+*  Fixes an issue with annotation drawing on iPhone on iOS5 where views could be reloaded after a memory warning and then the current drawing was missing.
+*  Fixes a small memory leak.
+
+__v2.13.1 - 9/May/2013__
+
+*  Adds read support for Polygon/Polyline annotations, including support for all line ending types.
+*  The tinted UIPopoverController subclasses now look much better and now very closely resemble the original including gradients and alpha value.
+*  PSPDFTextParser now fully complies to NSCoding, so search results can be persisted and cached. (Thanks to ForeFlight!)
+*  Fixes an unbalanced locking call when a page was requested that couldn't be rendered.
+
+__v2.13.0 - 7/May/2013__
+
+PSPDFKit now requires QuickLook.framework, AudioToolbox.framework and sqlite3. Please update your framework dependencies accordingly.
+
+*  Initial support for 'Widget' annotations, supports action and rendering. (not yet writable)
+*  Support for 'File' annotations. Will offer QuickLook support on touch.
+*  Basic read support for 'Sound' annotations.
+*  Add support for 'Rendition' and 'RichMediaExecute' actions that can control Screen/RichMedia annotations. (video/audio. JavaScript is not supported.)
+*  Ink/Circle/Ellipse/Line now each save their last used color independently.
+*  FreeText and other annotation types inside the annotation toolbar now remember the last used color.
+*  Add missing translation for "%d Annotations" and added special case for "%d Annotation" (singular).
+*  Add missing "No Annotations" and "Loading..." state text for the PSPDFAnnotationTableViewController.
+*  For text selection, the text knob is now priorized over near annotations.
+*  API: `cacheDirectory` in PSPDFDocument has been renamed to `dataDirectory`, so that won't be confused with the cache directory setting of PSPDFCache.
+*  Improves text parser to properly detect word boundaries for documents that use invalid characters for word separation.
+*  For pspdfkit:// based videos controls are now enabled by default if the option is not set.
+*  PSPDFProgressHUD now checks if the keyWindow is visible before restoring, fixes an edge case with multiple windows that have rootViewControllers attached.
+*  PSPDFSearchViewController now has a protocol to communicate with PSPDFViewController instead of owning that object directly.
+*  PSPDFViewController no longer will change the viewMode to document when the view will disappear.
+*  Fixes a rare crash when moving the text selection handle.
+*  Fixes an issue with writing the page annotation object on malformed PDFs which could lead to annotations being written but not being displayed.
+*  Fixes an issue with where sometimes fillColor was set on FreeText annotations even though there shouldn't be one set.
+
 __v2.12.12 - 4/May/2013__
 
 *  The note view controller now will detect links.

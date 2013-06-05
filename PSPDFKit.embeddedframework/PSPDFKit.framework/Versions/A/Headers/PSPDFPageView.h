@@ -15,6 +15,7 @@
 #import "PSPDFNoteAnnotationController.h"
 #import "PSPDFFontSelectorViewController.h"
 #import "PSPDFFontStyleViewController.h"
+#import "PSPDFAnnotationStyleViewController.h"
 #import "PSPDFAnnotation.h"
 #import "PSPDFCache.h"
 
@@ -29,7 +30,7 @@ extern NSString *const kPSPDFHidePageHUDElements;
 /// Compound view for a single pdf page. Will be re-used during lifetime.
 /// You can add your own views on top of the UIView (e.g. custom annotations)
 /// Events from a attached UIScrollView will be relayed to all visible PSPDFPageView classes.
-@interface PSPDFPageView : UIView <UIScrollViewDelegate, PSPDFRenderDelegate, PSPDFCacheDelegate, PSPDFResizableViewDelegate, PSPDFLongPressGestureRecognizerDelegate, PSPDFSignatureViewControllerDelegate, PSPDFSignatureSelectorViewControllerDelegate, PSPDFStampViewControllerDelegate, UIImagePickerControllerDelegate, PSPDFColorSelectionViewControllerDelegate, PSPDFNoteAnnotationControllerDelegate, PSPDFFontSelectorViewControllerDelegate, PSPDFFontStyleViewControllerDelegate, UITextFieldDelegate>
+@interface PSPDFPageView : UIView <UIScrollViewDelegate, PSPDFRenderDelegate, PSPDFCacheDelegate, PSPDFResizableViewDelegate, PSPDFLongPressGestureRecognizerDelegate, PSPDFStampViewControllerDelegate, UIImagePickerControllerDelegate, PSPDFColorSelectionViewControllerDelegate, PSPDFNoteAnnotationControllerDelegate, PSPDFFontSelectorViewControllerDelegate, PSPDFFontStyleViewControllerDelegate, UITextFieldDelegate>
 
 /// Designated initializer.
 /// 'overrideClassNames' can be nil to simply use the stock classes.
@@ -55,7 +56,7 @@ extern NSString *const kPSPDFHidePageHUDElements;
 
 /// If annotations are already loaded, and the annotation is a view, access it here.
 /// (Most PDF annotations are actually rendered into the page; except annotations that return YES for isOverlay, like links or notes.
-- (UIView<PSPDFAnnotationViewProtocol> *)cachedAnnotationViewForAnnotation:(PSPDFAnnotation *)annotation;
+- (UIView <PSPDFAnnotationViewProtocol> *)cachedAnnotationViewForAnnotation:(PSPDFAnnotation *)annotation;
 
 /// UIImageView displaying the whole document. Readonly.
 @property (nonatomic, strong, readonly) UIImageView *contentView;
@@ -229,7 +230,7 @@ extern NSString *const kPSPDFHidePageHUDElements;
 
 @end
 
-@interface PSPDFPageView (AnnotationMenu)
+@interface PSPDFPageView (AnnotationMenu) <PSPDFSignatureViewControllerDelegate, PSPDFSignatureSelectorViewControllerDelegate, PSPDFAnnotationStyleViewControllerDelegate>
 
 /// Returns available PSPDFMenuItem's for the current annotation.
 /// The better way to extend this is to use the shouldShowMenuItems:* delegates.
@@ -248,10 +249,13 @@ extern NSString *const kPSPDFHidePageHUDElements;
 /// Returns the opacity menu item (used inside colorMenuItemsForAnnotation:)
 - (PSPDFMenuItem *)opacityMenuItemForAnnotation:(PSPDFAnnotation *)annotation withColor:(UIColor *)color;
 
+/// See showMenuForAnnotation:edgeInsets:animated: for details.
+- (void)showMenuForAnnotation:(PSPDFAnnotation *)annotation animated:(BOOL)animated;
+
 /// Called when a annotation was found ad the tapped location.
 /// This will usually call menuItemsForAnnotation to show a UIMenuController, except for PSPDFAnnotationTypeNote which is handled differently on iPad. (showNoteControllerForAnnotation)
 /// @note The better way to extend this is to use the shouldShowMenuItems:* delegates.
-- (void)showMenuForAnnotation:(PSPDFAnnotation *)annotation animated:(BOOL)animated;
+- (void)showMenuForAnnotation:(PSPDFAnnotation *)annotation edgeInsets:(UIEdgeInsets)edgeInsets animated:(BOOL)animated;
 
 /// Shows a popover/modal controller to edit a PSPDFAnnotation.
 - (PSPDFNoteAnnotationController *)showNoteControllerForAnnotation:(PSPDFAnnotation *)annotation showKeyboard:(BOOL)showKeyboard animated:(BOOL)animated;
@@ -261,6 +265,9 @@ extern NSString *const kPSPDFHidePageHUDElements;
 
 /// Shows the color picker.
 - (void)showColorPickerForAnnotation:(PSPDFAnnotation *)annotation animated:(BOOL)animated;
+
+/// Show the signature controller.
+- (void)showSignatureControllerAtPoint:(CGPoint)point withTitle:(NSString *)title shouldSaveSignature:(BOOL)shouldSaveSignature animated:(BOOL)animated;
 
 /// Font sizes for the freetext annotation menu. Defaults to @[@(10), @(12), @(14), @(18), @(22), @(26), @(30), @(36), @(48), @(64)]
 - (NSArray *)availableFontSizes;
@@ -287,6 +294,9 @@ extern NSString *const kPSPDFHidePageHUDElements;
 /// Will be called automatically after kPSPDFInitialAnnotationLoadDelay.
 /// Call manually to speed up rendering. Has no effect if called multiple times.
 - (void)loadPageAnnotationsAnimated:(BOOL)animated blockWhileParsing:(BOOL)blockWhileParsing;
+
+/// Internally used to add annotations.
+- (void)insertAnnotation:(PSPDFAnnotation *)annotation forPage:(NSUInteger)page inDocument:(PSPDFDocument *)document;
 
 /// Returns annotations that we could tap on. (checks against editableAnnotationTypes)
 /// The point will have a variance of a few pixels to improve touch recognition.
@@ -320,6 +330,7 @@ extern NSString *const kPSPDFHidePageHUDElements;
 
 /// Remove a page annotation/view as soon as the page has been refreshed. Will also refresh page.
 - (BOOL)removeAnnotationOnNextPageUpdate:(PSPDFAnnotation *)annotation;
+
 - (void)removeViewOnNextPageUpdate:(UIView *)view;
 
 /// View for the selected annotation.
@@ -334,5 +345,8 @@ extern NSString *const kPSPDFHidePageHUDElements;
 
 // Computes a scale value suitable for computation of the line width to use during drawing and selection.
 - (CGFloat)scaleForPageView;
+
+// Helper to properly place an annotation.
+- (void)centerAnnotation:(PSPDFAnnotation *)annotation aroundViewPoint:(CGPoint)viewPoint;
 
 @end

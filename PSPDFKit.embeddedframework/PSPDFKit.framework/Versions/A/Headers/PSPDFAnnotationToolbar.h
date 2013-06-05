@@ -40,10 +40,6 @@ typedef NS_ENUM(NSUInteger, PSPDFAnnotationToolbarMode) {
 
 @end
 
-// constants which are used for NSUserDefaults.
-extern NSString *const kPSPDFLastUsedDrawingWidth; // float
-extern NSString *const kPSPDFLastUsedColorForAnnotationType; // Dictionary NSString (annotation type) -> NSColor (encoded via NSKeyedArchiver)
-
 /**
  Toolbar to quickly create annotations.
 
@@ -114,33 +110,50 @@ extern NSString *const kPSPDFLastUsedColorForAnnotationType; // Dictionary NSStr
 @interface PSPDFAnnotationToolbar (PSPDFSubclassing)
 
 /// Load the buttons into the drawing toolbar.
-- (void)setupWithMode:(PSPDFAnnotationToolbarMode)mode;
+- (void)showDrawingToolbarWithMode:(PSPDFAnnotationToolbarMode)mode;
 
 // Toolbar might be used "headless" but for state management. Manually call buttons here.
 - (void)noteButtonPressed:(id)sender;
+
 - (void)highlightButtonPressed:(id)sender;
+
 - (void)strikeOutButtonPressed:(id)sender;
+
 - (void)underlineButtonPressed:(id)sender;
+
 // Draw replaces the toolbar items with custom items and later restores the original items via using the 'originalItems' property.
 - (void)drawButtonPressed:(id)sender;
+
 - (void)rectangleButtonPressed:(id)sender;
+
 - (void)ellipseButtonPressed:(id)sender;
+
 - (void)lineButtonPressed:(id)sender;
+
 - (void)freeTextButtonPressed:(id)sender;
+
 - (void)signatureButtonPressed:(id)sender;
+
 - (void)stampButtonPressed:(id)sender;
+
 - (void)imageButtonPressed:(id)sender;
+
 - (void)doneButtonPressed:(id)sender;
 
 // Only allowed during toolbarMode == PSPDFAnnotationToolbarDraw, PSPDFAnnotationToolbarRectangle, PSPDFAnnotationToolbarEllipse, PSPDFAnnotationToolbarLine.
 - (void)cancelDrawingAnimated:(BOOL)animated;
+
 - (void)doneDrawingAnimated:(BOOL)animated;
+
 - (void)selectStrokeColor:(id)sender;
+
 - (void)undoDrawing:(id)sender;
+
 - (void)redoDrawing:(id)sender;
 
 // Called anytime the drawing toolbar is updated.
 - (void)updateDrawingToolbar;
+
 @property (nonatomic, strong, readonly) UIBarButtonItem *undoItem;
 @property (nonatomic, strong, readonly) UIBarButtonItem *redoItem;
 
@@ -149,6 +162,7 @@ extern NSString *const kPSPDFLastUsedColorForAnnotationType; // Dictionary NSStr
 
 // Color management.
 - (void)setLastUsedColor:(UIColor *)lastUsedDrawColor forAnnotationType:(NSString *)annotationType;
+
 - (UIColor *)lastUsedColorForAnnotationTypeString:(NSString *)annotationType;
 
 // Finish up drawing. Usually called by the drawing delegate.

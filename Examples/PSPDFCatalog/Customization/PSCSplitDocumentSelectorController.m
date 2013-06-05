@@ -50,8 +50,8 @@
                     NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
                     [self.tableView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
                     [self tableView:self.tableView didSelectRowAtIndexPath:selectedIndexPath];
-                    //[NSThread sleepForTimeInterval:0.1];
                 });
+                [NSThread sleepForTimeInterval:0.05 * arc4random_uniform(5)];
             }
         }
     });
@@ -66,10 +66,16 @@
 #pragma mark - PSCDocumentSelectorControllerDelegate
 
 - (void)documentSelectorController:(PSCDocumentSelectorController *)controller didSelectDocument:(PSPDFDocument *)document {
-    [self.masterVC displayDocument:document];
+#if defined(kPSPDFEnableDocumentStressTest) && kPSPDFEnableDocumentStressTest
+    // Copy is purely there as a stress test.
+    document = [document copy];
+#endif
+
+    PSCSplitPDFViewController *masterVC = self.masterVC;
+    [masterVC displayDocument:document];
 
     // hide controller
-    [self.masterVC.popoverController dismissPopoverAnimated:YES];
+    [masterVC.popoverController dismissPopoverAnimated:YES];
 }
 
 @end

@@ -6,7 +6,6 @@
 //
 
 #import "PSPDFKitGlobal.h"
-#import "PSPDFResizableView.h"
 #import "PSPDFHighlightAnnotation.h"
 
 @class PSPDFTextParser, PSPDFWord, PSPDFImageInfo, PSPDFPageView, PSPDFHighlightAnnotation, PSPDFLinkAnnotation, PSPDFAnnotation, PSPDFNoteAnnotation, PSPDFLoupeView, PSPDFLongPressGestureRecognizer;
@@ -27,7 +26,7 @@
 @property (nonatomic, copy, readonly) NSString *trimmedSelectedText;
 
 /// Associated PSPDFPageView.
-@property (nonatomic, weak) PSPDFPageView *pageView;
+@property (nonatomic, unsafe_unretained) PSPDFPageView *pageView;
 
 /// rects for the current selection, in view coordinate space.
 @property (nonatomic, assign, readonly) CGRect firstLineRect;
@@ -68,6 +67,9 @@
 
 // gesture handling
 - (BOOL)longPress:(UILongPressGestureRecognizer *)recognizer;
+
 - (BOOL)pressRecognizerShouldHandlePressImmediately:(PSPDFLongPressGestureRecognizer *)recognizer;
+
+- (BOOL)isDragHandleSelected;
 
 @end

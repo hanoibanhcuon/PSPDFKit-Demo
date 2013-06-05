@@ -7,13 +7,15 @@
 
 #import "PSPDFModel.h"
 
-typedef NS_ENUM(NSUInteger, PSPDFActionType) {
+typedef NS_ENUM(UInt8, PSPDFActionType) {
     PSPDFActionTypeURL,
     PSPDFActionTypeGoTo,
     PSPDFActionTypeRemoteGoTo,
     PSPDFActionTypeNamed,
     PSPDFActionTypeLaunch,
     PSPDFActionTypeJavaScript,
+    PSPDFActionTypeRendition,
+    PSPDFActionTypeRichMediaExecute // See Adobe® Supplement to the ISO 32000, Page 40ff
 };
 
 @class PSPDFDocumentProvider;
@@ -54,7 +56,6 @@ extern NSString *const kPSPDFActionOptionModal;
 - (NSString *)localizedDescription;
 
 @end
-
 
 
 @interface PSPDFAction (PageResolving)

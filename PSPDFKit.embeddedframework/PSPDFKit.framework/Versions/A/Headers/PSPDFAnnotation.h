@@ -25,6 +25,22 @@ extern NSString *const PSPDFAnnotationTypeStringLine;
 extern NSString *const PSPDFAnnotationTypeStringSignature;  // Signature is an image annotation.
 extern NSString *const PSPDFAnnotationTypeStringStamp;
 extern NSString *const PSPDFAnnotationTypeStringCaret; // There's no menu entry for Caret yet.
+extern NSString *const PSPDFAnnotationTypeStringWidget; // Widget is currently handled similar to Link.
+extern NSString *const PSPDFAnnotationTypeStringFile;
+extern NSString *const PSPDFAnnotationTypeStringSound;
+extern NSString *const PSPDFAnnotationTypeStringPolygon;
+extern NSString *const PSPDFAnnotationTypeStringPolyLine;
+
+// Sent when a new annotation is added to the default PSPDFFileAnnotationProvider.
+// Will also be sent if an annotation is added because a editable copy is created.
+extern NSString *const PSPDFAnnotationAddedNotification;  // object = new PSPDFAnnotation.
+
+// Internal events to notify the annotation providers when annotations are being changed.
+extern NSString *const PSPDFAnnotationChangedNotification;                      // object = new PSPDFAnnotation.
+extern NSString *const PSPDFAnnotationChangedNotificationAnimatedKey;           // set to NO to not animate updates (if it can be animated, that is)
+extern NSString *const PSPDFAnnotationChangedNotificationIgnoreUpdateKey;       // set to YES to disable handling by views.
+extern NSString *const PSPDFAnnotationChangedNotificationKeyPathKey;            // NSArray of selector names.
+extern NSString *const PSPDFAnnotationChangedNotificationOriginalAnnotationKey; // original PSPDFAnnotation.
 
 // UIImagePickerController used in the image add feature will throw a UIApplicationInvalidInterfaceOrientation exception if your app does not include portrait in UISupportedInterfaceOrientations (Info.plist).
 // For landscape only apps, we suggest enabling portrait orientation(s) in your Info.plist and rejecting these in UIViewController's auto-rotation methods. This way, you can be landscape only for your view controllers and still be able to use UIImagePickerController.
@@ -45,6 +61,10 @@ typedef NS_OPTIONS(NSUInteger, PSPDFAnnotationType) {
     PSPDFAnnotationTypeCaret     = 1 << 9,  // Caret
     PSPDFAnnotationTypeRichMedia = 1 << 10, // Embedded PDF videos
     PSPDFAnnotationTypeScreen    = 1 << 11, // Embedded PDF videos
+    PSPDFAnnotationTypeWidget    = 1 << 12, // Widget
+    PSPDFAnnotationTypeFile      = 1 << 13, // FileAttachment
+    PSPDFAnnotationTypeSound     = 1 << 14, // Sound
+    PSPDFAnnotationTypePolygon   = 1 << 15, // Polygon (includes PolyLine)
     PSPDFAnnotationTypeAll       = NSUIntegerMax
 };
 
@@ -92,10 +112,10 @@ typedef NS_ENUM(NSUInteger, PSPDFAnnotationBorderStyle) {
 
 /// Designated initializer. Also used for generic PSPDFAnnotations (those that are not recognized by PSPDFAnnotationParser)
 /// Implement this in your subclass.
-- (id)initWithAnnotationDictionary:(CGPDFDictionaryRef)annotDict inAnnotsArray:(CGPDFArrayRef)annotsArray;
+- (id)initWithAnnotationDictionary:(CGPDFDictionaryRef)annotDict inAnnotsArray:(CGPDFArrayRef)annotsArray documentRef:(CGPDFDocumentRef)documentRef;
 
 /// Initialize annotation with the corresponding PDF dictionary. Call this from your direct subclass.
-- (id)initWithAnnotationDictionary:(CGPDFDictionaryRef)annotationDictionary inAnnotsArray:(CGPDFArrayRef)annotsArray type:(PSPDFAnnotationType)annotationType;
+- (id)initWithAnnotationDictionary:(CGPDFDictionaryRef)annotationDictionary inAnnotsArray:(CGPDFArrayRef)annotsArray documentRef:(CGPDFDocumentRef)documentRef type:(PSPDFAnnotationType)annotationType;
 
 /// Check if point is inside annotation area.
 - (BOOL)hitTest:(CGPoint)point;
@@ -104,7 +124,9 @@ typedef NS_ENUM(NSUInteger, PSPDFAnnotationBorderStyle) {
 - (CGRect)rectForPageRect:(CGRect)pageRect;
 
 - (NSComparisonResult)compareByPositionOnPage:(PSPDFAnnotation *)otherAnnotation;
+
 - (CGRect)rectFromPDFArray:(CGPDFArrayRef)array;
+
 - (NSArray *)rectsFromQuadPointsInArray:(CGPDFArrayRef)quadPointsArray;
 
 /**
@@ -132,15 +154,12 @@ extern NSString *const kPSPDFAnnotationMargin;       // UIEdgeInsets.
 /// Renders annotation into an image.
 - (UIImage *)imageWithSize:(CGSize)size withOptions:(NSDictionary *)options;
 
-/// Helper that will prepare the context for the border style.
-- (void)prepareBorderStyleInContext:(CGContextRef)context;
-
 /// Current annotation type.
 @property (nonatomic, assign, readonly) PSPDFAnnotationType type;
 
 /// If YES, the annotation will be rendered as a overlay. If NO, it will be statically rendered within the PDF content image.
 /// PSPDFAnnotationTypeLink and PSPDFAnnotationTypeNote currently are rendered as overlay.
-/// If overlay is set to YES, you must also register the corresponding *annotationView class to render (override PSPDFAnnotationParser's annotationClassForAnnotation)
+/// If overlay is set to YES, you must also register the corresponding *annotationView class to render (override PSPDFAnnotationParser's defaultAnnotationViewClassForAnnotation)
 @property (nonatomic, assign, getter=isOverlay) BOOL overlay;
 
 /// Per default, annotations are editable when isWriteable returns YES.
@@ -230,13 +249,10 @@ extern NSString *const kPSPDFAnnotationMargin;       // UIEdgeInsets.
 @property (nonatomic, assign, getter=isDirty) BOOL dirty;
 
 /// Corresponding documentProvider, weak.
-@property (nonatomic, weak) PSPDFDocumentProvider *documentProvider;
+@property (atomic, weak) PSPDFDocumentProvider *documentProvider;
 
 /// Document is inferred from the documentProvider.
 @property (nonatomic, assign, readonly) PSPDFDocument *document;
-
-/// Rotation value, copied from the PSPDFPageInfo and set when documentProvider is set.
-@property (nonatomic, assign) NSInteger pageRotation;
 
 /**
  Returns YES if a custom appearance stream is attached to this annotation.
@@ -255,6 +271,9 @@ extern NSString *const kPSPDFAnnotationMargin;       // UIEdgeInsets.
 /// Compare.
 - (BOOL)isEqualToAnnotation:(PSPDFAnnotation *)otherAnnotation;
 
+/// Copy to UIPasteboard.
+- (void)copyToClipboard;
+
 /// Color string <-> UIColor transformer.
 + (NSValueTransformer *)colorTransformer;
 
@@ -266,15 +285,20 @@ extern NSString *const kPSPDFAnnotationMargin;       // UIEdgeInsets.
 
 @end
 
+// Private UIPasteboard support.
+extern NSString *const PSPDFAnnotationPasteboardPrivateData;
+
 
 @interface PSPDFAnnotation (PSPDFAnnotationWriting)
 
 // PDF rect string representation (/Rect [%f %f %f %f])
 - (NSString *)pdfRectString;
+
 extern NSString *PSPDFRectStringFromRect(CGRect rect);
 
 // Color string representation (/C [%f %f %f])
 - (NSString *)pdfColorString;
+
 - (NSString *)pdfColorStringWithKey:(NSString *)key andColor:(UIColor *)color;
 
 // Fill Color string representation (/IC [%f %f %f])
@@ -302,6 +326,7 @@ extern NSString *PSPDFRectStringFromRect(CGRect rect);
 /// Returns NSData string representations in the PDF standard.
 /// Per convention, the first returned object has to be an annotation objects, all other can be supportive objects.
 - (NSArray *)pdfDataRepresentationsWithOptions:(NSDictionary *)streamOptions;
+
 extern NSString *const kPSPDFRepresentationAPStreamNumber;
 extern NSString *const kPSPDFRepresentationFirstObjectNumber;
 
@@ -313,10 +338,10 @@ extern NSString *const kPSPDFRepresentationFirstObjectNumber;
 /// If indexOnPage is set, it's a native PDF annotation.
 /// If this is -1, it's not yet saved in the PDF.
 /// Annotations that have indexOnPage >= 0 will be copied before they're modified.
-@property (nonatomic, assign, readonly) NSInteger indexOnPage;
+@property (nonatomic, readonly) NSInteger indexOnPage;
 
 /// If this is a copy of a deleted annotation, we still need to track the index.
-@property (nonatomic, assign, readonly) NSInteger previousIndexOnPage;
+@property (nonatomic, readonly) NSInteger previousIndexOnPage;
 
 /// Some annotations may have a popupIndex. Defaults to -1.
 @property (nonatomic, assign) NSInteger popupIndex;
@@ -330,6 +355,12 @@ extern NSString *const kPSPDFRepresentationFirstObjectNumber;
 
 // Draw the bounding box.
 - (void)drawBoundingBox:(CGContextRef)context;
+
+// Helper that will prepare the context for the border style.
+- (void)prepareBorderStyleInContext:(CGContextRef)context;
+
+// Helper that queries the page rotation.
+- (NSInteger)pageRotation;
 
 @end
 
@@ -347,3 +378,6 @@ extern NSString *PSPDFEscapedString(NSString *string);
 
 // Calculates a new rectangle expanded by a line width.
 extern CGRect PSPDFGrowRectByLineWidth(CGRect boundingBox, CGFloat lineWidth);
+
+// Rotates a rect by `rotation`. Basically only switches width/height.
+extern CGRect PSPDFRotateRect(CGRect rect, NSUInteger rotation);
